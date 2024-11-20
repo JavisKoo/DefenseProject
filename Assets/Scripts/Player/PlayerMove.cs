@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class PlayerMove : BaseCharacter
@@ -11,11 +12,14 @@ public class PlayerMove : BaseCharacter
 
 
     SpriteRenderer spriteRenderer; //플레이어 flip하기 위해서 선언
-    //animation
-    public Animator animator;
+
     //attack
-    public LayerMask EnemyLayer; //레이어 선택
-    float FindRange = 4f; //범위
+    [SerializeField] GameObject player;
+    [SerializeField] LayerMask layer;
+    [SerializeField] float radius;
+    [SerializeField] Collider2D[] col;
+    [SerializeField] Transform target;
+    [SerializeField] float playerAttackRange = 2f;
 
     private void Start()
     {
@@ -26,10 +30,6 @@ public class PlayerMove : BaseCharacter
     private void Update()
     {
         Move();
-    }
-
-    private void FixedUpdate()
-    {
         CheckEnemy();
     }
 
@@ -79,23 +79,49 @@ public class PlayerMove : BaseCharacter
 
     private void CheckEnemy()
     {
-        //범위 그리기
-        void OnDrawGizmos()
+        col = Physics2D.OverlapCircleAll(player.transform.position, radius, layer);
+
+        Transform nearEnemy = null;
+
+        if (col.Length>0)
         {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, FindRange);
-        }
-        var EnemyObj = Physics2D.OverlapCircle(transform.position, FindRange, EnemyLayer);
-        print(EnemyObj); //결과 출력
-        //use physics2d raycast to check if there is an enemy in front of the warrior
-        RaycastHit2D hit = Physics2D.Raycast(transform.position,Vector3.left,.5f);
-        if (hit.collider != null)
-        {
-            if (hit.collider.CompareTag("Team") && isAttacking == false)
+            float nearDistance = Mathf.Infinity;
+
+            foreach (Collider2D nCol in col)
+            {
+                float playerToEnemy = Vector3.SqrMagnitude(player.transform.position - nCol.transform.position);
+
+                if (nearDistance > playerToEnemy)
+                {
+                    nearDistance = playerToEnemy;
+                    nearEnemy = nCol.transform;
+                }
+            }
+
+            target = nearEnemy;
+            //attack
+            if (nearDistance < playerAttackRange && isAttacking == false)
             {
                 isAttacking = true;
                 StartCoroutine(Attack());
+                //rotate
+                CheckEnemyRotate();
             }
+        }
+        
+
+        
+    }
+
+    private void CheckEnemyRotate()
+    {
+        if(target == null || target.position.x >= player.transform.position.x)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else
+        {
+            spriteRenderer.flipX = true;
         }
     }
 

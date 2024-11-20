@@ -179,7 +179,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2021717696}
+        - m_Target: {fileID: 2021717700}
           m_TargetAssemblyTypeName: PlayerMove, Assembly-CSharp
           m_MethodName: MoveRight
           m_Mode: 1
@@ -195,7 +195,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2021717696}
+        - m_Target: {fileID: 2021717700}
           m_TargetAssemblyTypeName: PlayerMove, Assembly-CSharp
           m_MethodName: StopMoving
           m_Mode: 1
@@ -448,9 +448,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d74d0bcbe8ad468229245b6f26054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveParticle: {fileID: 1825889906}
   animator: {fileID: 216219408}
   moveSpeed: 0.5
+  moveParticle: {fileID: 1825889906}
 --- !u!61 &216219407
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1739,7 +1739,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2021717696}
+        - m_Target: {fileID: 2021717700}
           m_TargetAssemblyTypeName: PlayerMove, Assembly-CSharp
           m_MethodName: MoveLeft
           m_Mode: 1
@@ -1755,7 +1755,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2021717696}
+        - m_Target: {fileID: 2021717700}
           m_TargetAssemblyTypeName: PlayerMove, Assembly-CSharp
           m_MethodName: StopMoving
           m_Mode: 1
@@ -1948,7 +1948,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &867343698
 Transform:
   m_ObjectHideFlags: 0
@@ -2789,9 +2789,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be8d74d0bcbe8ad468229245b6f26054, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveParticle: {fileID: 1746395362}
   animator: {fileID: 1551184685}
   moveSpeed: 0.5
+  moveParticle: {fileID: 1746395362}
 --- !u!114 &1551184689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3225,7 +3225,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2021717695}
   - component: {fileID: 2021717694}
-  - component: {fileID: 2021717696}
   - component: {fileID: 2021717698}
   - component: {fileID: 2021717699}
   - component: {fileID: 2021717700}
@@ -3303,23 +3302,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2021717696
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2021717693}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a955df7ebb0ead948ac72872691927a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  animator: {fileID: 0}
-  EnemyLayer:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!95 &2021717698
 Animator:
   serializedVersion: 5
@@ -3388,11 +3370,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a955df7ebb0ead948ac72872691927a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 2021717698}
   moveSpeed: 5
-  animator: {fileID: 0}
-  EnemyLayer:
+  moveSpeed: 5
+  player: {fileID: 2021717693}
+  layer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
+  radius: 5
+  col: []
+  target: {fileID: 0}
+  playerAttackRange: 2
 --- !u!1001 &5885279088444716152
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3404,6 +3392,10 @@ PrefabInstance:
     - target: {fileID: 1194295108695163391, guid: d4059fe1e771da14b89f857127d3a3d7, type: 3}
       propertyPath: m_Name
       value: BS Idle
+      objectReference: {fileID: 0}
+    - target: {fileID: 1194295108695163391, guid: d4059fe1e771da14b89f857127d3a3d7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7704112531907674966, guid: d4059fe1e771da14b89f857127d3a3d7, type: 3}
       propertyPath: m_LocalPosition.x
