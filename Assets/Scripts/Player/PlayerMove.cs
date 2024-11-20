@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerMove : BaseCharacter
 {
     //player move
-    public float moveSpeed = 2f;
+    public float playerSpeed = 2f;
     private bool moveLeft = false;
     private bool moveRight = false;
 
@@ -31,14 +31,30 @@ public class PlayerMove : BaseCharacter
     {
         Move();
         CheckEnemy();
+
+        //캐릭터 키보드로 이동 (임시코드)
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            MoveLeft();
+        }
+        else if (Input.GetKey(KeyCode.RightArrow))
+        {
+            MoveRight();
+        }
+        else
+        {
+            StopMoving();
+        }
     }
 
     public void MoveLeft()
     {
         moveLeft = true;
+        moveRight = false;
     }
     public void MoveRight()
     {
+        moveLeft = false;
         moveRight = true;
     }
     public void StopMoving()
@@ -60,7 +76,7 @@ public class PlayerMove : BaseCharacter
             spriteRenderer.flipX = true;
 
             //플레이어 이동
-            transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+            transform.position += Vector3.left * playerSpeed * Time.deltaTime;
         }
         if (moveRight)
         {
@@ -73,7 +89,7 @@ public class PlayerMove : BaseCharacter
             spriteRenderer.flipX = false;
 
             //플레이어 이동
-            transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+            transform.position += Vector3.right * playerSpeed * Time.deltaTime;
         }
     }
 
