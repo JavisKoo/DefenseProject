@@ -24,6 +24,7 @@ public class BaseCharacter : MonoBehaviour
 
     private Vector3 RightLeft;
     private string Enemy;
+    private string Team;
 
 
 
@@ -34,8 +35,8 @@ public class BaseCharacter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Enemy!=null)
-        CheckAnimatorState();
+        if(Enemy!=null) 
+            CheckAnimatorState();
     }
 
     private void FixedUpdate()
@@ -57,7 +58,8 @@ public class BaseCharacter : MonoBehaviour
     private void CheckEnemy()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, RightLeft, 0.5f);
-
+        //draw the ray in the scene view with distance 
+        Debug.DrawRay(transform.position, RightLeft * 0.5f, Color.red);
         if (hit.collider != null)
         {
             if (hit.collider.CompareTag(Enemy) && isAttacking == false)
@@ -66,11 +68,11 @@ public class BaseCharacter : MonoBehaviour
                 isMoving = false;
                 StartCoroutine(Attack(hit));
             }
-        }
-        else if (hit.collider == null && isMoving == false)
-        {
-            isMoving = true;
-            animator.SetTrigger(DoMove);
+            if(hit.collider.CompareTag(Team) && isAttacking == false&& isMoving == false)
+            {
+                isMoving = true;
+                animator.SetTrigger(DoMove);
+            }
         }
 
     }
@@ -124,12 +126,14 @@ public class BaseCharacter : MonoBehaviour
             Debug.Log("Team");
            RightLeft = Vector3.left;
             Enemy = "Team";
+            Team = "Enemy";
         }
         else
         {
             Debug.Log("Enemy");
             RightLeft = Vector3.right;
             Enemy = "Enemy";
+            Team = "Team";
         }
         animator.SetTrigger(DoMove);
     }
