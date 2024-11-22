@@ -14,5 +14,6 @@ public class EnemyWarrior : BaseCharacter
         }
 
         CheckTeam();
+        SetCharacterSettings( 500, 20, 10, 1, 0.5f);
     }
 }

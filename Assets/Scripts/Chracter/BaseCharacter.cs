@@ -1,16 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using Chracter;
 using UnityEngine;
 
 public class BaseCharacter : MonoBehaviour
 {
     protected ClassType unitType;
-    protected int Health=100;
-    protected int AttackDammage=10;
-    protected int Armor=5;
-    protected int AttackSpeed=1;
+    [SerializeField] protected int MaxHealth = 100;
+    [SerializeField] protected int CurrentHealth;
+    [SerializeField] protected int AttackDammage = 10;
+    [SerializeField] protected int Armor = 5;
+    [SerializeField] protected int AttackSpeed = 1;
+    [SerializeField] protected float AttackRange = 0.5f;
     public Animator animator;
     public float moveSpeed = 1f;
+    public HealthBar healthBar;
 
     protected static readonly int DoMove = Animator.StringToHash("doMove");
     protected static readonly int DoAttack = Animator.StringToHash("doAttack");
@@ -22,9 +26,9 @@ public class BaseCharacter : MonoBehaviour
 
 
 
-    private Vector3 RightLeft;
-    private string Enemy;
-    private string Team;
+    protected Vector3 RightLeft;
+    protected string Enemy;
+    protected string Team;
 
 
 
@@ -35,7 +39,7 @@ public class BaseCharacter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Enemy!=null) 
+        if (Enemy != null)
             CheckAnimatorState();
     }
 
@@ -46,20 +50,23 @@ public class BaseCharacter : MonoBehaviour
     }
 
 
-    public virtual void SetCharacterSettings(int HP=100,int Attack=10, int armor=0, int attackSpeed=1)
+    public virtual void SetCharacterSettings(int HP = 100, int Attack = 10, int armor = 0, int attackSpeed = 1,
+        float attackRange = 0.5f)
     {
-        Health = HP;
+        MaxHealth = HP;
+        CurrentHealth = MaxHealth;
         AttackDammage = Attack;
         Armor = armor;
         AttackSpeed = attackSpeed;
+        AttackRange = attackRange;
     }
 
 
     private void CheckEnemy()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, RightLeft, 0.5f);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, RightLeft, AttackRange, LayerMask.GetMask(Enemy));
         //draw the ray in the scene view with distance 
-        Debug.DrawRay(transform.position, RightLeft * 0.5f, Color.red);
+        Debug.DrawRay(transform.position, RightLeft * AttackRange, Color.red);
         if (hit.collider != null)
         {
             if (hit.collider.CompareTag(Enemy) && isAttacking == false)
@@ -68,11 +75,11 @@ public class BaseCharacter : MonoBehaviour
                 isMoving = false;
                 StartCoroutine(Attack(hit));
             }
-            if(hit.collider.CompareTag(Team) && isAttacking == false&& isMoving == false)
-            {
-                isMoving = true;
-                animator.SetTrigger(DoMove);
-            }
+        }
+        else if (isAttacking == false && isMoving == false)
+        {
+            isMoving = true;
+            animator.SetTrigger(DoMove);
         }
 
     }
@@ -93,7 +100,9 @@ public class BaseCharacter : MonoBehaviour
 
 
 
-    public IEnumerator Attack(RaycastHit2D hit)
+    // virtual method for attack
+
+    protected virtual IEnumerator Attack(RaycastHit2D hit)
     {
         animator.SetTrigger(DoAttack);
         hit.collider.GetComponent<BaseCharacter>().TakeDamage(AttackDammage);
@@ -104,10 +113,25 @@ public class BaseCharacter : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        Health -= damage;
-        if (Health <= 0)
+       // int finalDamage = damage - Armor;
+      //  if (finalDamage < 0)
+      //  {
+      //      finalDamage = 0;
+       // }
+       // CurrentHealth -= finalDamage;
+       CurrentHealth -= damage;
+        if (healthBar != null)
+        {
+            healthBar.SetHealth(CurrentHealth, MaxHealth);    
+        }
+        
+        if (CurrentHealth <= 0)
         {
             Die();
+        }
+        else
+        {
+           // animator.SetTrigger(DoHit);
         }
     }
 
@@ -120,21 +144,19 @@ public class BaseCharacter : MonoBehaviour
 
     public void CheckTeam()
     {
-        Debug.Log("Asdfasefasdfasefa");
-        if (this.tag == "Enemy")
+        if (CompareTag("Enemy"))
         {
-            Debug.Log("Team");
-           RightLeft = Vector3.left;
+            RightLeft = Vector3.left;
             Enemy = "Team";
             Team = "Enemy";
         }
         else
         {
-            Debug.Log("Enemy");
             RightLeft = Vector3.right;
             Enemy = "Enemy";
             Team = "Team";
         }
+
         animator.SetTrigger(DoMove);
     }
 }

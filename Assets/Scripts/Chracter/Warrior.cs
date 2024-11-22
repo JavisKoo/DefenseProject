@@ -6,9 +6,6 @@ using UnityEngine;
 public class Warrior : BaseCharacter
 {
     public ParticleSystem moveParticle;
-
-    
-    ClassType.UnitType unitType = ClassType.UnitType.Warrior;
     
     // Start is called before the first frame update
     void Start()
@@ -19,7 +16,9 @@ public class Warrior : BaseCharacter
         }
 
         CheckTeam();
-
+        
         SetCharacterSettings(500,20);
+        healthBar.SetHealth(MaxHealth, MaxHealth);
+        
     }
 }

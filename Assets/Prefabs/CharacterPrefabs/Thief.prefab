@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 8003577852541299673}
   - component: {fileID: 5061897147921594596}
   - component: {fileID: 8313343597627569893}
-  - component: {fileID: 9015208291211807154}
+  - component: {fileID: 7951206200996520166}
   - component: {fileID: 1829436378481448870}
   m_Layer: 6
-  m_Name: Warrior
+  m_Name: Thief
   m_TagString: Team
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,6 +35,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4717893244150893710}
+  - {fileID: 2136429800145144138}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8003577852541299673
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -406998462, guid: 0fdd73686cb670d42bdc0fbc0f08d5a5, type: 3}
+  m_Sprite: {fileID: -1227750600, guid: b54601c1220ef8e4ea1f17fd320ba48f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +100,7 @@ Animator:
   m_GameObject: {fileID: 344319866593267813}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9b13d1cc71e2d9140b7a9838e046e789, type: 2}
+  m_Controller: {fileID: 9100000, guid: fde4cd98e6e0a1843b6cc5392b5827ab, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -146,7 +147,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.96, y: 1.1999999}
+    oldSize: {x: 1.1999999, y: 1.1999999}
     newSize: {x: 1.5, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -155,7 +156,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 2}
   m_EdgeRadius: 0
---- !u!114 &9015208291211807154
+--- !u!114 &7951206200996520166
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,12 +165,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 344319866593267813}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de75dc752a262df4b9626994a378b361, type: 3}
+  m_Script: {fileID: 11500000, guid: 81d60dcc6031a1344a49af28cd9f9b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5061897147921594596}
-  moveSpeed: 0.5
+  moveSpeed: 1
   moveParticle: {fileID: 4717893244150893704}
+  rangedAttackPrefab: {fileID: 3362732813862743725, guid: f07e22f29d85aaa4cab516a065541370, type: 3}
+  rangedAttackSpawnPoint: {fileID: 2136429800145144138}
 --- !u!114 &1829436378481448870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,6 +185,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95bd426bc6a466546b8aaa1b4fcf5adb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2548720256034357410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2136429800145144138}
+  m_Layer: 6
+  m_Name: RangedAttackSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2136429800145144138
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2548720256034357410}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.34, y: -0.052, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4594010318107249427}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2486572883115525399
 PrefabInstance:
   m_ObjectHideFlags: 0
