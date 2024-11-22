@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Chracter;
 using UnityEngine;
 
 public class EnemyWarrior : BaseCharacter

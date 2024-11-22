@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Chracter
 {
-    public class Warrior : BaseCharacter
+    public class Goblin : BaseCharacter
     {
         public ParticleSystem moveParticle;
     

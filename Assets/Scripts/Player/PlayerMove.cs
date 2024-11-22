@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Chracter;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
 
@@ -11,7 +12,7 @@ public class PlayerMove : BaseCharacter
     private bool moveRight = false;
 
 
-    SpriteRenderer spriteRenderer; //ÇÃ·¹ÀÌ¾î flipÇÏ±â À§ÇØ¼­ ¼±¾ğ
+    SpriteRenderer spriteRenderer; //í”Œë ˆì´ì–´ flipí•˜ê¸° ìœ„í•´ì„œ ì„ ì–¸
 
     //attack
     [SerializeField] GameObject player;
@@ -32,7 +33,7 @@ public class PlayerMove : BaseCharacter
         Move();
         CheckEnemy();
 
-        //Ä³¸¯ÅÍ Å°º¸µå·Î ÀÌµ¿ (ÀÓ½ÃÄÚµå)
+        //ìºë¦­í„° í‚¤ë³´ë“œë¡œ ì´ë™ (ì„ì‹œì½”ë“œ)
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             MoveLeft();
@@ -65,9 +66,9 @@ public class PlayerMove : BaseCharacter
 
     public void Move()
     {
-        if (moveLeft) //¿ŞÂÊÀÌµ¿
+        if (moveLeft) //ì™¼ìª½ì´ë™
         {
-            if (transform.position.x <= -3.8f) //ÃÖ´ë ¿ŞÂÊÀÌµ¿ °Å¸®
+            if (transform.position.x <= -3.8f) //ìµœëŒ€ ì™¼ìª½ì´ë™ ê±°ë¦¬
             {
                 StopMoving();
                 return;
@@ -75,12 +76,12 @@ public class PlayerMove : BaseCharacter
             animator.SetTrigger("doMove");
             spriteRenderer.flipX = true;
 
-            //ÇÃ·¹ÀÌ¾î ÀÌµ¿
+            //í”Œë ˆì´ì–´ ì´ë™
             transform.position += Vector3.left * playerSpeed * Time.deltaTime;
         }
         if (moveRight)
         {
-            if (transform.position.x >= 4.5f) //ÃÖ´ë ¿À¸¥ÂÊÀÌµ¿ °Å¸®
+            if (transform.position.x >= 4.5f) //ìµœëŒ€ ì˜¤ë¥¸ìª½ì´ë™ ê±°ë¦¬
             {
                 StopMoving();
                 return;
@@ -88,7 +89,7 @@ public class PlayerMove : BaseCharacter
             animator.SetTrigger("doMove");
             spriteRenderer.flipX = false;
 
-            //ÇÃ·¹ÀÌ¾î ÀÌµ¿
+            //í”Œë ˆì´ì–´ ì´ë™
             transform.position += Vector3.right * playerSpeed * Time.deltaTime;
         }
     }
@@ -141,7 +142,7 @@ public class PlayerMove : BaseCharacter
         }
     }
 
-    private IEnumerator Attack() //ÀÌµ¿ÇÒ¶§µµ °ø°İ
+    private IEnumerator Attack() //ì´ë™í• ë•Œë„ ê³µê²©
     {
         animator.SetTrigger(DoAttack);
         yield return new WaitForSeconds(0.5f);

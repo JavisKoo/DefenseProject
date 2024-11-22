@@ -1,14 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ClassType : MonoBehaviour
+namespace Chracter
 {
-    
-    public enum UnitType
+    public class ClassType : MonoBehaviour
     {
-        Warrior,
-        Mage,
-        Archer
+    
+        public enum UnitType
+        {
+            Warrior,
+            Wizard,
+            Archer,
+            Thief,
+            Goblin,
+            Slime,
+        
+        }
     }
 }
