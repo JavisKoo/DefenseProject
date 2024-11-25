@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 8003577852541299673}
   - component: {fileID: 5061897147921594596}
   - component: {fileID: 8313343597627569893}
-  - component: {fileID: 1829436378481448870}
-  - component: {fileID: -5661318371307592282}
+  - component: {fileID: 7148257653170574336}
   m_Layer: 6
   m_Name: Goblin
   m_TagString: Team
@@ -156,19 +155,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 2}
   m_EdgeRadius: 0
---- !u!114 &1829436378481448870
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 344319866593267813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95bd426bc6a466546b8aaa1b4fcf5adb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &-5661318371307592282
+--- !u!114 &7148257653170574336
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,6 +170,8 @@ MonoBehaviour:
   animator: {fileID: 5061897147921594596}
   moveSpeed: 1
   healthBar: {fileID: 2880435418583348988}
+  rangedAttackPrefab: {fileID: 0}
+  rangedAttackSpawnPoint: {fileID: 0}
   moveParticle: {fileID: 4717893244150893704}
 --- !u!1001 &2486572883115525399
 PrefabInstance:

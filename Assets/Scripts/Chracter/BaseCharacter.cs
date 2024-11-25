@@ -39,6 +39,7 @@ namespace Chracter
     
         private bool firstHit = false;
         private bool secondHit = false;
+        private RaycastHit2D currentEnemy;
     
     
 
@@ -124,15 +125,23 @@ namespace Chracter
 
         protected virtual IEnumerator Attack(RaycastHit2D hit)
         {
-            animator.SetTrigger(DoAttack);
-            hit.collider.GetComponent<BaseCharacter>().TakeDamage(AttackDammage);
-            yield return new WaitForSeconds(0.5f);
+            currentEnemy = hit;
+            animator.SetTrigger(DoAttack);         
+            yield return new WaitForSeconds(AttackSpeed);
             isAttacking = false;
+        }
+        private void AttackHIt()
+        {
+            if (currentEnemy)
+            {
+                currentEnemy.collider.GetComponent<BaseCharacter>().TakeDamage(AttackDammage);
+            }
         }
 
         protected virtual IEnumerator RangedAttack(RaycastHit2D hit)
         {
             animator.SetTrigger(DoAttack);
+            currentEnemy = hit;
             //spawn rangeAttack
             GameObject rangedAttack = Instantiate(rangedAttackPrefab, rangedAttackSpawnPoint.position, Quaternion.identity);
             rangedAttack.GetComponent<RangedAttack>().EnemySetting(hit, Enemy, AttackDammage, AttackRange);

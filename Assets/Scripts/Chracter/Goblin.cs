@@ -20,5 +20,8 @@ namespace Chracter
             healthBar.SetHealth(MaxHealth, MaxHealth);
         
         }
+
+
+
     }
 }
