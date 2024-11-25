@@ -1,14 +1,28 @@
+using Chracter;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Tower : MonoBehaviour
+public class Tower : BaseCharacter
 {
-    public float fullHp = 10f;
-    public float currentHp = 10f;
     public bool isGameOver = false;
     //sprite
     public SpriteRenderer renderer;
+    //gold
+    [SerializeField] private int currentGold = 0;
+    [SerializeField] private int maxGold = 1000;
+    [SerializeField] private int goldPerSec = 1;
+    private bool isCanGetGold = true;
+    //time
+    [SerializeField] private float currentTime;
+    [SerializeField] private float maxTime = 5f;
+    //UI
+    [Header("UI")]
+    public Text goldValueText;
+    public Text goldPerSecText;
+    //카드 UI
+    public GameObject CardUI;
 
     private void Awake()
     {
@@ -17,24 +31,33 @@ public class Tower : MonoBehaviour
 
     private void Start()
     {
-        currentHp = fullHp;
+        SetCharacterSettings(5000);
+        goldPerSecText.text = "+" + goldPerSec + "/s";
+        goldValueText.text = currentGold + " / " + maxGold;
     }
 
-    public void GetHit(float damage)
+    private void Update()
     {
-        //피격 당했을 때 애니메이션
-        HitAnim();
+        if (!isCanGetGold)
+            return;
 
-        //데미지 계산
-        if (isGameOver)
+        currentTime += Time.deltaTime;
+        if (currentTime >= maxTime)
         {
-            currentHp -= damage;
-
-            if (currentHp <= 0f)
-            {
-                GameOver();
-            }
+            currentTime = 0;
+            GetGold();
         }
+    }
+
+    public void GetGold()
+    {
+        currentGold += goldPerSec;
+        if (currentGold > maxGold)
+        {
+            isCanGetGold = false;
+            return;
+        }
+        goldValueText.text = currentGold + " / " + maxGold;
     }
 
     public void HitAnim()
@@ -49,8 +72,28 @@ public class Tower : MonoBehaviour
         renderer.color = Color.white;
     }
 
+    public override void Die()
+    {
+        GameOver();
+    }
+
     public void GameOver()
     {
         isGameOver = true;
+    }
+
+    public void StageStat()
+    {
+        ChooseCard();
+    }
+
+    public void ChooseCard()
+    {
+        CardUI.SetActive(true);
+    }
+
+    public void OnClickCard()
+    {
+
     }
 }
