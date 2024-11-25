@@ -6,10 +6,9 @@ namespace Chracter
     public class Thief : BaseCharacter
     {
         public ParticleSystem moveParticle;
-    
-        [SerializeField] GameObject rangedAttackPrefab;
-        [SerializeField] Transform rangedAttackSpawnPoint;
-    
+   
+
+        private int attackRange=5;
     
         // Start is called before the first frame update
         void Start()
@@ -20,21 +19,8 @@ namespace Chracter
             }
 
             CheckTeam();
-            SetCharacterSettings(500,20, 10,1,2);
+            SetCharacterSettings(500,300, 10,1, attackRange,true,false);
             healthBar.SetHealth(MaxHealth, MaxHealth);
-        }
-    
-    
-        //attack
-        protected override IEnumerator Attack(RaycastHit2D hit)
-        {
-            Debug.Log("Ranged Attack");
-            animator.SetTrigger(DoAttack);
-            //spawn rangeAttack
-            GameObject rangedAttack = Instantiate(rangedAttackPrefab, rangedAttackSpawnPoint.position, Quaternion.identity);
-            rangedAttack.GetComponent<RangedAttack>().EnemySetting(hit, Enemy, AttackDammage);
-            yield return new WaitForSeconds(0.5f);
-            isAttacking = false;
         }
     }
 }

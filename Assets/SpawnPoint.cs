@@ -5,7 +5,9 @@ using UnityEngine;
 public class SpawnPoint : MonoBehaviour
 {
     [SerializeField] GameObject[] characterPrefab;
-    
+
+    [SerializeField] public int CharacterIndex=0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +20,10 @@ public class SpawnPoint : MonoBehaviour
         
     }
 
-    public void SpawnCharacter(int characterIndex)
+    public void SpawnCharacter()
     {
         //spawn character
-        Instantiate(characterPrefab[characterIndex], transform.position, Quaternion.identity);
+        Instantiate(characterPrefab[CharacterIndex], transform.position, Quaternion.identity);
         
     }
 }

@@ -12,9 +12,16 @@ namespace Chracter
         protected int Armor = 5;
         protected int AttackSpeed = 1;
         protected float AttackRange = 0.5f;
+        protected bool IsPhysical = true;
+        protected bool IsMelee = true;
+        protected int UnitCost;
         public Animator animator;
         public float moveSpeed = 1f;
+
         public HealthBar healthBar;
+        [SerializeField] GameObject rangedAttackPrefab=null;
+        [SerializeField] Transform rangedAttackSpawnPoint=null;
+
 
         protected static readonly int DoMove = Animator.StringToHash("doMove");
         protected static readonly int DoAttack = Animator.StringToHash("doAttack");
@@ -54,7 +61,7 @@ namespace Chracter
 
 
         public virtual void SetCharacterSettings(int HP = 100, int Attack = 10, int armor = 0, int attackSpeed = 1,
-            float attackRange = 0.5f)
+            float attackRange = 0.5f,bool isPhysical=true, bool isMelle=true)
         {
             MaxHealth = HP;
             CurrentHealth = MaxHealth;
@@ -62,6 +69,8 @@ namespace Chracter
             Armor = armor;
             AttackSpeed = attackSpeed;
             AttackRange = attackRange;
+            IsPhysical = isPhysical;
+            IsMelee = isMelle;
         }
 
 
@@ -76,7 +85,15 @@ namespace Chracter
                 {
                     isAttacking = true;
                     isMoving = false;
-                    StartCoroutine(Attack(hit));
+                    if (IsMelee)
+                    {
+                        StartCoroutine(Attack(hit));
+                    }
+                    else
+                    {
+                        StartCoroutine(RangedAttack(hit));
+                    }
+                   
                 }
             }
             else if (isAttacking == false && isMoving == false)
@@ -113,6 +130,16 @@ namespace Chracter
             isAttacking = false;
         }
 
+        protected virtual IEnumerator RangedAttack(RaycastHit2D hit)
+        {
+            animator.SetTrigger(DoAttack);
+            //spawn rangeAttack
+            GameObject rangedAttack = Instantiate(rangedAttackPrefab, rangedAttackSpawnPoint.position, Quaternion.identity);
+            rangedAttack.GetComponent<RangedAttack>().EnemySetting(hit, Enemy, AttackDammage, AttackRange);
+            yield return new WaitForSeconds(0.5f);
+            isAttacking = false;
+        }
+
 
         public void TakeDamage(int damage)
         {
@@ -144,7 +171,7 @@ namespace Chracter
             }
         }
 
-        private void Die()
+        public virtual void Die()
         {
             Destroy(gameObject);
         }

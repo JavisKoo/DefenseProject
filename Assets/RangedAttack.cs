@@ -10,11 +10,14 @@ public class RangedAttack : MonoBehaviour
     private RaycastHit2D Enemy;
     private string EnemyTag;
     private int AttackDammage = 10;
+    private float AttackRange = 1;
+
+    private Vector3 firstSpawn;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        firstSpawn = this.transform.position;
     }
 
     // Update is called once per frame
@@ -29,11 +32,12 @@ public class RangedAttack : MonoBehaviour
             FlytoEnemy();
     }
 
-    public void EnemySetting(RaycastHit2D hit, string enemyTag, int attackDammage)
+    public void EnemySetting(RaycastHit2D hit, string enemyTag, int attackDammage, float attackRange=2)
     {
         EnemyTag = enemyTag;
         Enemy = hit;
         AttackDammage = attackDammage;
+        AttackRange = attackRange;
         _Setting = true;
     }
     
@@ -44,7 +48,11 @@ public class RangedAttack : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, Enemy.point, 0.1f);
         }
-        else
+        else if (Enemy.collider == null)
+        {
+            transform.position = Vector2.MoveTowards(transform.position,transform.position 0.1f);
+        }
+        else if(this.transform.position.x-firstSpawn.x>AttackRange*1.2)
         {
             Destroy(gameObject);
         }
@@ -52,7 +60,6 @@ public class RangedAttack : MonoBehaviour
     //if hit enemy
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("hit");
         if (other.CompareTag(EnemyTag))
         {
             other.GetComponent<BaseCharacter>().TakeDamage(AttackDammage);
