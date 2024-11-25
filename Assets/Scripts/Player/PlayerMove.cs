@@ -26,6 +26,7 @@ public class PlayerMove : BaseCharacter
     {
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        SetCharacterSettings(500);
     }
     // when button is pressed, move camera to the left smoothly
     private void Update()
