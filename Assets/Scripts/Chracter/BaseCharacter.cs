@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -6,17 +7,17 @@ namespace Chracter
     public class BaseCharacter : MonoBehaviour
     {
         protected ClassType UnitType;
-        protected int MaxHealth = 100;
-        protected int CurrentHealth;
-        protected int AttackDammage = 10;
-        protected int Armor = 5;
-        protected int AttackSpeed = 1;
+        protected float MaxHealth = 100;
+        protected float CurrentHealth;
+        protected float AttackDammage = 10;
+        protected float Armor = 5;
+        protected float AttackSpeed = 1;
         protected float AttackRange = 0.5f;
         protected bool IsPhysical = true;
         protected bool IsMelee = true;
         protected int UnitCost;
         public Animator animator;
-        public float moveSpeed = 1f;
+        protected float MoveSpeed = 1f;
 
         public HealthBar healthBar;
         [SerializeField] GameObject rangedAttackPrefab=null;
@@ -39,9 +40,32 @@ namespace Chracter
     
         private bool firstHit = false;
         private bool secondHit = false;
+        private bool isDead = false;
         private RaycastHit2D currentEnemy;
-    
-    
+        
+
+        //CharacterSpeed
+        protected static readonly float MoveLow = 0.7f;
+        protected static readonly float MoveDefault = 1.0f;
+        protected static readonly float MoveFast = 1.2f;
+
+        //CharacterAttackRange Melee
+        protected static readonly float AttackRangeMeleeLow=0.3f;
+        protected static readonly float AttackRangeMeleeDefault=0.5f;
+        protected static readonly float AttackRangeMeleeFast=0.7f;
+
+        //CharacterAttackRange Ranged
+        protected static readonly float AttackRangeRangedLow=1.5f;
+        protected static readonly float AttackRangeRangedDefault=2.0f;
+        protected static readonly float AttackRangeRangedFast=3.0f;
+
+        //ChcaracterAttackSpeed
+        protected static readonly float AttackSpeedLow=0.7f;
+        protected static readonly float AttackSpeedDefault=1.0f;
+        protected static readonly float AttackSpeedFast=1.2f;
+
+
+
 
         void Start()
         {
@@ -50,19 +74,19 @@ namespace Chracter
         // Update is called once per frame
         void Update()
         {
-            if (Enemy != null)
+            if (Enemy != null&& !isDead)
                 CheckAnimatorState();
         }
 
         private void FixedUpdate()
         {
-            if (Enemy != null)
+            if (Enemy != null&& !isDead)
                 CheckEnemy();
         }
 
 
-        public virtual void SetCharacterSettings(int HP = 100, int Attack = 10, int armor = 0, int attackSpeed = 1,
-            float attackRange = 0.5f,bool isPhysical=true, bool isMelle=true)
+        public virtual void SetCharacterSettings(float HP = 100, float Attack = 10, float armor = 0, float attackSpeed = 1,
+            float attackRange = 0.5f,bool isPhysical=true, bool isMelle=true, float moveSpeed=1.0f)
         {
             MaxHealth = HP;
             CurrentHealth = MaxHealth;
@@ -72,6 +96,8 @@ namespace Chracter
             AttackRange = attackRange;
             IsPhysical = isPhysical;
             IsMelee = isMelle;
+            MoveSpeed = moveSpeed;
+
         }
 
 
@@ -99,8 +125,9 @@ namespace Chracter
             }
             else if (isAttacking == false && isMoving == false)
             {
-                isMoving = true;
-                animator.SetTrigger(DoMove);
+               animator.speed = MoveSpeed;
+               isMoving = true;
+               animator.SetTrigger(DoMove);
             }
 
         }
@@ -115,7 +142,7 @@ namespace Chracter
 
         private IEnumerator MoveCharacter()
         {
-            transform.position += moveSpeed * Time.deltaTime * RightLeft;
+            transform.position += MoveSpeed * Time.deltaTime * RightLeft;
             yield return null;
         }
 
@@ -126,8 +153,9 @@ namespace Chracter
         protected virtual IEnumerator Attack(RaycastHit2D hit)
         {
             currentEnemy = hit;
-            animator.SetTrigger(DoAttack);         
-            yield return new WaitForSeconds(AttackSpeed);
+            animator.SetTrigger(DoAttack);
+            animator.speed = AttackSpeed;
+            yield return new WaitForSeconds(1 / AttackSpeed);
             isAttacking = false;
         }
         private void AttackHIt()
@@ -138,19 +166,28 @@ namespace Chracter
             }
         }
 
-        protected virtual IEnumerator RangedAttack(RaycastHit2D hit)
+        public virtual IEnumerator RangedAttack(RaycastHit2D hit)
         {
             animator.SetTrigger(DoAttack);
             currentEnemy = hit;
-            //spawn rangeAttack
-            GameObject rangedAttack = Instantiate(rangedAttackPrefab, rangedAttackSpawnPoint.position, Quaternion.identity);
-            rangedAttack.GetComponent<RangedAttack>().EnemySetting(hit, Enemy, AttackDammage, AttackRange);
-            yield return new WaitForSeconds(0.5f);
+            animator.speed = AttackSpeed;
+            yield return new WaitForSeconds(1/AttackSpeed);
             isAttacking = false;
         }
 
+        private void RangedAttackShoot()
+        {
+            if(currentEnemy)
+            {
+                GameObject rangedAttack = Instantiate(rangedAttackPrefab, rangedAttackSpawnPoint.position, Quaternion.identity);
+                rangedAttack.GetComponent<RangedAttack>().EnemySetting(currentEnemy, Enemy, AttackDammage, AttackRange);
+            }
 
-        public void TakeDamage(int damage)
+        }
+
+
+
+        public void TakeDamage(float damage)
         {
             // int finalDamage = damage - Armor;
             //  if (finalDamage < 0)
@@ -166,6 +203,8 @@ namespace Chracter
 
             if (CurrentHealth <= 0)
             {
+                this.GetComponent<BoxCollider2D>().enabled = false;
+                isDead = true;
                 Die();
             }
             else if(CurrentHealth <= MaxHealth *0.6f && firstHit == false)
@@ -182,9 +221,15 @@ namespace Chracter
 
         public virtual void Die()
         {
-            Destroy(gameObject);
+            StartCoroutine(DieAnim());
         }
 
+        private IEnumerator DieAnim()
+        {
+            animator.SetTrigger(DODie);
+            yield return new WaitForSeconds(1.0f);
+            Destroy(gameObject);
+        }
 
 
         public void CheckTeam()

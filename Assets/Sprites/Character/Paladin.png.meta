@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3a9be5f2734b55145b1d236bf8b8c6f2
+guid: 992fd5c451a58174b8fbc52cae333859
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -94,7 +94,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
+    buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -107,7 +107,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Slime_0
+      name: Paladin_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74d997399191c9d47bd83becae50ef2c
-      internalID: -1616108125
+      spriteID: 5442e57761879d84a926d6856e2e4562
+      internalID: -485092069
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_1
+      name: Paladin_1
       rect:
         serializedVersion: 2
         x: 600
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0504dedf21cc9de40960d08ac6f0bb99
-      internalID: -1444181906
+      spriteID: d7b416bbdd4166f469e6a71599213b63
+      internalID: -605016669
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_2
+      name: Paladin_2
       rect:
         serializedVersion: 2
         x: 1200
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc0f2e66439aa954bac02da9659daae7
-      internalID: 1563389777
+      spriteID: 53b28e4c9b5248447b92477fd2580671
+      internalID: 1338102654
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_3
+      name: Paladin_3
       rect:
         serializedVersion: 2
         x: 1800
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9cec1bb8d63b16846a9644a658cf01b3
-      internalID: 1361598019
+      spriteID: 8a58076f2da66cb47b5fab784d08fc88
+      internalID: -1749346123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_4
+      name: Paladin_4
       rect:
         serializedVersion: 2
         x: 0
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf65b9529f3beee44a511c7e6cd9999f
-      internalID: 397439703
+      spriteID: debf59e502e9f8f439be862fffaf203e
+      internalID: 778154545
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_5
+      name: Paladin_5
       rect:
         serializedVersion: 2
         x: 600
@@ -242,8 +242,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96089a4763587b24b88549430b43c340
-      internalID: -167988052
+      spriteID: 56616750ed69aae41b1472c78226bd52
+      internalID: 2023641458
       vertices: []
       indices: 
       edges: []
@@ -259,12 +259,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Slime_0: -1616108125
-      Slime_1: -1444181906
-      Slime_2: 1563389777
-      Slime_3: 1361598019
-      Slime_4: 397439703
-      Slime_5: -167988052
+      Paladin_0: -485092069
+      Paladin_1: -605016669
+      Paladin_2: 1338102654
+      Paladin_3: -1749346123
+      Paladin_4: 778154545
+      Paladin_5: 2023641458
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

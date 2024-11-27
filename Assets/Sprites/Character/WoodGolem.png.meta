@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3a9be5f2734b55145b1d236bf8b8c6f2
+guid: 22208596d912da64d810d464649a960a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -94,7 +94,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
+    buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -107,7 +107,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Slime_0
+      name: WoodGolem_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74d997399191c9d47bd83becae50ef2c
-      internalID: -1616108125
+      spriteID: 1a5d7cfcd3dd6a3479e8c50a91ab323c
+      internalID: 595284610
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_1
+      name: WoodGolem_1
       rect:
         serializedVersion: 2
         x: 600
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0504dedf21cc9de40960d08ac6f0bb99
-      internalID: -1444181906
+      spriteID: 82a24d92c7b56da42b54d0a0193f9d14
+      internalID: 57074639
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_2
+      name: WoodGolem_2
       rect:
         serializedVersion: 2
         x: 1200
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc0f2e66439aa954bac02da9659daae7
-      internalID: 1563389777
+      spriteID: fbafc1f1c75a7ac44ae8c5feb317a2f7
+      internalID: 326513216
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_3
+      name: WoodGolem_3
       rect:
         serializedVersion: 2
         x: 1800
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9cec1bb8d63b16846a9644a658cf01b3
-      internalID: 1361598019
+      spriteID: 4a61cf8655739a54b88a2ef7dab3c293
+      internalID: 948140771
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_4
+      name: WoodGolem_4
       rect:
         serializedVersion: 2
         x: 0
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf65b9529f3beee44a511c7e6cd9999f
-      internalID: 397439703
+      spriteID: 009c16a8236308e4381f0ae74725c96d
+      internalID: -853730175
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_5
+      name: WoodGolem_5
       rect:
         serializedVersion: 2
         x: 600
@@ -242,8 +242,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96089a4763587b24b88549430b43c340
-      internalID: -167988052
+      spriteID: c1ba57b989e139745bcaeace26a38c4c
+      internalID: -921918337
       vertices: []
       indices: 
       edges: []
@@ -259,12 +259,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Slime_0: -1616108125
-      Slime_1: -1444181906
-      Slime_2: 1563389777
-      Slime_3: 1361598019
-      Slime_4: 397439703
-      Slime_5: -167988052
+      WoodGolem_0: 595284610
+      WoodGolem_1: 57074639
+      WoodGolem_2: 326513216
+      WoodGolem_3: 948140771
+      WoodGolem_4: -853730175
+      WoodGolem_5: -921918337
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

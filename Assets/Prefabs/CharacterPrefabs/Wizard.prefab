@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 8003577852541299673}
   - component: {fileID: 5061897147921594596}
   - component: {fileID: 8313343597627569893}
-  - component: {fileID: 7951206200996520166}
   - component: {fileID: 1829436378481448870}
+  - component: {fileID: 2417767390682017105}
   m_Layer: 6
-  m_Name: Thief
+  m_Name: Wizard
   m_TagString: Team
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1227750600, guid: b54601c1220ef8e4ea1f17fd320ba48f, type: 3}
+  m_Sprite: {fileID: 530517141, guid: e68b466322f3a824ca759b3dbf9329a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,7 +101,7 @@ Animator:
   m_GameObject: {fileID: 344319866593267813}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d7826c66f3d93f445b47056052e251c3, type: 2}
+  m_Controller: {fileID: 9100000, guid: c4b413ac2b1d98242bf07efd9fd0ac85, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -157,24 +157,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 2}
   m_EdgeRadius: 0
---- !u!114 &7951206200996520166
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 344319866593267813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81d60dcc6031a1344a49af28cd9f9b22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 5061897147921594596}
-  moveSpeed: 1
-  healthBar: {fileID: 6377817123183509302}
-  rangedAttackPrefab: {fileID: 3362732813862743725, guid: f07e22f29d85aaa4cab516a065541370, type: 3}
-  rangedAttackSpawnPoint: {fileID: 2136429800145144138}
-  moveParticle: {fileID: 4717893244150893704}
 --- !u!114 &1829436378481448870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,6 +169,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95bd426bc6a466546b8aaa1b4fcf5adb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2417767390682017105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344319866593267813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af115caafc32314abd0e186e763957a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 5061897147921594596}
+  healthBar: {fileID: 6377817123183509302}
+  rangedAttackPrefab: {fileID: 3362732813862743725, guid: 79598c3eefae28b40b26451b13c307fb, type: 3}
+  rangedAttackSpawnPoint: {fileID: 2136429800145144138}
+  moveParticle: {fileID: 4717893244150893704}
 --- !u!1001 &1540462666826922372
 PrefabInstance:
   m_ObjectHideFlags: 0

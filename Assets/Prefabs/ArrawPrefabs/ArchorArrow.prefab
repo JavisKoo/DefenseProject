@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7383985861556529912}
   - component: {fileID: 7629753397532227687}
   m_Layer: 0
-  m_Name: Arrow
+  m_Name: ArchorArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -420196861, guid: b54601c1220ef8e4ea1f17fd320ba48f, type: 3}
+  m_Sprite: {fileID: -947414782, guid: c5160ef4061dcd248bfbf1b3fe9f6768, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +99,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 619561937aeffde4a9d292d9523df5eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyTag: 
 --- !u!61 &7383985861556529912
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -136,7 +135,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.464, y: 0.182}
+    oldSize: {x: 1.1999999, y: 1.1999999}
     newSize: {x: 1.1999999, y: 1.1999999}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

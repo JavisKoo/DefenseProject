@@ -1,10 +1,14 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Chracter
 {
-    public class Warrior : BaseCharacter
+    public class Wizard : BaseCharacter
     {
         public ParticleSystem moveParticle;
+   
+
+        private int attackRange=5;
     
         // Start is called before the first frame update
         void Start()
@@ -15,10 +19,8 @@ namespace Chracter
             }
 
             CheckTeam();
-        
-            SetCharacterSettings(500,20,0,AttackSpeedDefault,AttackRangeMeleeDefault,true,true,MoveDefault);
+            SetCharacterSettings(500,30, 10,1, attackRange,true,false);
             healthBar.SetHealth(MaxHealth, MaxHealth);
-        
         }
     }
 }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3a9be5f2734b55145b1d236bf8b8c6f2
+guid: 4a5ade541c8cd4d4b98d9772d7c9dedb
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -94,7 +94,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
+    buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -107,7 +107,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Slime_0
+      name: Elementalist_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74d997399191c9d47bd83becae50ef2c
-      internalID: -1616108125
+      spriteID: 87c0143791144c74f98a82bb5187c984
+      internalID: -112904193
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_1
+      name: Elementalist_1
       rect:
         serializedVersion: 2
         x: 600
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0504dedf21cc9de40960d08ac6f0bb99
-      internalID: -1444181906
+      spriteID: d277213802360fe4388093e7443d8fe7
+      internalID: 1541234842
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_2
+      name: Elementalist_2
       rect:
         serializedVersion: 2
         x: 1200
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc0f2e66439aa954bac02da9659daae7
-      internalID: 1563389777
+      spriteID: 3d51865c75c3cb644ab0fa354bae894b
+      internalID: 1933204160
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_3
+      name: Elementalist_3
       rect:
         serializedVersion: 2
         x: 1800
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9cec1bb8d63b16846a9644a658cf01b3
-      internalID: 1361598019
+      spriteID: 6696737c8ce3ecf46ad21c5ae2ff8bda
+      internalID: -1135045818
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_4
+      name: Elementalist_4
       rect:
         serializedVersion: 2
         x: 0
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf65b9529f3beee44a511c7e6cd9999f
-      internalID: 397439703
+      spriteID: e116cb52790708943b351dc46c918122
+      internalID: -1614374192
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_5
+      name: Elementalist_5
       rect:
         serializedVersion: 2
         x: 600
@@ -242,8 +242,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96089a4763587b24b88549430b43c340
-      internalID: -167988052
+      spriteID: 8b2ef5cbd8d2c7d4d9d216a1da3e0965
+      internalID: 1676737265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elementalist_6
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 600
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d089659ea1d8b524585f497edcf9c4dd
+      internalID: -28989273
       vertices: []
       indices: 
       edges: []
@@ -259,12 +280,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Slime_0: -1616108125
-      Slime_1: -1444181906
-      Slime_2: 1563389777
-      Slime_3: 1361598019
-      Slime_4: 397439703
-      Slime_5: -167988052
+      Elementalist_0: -112904193
+      Elementalist_1: 1541234842
+      Elementalist_2: 1933204160
+      Elementalist_3: -1135045818
+      Elementalist_4: -1614374192
+      Elementalist_5: 1676737265
+      Elementalist_6: -28989273
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

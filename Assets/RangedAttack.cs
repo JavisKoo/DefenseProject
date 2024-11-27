@@ -9,7 +9,7 @@ public class RangedAttack : MonoBehaviour
     private bool _Setting = false;
     private RaycastHit2D Enemy;
     private string EnemyTag;
-    private int AttackDammage = 10;
+    private float AttackDammage = 10;
     private float AttackRange = 1;
 
     private Vector3 firstSpawn;
@@ -35,7 +35,7 @@ public class RangedAttack : MonoBehaviour
             FlytoEnemy();
     }
 
-    public void EnemySetting(RaycastHit2D hit, string enemyTag, int attackDammage, float attackRange=2)
+    public void EnemySetting(RaycastHit2D hit, string enemyTag, float attackDammage, float attackRange=2)
     {
         EnemyTag = enemyTag;
         Enemy = hit;

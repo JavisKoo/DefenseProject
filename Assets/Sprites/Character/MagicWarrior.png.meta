@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3a9be5f2734b55145b1d236bf8b8c6f2
+guid: a31d915f4c835b54bae9647bcadb3735
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -94,7 +94,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
+    buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -107,7 +107,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -123,7 +123,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Slime_0
+      name: MagicWarrior_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74d997399191c9d47bd83becae50ef2c
-      internalID: -1616108125
+      spriteID: bfadaad4c75d1774a91e8096ad0d2889
+      internalID: 245281027
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_1
+      name: MagicWarrior_1
       rect:
         serializedVersion: 2
         x: 600
@@ -158,14 +158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0504dedf21cc9de40960d08ac6f0bb99
-      internalID: -1444181906
+      spriteID: 6e96ba09fe175d346a6e41a8aa2925a8
+      internalID: -1403054779
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_2
+      name: MagicWarrior_2
       rect:
         serializedVersion: 2
         x: 1200
@@ -179,14 +179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc0f2e66439aa954bac02da9659daae7
-      internalID: 1563389777
+      spriteID: 084113102ef10134daea5f686673aa43
+      internalID: -1873927283
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_3
+      name: MagicWarrior_3
       rect:
         serializedVersion: 2
         x: 1800
@@ -200,14 +200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9cec1bb8d63b16846a9644a658cf01b3
-      internalID: 1361598019
+      spriteID: 5acf8c9095032834f90e1b56d63430d9
+      internalID: 1393132534
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_4
+      name: MagicWarrior_4
       rect:
         serializedVersion: 2
         x: 0
@@ -221,14 +221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cf65b9529f3beee44a511c7e6cd9999f
-      internalID: 397439703
+      spriteID: 104667508a6b5ef428c72f3890857b24
+      internalID: -1485310962
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Slime_5
+      name: MagicWarrior_5
       rect:
         serializedVersion: 2
         x: 600
@@ -242,8 +242,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 96089a4763587b24b88549430b43c340
-      internalID: -167988052
+      spriteID: a1073878827fc6a40adcdaf89515ce5b
+      internalID: -2069251533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MagicWarrior_6
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 600
+        height: 600
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cfd0d497a868762499232a9a01b9360b
+      internalID: -953572933
       vertices: []
       indices: 
       edges: []
@@ -259,12 +280,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Slime_0: -1616108125
-      Slime_1: -1444181906
-      Slime_2: 1563389777
-      Slime_3: 1361598019
-      Slime_4: 397439703
-      Slime_5: -167988052
+      MagicWarrior_0: 245281027
+      MagicWarrior_1: -1403054779
+      MagicWarrior_2: -1873927283
+      MagicWarrior_3: 1393132534
+      MagicWarrior_4: -1485310962
+      MagicWarrior_5: -2069251533
+      MagicWarrior_6: -953572933
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
