@@ -10,7 +10,7 @@ namespace Chracter
         protected float MaxHealth = 100;
         protected float CurrentHealth;
         protected float AttackDammage = 10;
-        protected float Armor = 5;
+        protected float Armor = 0;
         protected float AttackSpeed = 1;
         protected float AttackRange = 0.5f;
         protected bool IsPhysical = true;
@@ -50,14 +50,14 @@ namespace Chracter
         protected static readonly float MoveFast = 1.2f;
 
         //CharacterAttackRange Melee
-        protected static readonly float AttackRangeMeleeLow=0.3f;
+        protected static readonly float AttackRangeMeleeSmall=0.3f;
         protected static readonly float AttackRangeMeleeDefault=0.5f;
-        protected static readonly float AttackRangeMeleeFast=0.7f;
+        protected static readonly float AttackRangeMeleeLong=1.0f;
 
         //CharacterAttackRange Ranged
-        protected static readonly float AttackRangeRangedLow=1.5f;
+        protected static readonly float AttackRangeRangeSmall=1.5f;
         protected static readonly float AttackRangeRangedDefault=2.0f;
-        protected static readonly float AttackRangeRangedFast=3.0f;
+        protected static readonly float AttackRangeRangedLong=3.0f;
 
         //ChcaracterAttackSpeed
         protected static readonly float AttackSpeedLow=0.7f;
@@ -189,13 +189,12 @@ namespace Chracter
 
         public void TakeDamage(float damage)
         {
-            // int finalDamage = damage - Armor;
-            //  if (finalDamage < 0)
-            //  {
-            //      finalDamage = 0;
-            // }
-            // CurrentHealth -= finalDamage;
-            CurrentHealth -= damage;
+             float finalDamage = damage - Armor;
+              if (finalDamage <= 0)
+              {
+                  finalDamage = 1;
+             }
+            CurrentHealth -= finalDamage;
             if (healthBar != null)
             {
                 healthBar.SetHealth(CurrentHealth, MaxHealth);    
