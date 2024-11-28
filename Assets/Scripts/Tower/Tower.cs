@@ -6,23 +6,26 @@ using UnityEngine.UI;
 
 public class Tower : BaseCharacter
 {
+    [Header("Tower")]
     public bool isGameOver = false;
     //sprite
     public SpriteRenderer renderer;
     //gold
-    [SerializeField] private int currentGold = 0;
+    [Header("Gold")]
+    public int currentGold = 0;
     [SerializeField] private int maxGold = 1000;
     [SerializeField] private int goldPerSec = 1;
     private bool isCanGetGold = true;
     //time
+    [Header("Time")]
     [SerializeField] private float currentTime;
-    [SerializeField] private float maxTime = 5f;
+    [SerializeField] private float maxTime = 1f;
     //UI
     [Header("UI")]
     public Text goldValueText;
     public Text goldPerSecText;
-    //Ä«µå UI
-    public GameObject CardUI;
+    public Slider towerHPSlider;
+    public Text towerHPText;
 
     private void Awake()
     {
@@ -34,10 +37,15 @@ public class Tower : BaseCharacter
         SetCharacterSettings(5000);
         goldPerSecText.text = "+" + goldPerSec + "/s";
         goldValueText.text = currentGold + " / " + maxGold;
+        towerHPSlider.maxValue = MaxHealth;
     }
 
     private void Update()
     {
+        towerHPSlider.value = CurrentHealth;
+        towerHPText.text = CurrentHealth + " / " + MaxHealth;
+
+        //°ñµåÈ¹µæ
         if (!isCanGetGold)
             return;
 
@@ -80,20 +88,5 @@ public class Tower : BaseCharacter
     public void GameOver()
     {
         isGameOver = true;
-    }
-
-    public void StageStat()
-    {
-        ChooseCard();
-    }
-
-    public void ChooseCard()
-    {
-        CardUI.SetActive(true);
-    }
-
-    public void OnClickCard()
-    {
-
     }
 }
