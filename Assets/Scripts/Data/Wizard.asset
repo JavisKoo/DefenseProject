@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wizard
   m_EditorClassIdentifier: 
   itemType: 2
-  itemId: 1
+  itemId: 3
   itemName: "\uB9C8\uBC95\uC0AC"
   itemDesc: "\uC6D0\uAC70\uB9AC \uACF5\uACA9\uC744 \uD558\uB294 \uB9C8\uBC95\uC0AC\uC774\uB2E4"
   itemIcon: {fileID: 530517141, guid: e68b466322f3a824ca759b3dbf9329a9, type: 3}

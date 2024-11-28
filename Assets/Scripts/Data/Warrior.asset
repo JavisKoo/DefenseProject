@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Warrior
   m_EditorClassIdentifier: 
   itemType: 1
-  itemId: 0
+  itemId: 2
   itemName: "\uC6A9\uC0AC"
   itemDesc: "\uAC80\uC744 \uC4F0\uB294 \uC6A9\uAC10\uD55C \uAC80\uC0AC\uC774\uB2E4"
   itemIcon: {fileID: -1109344244, guid: 0fdd73686cb670d42bdc0fbc0f08d5a5, type: 3}
-  level: 1
+  level: 2
   cost: 0

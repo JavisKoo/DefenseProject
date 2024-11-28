@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 
 public class Tower : BaseCharacter
 {
@@ -24,9 +25,11 @@ public class Tower : BaseCharacter
     [Header("UI")]
     public Text goldValueText;
     public Text goldPerSecText;
-    public Slider towerHPSlider;
+    //Tower Stats
+    [Header("Tower Stats")]
+    public int maxHp = 1000;
+    public UnityEngine.UI.Slider towerHPSlider;
     public Text towerHPText;
-
     private void Awake()
     {
         renderer = GetComponent<SpriteRenderer>();
@@ -34,16 +37,20 @@ public class Tower : BaseCharacter
 
     private void Start()
     {
-        SetCharacterSettings(5000);
+        SetCharacterSettings(maxHp);
         goldPerSecText.text = "+" + goldPerSec + "/s";
         goldValueText.text = currentGold + " / " + maxGold;
-        towerHPSlider.maxValue = MaxHealth;
+
+
+        SetCharacterSettings(maxHp);
     }
 
     private void Update()
     {
         towerHPSlider.value = CurrentHealth;
         towerHPText.text = CurrentHealth + " / " + MaxHealth;
+        towerHPSlider.maxValue = maxHp;
+        towerHPSlider.value = CurrentHealth;
 
         //∞ÒµÂ»πµÊ
         if (!isCanGetGold)

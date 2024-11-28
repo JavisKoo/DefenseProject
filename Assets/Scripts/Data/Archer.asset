@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Archer
   m_EditorClassIdentifier: 
   itemType: 3
-  itemId: 2
+  itemId: 0
   itemName: "\uAD81\uC218"
   itemDesc: "\uD65C\uC744 \uC3D8\uB294 \uAD81\uC218\uB2E4"
   itemIcon: {fileID: 668275685, guid: c5160ef4061dcd248bfbf1b3fe9f6768, type: 3}

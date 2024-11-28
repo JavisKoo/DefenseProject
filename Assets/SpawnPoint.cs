@@ -8,6 +8,9 @@ public class SpawnPoint : MonoBehaviour
 
     [SerializeField] public int CharacterIndex=0;
 
+    [SerializeField] private Tower towerScript;
+    [SerializeField] private ItemData[] datas;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,8 +25,26 @@ public class SpawnPoint : MonoBehaviour
 
     public void SpawnCharacter()
     {
+        switch (CharacterIndex)
+        {
+            case 0:
+                towerScript.currentGold -= datas[CharacterIndex].cost;
+                break;
+            case 1:
+                towerScript.currentGold -= datas[CharacterIndex].cost;
+                break;
+            case 2:
+                towerScript.currentGold -= datas[CharacterIndex].cost;
+                break;
+            case 3:
+                towerScript.currentGold -= datas[CharacterIndex].cost;
+                break;
+
+            case 4:
+                Debug.Log("잠겨있습니다.");
+                break;
+        }
         //spawn character
         Instantiate(characterPrefab[CharacterIndex], transform.position, Quaternion.identity);
-        
     }
 }
