@@ -11,6 +11,8 @@ public class SpawnPoint : MonoBehaviour
     [SerializeField] private Tower towerScript;
     [SerializeField] private ItemData[] datas;
 
+    public GameObject warningText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,26 +27,41 @@ public class SpawnPoint : MonoBehaviour
 
     public void SpawnCharacter()
     {
-        switch (CharacterIndex)
+        if (towerScript.currentGold - datas[CharacterIndex].cost < 0)
         {
-            case 0:
-                towerScript.currentGold -= datas[CharacterIndex].cost;
-                break;
-            case 1:
-                towerScript.currentGold -= datas[CharacterIndex].cost;
-                break;
-            case 2:
-                towerScript.currentGold -= datas[CharacterIndex].cost;
-                break;
-            case 3:
-                towerScript.currentGold -= datas[CharacterIndex].cost;
-                break;
-
-            case 4:
-                Debug.Log("잠겨있습니다.");
-                break;
+            warningText.SetActive(true);
+            Invoke("SetFalseWarn", 1f);
         }
-        //spawn character
-        Instantiate(characterPrefab[CharacterIndex], transform.position, Quaternion.identity);
+        else
+        {
+            switch (CharacterIndex)
+            {
+                case 0:
+                    towerScript.currentGold -= datas[CharacterIndex].cost;
+                    break;
+                case 1:
+                    towerScript.currentGold -= datas[CharacterIndex].cost;
+                    break;
+                case 2:
+                    towerScript.currentGold -= datas[CharacterIndex].cost;
+                    break;
+                case 3:
+                    towerScript.currentGold -= datas[CharacterIndex].cost;
+                    break;
+
+                case 4:
+                    Debug.Log("잠겨있습니다.");
+                    break;
+            }
+            //spawn character
+            Instantiate(characterPrefab[CharacterIndex], transform.position, Quaternion.identity);
+            //UI Init
+            towerScript.InitUI();
+        }
+    }
+
+    public void SetFalseWarn()
+    {
+        warningText.SetActive(false);
     }
 }

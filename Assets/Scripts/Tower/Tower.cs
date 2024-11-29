@@ -73,6 +73,11 @@ public class Tower : BaseCharacter
             isCanGetGold = false;
             return;
         }
+        InitUI();
+    }
+
+    public void InitUI()
+    {
         goldValueText.text = currentGold + " / " + maxGold;
     }
 

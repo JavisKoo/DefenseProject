@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b7a2d30eb19d3f499cc1ffd6ad9528c, type: 3}
-  m_Name: Wizard
+  m_Name: 9Golem
   m_EditorClassIdentifier: 
-  itemType: 2
-  itemId: 3
-  itemName: "\uB9C8\uBC95\uC0AC"
-  itemDesc: "\uC6D0\uAC70\uB9AC \uACF5\uACA9\uC744 \uD558\uB294 \uB9C8\uBC95\uC0AC\uC774\uB2E4"
-  itemIcon: {fileID: 530517141, guid: e68b466322f3a824ca759b3dbf9329a9, type: 3}
-  level: 1
-  cost: 0
+  itemType: 6
+  itemId: 9
+  itemName: "\uACE8\uB818"
+  itemDesc: "\uB2E8\uB2E8\uD55C \uACE8\uB818\uC774\uB2E4."
+  itemIcon: {fileID: 396016501, guid: 107bdac3ed505bc4e9647c3612ec669e, type: 3}
+  level: 2
+  cost: 90

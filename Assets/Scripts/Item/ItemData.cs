@@ -7,13 +7,18 @@ using UnityEngine.UI;
 public class ItemData : ScriptableObject
 {
     public enum ItemType {
-        Empty, //비어있을때
-        Warrior,
-        Wizard,
-        Archer,
-        Thief,
-        Goblin, //적 유닛인데 일단 추가
-        Slime,  //적 유닛인데 일단 추가
+        Warrior,   //0
+        Thief,     //1
+        Archer,    //2
+        Goblin,    //3
+        Slime,     //4
+        Wizard,    //5
+        Golem,     //9 
+        WoodGolem, //12
+
+
+
+        Empty      //100
     }
 
     [Header("# Main Info")]

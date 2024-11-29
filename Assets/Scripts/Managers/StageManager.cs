@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 using static ItemData;
@@ -19,6 +20,8 @@ public class StageManager : MonoBehaviour
     public int selectId;
     //유닛생산버튼
     public Item[] unitButtons;
+    //스테이지 정보
+    public int stage = 0;
 
     void Awake()
     {
@@ -53,6 +56,7 @@ public class StageManager : MonoBehaviour
 
     public void StageStart()
     {
+        stage++;
         Time.timeScale = 0f;
         MakeCard();
     }
@@ -63,8 +67,10 @@ public class StageManager : MonoBehaviour
 
         for (int i = 0; i < 3; i++)
         {
-            int ranNum = Random.Range(0, count-3); //고블린 슬라임 제외
-            Debug.Log(count);
+            Debug.Log("Stage : " + stage);
+            int ranNum = Random.Range((stage - 1) * 5, ((stage - 1) * 5) + 5); //스테이지 1이면 0~5, 2이면 5~10, 3이면 10~15
+            Debug.Log("첫번째 값: " + (stage - 1) * 5 + "두번째 값: " + ((stage - 1) * 5) + 5);
+            Debug.Log("랜덤 아이디값" + ranNum);
 
             //UI에 랜덤유닛 정보 집어넣기
             cardType[i].text = datas[ranNum].itemName.ToString();
@@ -87,7 +93,7 @@ public class StageManager : MonoBehaviour
             {
                 unitButtons[i].Init(datas[selectId]);
 
-                Debug.Log("카드적용왕ㄴ료");
+                Debug.Log("카드적용완료");
                 break;
             }
         }

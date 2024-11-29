@@ -25,17 +25,7 @@ public class Card : MonoBehaviour
 
     public void OnClickCard()
     {
-        if (toggle.isOn) //선택되었다면
-        {
-            StageManager.Instance.selectId = this.cardId;
-            selectBtn.SetActive(true); //선택버튼 활성화
-            Debug.Log("토글선택되ㅣㅁ");
-        }
-        else //선택해제되었다면
-        {
-            StageManager.Instance.selectId = 100;
-            selectBtn.SetActive(false); //선택버튼 비활성화
-            Debug.Log("토글선택해제");
-        }
+        StageManager.Instance.selectId = toggle.isOn ? cardId : 100;
+        selectBtn.SetActive(toggle.isOn); //선택버튼 활성화
     }
 }
