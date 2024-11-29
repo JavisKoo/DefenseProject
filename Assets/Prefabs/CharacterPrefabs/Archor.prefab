@@ -147,7 +147,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.4}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.05}
     oldSize: {x: 1.1999999, y: 1.1999999}
     newSize: {x: 1.1999999, y: 1.1999999}
     adaptiveTilingThreshold: 0.5
@@ -182,7 +182,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5061897147921594596}
-  moveSpeed: 1
   healthBar: {fileID: 8625749739803935675}
   rangedAttackPrefab: {fileID: 3362732813862743725, guid: d5a08a45a00e9784da0960bbf6ae8dce, type: 3}
   rangedAttackSpawnPoint: {fileID: 143713528348981101}
@@ -201,7 +200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 632418434886267086, guid: 94b508926113564458a36bc32467a8cc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.052
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 632418434886267086, guid: 94b508926113564458a36bc32467a8cc, type: 3}
       propertyPath: m_LocalPosition.z

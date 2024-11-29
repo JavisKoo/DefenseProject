@@ -37,7 +37,7 @@ public class CameraMovement : MonoBehaviour
         if (moveLeft)
         {
             // if camera.x is -2 stop
-            if (transform.position.x <= -2)
+            if (transform.position.x <= -10)
             {
                 StopMoving();
                 return;
@@ -46,7 +46,7 @@ public class CameraMovement : MonoBehaviour
         }
         if (moveRight)
         {
-            if (transform.position.x >= 2)
+            if (transform.position.x >= 10)
             {
                 StopMoving();
                 return;

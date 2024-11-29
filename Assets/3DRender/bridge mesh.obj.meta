@@ -3,7 +3,27 @@ guid: 4100163df332861469c364e7d0ff80c5
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bridge_001_lowMat
+    second: {fileID: -4362919164866878270, guid: 9fd6fb9e61899d14b8cdf17db1f7713b, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bridge_006_low005Mat
+    second: {fileID: -4336317396032630412, guid: 9fd6fb9e61899d14b8cdf17db1f7713b, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bridge_007_low011Mat
+    second: {fileID: -1837487059618697415, guid: 9fd6fb9e61899d14b8cdf17db1f7713b, type: 3}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bridge_007_low012Mat
+    second: {fileID: -6503166961564906696, guid: 9fd6fb9e61899d14b8cdf17db1f7713b, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

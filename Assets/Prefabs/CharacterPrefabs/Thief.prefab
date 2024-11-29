@@ -147,7 +147,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.4}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.05}
     oldSize: {x: 1.1999999, y: 1.1999999}
     newSize: {x: 1.5, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -170,7 +170,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5061897147921594596}
-  moveSpeed: 1
   healthBar: {fileID: 6377817123183509302}
   rangedAttackPrefab: {fileID: 3362732813862743725, guid: f07e22f29d85aaa4cab516a065541370, type: 3}
   rangedAttackSpawnPoint: {fileID: 2136429800145144138}
@@ -201,7 +200,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 632418434886267086, guid: 94b508926113564458a36bc32467a8cc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.052
+      value: 0.43
       objectReference: {fileID: 0}
     - target: {fileID: 632418434886267086, guid: 94b508926113564458a36bc32467a8cc, type: 3}
       propertyPath: m_LocalPosition.z
@@ -271,7 +270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7204429219805006233, guid: 1951194dd6c93b7458a4425b33e87084, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7204429219805006233, guid: 1951194dd6c93b7458a4425b33e87084, type: 3}
       propertyPath: m_LocalPosition.z

@@ -2596,6 +2596,8 @@ MonoBehaviour:
   characterPrefab:
   - {fileID: 344319866593267813, guid: 4ecd73d96cf9e064dba5b0ae2809d18b, type: 3}
   CharacterIndex: 0
+  towerScript: {fileID: 0}
+  datas: []
 --- !u!4 &1470081848
 Transform:
   m_ObjectHideFlags: 0
