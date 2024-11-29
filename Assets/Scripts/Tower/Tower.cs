@@ -43,6 +43,7 @@ public class Tower : BaseCharacter
 
 
         SetCharacterSettings(maxHp);
+        healthBar.TowerHealth(maxHp,maxHp);
     }
 
     private void Update()
@@ -95,5 +96,19 @@ public class Tower : BaseCharacter
     public void GameOver()
     {
         isGameOver = true;
+    }
+
+    public override void TakeDamage(float damage)
+    {
+        float finalDamage = damage - Armor;
+        if (finalDamage <= 0)
+        {
+            finalDamage = 1;
+        }
+        CurrentHealth -= finalDamage;
+        if (healthBar != null)
+        {
+            healthBar.TowerHealth(CurrentHealth, MaxHealth);
+        }
     }
 }

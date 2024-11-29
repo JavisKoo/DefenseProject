@@ -187,7 +187,7 @@ namespace Chracter
 
 
 
-        public void TakeDamage(float damage)
+        public virtual void TakeDamage(float damage)
         {
              float finalDamage = damage - Armor;
               if (finalDamage <= 0)

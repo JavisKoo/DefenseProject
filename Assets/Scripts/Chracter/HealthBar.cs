@@ -30,5 +30,13 @@ namespace Chracter
             slider.maxValue = maxHealth;
             //Fill.GetComponent<Image>().color = Color.Lerp(Low, High, slider.normalizedValue);
         }
+
+        public void TowerHealth(float health, float maxHealth)
+        {
+            slider.gameObject.SetActive(true);
+            slider.value = health;
+            slider.maxValue = maxHealth;
+            //Fill.GetComponent<Image>().color = Color.Lerp(Low, High, slider.normalizedValue);
+        }
     }
 }
