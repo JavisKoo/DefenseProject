@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 5061897147921594596}
   - component: {fileID: 8313343597627569893}
   - component: {fileID: 1829436378481448870}
-  - component: {fileID: 3575316368607698726}
+  - component: {fileID: -2870005904501730132}
   m_Layer: 6
-  m_Name: Minotaur
+  m_Name: 10Paladin
   m_TagString: Team
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 535035561, guid: 62d740ebb7084434682f04e97f25a2dc, type: 3}
+  m_Sprite: {fileID: -485092069, guid: 992fd5c451a58174b8fbc52cae333859, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,7 +100,7 @@ Animator:
   m_GameObject: {fileID: 344319866593267813}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 57a6c73a51bd83e43bf170944b195053, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0dbb144b0a72838498dcbb790e90b54a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95bd426bc6a466546b8aaa1b4fcf5adb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3575316368607698726
+--- !u!114 &-2870005904501730132
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 344319866593267813}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edc95a52dab90014e95855bef43f2743, type: 3}
+  m_Script: {fileID: 11500000, guid: 0ea78597bbc29d94e99e47389a242107, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5061897147921594596}

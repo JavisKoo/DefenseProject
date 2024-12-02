@@ -51,7 +51,7 @@ public class StageManager : MonoBehaviour
 
     private void Start()
     {
-        //StageStart();
+        StageStart();
     }
 
     public void StageStart()

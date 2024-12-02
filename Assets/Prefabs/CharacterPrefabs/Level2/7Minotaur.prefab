@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 5061897147921594596}
   - component: {fileID: 8313343597627569893}
   - component: {fileID: 1829436378481448870}
-  - component: {fileID: 3604635199473032}
+  - component: {fileID: 3575316368607698726}
   m_Layer: 6
-  m_Name: Slime
+  m_Name: 7Minotaur
   m_TagString: Team
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1616108125, guid: 3a9be5f2734b55145b1d236bf8b8c6f2, type: 3}
+  m_Sprite: {fileID: 535035561, guid: 62d740ebb7084434682f04e97f25a2dc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,7 +100,7 @@ Animator:
   m_GameObject: {fileID: 344319866593267813}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fb80f4bf7d1a45b419fb5df34d290a22, type: 2}
+  m_Controller: {fileID: 9100000, guid: 57a6c73a51bd83e43bf170944b195053, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -147,7 +147,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.05}
-    oldSize: {x: 1.1999999, y: 1.1999999}
+    oldSize: {x: 1.6, y: 1.6}
     newSize: {x: 1.1999999, y: 1.1999999}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95bd426bc6a466546b8aaa1b4fcf5adb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3604635199473032
+--- !u!114 &3575316368607698726
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 344319866593267813}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 712e86de4cde9fa4a8c0c4c25d3bd6a6, type: 3}
+  m_Script: {fileID: 11500000, guid: edc95a52dab90014e95855bef43f2743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5061897147921594596}
@@ -347,6 +347,10 @@ PrefabInstance:
     - target: {fileID: 541563704114582982, guid: 012623518ef93444d8b2480791b1b99f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 679344285734852714, guid: 012623518ef93444d8b2480791b1b99f, type: 3}
+      propertyPath: offset.y
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 4764713433312536193, guid: 012623518ef93444d8b2480791b1b99f, type: 3}
       propertyPath: m_Name

@@ -157,8 +157,8 @@ public class EnemyTower : BaseCharacter
         GameObject enemy = GameObject.Instantiate(enemyObjs[enemyIndex], enemySpawnPoint);
         enemy.tag = "Enemy";
         enemy.layer = 7;
-        BaseCharacter enemyScript = enemy.GetComponent<BaseCharacter>();
-        enemyScript.CheckTeam();
+
+        enemy.GetComponent<BaseCharacter>().CheckTeam();
 
         spawnIndex++;
         if (spawnIndex == spawnList.Count)

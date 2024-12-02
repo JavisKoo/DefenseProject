@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 8003577852541299673}
   - component: {fileID: 5061897147921594596}
   - component: {fileID: 8313343597627569893}
-  - component: {fileID: 9015208291211807154}
   - component: {fileID: 1829436378481448870}
+  - component: {fileID: 2593593755658124548}
   m_Layer: 6
-  m_Name: Warrior
+  m_Name: 9Golem
   m_TagString: Team
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1109344244, guid: 0fdd73686cb670d42bdc0fbc0f08d5a5, type: 3}
+  m_Sprite: {fileID: 396016501, guid: 107bdac3ed505bc4e9647c3612ec669e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,7 +100,7 @@ Animator:
   m_GameObject: {fileID: 344319866593267813}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 9b13d1cc71e2d9140b7a9838e046e789, type: 2}
+  m_Controller: {fileID: 9100000, guid: 48e2ec8b6b69229439c6192898821997, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -143,36 +143,19 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.4}
+  m_Offset: {x: -0.14342749, y: 1.0588715}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.05}
-    oldSize: {x: 1.1999999, y: 1.1999999}
+    oldSize: {x: 2.3999999, y: 2.3999999}
     newSize: {x: 1.1999999, y: 1.1999999}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 2}
+  m_Size: {x: 1.4400618, y: 2.2333517}
   m_EdgeRadius: 0
---- !u!114 &9015208291211807154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 344319866593267813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de75dc752a262df4b9626994a378b361, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 5061897147921594596}
-  healthBar: {fileID: 2880435418583348988}
-  rangedAttackPrefab: {fileID: 0}
-  rangedAttackSpawnPoint: {fileID: 0}
-  moveParticle: {fileID: 4717893244150893704}
 --- !u!114 &1829436378481448870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,6 +168,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95bd426bc6a466546b8aaa1b4fcf5adb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2593593755658124548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344319866593267813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d03516975b2654aae20edb01b65e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 5061897147921594596}
+  healthBar: {fileID: 2880435418583348988}
+  rangedAttackPrefab: {fileID: 0}
+  rangedAttackSpawnPoint: {fileID: 0}
+  moveParticle: {fileID: 4717893244150893704}
 --- !u!1001 &2486572883115525399
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -203,7 +203,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7204429219805006233, guid: 1951194dd6c93b7458a4425b33e87084, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.5
+      value: -0.9
       objectReference: {fileID: 0}
     - target: {fileID: 7204429219805006233, guid: 1951194dd6c93b7458a4425b33e87084, type: 3}
       propertyPath: m_LocalPosition.y
@@ -347,6 +347,10 @@ PrefabInstance:
     - target: {fileID: 541563704114582982, guid: 012623518ef93444d8b2480791b1b99f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 679344285734852714, guid: 012623518ef93444d8b2480791b1b99f, type: 3}
+      propertyPath: offset.y
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 4764713433312536193, guid: 012623518ef93444d8b2480791b1b99f, type: 3}
       propertyPath: m_Name

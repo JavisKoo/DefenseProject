@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 8003577852541299673}
   - component: {fileID: 5061897147921594596}
   - component: {fileID: 8313343597627569893}
-  - component: {fileID: 7148257653170574336}
+  - component: {fileID: 1829436378481448870}
+  - component: {fileID: -245571453282022738}
   m_Layer: 6
-  m_Name: Goblin
+  m_Name: 6MagicWarrior
   m_TagString: Team
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2097147168, guid: ef016f664d9ff9e4cb67fd0de0948310, type: 3}
+  m_Sprite: {fileID: -1166019717, guid: a31d915f4c835b54bae9647bcadb3735, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,7 +100,7 @@ Animator:
   m_GameObject: {fileID: 344319866593267813}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 86347c7ab28a8414897a5b90e82a8b6d, type: 2}
+  m_Controller: {fileID: 9100000, guid: fd873f037a7428b4c9f239a813c3f46b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -145,7 +146,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.4}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.1}
+    pivot: {x: 0.5, y: 0.05}
     oldSize: {x: 1.1999999, y: 1.1999999}
     newSize: {x: 1.1999999, y: 1.1999999}
     adaptiveTilingThreshold: 0.5
@@ -155,7 +156,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6, y: 2}
   m_EdgeRadius: 0
---- !u!114 &7148257653170574336
+--- !u!114 &1829436378481448870
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -164,7 +165,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 344319866593267813}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfe50fee65723ad4482223f0a050e514, type: 3}
+  m_Script: {fileID: 11500000, guid: 95bd426bc6a466546b8aaa1b4fcf5adb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-245571453282022738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344319866593267813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a285620f01a903408acd63437077897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5061897147921594596}
@@ -334,6 +347,10 @@ PrefabInstance:
     - target: {fileID: 541563704114582982, guid: 012623518ef93444d8b2480791b1b99f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 679344285734852714, guid: 012623518ef93444d8b2480791b1b99f, type: 3}
+      propertyPath: offset.y
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 4764713433312536193, guid: 012623518ef93444d8b2480791b1b99f, type: 3}
       propertyPath: m_Name

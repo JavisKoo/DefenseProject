@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 5061897147921594596}
   - component: {fileID: 8313343597627569893}
   - component: {fileID: 1829436378481448870}
-  - component: {fileID: 6193709867046518620}
+  - component: {fileID: 4514429361908783966}
   m_Layer: 6
-  m_Name: Dragon
+  m_Name: 8Centaur
   m_TagString: Team
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1923932212, guid: ea8626b9cd0176f4a9bf5a4aab4cd64a, type: 3}
+  m_Sprite: {fileID: -1869737852, guid: dab46e185a00e8d4499c84a18e690874, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,7 +100,7 @@ Animator:
   m_GameObject: {fileID: 344319866593267813}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 7adb0228ba915304e98e72494e5f548c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 593a347d642849149bdcebcf7392f951, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -143,18 +143,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.10290688, y: 1.3776547}
+  m_Offset: {x: 0, y: 0.4}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 2.3999999, y: 2.9999998}
+    pivot: {x: 0.5, y: 0.05}
+    oldSize: {x: 1.6, y: 1.6}
     newSize: {x: 1.1999999, y: 1.1999999}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.8619512, y: 2.9848049}
+  m_Size: {x: 0.6, y: 2}
   m_EdgeRadius: 0
 --- !u!114 &1829436378481448870
 MonoBehaviour:
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95bd426bc6a466546b8aaa1b4fcf5adb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6193709867046518620
+--- !u!114 &4514429361908783966
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,7 +177,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 344319866593267813}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74654233e090407439c77d6efa2b1b8d, type: 3}
+  m_Script: {fileID: 11500000, guid: cabe64740b3e13e43b87c566cad2a6ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5061897147921594596}
@@ -203,7 +203,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7204429219805006233, guid: 1951194dd6c93b7458a4425b33e87084, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.8
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7204429219805006233, guid: 1951194dd6c93b7458a4425b33e87084, type: 3}
       propertyPath: m_LocalPosition.y
