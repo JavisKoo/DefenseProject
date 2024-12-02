@@ -91,7 +91,7 @@ public class StageManager : MonoBehaviour
             //Debug.Log("선택한 카드 아이디: " + selectId);
             if (unitButtons[i].data.itemType == ItemData.ItemType.Empty)
             {
-                unitButtons[i].Init(datas[selectId]);
+                unitButtons[i].Init(datas[selectId]); //수정해야함
 
                 //Debug.Log("카드적용완료");
                 break;
