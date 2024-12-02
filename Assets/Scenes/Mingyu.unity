@@ -3743,7 +3743,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_Sprite: {fileID: 1669587765549309381, guid: 85470783dfe21194994d9bef32d314bd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3767,7 +3767,8 @@ Transform:
   m_LocalPosition: {x: -217.39514, y: -138.41531, z: -2.45174}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1145465302}
   m_Father: {fileID: 478544262}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &963480815
@@ -3831,7 +3832,27 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   rangedAttackPrefab: {fileID: 0}
   rangedAttackSpawnPoint: {fileID: 0}
-  renderer: {fileID: 0}
+  enemyObjs:
+  - {fileID: 344319866593267813, guid: 4ecd73d96cf9e064dba5b0ae2809d18b, type: 3}
+  - {fileID: 344319866593267813, guid: e60edb9403799b14b938b3924d66f59b, type: 3}
+  - {fileID: 344319866593267813, guid: 8480f8ceedca8454c9f16c3a067d6132, type: 3}
+  - {fileID: 344319866593267813, guid: a4a11d3611af1c1438f89f204c6b7be6, type: 3}
+  - {fileID: 344319866593267813, guid: 0475c750dd212b04db4430256a6edf47, type: 3}
+  - {fileID: 344319866593267813, guid: 67b272f493e822845a0d70df46cd1eb0, type: 3}
+  - {fileID: 344319866593267813, guid: 541247849a23075499d807020abcdc15, type: 3}
+  - {fileID: 344319866593267813, guid: 438619a087c70b14e9e36e144328a5dc, type: 3}
+  - {fileID: 344319866593267813, guid: e211547025f43124ebb07c0d4ea83eca, type: 3}
+  - {fileID: 344319866593267813, guid: 92a939e9d1ef1f34aaf45cb394d653b2, type: 3}
+  - {fileID: 344319866593267813, guid: 926b4b6c5bb295649bea035132fd7007, type: 3}
+  - {fileID: 344319866593267813, guid: 4cb97c64d9143724bb2868d678b71117, type: 3}
+  - {fileID: 344319866593267813, guid: 6c92d7395165e1644acac0567e603c5b, type: 3}
+  - {fileID: 344319866593267813, guid: 0e48cb50a593cef4babb6149016b95df, type: 3}
+  - {fileID: 344319866593267813, guid: f317e921bc08fed4eb6e2096a323c0ec, type: 3}
+  spawnIndex: 0
+  spawnEnd: 0
+  curSpawnDelay: 0
+  nextSpawnDelay: 0
+  enemySpawnPoint: {fileID: 1145465302}
   towerHPSlider: {fileID: 1330847044}
   towerHPText: {fileID: 1397077445}
 --- !u!1 &977178416
@@ -4845,6 +4866,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ecd73d96cf9e064dba5b0ae2809d18b, type: 3}
+--- !u!1 &1145465301
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1145465302}
+  m_Layer: 7
+  m_Name: Enemy Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1145465302
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145465301}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 963480813}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1152935995
 GameObject:
   m_ObjectHideFlags: 0
@@ -6749,8 +6801,15 @@ MonoBehaviour:
   - {fileID: 344319866593267813, guid: a4a11d3611af1c1438f89f204c6b7be6, type: 3}
   - {fileID: 344319866593267813, guid: 0475c750dd212b04db4430256a6edf47, type: 3}
   - {fileID: 344319866593267813, guid: 67b272f493e822845a0d70df46cd1eb0, type: 3}
+  - {fileID: 344319866593267813, guid: 541247849a23075499d807020abcdc15, type: 3}
+  - {fileID: 344319866593267813, guid: 438619a087c70b14e9e36e144328a5dc, type: 3}
+  - {fileID: 344319866593267813, guid: e211547025f43124ebb07c0d4ea83eca, type: 3}
   - {fileID: 344319866593267813, guid: 92a939e9d1ef1f34aaf45cb394d653b2, type: 3}
+  - {fileID: 344319866593267813, guid: 926b4b6c5bb295649bea035132fd7007, type: 3}
+  - {fileID: 344319866593267813, guid: 4cb97c64d9143724bb2868d678b71117, type: 3}
   - {fileID: 344319866593267813, guid: 6c92d7395165e1644acac0567e603c5b, type: 3}
+  - {fileID: 344319866593267813, guid: 0e48cb50a593cef4babb6149016b95df, type: 3}
+  - {fileID: 344319866593267813, guid: f317e921bc08fed4eb6e2096a323c0ec, type: 3}
   CharacterIndex: 0
   towerScript: {fileID: 655837835}
   datas:
@@ -7760,8 +7819,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 978187bef9ebd52449514fa174498e07, type: 2}
   - {fileID: 11400000, guid: 6055b8ad00d8b2348bd7e57d746ce00d, type: 2}
   - {fileID: 11400000, guid: dfa286a76f2252643809c50508a0b0c5, type: 2}
+  - {fileID: 11400000, guid: 1d49c9b9a90e0b340bd8ca6ca60a698e, type: 2}
+  - {fileID: 11400000, guid: c7c7e5bc69eb36b40aac101d55f11e4b, type: 2}
+  - {fileID: 11400000, guid: 56172b2f899fa2044962ad88ac40acd9, type: 2}
   - {fileID: 11400000, guid: 5130a0aa3af4e244eab4d411b06c6c54, type: 2}
+  - {fileID: 11400000, guid: a7771331a09a397439faec4a97dfcc08, type: 2}
+  - {fileID: 11400000, guid: a7904090599c637469bba4fe8907c42e, type: 2}
   - {fileID: 11400000, guid: 12a71e319ef61df4da0fef2de9b400b3, type: 2}
+  - {fileID: 11400000, guid: 3a468bf43408ee945aecbe04761290ee, type: 2}
+  - {fileID: 11400000, guid: b8cce33d15b06554da228d5919459d6e, type: 2}
   selectId: 0
   unitButtons:
   - {fileID: 577773378}

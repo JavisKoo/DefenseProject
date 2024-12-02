@@ -13,9 +13,15 @@ public class ItemData : ScriptableObject
         Goblin,    //3
         Slime,     //4
         Wizard,    //5
-        Golem,     //9 
+        MagicWarrior, //6
+        Minotaur,  //7
+        Centaur,   //8
+        Golem,     //9
+        Paladin,   //10
+        DeerWarrior, //11
         WoodGolem, //12
-
+        Elementalist, //13
+        Dragon,     //14
 
 
         Empty      //100
