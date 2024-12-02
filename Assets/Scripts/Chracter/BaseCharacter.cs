@@ -235,6 +235,7 @@ namespace Chracter
         {
             if (CompareTag("Enemy"))
             {
+                this.GetComponent<SpriteRenderer>().flipX = true;
                 RightLeft = Vector3.left;
                 Enemy = "Team";
                 Team = "Enemy";
