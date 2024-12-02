@@ -38,9 +38,9 @@ public class RangedAttack : MonoBehaviour
     public void EnemySetting(RaycastHit2D hit, string enemyTag, float attackDammage, float attackRange=2)
     {
         EnemyTag = enemyTag;
-        if (EnemyTag == "Enemy")
+        if (EnemyTag == "Team")
         {
-            GetComponent<SpriteRenderer>().flipX = true;
+            this.GetComponent<SpriteRenderer>().flipX = true;
         }
         Enemy = hit;
         AttackDammage = attackDammage;
