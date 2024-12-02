@@ -32,6 +32,7 @@ namespace Chracter
         protected bool isAttacking = false;
         protected bool isMoving = false;
 
+        private Vector3 raycastHeight = new Vector3(0, 0.2f, 0);
 
 
         protected Vector3 RightLeft;
@@ -103,9 +104,9 @@ namespace Chracter
 
         private void CheckEnemy()
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, RightLeft, AttackRange, LayerMask.GetMask(Enemy));
+            RaycastHit2D hit = Physics2D.Raycast(transform.position+raycastHeight, RightLeft, AttackRange, LayerMask.GetMask(Enemy));
             //draw the ray in the scene view with distance 
-            Debug.DrawRay(transform.position, RightLeft * AttackRange, Color.red);
+            Debug.DrawRay(transform.position+ raycastHeight, RightLeft * AttackRange, Color.red);
             if (hit.collider != null)
             {
                 if (hit.collider.CompareTag(Enemy) && isAttacking == false)

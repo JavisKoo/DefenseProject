@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PlayerScene.unity
     guid: 8262861ed43fa7841990e42500d4aa96
+  - enabled: 1
+    path: Assets/Scenes/Jabin.unity
+    guid: b257fcc1d87148f42888c118d7192292
   m_configObjects: {}

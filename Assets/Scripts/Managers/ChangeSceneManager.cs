@@ -12,6 +12,6 @@ public class ChangeSceneManager : MonoBehaviour
 
     public void GoToPlayerScene() //플레이어 씬으로 이동 (임시)
     {
-        SceneManager.LoadScene("PlayerScene");
+        SceneManager.LoadScene("Jabin");
     }
 }

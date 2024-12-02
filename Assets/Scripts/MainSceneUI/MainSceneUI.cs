@@ -5,6 +5,7 @@ using UnityEngine;
 public class MainSceneUI : MonoBehaviour
 {
     public GameObject mapPanel;
+    public GameObject upgradePanel;
 
     public void OpenMap()
     {
@@ -15,4 +16,14 @@ public class MainSceneUI : MonoBehaviour
     {
         mapPanel?.SetActive(false);
     }
+
+    public void OpenUpgradePanel()
+    {
+        upgradePanel.SetActive(true);
+    }
+    public void CloseUpgradePanel()
+    {
+        upgradePanel?.SetActive(false);
+    }
+
 }
