@@ -13,14 +13,14 @@ public class Tower : BaseCharacter
     public SpriteRenderer renderer;
     //gold
     [Header("Gold")]
-    public int currentGold = 0;
-    [SerializeField] private int maxGold = 1000;
+    public float currentGold = 0;
+    [SerializeField] private float maxGold = 1000;
     [SerializeField] private int goldPerSec = 1;
     private bool isCanGetGold = true;
     //time
     [Header("Time")]
     [SerializeField] private float currentTime;
-    [SerializeField] private float maxTime = 1f;
+    [SerializeField] private float maxTime = .1f;
     //UI
     [Header("UI")]
     public Text goldValueText;
@@ -41,8 +41,6 @@ public class Tower : BaseCharacter
         goldPerSecText.text = "+" + goldPerSec + "/s";
         goldValueText.text = currentGold + " / " + maxGold;
 
-
-        SetCharacterSettings(maxHp);
         healthBar.TowerHealth(maxHp,maxHp);
     }
 

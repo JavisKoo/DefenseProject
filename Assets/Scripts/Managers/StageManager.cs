@@ -13,7 +13,6 @@ public class StageManager : MonoBehaviour
     public GameObject cardPanel;
     public Text[] cardType;
     public Image[] cardImage;
-    public Image[] cardDelayImage;
     public Text[] cardDesc;
     public Card[] cards;
     //카드정보
@@ -90,7 +89,13 @@ public class StageManager : MonoBehaviour
         for (int i = 0; i < unitButtons.Length; i++)
         {
             //Debug.Log("선택한 카드 아이디: " + selectId);
-            if (unitButtons[i].data.itemType == ItemData.ItemType.Empty)
+
+            if(unitButtons[i] != null)
+            {
+                Debug.Log("aeswf");
+            }
+       
+            if (unitButtons[i].data==null)
             {
                 unitButtons[i].Init(datas[selectId]); //수정해야함
 

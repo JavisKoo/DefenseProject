@@ -21,10 +21,7 @@ public class ItemData : ScriptableObject
         DeerWarrior, //11
         WoodGolem, //12
         Elementalist, //13
-        Dragon,     //14
-
-
-        Empty      //100
+        Dragon     //14
     }
 
     [Header("# Main Info")]

@@ -10,16 +10,22 @@ public class Item : MonoBehaviour
     private float spawnDelay = 0;
     private bool isCanSpawn = true;
 
+
+
     public SpawnPoint spawnPoint;
     //info data
     public ItemData data;
     public int level;
+    [SerializeField] private Tower towerScript;
 
     //UI
+    public GameObject lockImageGO;
+    public GameObject costTextGO;
     public Image unitImage;
     public Image delayImage; //delay image
     public Text levelText;
     public Text costText;
+    public GameObject warningText;
 
     //GameObject
     [SerializeField] private GameObject[] unitObejcts;
@@ -32,11 +38,11 @@ public class Item : MonoBehaviour
 
     private void Update()
     {
-        spawnDelay += Time.deltaTime;
+        spawnDelay -= Time.deltaTime;
         float time = spawnDelay / maxSpawnDelay;
         delayImage.fillAmount = time;
 
-        if (spawnDelay >= maxSpawnDelay)
+        if (spawnDelay <= 0f)
         {
             isCanSpawn = true;
         }
@@ -44,8 +50,17 @@ public class Item : MonoBehaviour
 
     public void Init(ItemData itemData)
     {
+        if (data == null && itemData==null)
+        {
+            lockImageGO.SetActive(true);
+            costTextGO.SetActive(false);
+            return;
+        }
+
         data = itemData;
         unitImage.sprite = data.itemIcon;
+        lockImageGO.SetActive(false);
+        costTextGO.SetActive(true);
 
         costText.text = data.cost.ToString();
         levelText.text = "Lv." + data.level;
@@ -63,12 +78,18 @@ public class Item : MonoBehaviour
                 maxSpawnDelay = 20;
                 break;
         }
+        spawnDelay = maxSpawnDelay;
     }
 
     public void CreateUnit()
     {
-        if (spawnDelay > maxSpawnDelay) //딜레이 시간이 지나지 않았다면
+        if (spawnDelay > 0f || towerScript.currentGold - data.cost < 0) //딜레이 시간이 지나지 않았다면
+        {
+            warningText.SetActive(true);
+            Invoke("SetFalseWarn", 1f);
+
             return;
+        }
 
         switch (data.itemType)
         {
@@ -146,12 +167,12 @@ public class Item : MonoBehaviour
                 spawnPoint.CharacterIndex = 14;
                 spawnPoint.SpawnCharacter();
                 break;
-
-            case ItemData.ItemType.Empty:
-                Debug.Log("잠겨있습니다.");
-                break;
         }
 
-        spawnDelay = 0;
+        spawnDelay = maxSpawnDelay;
+    }
+    public void SetFalseWarn()
+    {
+        warningText.SetActive(false);
     }
 }
