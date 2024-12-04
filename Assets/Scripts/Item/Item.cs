@@ -5,6 +5,11 @@ using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
+    //스폰 딜레이
+    public float maxSpawnDelay;
+    private float spawnDelay = 0;
+    private bool isCanSpawn = true;
+
     public SpawnPoint spawnPoint;
     //info data
     public ItemData data;
@@ -12,6 +17,7 @@ public class Item : MonoBehaviour
 
     //UI
     public Image unitImage;
+    public Image delayImage; //delay image
     public Text levelText;
     public Text costText;
 
@@ -24,6 +30,18 @@ public class Item : MonoBehaviour
         Init(data);
     }
 
+    private void Update()
+    {
+        spawnDelay += Time.deltaTime;
+        float time = spawnDelay / maxSpawnDelay;
+        delayImage.fillAmount = time;
+
+        if (spawnDelay >= maxSpawnDelay)
+        {
+            isCanSpawn = true;
+        }
+    }
+
     public void Init(ItemData itemData)
     {
         data = itemData;
@@ -31,10 +49,27 @@ public class Item : MonoBehaviour
 
         costText.text = data.cost.ToString();
         levelText.text = "Lv." + data.level;
+
+        //스폰 딜레이 넣어주기
+        switch (data.level)
+        {
+            case 1:
+                maxSpawnDelay = 4;
+                break;
+            case 2:
+                maxSpawnDelay = 12;
+                break;
+            case 3:
+                maxSpawnDelay = 20;
+                break;
+        }
     }
 
     public void CreateUnit()
     {
+        if (spawnDelay > maxSpawnDelay) //딜레이 시간이 지나지 않았다면
+            return;
+
         switch (data.itemType)
         {
             case ItemData.ItemType.Warrior: //검사 LV1 ~
@@ -116,5 +151,7 @@ public class Item : MonoBehaviour
                 Debug.Log("잠겨있습니다.");
                 break;
         }
+
+        spawnDelay = 0;
     }
 }

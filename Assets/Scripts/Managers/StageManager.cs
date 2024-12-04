@@ -13,6 +13,7 @@ public class StageManager : MonoBehaviour
     public GameObject cardPanel;
     public Text[] cardType;
     public Image[] cardImage;
+    public Image[] cardDelayImage;
     public Text[] cardDesc;
     public Card[] cards;
     //카드정보
@@ -99,6 +100,7 @@ public class StageManager : MonoBehaviour
         }
 
 
+        //cardDelayImage[selectId].sprite = datas[selectId].itemIcon;
         Time.timeScale = 1f;
         cardPanel.SetActive(false);
     }

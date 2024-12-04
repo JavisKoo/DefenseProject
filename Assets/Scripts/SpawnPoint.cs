@@ -13,19 +13,11 @@ public class SpawnPoint : MonoBehaviour
 
     public GameObject warningText;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 
-    public void SpawnCharacter()
+    public void SpawnCharacter() //Item 스트립트에서 CharacterIndex값, 스폰딜레이를 설정해주고.    =>    이 함수 호출
     {
         if (towerScript.currentGold - datas[CharacterIndex].cost < 0)
         {
@@ -56,7 +48,7 @@ public class SpawnPoint : MonoBehaviour
             //spawn character
             Instantiate(characterPrefab[CharacterIndex], transform.position, Quaternion.identity);
             //UI Init
-            towerScript.InitUI();
+            towerScript.InitUI(); //골드 텍스트 초기화
         }
     }
 

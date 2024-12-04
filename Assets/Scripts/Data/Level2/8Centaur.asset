@@ -18,4 +18,4 @@ MonoBehaviour:
   itemDesc: "\uCF04\uD0C0\uC6B0\uB85C\uC2A4\uC774\uB2E4."
   itemIcon: {fileID: -1869737852, guid: dab46e185a00e8d4499c84a18e690874, type: 3}
   level: 2
-  cost: 80
+  cost: 200
