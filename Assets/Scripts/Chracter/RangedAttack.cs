@@ -11,6 +11,7 @@ public class RangedAttack : MonoBehaviour
     private string EnemyTag;
     private float AttackDammage = 10;
     private float AttackRange = 1;
+    private float Accuracy = 60;
 
     private Vector3 firstSpawn;
 
@@ -35,8 +36,9 @@ public class RangedAttack : MonoBehaviour
             FlytoEnemy();
     }
 
-    public void EnemySetting(RaycastHit2D hit, string enemyTag, float attackDammage, float attackRange=2)
+    public void EnemySetting(RaycastHit2D hit, string enemyTag, float attackDammage, float attackRange=2, float accuracy=60)
     {
+      
         EnemyTag = enemyTag;
         if (EnemyTag == "Team")
         {
@@ -45,6 +47,7 @@ public class RangedAttack : MonoBehaviour
         Enemy = hit;
         AttackDammage = attackDammage;
         AttackRange = attackRange;
+        Accuracy = accuracy;
         _Setting = true;
     }
     
@@ -69,7 +72,7 @@ public class RangedAttack : MonoBehaviour
     {
         if (other.CompareTag(EnemyTag))
         {
-            other.GetComponent<BaseCharacter>().TakeDamage(AttackDammage);
+            other.GetComponent<BaseCharacter>().TakeDamage(AttackDammage,Accuracy);
             Destroy(gameObject);
         }
     }

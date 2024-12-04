@@ -18,6 +18,8 @@ namespace Chracter
         protected int UnitCost;
         public Animator animator;
         protected float MoveSpeed = 1f;
+        protected float Accuracy = 60f;
+        protected float Avoid = 60;
 
         public HealthBar healthBar;
         [SerializeField] GameObject rangedAttackPrefab=null;
@@ -43,7 +45,21 @@ namespace Chracter
         private bool secondHit = false;
         private bool isDead = false;
         private RaycastHit2D currentEnemy;
-        
+
+        //CharacterHealth
+        protected static readonly float HealthVeryLow;
+        protected static readonly float HealthLow;
+        protected static readonly float HealthDefault;
+        protected static readonly float HealthHigh;
+        protected static readonly float HealthVeryHigh;
+
+        //CharacterHealth
+        protected static readonly float AttackVeryLow;
+        protected static readonly float AttackLow;
+        protected static readonly float AttackDefault;
+        protected static readonly float AttackHigh;
+        protected static readonly float AttackVeryHigh;
+
 
         //CharacterSpeed
         protected static readonly float MoveLow = 0.7f;
@@ -64,6 +80,21 @@ namespace Chracter
         protected static readonly float AttackSpeedLow=0.7f;
         protected static readonly float AttackSpeedDefault=1.0f;
         protected static readonly float AttackSpeedFast=1.2f;
+
+        //CharacterAccuracy
+        protected static readonly float AccuracyVeryLow=20;
+        protected static readonly float AccuracyLow=40;
+        protected static readonly float AccuracyDefault=60;
+        protected static readonly float AccuracyHigh=100;
+        protected static readonly float AccuracyVeryHigh=200;
+
+
+        //CharacterAvoid
+        protected static readonly float AvoidVeryLow=20;
+        protected static readonly float AvoidLow=40;
+        protected static readonly float AvoidDefault=60;
+        protected static readonly float AvoidHigh=80;
+        protected static readonly float AvoidVeryHigh=120;
 
 
 
@@ -87,7 +118,7 @@ namespace Chracter
 
 
         public virtual void SetCharacterSettings(float HP = 100, float Attack = 10, float armor = 0, float attackSpeed = 1,
-            float attackRange = 0.5f,bool isPhysical=true, bool isMelle=true, float moveSpeed=1.0f)
+            float attackRange = 0.5f,bool isPhysical=true, bool isMelle=true, float moveSpeed=1.0f,float accuracy=60,float avoid = 60)
         {
             MaxHealth = HP;
             CurrentHealth = MaxHealth;
@@ -98,6 +129,8 @@ namespace Chracter
             IsPhysical = isPhysical;
             IsMelee = isMelle;
             MoveSpeed = moveSpeed;
+            Accuracy = accuracy;
+            Avoid = avoid;
 
         }
 
@@ -163,7 +196,7 @@ namespace Chracter
         {
             if (currentEnemy)
             {
-                currentEnemy.collider.GetComponent<BaseCharacter>().TakeDamage(AttackDammage);
+                currentEnemy.collider.GetComponent<BaseCharacter>().TakeDamage(AttackDammage,Accuracy);
             }
         }
 
@@ -181,15 +214,29 @@ namespace Chracter
             if(currentEnemy)
             {
                 GameObject rangedAttack = Instantiate(rangedAttackPrefab, rangedAttackSpawnPoint.position, Quaternion.identity);
-                rangedAttack.GetComponent<RangedAttack>().EnemySetting(currentEnemy, Enemy, AttackDammage, AttackRange);
+                rangedAttack.GetComponent<RangedAttack>().EnemySetting(currentEnemy, Enemy, AttackDammage, AttackRange,Accuracy);
             }
 
         }
 
 
 
-        public virtual void TakeDamage(float damage)
+        public virtual void TakeDamage(float damage, float enemyAccuracy=60)
         {
+            float HitPercent = enemyAccuracy-Avoid + 50;
+            if (HitPercent >= 100)
+            {
+                HitPercent = 100;
+            }
+            else if (HitPercent <= 5)
+            {
+                HitPercent = 5;
+            }
+            int HitCalculate = UnityEngine.Random.Range(0, 100);
+            if (HitCalculate > HitPercent)
+            {
+                return;
+            }
              float finalDamage = damage - Armor;
               if (finalDamage <= 0)
               {
