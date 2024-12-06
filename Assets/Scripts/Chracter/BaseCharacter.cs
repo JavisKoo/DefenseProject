@@ -77,6 +77,7 @@ namespace Chracter
         protected static readonly float AttackRangeRangedLong=3.0f;
 
         //ChcaracterAttackSpeed
+        protected static readonly float AttackSpeedVeryLow = 2.0f;
         protected static readonly float AttackSpeedLow=0.7f;
         protected static readonly float AttackSpeedDefault=1.0f;
         protected static readonly float AttackSpeedFast=1.2f;
@@ -236,12 +237,12 @@ namespace Chracter
             if (HitCalculate > HitPercent)
             {
                 return;
-            }
-             float finalDamage = damage - Armor;
+            } 
+            float finalDamage = damage - Armor;
               if (finalDamage <= 0)
               {
                   finalDamage = 1;
-             }
+              }
             CurrentHealth -= finalDamage;
             if (healthBar != null)
             {

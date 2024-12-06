@@ -20,7 +20,7 @@ namespace Chracter
 
             CheckTeam();
             // SetCharacterSetting MaxHealth,Attack,Armor,AttackSpeed,Attackrange,isphysical,israngedattack
-            SetCharacterSettings(500,30, 10,1, attackRange,true,false,2);
+            SetCharacterSettings(20,12, 0,0.5f, attackRange,true,false,1.5f,200,120);
             healthBar.SetHealth(MaxHealth, MaxHealth);
         }
     }

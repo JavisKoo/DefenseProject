@@ -51,7 +51,7 @@ public class Tower : BaseCharacter
         towerHPSlider.maxValue = maxHp;
         towerHPSlider.value = CurrentHealth;
 
-        //°ñµåÈ¹µæ
+        //ï¿½ï¿½ï¿½È¹ï¿½ï¿½
         if (!isCanGetGold)
             return;
 
@@ -101,7 +101,7 @@ public class Tower : BaseCharacter
         isGameOver = true;
     }
 
-    public override void TakeDamage(float damage)
+    public override void TakeDamage(float damage, float enemyAccuracy = 200)
     {
         float finalDamage = damage - Armor;
         if (finalDamage <= 0)

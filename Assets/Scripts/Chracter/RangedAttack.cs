@@ -16,6 +16,7 @@ public class RangedAttack : MonoBehaviour
     private Vector3 firstSpawn;
 
     private Vector3 move = new Vector3(1, 0, 0);
+    private Vector3 move2 = new Vector3(-1, 0, 0);
 
 
     // Start is called before the first frame update
@@ -60,11 +61,23 @@ public class RangedAttack : MonoBehaviour
         }
         else if (Enemy.collider == null)
         {
-            if(this.transform.position.x - firstSpawn.x > AttackRange * 1.2)
+            if(EnemyTag == "Team")
             {
-                Destroy(gameObject);
+                if(this.transform.position.x - firstSpawn.x < -AttackRange * 1.2)
+                {
+                    Destroy(gameObject);
+                }
+                transform.position = Vector2.MoveTowards(transform.position,transform.position+move2, 0.1f);
             }
-            transform.position = Vector2.MoveTowards(transform.position,transform.position+move, 0.1f);
+            else
+            {
+                if(this.transform.position.x - firstSpawn.x > AttackRange * 1.2)
+                {
+                    Destroy(gameObject);
+                }
+                transform.position = Vector2.MoveTowards(transform.position,transform.position+move, 0.1f);
+            }
+            
         }
     }
     //if hit enemy
