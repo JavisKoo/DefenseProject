@@ -1011,6 +1011,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef0f00face2db1249b3cc8436e728a1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  AttackStats: 0
+  ArmorStats: 0
+  HealthStats: 0
 --- !u!4 &498539051
 Transform:
   m_ObjectHideFlags: 0

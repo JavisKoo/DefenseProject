@@ -30,6 +30,10 @@ public class Tower : BaseCharacter
     public int maxHp = 1000;
     public UnityEngine.UI.Slider towerHPSlider;
     public Text towerHPText;
+    //Tower Stats
+    [Header("Tower Stats")]
+    public GameObject GameOverPanel;
+    public UnityEngine.UI.Image fadeimage;
     private void Awake()
     {
         renderer = GetComponent<SpriteRenderer>();
@@ -99,19 +103,43 @@ public class Tower : BaseCharacter
     public void GameOver()
     {
         isGameOver = true;
+        GameOverPanel.SetActive(true);
+        StartCoroutine(FadeCor());
     }
 
     public override void TakeDamage(float damage, float enemyAccuracy = 200)
     {
+        if (isGameOver)
+            return;
+
+
         float finalDamage = damage - Armor;
         if (finalDamage <= 0)
         {
             finalDamage = 1;
         }
         CurrentHealth -= finalDamage;
+        if (CurrentHealth < 0) //죽음 처리
+        {
+            Die();
+            CurrentHealth = 0;
+        }
+
+
         if (healthBar != null)
         {
             healthBar.TowerHealth(CurrentHealth, MaxHealth);
+        }
+    }
+
+    IEnumerator FadeCor()
+    {
+        float fadeCount = 0;
+        while (true)
+        {
+            fadeCount += 0.01f;
+            yield return new WaitForSeconds(0.02f);
+            fadeimage.color = new Color(0, 0, 0, fadeCount);
         }
     }
 }
