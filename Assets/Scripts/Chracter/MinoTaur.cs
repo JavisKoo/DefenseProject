@@ -16,7 +16,7 @@ namespace Chracter
 
             CheckTeam();
         
-            SetCharacterSettings(300,20,0,AttackSpeedDefault,AttackRangeMeleeLong,true,true,MoveDefault);
+            SetCharacterSettings(100,30,6,2.5f,AttackRangeMeleeLong,true,true,MoveDefault,60,20);
             healthBar.SetHealth(MaxHealth, MaxHealth);
         
         }

@@ -189,8 +189,7 @@ namespace Chracter
         {
             currentEnemy = hit;
             animator.SetTrigger(DoAttack);
-            animator.speed = AttackSpeed;
-            yield return new WaitForSeconds(1 / AttackSpeed);
+            yield return new WaitForSeconds(AttackSpeed);
             isAttacking = false;
         }
         private void AttackHIt()
@@ -205,8 +204,7 @@ namespace Chracter
         {
             animator.SetTrigger(DoAttack);
             currentEnemy = hit;
-            animator.speed = AttackSpeed;
-            yield return new WaitForSeconds(1/AttackSpeed);
+            yield return new WaitForSeconds(AttackSpeed);
             isAttacking = false;
         }
 

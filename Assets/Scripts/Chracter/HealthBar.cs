@@ -25,6 +25,12 @@ namespace Chracter
     
         public void SetHealth(float health, float maxHealth)
         {
+            if (health <= 0)
+            {
+                slider.gameObject.SetActive(false);
+                return;
+            }
+            
             slider.gameObject.SetActive(health < maxHealth);
             slider.value = health;
             slider.maxValue = maxHealth;

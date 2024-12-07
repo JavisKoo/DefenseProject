@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7383985861556529912}
   - component: {fileID: 7629753397532227687}
   m_Layer: 0
-  m_Name: ThiefArrow
+  m_Name: DragonArrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -420196861, guid: b54601c1220ef8e4ea1f17fd320ba48f, type: 3}
+  m_Sprite: {fileID: -950170528, guid: 8081fb37d847152478356b9947388192, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -131,18 +131,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.38855916}
+  m_Offset: {x: 0.021184325, y: -0.17794846}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.05}
-    oldSize: {x: 1.1999999, y: 1.1999999}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.3999999, y: 2.9999998}
     newSize: {x: 1.1999999, y: 1.1999999}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.45493042, y: 0.16156924}
+  m_Size: {x: 2.073414, y: 0.78563833}
   m_EdgeRadius: 0
 --- !u!50 &7629753397532227687
 Rigidbody2D:

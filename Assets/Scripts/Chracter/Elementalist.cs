@@ -8,7 +8,7 @@ namespace Chracter
         public ParticleSystem moveParticle;
    
 
-        private int attackRange=5;
+      
     
         // Start is called before the first frame update
         void Start()
@@ -19,7 +19,7 @@ namespace Chracter
             }
 
             CheckTeam();
-            SetCharacterSettings(500,300, 10,1, attackRange,true,false);
+            SetCharacterSettings(160,40, 0,1.4f, AttackRangeRangedLong,false,false,MoveDefault,120,80);
             healthBar.SetHealth(MaxHealth, MaxHealth);
         }
     }

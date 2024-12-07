@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Chracter
 {
-    public class WoodGolem : BaseCharacter
+    public class Dragon : BaseCharacter
     {
         public ParticleSystem moveParticle;
     
@@ -16,7 +16,7 @@ namespace Chracter
 
             CheckTeam();
         
-            SetCharacterSettings(240,80,22,3.3f,AttackRangeMeleeDefault,true,true,MoveDefault,60,20);
+            SetCharacterSettings(240,80,22,3.3f,AttackRange,true,true,MoveDefault,60,20);
             healthBar.SetHealth(MaxHealth, MaxHealth);
         
         }
