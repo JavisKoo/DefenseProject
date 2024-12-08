@@ -95,16 +95,33 @@ public class PlayerMove : BaseCharacter
     {
         isSkillMotion = true;
         animator.SetTrigger("doSkill1");
-        StartCoroutine(SkillMotion());
+        StartCoroutine(Skill1Motion());
     }
     public void Skill2()
     {
         isSkillMotion = true;
         animator.SetTrigger("doSkill2");
-        StartCoroutine(SkillMotion());
+        StartCoroutine(Skill2Motion());
     }
     
-    protected IEnumerator SkillMotion()
+    protected IEnumerator Skill1Motion()
+    {
+        // check my team is around me
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, 2f, LayerMask.GetMask("Team"));
+        
+        if(hitColliders.Length == 0)
+        {
+            isSkillMotion = false;
+            yield break;
+        }
+        foreach (var hitCollider in hitColliders)
+        {
+            hitCollider.GetComponent<BaseCharacter>().Buff();
+        }
+        yield return new WaitForSeconds(1.0f);
+        isSkillMotion = false;
+    }
+    protected IEnumerator Skill2Motion()
     {
         yield return new WaitForSeconds(1.0f);
         isSkillMotion = false;

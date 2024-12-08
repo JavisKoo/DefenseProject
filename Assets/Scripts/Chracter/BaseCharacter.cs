@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using CartoonFX;
 using UnityEngine;
 
 namespace Chracter
@@ -7,6 +8,7 @@ namespace Chracter
     public class BaseCharacter : MonoBehaviour
     {
         protected ClassType UnitType;
+        public ParticleSystem buffEffect;
         protected float MaxHealth = 100;
         protected float CurrentHealth;
         protected float AttackDammage = 10;
@@ -302,6 +304,18 @@ namespace Chracter
         protected void SetPlayer()
         {
             isPlayableCharacter = true;
+        }
+
+        public void Buff()
+        {
+            StartCoroutine(BuffParticle());
+        }
+
+        private IEnumerator BuffParticle()
+        {
+            buffEffect.Play();
+            yield return new WaitForSeconds(1.0f);
+            
         }
     }
 }
