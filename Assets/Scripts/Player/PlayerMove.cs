@@ -6,147 +6,108 @@ using UnityEngine;
 
 public class PlayerMove : BaseCharacter
 {
-    //player move
-    public float playerSpeed = 2f;
-    private bool moveLeft = false;
-    private bool moveRight = false;
-
-
-    SpriteRenderer spriteRenderer; //플레이어 flip하기 위해서 선언
-
-    //attack
-    [SerializeField] GameObject player;
-    [SerializeField] LayerMask layer;
-    [SerializeField] float radius;
-    [SerializeField] Collider2D[] col;
-    [SerializeField] Transform target;
-    [SerializeField] float playerAttackRange = 2f;
-
+    
+    private bool Attacking = false;
+    private bool ismoving = false;
+    private bool isSkillMotion = false;
     private void Start()
     {
-        animator = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        SetCharacterSettings(50000);
+        SetPlayer();
+        CheckTeam();
+        SetCharacterSettings(50000,10, 0,1.4f, 3f,true,true,1.5f,200,120);
+        healthBar.SetHealth(MaxHealth, MaxHealth);
     }
-    // when button is pressed, move camera to the left smoothly
-    private void Update()
+    
+    void Update()
     {
-        Move();
-        CheckEnemy();
-
-        //캐릭터 키보드로 이동 (임시코드)
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if(Input.GetKey(KeyCode.A))
         {
-            MoveLeft();
+            Skill1();
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        if(Input.GetKey(KeyCode.S))
         {
-            MoveRight();
+            Skill2();
         }
-        else
+        
+        if (isSkillMotion)
         {
-            StopMoving();
+            return;
         }
-    }
-
-    public void MoveLeft()
-    {
-        moveLeft = true;
-        moveRight = false;
-    }
-    public void MoveRight()
-    {
-        moveLeft = false;
-        moveRight = true;
-    }
-    public void StopMoving()
-    {
-        moveLeft = false;
-        moveRight = false;
-    }
-
-    public void Move()
-    {
-        if (moveLeft) //왼쪽이동
+        
+        if (Input.GetKey(KeyCode.RightArrow))
         {
-            if (transform.position.x <= -3.8f) //최대 왼쪽이동 거리
+            if (!ismoving)
             {
-                StopMoving();
-                return;
+                ismoving = true;
+                animator.SetTrigger(DoMove);
             }
-            animator.SetTrigger("doMove");
-            spriteRenderer.flipX = true;
-
-            //플레이어 이동
-            transform.position += Vector3.left * playerSpeed * Time.deltaTime;
+            this.GetComponent<SpriteRenderer>().flipX = false;
+            RightLeft=Vector3.right;
+            StartCoroutine(Move());
         }
-        if (moveRight)
+        else if (Input.GetKey(KeyCode.LeftArrow))
         {
-            if (transform.position.x >= 4.5f) //최대 오른쪽이동 거리
+            if (!ismoving)
             {
-                StopMoving();
-                return;
+                ismoving = true;
+                animator.SetTrigger(DoMove);
             }
-            animator.SetTrigger("doMove");
-            spriteRenderer.flipX = false;
-
-            //플레이어 이동
-            transform.position += Vector3.right * playerSpeed * Time.deltaTime;
+            this.GetComponent<SpriteRenderer>().flipX = true;
+            RightLeft=Vector3.left;
+            StartCoroutine(Move());
         }
+        else if(!isAttacking)
+        {
+            ismoving = false;
+            animator.SetTrigger("doStop");
+        }
+        
+        
+    }
+    private IEnumerator Move()
+    {
+        transform.position += MoveSpeed * Time.deltaTime * RightLeft;
+        yield return null;
     }
 
-    private void CheckEnemy()
+
+    protected override void CheckEnemy()
     {
-        col = Physics2D.OverlapCircleAll(player.transform.position, radius, layer);
-
-        Transform nearEnemy = null;
-
-        if (col.Length>0)
+        if(ismoving) {return;}
+        
+        RaycastHit2D hit = Physics2D.Raycast(transform.position+raycastHeight, RightLeft, AttackRange, LayerMask.GetMask(Enemy));
+        //draw the ray in the scene view with distance 
+        Debug.DrawRay(transform.position+ raycastHeight, RightLeft * AttackRange, Color.red);
+        if (hit.collider != null)
         {
-            float nearDistance = Mathf.Infinity;
-
-            foreach (Collider2D nCol in col)
-            {
-                float playerToEnemy = Vector3.SqrMagnitude(player.transform.position - nCol.transform.position);
-
-                if (nearDistance > playerToEnemy)
-                {
-                    nearDistance = playerToEnemy;
-                    nearEnemy = nCol.transform;
-                }
-            }
-
-            target = nearEnemy;
-            //attack
-            if (nearDistance < playerAttackRange && isAttacking == false)
+            if (hit.collider.CompareTag(Enemy) && isAttacking == false)
             {
                 isAttacking = true;
-                StartCoroutine(Attack());
-                //rotate
-                CheckEnemyRotate();
+                if (IsMelee)
+                {
+                    StartCoroutine(Attack(hit));
+                }
             }
         }
-        
-
-        
     }
-
-    private void CheckEnemyRotate()
+    
+    public void Skill1()
     {
-        if(target == null || target.position.x >= player.transform.position.x)
-        {
-            spriteRenderer.flipX = false;
-        }
-        else
-        {
-            spriteRenderer.flipX = true;
-        }
+        isSkillMotion = true;
+        animator.SetTrigger("doSkill1");
+        StartCoroutine(SkillMotion());
+    }
+    public void Skill2()
+    {
+        isSkillMotion = true;
+        animator.SetTrigger("doSkill2");
+        StartCoroutine(SkillMotion());
+    }
+    
+    protected IEnumerator SkillMotion()
+    {
+        yield return new WaitForSeconds(1.0f);
+        isSkillMotion = false;
     }
 
-    private IEnumerator Attack() //이동할때도 공격
-    {
-        animator.SetTrigger(DoAttack);
-        yield return new WaitForSeconds(0.5f);
-        isAttacking = false;
-    }
 }

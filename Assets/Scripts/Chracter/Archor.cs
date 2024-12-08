@@ -6,9 +6,7 @@ namespace Chracter
     public class Archor : BaseCharacter
     {
         public ParticleSystem moveParticle;
-   
-
-        private int attackRange=5;
+        
     
         // Start is called before the first frame update
         void Start()
@@ -20,7 +18,7 @@ namespace Chracter
 
             CheckTeam();
             // SetCharacterSetting MaxHealth,Attack,Armor,AttackSpeed,Attackrange,isphysical,israngedattack
-            SetCharacterSettings(20,12, 0,2.0f, attackRange,true,false,1.5f,200,120);
+            SetCharacterSettings(20,12, 0,2.0f, AttackRangeRangedDefault,true,false,1.5f,200,120);
             healthBar.SetHealth(MaxHealth, MaxHealth);
         }
     }

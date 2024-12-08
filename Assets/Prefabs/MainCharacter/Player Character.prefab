@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3462734365905848448}
   - component: {fileID: 4062974615113450020}
   - component: {fileID: 711256348392613202}
-  - component: {fileID: 5390705333858574319}
   - component: {fileID: 6903633175526492949}
+  - component: {fileID: 8261565802474223670}
   m_Layer: 6
   m_Name: Player Character
   m_TagString: Team
@@ -77,12 +77,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -5325714947843674390, guid: 4d701fb8bab94204e92af20e3e7b6a8a, type: 3}
+  m_Sprite: {fileID: 2083078570, guid: 4171359abe9d0ca4a82287097eb18c5e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.5, y: 1}
+  m_Size: {x: 7.5018315, y: 8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -98,7 +98,7 @@ Animator:
   m_GameObject: {fileID: 8313518626039230413}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d05c21188b9ef734486aa267dd625e69, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6467ec96506ec054f85a76d350b8efcb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -109,8 +109,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!70 &5390705333858574319
-CapsuleCollider2D:
+--- !u!114 &6903633175526492949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8313518626039230413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a955df7ebb0ead948ac72872691927a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 711256348392613202}
+  healthBar: {fileID: 8088947722056736088}
+  rangedAttackPrefab: {fileID: 0}
+  rangedAttackSpawnPoint: {fileID: 0}
+--- !u!61 &8261565802474223670
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -141,33 +157,19 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.39, y: 0.44}
-  m_Size: {x: 0.47, y: 0.82}
-  m_Direction: 0
---- !u!114 &6903633175526492949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8313518626039230413}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a955df7ebb0ead948ac72872691927a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 711256348392613202}
-  moveSpeed: 5
-  healthBar: {fileID: 8088947722056736088}
-  playerSpeed: 2
-  player: {fileID: 8313518626039230413}
-  layer:
-    serializedVersion: 2
-    m_Bits: 128
-  radius: 5
-  col: []
-  target: {fileID: 0}
-  playerAttackRange: 2
+  m_Offset: {x: -0.018279225, y: 0.4922433}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.1}
+    oldSize: {x: 1.5003663, y: 1.6}
+    newSize: {x: 7.5018315, y: 8}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.0982246, y: 1.3044865}
+  m_EdgeRadius: 0
 --- !u!1001 &8731409989367711026
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -255,6 +257,10 @@ PrefabInstance:
     - target: {fileID: 541563704114582982, guid: 012623518ef93444d8b2480791b1b99f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 679344285734852714, guid: 012623518ef93444d8b2480791b1b99f, type: 3}
+      propertyPath: offset.y
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 4764713433312536193, guid: 012623518ef93444d8b2480791b1b99f, type: 3}
       propertyPath: m_Name

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DragonAttack
+  m_Name: PrincessAttack
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -55,9 +55,9 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 1885245156, guid: ea8626b9cd0176f4a9bf5a4aab4cd64a, type: 3}
+      value: {fileID: 1494724045, guid: 4171359abe9d0ca4a82287097eb18c5e, type: 3}
     - time: 0.5
-      value: {fileID: -1094112858, guid: ea8626b9cd0176f4a9bf5a4aab4cd64a, type: 3}
+      value: {fileID: 2026536097, guid: 4171359abe9d0ca4a82287097eb18c5e, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -89,8 +89,8 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 1885245156, guid: ea8626b9cd0176f4a9bf5a4aab4cd64a, type: 3}
-    - {fileID: -1094112858, guid: ea8626b9cd0176f4a9bf5a4aab4cd64a, type: 3}
+    - {fileID: 1494724045, guid: 4171359abe9d0ca4a82287097eb18c5e, type: 3}
+    - {fileID: 2026536097, guid: 4171359abe9d0ca4a82287097eb18c5e, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -195,7 +195,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.5
-    functionName: RangedAttackShoot
+    functionName: AttackHIt
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

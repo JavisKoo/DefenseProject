@@ -32,14 +32,15 @@ namespace Chracter
         protected static readonly int DODie = Animator.StringToHash("doDie");
 
         protected bool isAttacking = false;
-        protected bool isMoving = false;
+        protected bool IsMoving = false;
 
-        private Vector3 raycastHeight = new Vector3(0, 0.2f, 0);
+        protected Vector3 raycastHeight = new Vector3(0, 0.2f, 0);
 
 
         protected Vector3 RightLeft;
         protected string Enemy;
         protected string Team;
+        protected bool isPlayableCharacter = false;
     
         private bool firstHit = false;
         private bool secondHit = false;
@@ -136,7 +137,7 @@ namespace Chracter
         }
 
 
-        private void CheckEnemy()
+        protected virtual void CheckEnemy()
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position+raycastHeight, RightLeft, AttackRange, LayerMask.GetMask(Enemy));
             //draw the ray in the scene view with distance 
@@ -146,7 +147,7 @@ namespace Chracter
                 if (hit.collider.CompareTag(Enemy) && isAttacking == false)
                 {
                     isAttacking = true;
-                    isMoving = false;
+                    IsMoving = false;
                     if (IsMelee)
                     {
                         StartCoroutine(Attack(hit));
@@ -158,10 +159,10 @@ namespace Chracter
                    
                 }
             }
-            else if (isAttacking == false && isMoving == false)
+            else if (isAttacking == false && IsMoving == false)
             {
                animator.speed = MoveSpeed;
-               isMoving = true;
+               IsMoving = true;
                animator.SetTrigger(DoMove);
             }
 
@@ -180,6 +181,7 @@ namespace Chracter
             transform.position += MoveSpeed * Time.deltaTime * RightLeft;
             yield return null;
         }
+        
 
 
 
@@ -295,6 +297,11 @@ namespace Chracter
             }
 
             animator.SetTrigger(DoMove);
+        }
+
+        protected void SetPlayer()
+        {
+            isPlayableCharacter = true;
         }
     }
 }
