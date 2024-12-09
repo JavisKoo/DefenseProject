@@ -142,4 +142,20 @@ public class PlayerMove : BaseCharacter
         isSkillMotion = false;
     }
 
+
+    public override IEnumerator RangedAttack(RaycastHit2D hit)
+    {
+
+
+        yield return new WaitForEndOfFrame();
+    }
+
+    protected override void RangedAttackShoot()
+    {
+
+            GameObject rangedAttack = Instantiate(rangedAttackPrefab, rangedAttackSpawnPoint.position - new Vector3(0, 0.5f, 0), Quaternion.identity);
+            
+
+    }
+
 }

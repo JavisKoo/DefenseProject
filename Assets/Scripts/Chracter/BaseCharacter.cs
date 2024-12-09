@@ -24,8 +24,8 @@ namespace Chracter
         protected float Avoid = 60;
 
         public HealthBar healthBar;
-        [SerializeField] GameObject rangedAttackPrefab=null;
-        [SerializeField] Transform rangedAttackSpawnPoint=null;
+        [SerializeField] protected GameObject rangedAttackPrefab=null;
+        [SerializeField] protected Transform rangedAttackSpawnPoint=null;
 
 
         protected static readonly int DoMove = Animator.StringToHash("doMove");
@@ -212,7 +212,7 @@ namespace Chracter
             isAttacking = false;
         }
 
-        private void RangedAttackShoot()
+        protected virtual void RangedAttackShoot()
         {
             if(currentEnemy)
             {
