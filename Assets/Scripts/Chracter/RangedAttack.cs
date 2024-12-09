@@ -55,12 +55,7 @@ public class RangedAttack : MonoBehaviour
     
     private void FlytoEnemy()
     {
-        if (Enemy.collider != null)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, Enemy.point, 0.1f);
-        }
-        else if (Enemy.collider == null)
-        {
+
             if(EnemyTag == "Team")
             {
                 if(this.transform.position.x - firstSpawn.x < -AttackRange * 1.2)
@@ -78,7 +73,7 @@ public class RangedAttack : MonoBehaviour
                 transform.position = Vector2.MoveTowards(transform.position,transform.position+move, 0.1f);
             }
             
-        }
+        
     }
     //if hit enemy
     private void OnTriggerEnter2D(Collider2D other)

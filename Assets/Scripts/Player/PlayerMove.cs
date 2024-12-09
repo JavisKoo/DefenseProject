@@ -20,46 +20,50 @@ public class PlayerMove : BaseCharacter
     
     void Update()
     {
-        if(Input.GetKey(KeyCode.A))
-        {
-            Skill1();
-        }
-        if(Input.GetKey(KeyCode.S))
-        {
-            Skill2();
-        }
-        
+
         if (isSkillMotion)
         {
-            return;
+
         }
-        
-        if (Input.GetKey(KeyCode.RightArrow))
+        else
         {
-            if (!ismoving)
+            if (Input.GetKey(KeyCode.A))
             {
-                ismoving = true;
-                animator.SetTrigger(DoMove);
+                Skill1();
             }
-            this.GetComponent<SpriteRenderer>().flipX = false;
-            RightLeft=Vector3.right;
-            StartCoroutine(Move());
-        }
-        else if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            if (!ismoving)
+            if (Input.GetKey(KeyCode.S))
             {
-                ismoving = true;
-                animator.SetTrigger(DoMove);
+                Skill2();
             }
-            this.GetComponent<SpriteRenderer>().flipX = true;
-            RightLeft=Vector3.left;
-            StartCoroutine(Move());
-        }
-        else if(!isAttacking)
-        {
-            ismoving = false;
-            animator.SetTrigger("doStop");
+
+
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                if (!ismoving)
+                {
+                    ismoving = true;
+                    animator.SetTrigger(DoMove);
+                }
+                this.GetComponent<SpriteRenderer>().flipX = false;
+                RightLeft = Vector3.right;
+                StartCoroutine(Move());
+            }
+            else if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                if (!ismoving)
+                {
+                    ismoving = true;
+                    animator.SetTrigger(DoMove);
+                }
+                this.GetComponent<SpriteRenderer>().flipX = true;
+                RightLeft = Vector3.left;
+                StartCoroutine(Move());
+            }
+            else if (!isAttacking)
+            {
+                ismoving = false;
+                animator.SetTrigger("doStop");
+            }
         }
         
         
@@ -100,6 +104,7 @@ public class PlayerMove : BaseCharacter
     public void Skill2()
     {
         isSkillMotion = true;
+        Debug.Log("Skill2");
         animator.SetTrigger("doSkill2");
         StartCoroutine(Skill2Motion());
     }
@@ -109,6 +114,7 @@ public class PlayerMove : BaseCharacter
         // check my team is around me
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, 2f, LayerMask.GetMask("Team"));
         
+        //1hitcollider is this
         if(hitColliders.Length == 0)
         {
             isSkillMotion = false;
@@ -124,6 +130,7 @@ public class PlayerMove : BaseCharacter
     protected IEnumerator Skill2Motion()
     {
         yield return new WaitForSeconds(1.0f);
+        Debug.Log("Skill2Fin");
         isSkillMotion = false;
     }
 

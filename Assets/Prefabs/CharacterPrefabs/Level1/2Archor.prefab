@@ -182,8 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 272bb7eeb580e6346bf6577c38edf541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cfxrEffect: {fileID: 2806842839378239000}
-  cfxrParticleText: {fileID: 0}
+  buffEffect: {fileID: 0}
   animator: {fileID: 5061897147921594596}
   healthBar: {fileID: 8625749739803935675}
   rangedAttackPrefab: {fileID: 3362732813862743725, guid: d5a08a45a00e9784da0960bbf6ae8dce, type: 3}
@@ -328,17 +327,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
---- !u!114 &2806842839378239000 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3280519133390621041, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
-  m_PrefabInstance: {fileID: 825661170255124329}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9205bc1bbacc90040a998067b5643d16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &2806842839378239003 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3280519133390621042, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
@@ -506,6 +494,10 @@ PrefabInstance:
     - target: {fileID: 541563704114582982, guid: 012623518ef93444d8b2480791b1b99f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 679344285734852714, guid: 012623518ef93444d8b2480791b1b99f, type: 3}
+      propertyPath: offset.y
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 4764713433312536193, guid: 012623518ef93444d8b2480791b1b99f, type: 3}
       propertyPath: m_Name
