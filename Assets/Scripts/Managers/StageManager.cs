@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 using static ItemData;
@@ -65,12 +64,23 @@ public class StageManager : MonoBehaviour
     {
         int count = System.Enum.GetValues(typeof(ItemType)).Length; //유닛 종류 개수구하기
 
+        int beforeNum;
+        List<int> nums = new List<int>();
+
         for (int i = 0; i < 3; i++)
         {
             Debug.Log("Stage : " + stage);
             int ranNum = Random.Range((stage - 1) * 5, ((stage - 1) * 5) + 5); //스테이지 1이면 0~5, 2이면 5~10, 3이면 10~15
             //Debug.Log("첫번째 값: " + (stage - 1) * 5 + "두번째 값: " + ((stage - 1) * 5) + 5);
             //Debug.Log("랜덤 아이디값" + ranNum);
+            //중복체크
+            while(nums.Contains(ranNum)) //랜덤넘버가 만약 이미 있다면
+            {
+                ranNum = Random.Range((stage - 1) * 5, ((stage - 1) * 5) + 5);
+            }
+            nums.Add(ranNum);
+
+
 
             //UI에 랜덤유닛 정보 집어넣기
             cardType[i].text = datas[ranNum].itemName.ToString();
@@ -79,6 +89,8 @@ public class StageManager : MonoBehaviour
             //
             cards[i].cardId = ranNum;
             //Debug.Log(i+"번째 카드 아이디: " + ranNum);
+
+            
         }
 
         cardPanel.SetActive(true);

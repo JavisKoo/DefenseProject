@@ -55,10 +55,6 @@ public class Tower : BaseCharacter
         towerHPSlider.maxValue = maxHp;
         towerHPSlider.value = CurrentHealth;
 
-        //���ȹ��
-        if (!isCanGetGold)
-            return;
-
         currentTime += Time.deltaTime;
         if (currentTime >= maxTime)
         {
@@ -72,8 +68,12 @@ public class Tower : BaseCharacter
         currentGold += goldPerSec;
         if (currentGold > maxGold)
         {
+            currentGold = maxGold;
             isCanGetGold = false;
-            return;
+        }
+        else
+        {
+            isCanGetGold = true;
         }
         InitUI();
     }
