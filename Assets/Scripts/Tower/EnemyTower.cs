@@ -33,13 +33,15 @@ public class EnemyTower : BaseCharacter
     {
         //spawn
         spawnList = new List<EnemySpawn>();
-        ReadSpawnFile();
+
+        //StartCoroutine(WaitStageManager());
     }
 
     private void Start()
     {
         SetCharacterSettings(5000);
         towerHPSlider.maxValue = MaxHealth;
+        ReadSpawnFile();
     }
 
     private void Update()
@@ -65,7 +67,8 @@ public class EnemyTower : BaseCharacter
         spawnEnd = false;
 
         //파일 읽기
-        TextAsset textFile = Resources.Load("Stage1") as TextAsset;
+        Debug.Log("Stage" + StageManager.Instance.stage.ToString());
+        TextAsset textFile = Resources.Load("Stage" + StageManager.Instance.stage.ToString()) as TextAsset;
         StringReader reader = new StringReader(textFile.text);
 
         while(reader != null)
@@ -173,15 +176,22 @@ public class EnemyTower : BaseCharacter
 
     public void StageStart()
     {
-        stage++;
-        if (stage >= 3)
+        StageManager.Instance.stage++;
+        if (StageManager.Instance.stage >= 3)
         {
             //던전 클리어
         }
     }
 
-    public void StageEnd()
+    public void StageEnd() //타워 hp가 0이라면 실행
     {
+        StageManager.Instance.StageStart();
+    }
+
+    protected IEnumerator WaitStageManager()
+    {
+        yield return new WaitForSeconds(0.2f);
+        ReadSpawnFile();
 
     }
 }

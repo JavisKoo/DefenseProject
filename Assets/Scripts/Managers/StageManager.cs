@@ -20,7 +20,7 @@ public class StageManager : MonoBehaviour
     //유닛생산버튼
     public Item[] unitButtons;
     //스테이지 정보
-    public int stage = 0;
+    public int stage = 1;
 
     void Awake()
     {
@@ -50,12 +50,12 @@ public class StageManager : MonoBehaviour
 
     private void Start()
     {
+      
         StageStart();
     }
 
     public void StageStart()
     {
-        stage++;
         Time.timeScale = 0f;
         MakeCard();
     }
@@ -69,7 +69,6 @@ public class StageManager : MonoBehaviour
 
         for (int i = 0; i < 3; i++)
         {
-            Debug.Log("Stage : " + stage);
             int ranNum = Random.Range((stage - 1) * 5, ((stage - 1) * 5) + 5); //스테이지 1이면 0~5, 2이면 5~10, 3이면 10~15
             //Debug.Log("첫번째 값: " + (stage - 1) * 5 + "두번째 값: " + ((stage - 1) * 5) + 5);
             //Debug.Log("랜덤 아이디값" + ranNum);
