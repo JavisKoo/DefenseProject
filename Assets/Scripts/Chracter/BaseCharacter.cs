@@ -216,7 +216,7 @@ namespace Chracter
         {
             if(currentEnemy)
             {
-                GameObject rangedAttack = Instantiate(rangedAttackPrefab, rangedAttackSpawnPoint.position, Quaternion.identity);
+                GameObject rangedAttack = Instantiate(rangedAttackPrefab, rangedAttackSpawnPoint.position-new Vector3(0,0.5f,0), Quaternion.identity);
                 rangedAttack.GetComponent<RangedAttack>().EnemySetting(currentEnemy, Enemy, AttackDammage, AttackRange,Accuracy);
             }
 

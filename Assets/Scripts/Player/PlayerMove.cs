@@ -68,6 +68,14 @@ public class PlayerMove : BaseCharacter
         
         
     }
+
+    private void FixedUpdate()
+    {
+        if (Enemy != null&& !isSkillMotion)
+            CheckEnemy();
+    }
+
+
     private IEnumerator Move()
     {
         transform.position += MoveSpeed * Time.deltaTime * RightLeft;
