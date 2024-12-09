@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 272bb7eeb580e6346bf6577c38edf541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buffEffect: {fileID: 0}
+  buffEffect: {fileID: 8344929459934316028, guid: acf36c529d6ec7345b1ded755a59af8a, type: 3}
   animator: {fileID: 5061897147921594596}
   healthBar: {fileID: 8625749739803935675}
   rangedAttackPrefab: {fileID: 3362732813862743725, guid: d5a08a45a00e9784da0960bbf6ae8dce, type: 3}

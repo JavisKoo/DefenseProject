@@ -181,8 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cabe64740b3e13e43b87c566cad2a6ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cfxrEffect: {fileID: 55178246365352047}
-  cfxrParticleText: {fileID: 0}
+  buffEffect: {fileID: 55178246061924554}
   animator: {fileID: 5061897147921594596}
   healthBar: {fileID: 2880435418583348988}
   rangedAttackPrefab: {fileID: 0}
@@ -336,22 +335,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
+--- !u!198 &55178246061924554 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3280519133223516628, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
+  m_PrefabInstance: {fileID: 3261369843138517278}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &55178246365352044 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3280519133390621042, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
   m_PrefabInstance: {fileID: 3261369843138517278}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &55178246365352047 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3280519133390621041, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
-  m_PrefabInstance: {fileID: 3261369843138517278}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9205bc1bbacc90040a998067b5643d16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &3356545974938365590
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -182,8 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0af115caafc32314abd0e186e763957a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cfxrEffect: {fileID: 444365095048413371}
-  cfxrParticleText: {fileID: 0}
+  buffEffect: {fileID: 8344929459934316028, guid: acf36c529d6ec7345b1ded755a59af8a, type: 3}
   animator: {fileID: 5061897147921594596}
   healthBar: {fileID: 6377817123183509302}
   rangedAttackPrefab: {fileID: 3362732813862743725, guid: 79598c3eefae28b40b26451b13c307fb, type: 3}
@@ -404,17 +403,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3280519133390621042, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
   m_PrefabInstance: {fileID: 3146905041163471306}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &444365095048413371 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3280519133390621041, guid: a71be3e7990efb040a07565c43cbb198, type: 3}
-  m_PrefabInstance: {fileID: 3146905041163471306}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9205bc1bbacc90040a998067b5643d16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5903949622328125276
 PrefabInstance:
   m_ObjectHideFlags: 0
