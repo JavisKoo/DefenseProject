@@ -17,5 +17,10 @@ MonoBehaviour:
   itemName: "\uB4DC\uB798\uACE4"
   itemDesc: "\uB4DC\uB798\uACE4\uC774\uB2E4."
   itemIcon: {fileID: 1923932212, guid: ea8626b9cd0176f4a9bf5a4aab4cd64a, type: 3}
+  member: "\uB9C8\uC655\uAD70"
+  defense: 0
+  health: 0
+  strength: 0
+  attackSpeed: 0
   level: 3
   cost: 300

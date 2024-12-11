@@ -65,7 +65,7 @@ public class Tower : BaseCharacter
 
     public void GetGold()
     {
-        currentGold += goldPerSec;
+        currentGold += goldPerSec / 10;
         if (currentGold > maxGold)
         {
             currentGold = maxGold;

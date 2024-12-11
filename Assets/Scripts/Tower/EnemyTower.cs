@@ -24,10 +24,14 @@ public class EnemyTower : BaseCharacter
     public Transform enemySpawnPoint;
 
     int stage = 1;
+    private bool isStageEnd = false;
     //UI
     [Header("UI")]
     public Slider towerHPSlider;
     public Text towerHPText;
+
+    //Game Clear
+    public GameObject stageClearPanel;
 
     private void Awake()
     {
@@ -39,7 +43,7 @@ public class EnemyTower : BaseCharacter
 
     private void Start()
     {
-        SetCharacterSettings(5000);
+        SetCharacterSettings(500);
         towerHPSlider.maxValue = MaxHealth;
         ReadSpawnFile();
     }
@@ -57,6 +61,13 @@ public class EnemyTower : BaseCharacter
             SpawnEnemy();
             curSpawnDelay = 0;
         }
+
+        //stage end
+        /*if (CurrentHealth <= 0)
+        {
+            CurrentHealth = 0;
+
+        }*/
     }
 
     void ReadSpawnFile()
@@ -176,11 +187,46 @@ public class EnemyTower : BaseCharacter
 
     public void StageStart()
     {
-        StageManager.Instance.stage++;
         if (StageManager.Instance.stage >= 3)
         {
             //던전 클리어
+            
+            Time.timeScale = 0f;
+            stageClearPanel.SetActive(true);
+            return;
         }
+        CurrentHealth = MaxHealth;
+        StageManager.Instance.stage++;
+    }
+
+    public override void TakeDamage(float damage, float enemyAccuracy = 200)
+    {
+        if (isStageEnd)
+            return;
+
+
+        float finalDamage = damage - Armor;
+        if (finalDamage <= 0)
+        {
+            finalDamage = 1;
+        }
+        CurrentHealth -= finalDamage;
+        if (CurrentHealth < 0) //죽음 처리
+        {
+            Die();
+            CurrentHealth = 0;
+        }
+
+
+        if (healthBar != null)
+        {
+            healthBar.TowerHealth(CurrentHealth, MaxHealth);
+        }
+    }
+
+    public virtual void Die()
+    {
+        StageEnd();
     }
 
     public void StageEnd() //타워 hp가 0이라면 실행

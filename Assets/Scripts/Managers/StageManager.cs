@@ -13,7 +13,9 @@ public class StageManager : MonoBehaviour
     public Text[] cardType;
     public Image[] cardImage;
     public Text[] cardDesc;
+    public Text[] cardCost;
     public Card[] cards;
+    public Text[] cardMember;
     //카드정보
     public ItemData[] datas;
     public int selectId;
@@ -21,6 +23,8 @@ public class StageManager : MonoBehaviour
     public Item[] unitButtons;
     //스테이지 정보
     public int stage = 1;
+    //
+    public EnemyTower enemyTower;
 
     void Awake()
     {
@@ -85,6 +89,8 @@ public class StageManager : MonoBehaviour
             cardType[i].text = datas[ranNum].itemName.ToString();
             cardImage[i].sprite = datas[ranNum].itemIcon;
             cardDesc[i].text = datas[ranNum].itemDesc.ToString();
+            cardCost[i].text = datas[ranNum].cost.ToString();
+            cardMember[i].text = datas[ranNum].member.ToString();
             //
             cards[i].cardId = ranNum;
             //Debug.Log(i+"번째 카드 아이디: " + ranNum);
@@ -119,5 +125,8 @@ public class StageManager : MonoBehaviour
         //cardDelayImage[selectId].sprite = datas[selectId].itemIcon;
         Time.timeScale = 1f;
         cardPanel.SetActive(false);
+
+        //enemyTower
+        enemyTower.StageStart();
     }
 }

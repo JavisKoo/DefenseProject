@@ -32,6 +32,16 @@ public class ItemData : ScriptableObject
     public string itemDesc;
     public Sprite itemIcon;
 
+    public string member;
+    public int defense;
+    public int health;
+    public int strength;
+    public int attackSpeed;
+    public string simpleDefense;
+    public string simpleHealth;
+    public string simpleStrength;
+    public string simpleAttackSpeed;
+
     [Header("# Level Data")]
     public int level;
     /*public float baseDamage;
