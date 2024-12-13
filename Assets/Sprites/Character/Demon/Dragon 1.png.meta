@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bcf23d87cf79fd4499faaf85a1ce6ae7
+guid: 8081fb37d847152478356b9947388192
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 300
+  spritePixelsToUnits: 250
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -94,7 +94,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: iPhone
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -107,7 +107,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
+    buildTarget: iPhone
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -123,148 +123,148 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Reaper_0
+      name: Dragon 1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 700
-        width: 700
-        height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        y: 750
+        width: 600
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca8a230fbad12e34888f95748c5761ee
-      internalID: 125290895
+      spriteID: 2c8cc48846b4e8d4cb345a59850d603b
+      internalID: 1929808394
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reaper_1
+      name: Dragon 1_1
       rect:
         serializedVersion: 2
-        x: 700
-        y: 700
-        width: 700
-        height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        x: 600
+        y: 750
+        width: 600
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87af6c67d9ab037468d026126cb08ef8
-      internalID: -1318655395
+      spriteID: 8b98647dc9d20b94db786bdc231d3094
+      internalID: 1547846407
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reaper_2
+      name: Dragon 1_2
       rect:
         serializedVersion: 2
-        x: 1400
-        y: 700
-        width: 700
-        height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        x: 1200
+        y: 750
+        width: 600
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c20bc846f66565448deeeea616234b5
-      internalID: -82238960
+      spriteID: 14267425ac5d47347ad94de16404362f
+      internalID: -1323846646
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reaper_3
+      name: Dragon 1_3
       rect:
         serializedVersion: 2
-        x: 2100
-        y: 700
-        width: 700
-        height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        x: 1800
+        y: 750
+        width: 600
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b8c113728679224b86feddd1b4b2fb1
-      internalID: -1534938262
+      spriteID: 1a3051d38c99a1546b33cbdbfce648eb
+      internalID: -830028956
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reaper_4
+      name: Dragon 1_4
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 700
-        height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 600
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cfe626fac961f964b8e4919cfbf384fb
-      internalID: -1118642208
+      spriteID: 12f009a806d2b0c4b99f3bdb59d208d7
+      internalID: -2137016353
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reaper_5
+      name: Dragon 1_5
       rect:
         serializedVersion: 2
-        x: 700
+        x: 600
         y: 0
-        width: 700
-        height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 600
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f387879a93a54ed44a3d8e53ab8cfb34
-      internalID: 1703329748
+      spriteID: 9df32d339d81d5b408feb533277f507b
+      internalID: 456337742
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reaper_6
+      name: Dragon 1_6
       rect:
         serializedVersion: 2
-        x: 1400
+        x: 1200
         y: 0
-        width: 700
-        height: 700
-      alignment: 9
-      pivot: {x: 0.5, y: 0.1}
+        width: 600
+        height: 750
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd1fea38117f5d143ad73b5b5b2c1a60
-      internalID: -222262364
+      spriteID: 8a7ee6f28c810f2438da0da7709093c5
+      internalID: -950170528
       vertices: []
       indices: 
       edges: []
@@ -280,13 +280,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Reaper_0: 125290895
-      Reaper_1: -1318655395
-      Reaper_2: -82238960
-      Reaper_3: -1534938262
-      Reaper_4: -1118642208
-      Reaper_5: 1703329748
-      Reaper_6: -222262364
+      Dragon 1_0: 1929808394
+      Dragon 1_1: 1547846407
+      Dragon 1_2: -1323846646
+      Dragon 1_3: -830028956
+      Dragon 1_4: -2137016353
+      Dragon 1_5: 456337742
+      Dragon 1_6: -950170528
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

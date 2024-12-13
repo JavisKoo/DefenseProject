@@ -10,6 +10,7 @@ public class PlayerMove : BaseCharacter
     private bool Attacking = false;
     private bool ismoving = false;
     private bool isSkillMotion = false;
+    [SerializeField] protected GameObject rangedAttackPrefableft = null;
     private void Start()
     {
         SetPlayer();
@@ -152,9 +153,19 @@ public class PlayerMove : BaseCharacter
 
     protected override void RangedAttackShoot()
     {
-
+        bool isflip=this.GetComponent<SpriteRenderer>().flipX;
+        if(!isflip)
+        {
             GameObject rangedAttack = Instantiate(rangedAttackPrefab, rangedAttackSpawnPoint.position - new Vector3(0, 0.5f, 0), Quaternion.identity);
-            
+            rangedAttack.GetComponent<PlayerRangeSkill>().SkillSetting(isflip);
+        }
+        else
+        {
+            GameObject rangedAttack = Instantiate(rangedAttackPrefableft, rangedAttackSpawnPoint.position - new Vector3(0, 0.5f, 0), Quaternion.identity);
+            rangedAttack.GetComponent<PlayerRangeSkill>().SkillSetting(isflip);
+        }
+
+
 
     }
 

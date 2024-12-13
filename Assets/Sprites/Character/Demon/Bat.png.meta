@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: bcf23d87cf79fd4499faaf85a1ce6ae7
+guid: 0f28cbaab3ff5fb49b60b7a43dcd740b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Reaper_0
+      name: Bat_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 700
-        width: 700
-        height: 700
+        y: 600
+        width: 600
+        height: 600
       alignment: 9
       pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca8a230fbad12e34888f95748c5761ee
-      internalID: 125290895
+      spriteID: 9f455817ebaf8fa4ea079301a3a015b0
+      internalID: 1706793863
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reaper_1
+      name: Bat_1
       rect:
         serializedVersion: 2
-        x: 700
-        y: 700
-        width: 700
-        height: 700
+        x: 600
+        y: 600
+        width: 600
+        height: 600
       alignment: 9
       pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,20 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87af6c67d9ab037468d026126cb08ef8
-      internalID: -1318655395
+      spriteID: d5ecd1382fd3dd84e8e39d35aeb81c24
+      internalID: 2007446567
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reaper_2
+      name: Bat_2
       rect:
         serializedVersion: 2
-        x: 1400
-        y: 700
-        width: 700
-        height: 700
+        x: 1200
+        y: 600
+        width: 600
+        height: 600
       alignment: 9
       pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c20bc846f66565448deeeea616234b5
-      internalID: -82238960
+      spriteID: 150cf4cddd35b7d46a641fbed6f1e530
+      internalID: 1049659587
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reaper_3
+      name: Bat_3
       rect:
         serializedVersion: 2
-        x: 2100
-        y: 700
-        width: 700
-        height: 700
+        x: 1800
+        y: 600
+        width: 600
+        height: 600
       alignment: 9
       pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b8c113728679224b86feddd1b4b2fb1
-      internalID: -1534938262
+      spriteID: 4b3f16077acb95346bf4423c62beea73
+      internalID: 1259452923
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reaper_4
+      name: Bat_4
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 700
-        height: 700
+        width: 600
+        height: 600
       alignment: 9
       pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,20 +221,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cfe626fac961f964b8e4919cfbf384fb
-      internalID: -1118642208
+      spriteID: abac0ca8be1c88644aa9e16d8dd462d8
+      internalID: 1558970165
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reaper_5
+      name: Bat_5
       rect:
         serializedVersion: 2
-        x: 700
+        x: 600
         y: 0
-        width: 700
-        height: 700
+        width: 600
+        height: 600
       alignment: 9
       pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -242,20 +242,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f387879a93a54ed44a3d8e53ab8cfb34
-      internalID: 1703329748
+      spriteID: efd23560914b7a04ab8cd09c9a4af973
+      internalID: 809193500
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Reaper_6
+      name: Bat_6
       rect:
         serializedVersion: 2
-        x: 1400
+        x: 1200
         y: 0
-        width: 700
-        height: 700
+        width: 600
+        height: 600
       alignment: 9
       pivot: {x: 0.5, y: 0.1}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,8 +263,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bd1fea38117f5d143ad73b5b5b2c1a60
-      internalID: -222262364
+      spriteID: 590830376709fc54fa6d098f65625864
+      internalID: -1161212590
       vertices: []
       indices: 
       edges: []
@@ -280,13 +280,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Reaper_0: 125290895
-      Reaper_1: -1318655395
-      Reaper_2: -82238960
-      Reaper_3: -1534938262
-      Reaper_4: -1118642208
-      Reaper_5: 1703329748
-      Reaper_6: -222262364
+      Bat_0: 1706793863
+      Bat_1: 2007446567
+      Bat_2: 1049659587
+      Bat_3: 1259452923
+      Bat_4: 1558970165
+      Bat_5: 809193500
+      Bat_6: -1161212590
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
