@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 6693974234750333360}
   - component: {fileID: 2503036107357309533}
   m_Layer: 5
-  m_Name: 'Name :: Text (2)'
+  m_Name: 'Value :: Text'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -225,7 +225,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 2143a120cbd85fd408fbfb02d8d75b35, type: 3}
     m_FontSize: 6
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 58
     m_Alignment: 4
@@ -476,7 +476,7 @@ GameObject:
   - component: {fileID: 4101690151319158296}
   - component: {fileID: 1326844967031866208}
   m_Layer: 5
-  m_Name: 'Name :: Text (2)'
+  m_Name: 'Value :: Text'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -533,7 +533,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 2143a120cbd85fd408fbfb02d8d75b35, type: 3}
     m_FontSize: 6
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 58
     m_Alignment: 4
@@ -1177,7 +1177,7 @@ GameObject:
   - component: {fileID: 1972123653416476742}
   - component: {fileID: 6361309416931474070}
   m_Layer: 5
-  m_Name: 'Name :: Text (2)'
+  m_Name: 'Value :: Text'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1234,7 +1234,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 2143a120cbd85fd408fbfb02d8d75b35, type: 3}
     m_FontSize: 6
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 58
     m_Alignment: 4
@@ -2239,7 +2239,7 @@ GameObject:
   - component: {fileID: 8928638043738697043}
   - component: {fileID: 7065733081431352043}
   m_Layer: 5
-  m_Name: 'Name :: Text (2)'
+  m_Name: 'Value :: Text'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2296,7 +2296,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 2143a120cbd85fd408fbfb02d8d75b35, type: 3}
     m_FontSize: 6
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 58
     m_Alignment: 4

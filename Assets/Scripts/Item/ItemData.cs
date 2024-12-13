@@ -33,14 +33,15 @@ public class ItemData : ScriptableObject
     public Sprite itemIcon;
 
     public string member;
-    public int defense;
-    public int health;
-    public int strength;
-    public int attackSpeed;
-    public string simpleDefense;
-    public string simpleHealth;
-    public string simpleStrength;
-    public string simpleAttackSpeed;
+    public int defenseValue;
+    public int healthValue;
+    public int strengthValue;
+    public int attackSpeedValue;
+    public string Defense;
+    public string Health;
+    public string Strength;
+    public string AttackSpeed;
+    public string Attribute;
 
     [Header("# Level Data")]
     public int level;

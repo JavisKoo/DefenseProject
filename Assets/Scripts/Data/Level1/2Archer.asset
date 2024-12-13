@@ -18,9 +18,14 @@ MonoBehaviour:
   itemDesc: "\uD65C\uC744 \uC3D8\uB294 \uAD81\uC218\uB2E4"
   itemIcon: {fileID: 668275685, guid: c5160ef4061dcd248bfbf1b3fe9f6768, type: 3}
   member: "\uC694\uC815 \uC232"
-  defense: 0
-  health: 0
-  strength: 0
-  attackSpeed: 0
+  defenseValue: 0
+  healthValue: 20
+  strengthValue: 15
+  attackSpeedValue: 5
+  Defense: "\uB9E4\uC6B0 \uB0AE\uC74C"
+  Health: "\uB9E4\uC6B0 \uB0AE\uC74C"
+  Strength: "\uB192\uC74C"
+  AttackSpeed: "\uBCF4\uD1B5"
+  Attribute: "\uBB3C\uB9AC"
   level: 1
   cost: 100

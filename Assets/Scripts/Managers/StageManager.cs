@@ -16,6 +16,12 @@ public class StageManager : MonoBehaviour
     public Text[] cardCost;
     public Card[] cards;
     public Text[] cardMember;
+    public Text[] cardDefense;
+    public Text[] cardHealth;
+    public Text[] cardStrength;
+    public Text[] cardAttackSpeed;
+    public Image[] cardAttribute;
+    public Sprite[] attributeImage;
     //카드정보
     public ItemData[] datas;
     public int selectId;
@@ -91,6 +97,23 @@ public class StageManager : MonoBehaviour
             cardDesc[i].text = datas[ranNum].itemDesc.ToString();
             cardCost[i].text = datas[ranNum].cost.ToString();
             cardMember[i].text = datas[ranNum].member.ToString();
+
+            cardDefense[i].text = datas[ranNum].Defense.ToString();
+
+            cardHealth[i].text = datas[ranNum].Health.ToString();
+
+            cardStrength[i].text = datas[ranNum].Strength.ToString();
+
+            cardAttackSpeed[i].text = datas[ranNum].AttackSpeed.ToString();
+
+            if (datas[ranNum].Attribute == "물리")
+            {
+                cardAttribute[i].sprite = attributeImage[0];
+            }
+            else
+            {
+                cardAttribute[i].sprite = attributeImage[1];
+            }
             //
             cards[i].cardId = ranNum;
             //Debug.Log(i+"번째 카드 아이디: " + ranNum);
