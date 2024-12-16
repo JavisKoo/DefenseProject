@@ -38,9 +38,8 @@ public class PlayerRangeSkill : MonoBehaviour
             SkillActivate();
     }
 
-    public void SkillSetting(bool flip = false)
+    public void SkillSetting()
     {
-        Flip = flip;
         EnemyTag = "Enemy";
         AttackDammage = 20;
         AttackRange = 3;
@@ -52,33 +51,19 @@ public class PlayerRangeSkill : MonoBehaviour
     
     private void SkillActivate()
     {
-
-            if(Flip==true)
-            {
-                if(this.transform.position.x - firstSpawn.x < -AttackRange * 1.2)
-                {
-                    Destroy(gameObject);
-                }
-                transform.position = Vector2.MoveTowards(transform.position,transform.position+move2, 0.1f);
-            }
-            else
-            {
-                if(this.transform.position.x - firstSpawn.x > AttackRange * 1.2)
-                {
-                    Destroy(gameObject);
-                }
-                transform.position = Vector2.MoveTowards(transform.position,transform.position+move, 0.1f);
-            }
-            
-        
+        if (this.transform.position.x - firstSpawn.x > AttackRange * 1.2)
+        {
+            Destroy(gameObject);
+        }
+        transform.position = Vector2.MoveTowards(transform.position, transform.position + move, 0.1f);
     }
     //if hit enemy
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag(EnemyTag))
         {
-            other.GetComponent<BaseCharacter>().TakeDamage(AttackDammage,Accuracy);
-            Destroy(gameObject);
+            other.GetComponent<BaseCharacter>().TakeDamage(1,Accuracy);
+            other.GetComponent<BaseCharacter>().DeBuff();
         }
     }
 }

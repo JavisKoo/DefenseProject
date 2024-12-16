@@ -30,10 +30,12 @@ public class PlayerMove : BaseCharacter
         {
             if (Input.GetKey(KeyCode.A))
             {
+                this.GetComponent<SpriteRenderer>().flipX = false;
                 Skill1();
             }
             if (Input.GetKey(KeyCode.S))
             {
+                this.GetComponent<SpriteRenderer>().flipX = false;
                 Skill2();
             }
 
@@ -63,6 +65,8 @@ public class PlayerMove : BaseCharacter
             else if (!isAttacking)
             {
                 ismoving = false;
+                this.GetComponent<SpriteRenderer>().flipX = false;
+                RightLeft = Vector3.right;
                 animator.SetTrigger("doStop");
             }
         }
@@ -106,12 +110,14 @@ public class PlayerMove : BaseCharacter
     
     public void Skill1()
     {
+        this.GetComponent<SpriteRenderer>().flipX = false;
         isSkillMotion = true;
         animator.SetTrigger("doSkill1");
         StartCoroutine(Skill1Motion());
     }
     public void Skill2()
     {
+        this.GetComponent<SpriteRenderer>().flipX = false;
         isSkillMotion = true;
         Debug.Log("Skill2");
         animator.SetTrigger("doSkill2");
@@ -153,20 +159,8 @@ public class PlayerMove : BaseCharacter
 
     protected override void RangedAttackShoot()
     {
-        bool isflip=this.GetComponent<SpriteRenderer>().flipX;
-        if(!isflip)
-        {
             GameObject rangedAttack = Instantiate(rangedAttackPrefab, rangedAttackSpawnPoint.position - new Vector3(0, 0.5f, 0), Quaternion.identity);
-            rangedAttack.GetComponent<PlayerRangeSkill>().SkillSetting(isflip);
-        }
-        else
-        {
-            GameObject rangedAttack = Instantiate(rangedAttackPrefableft, rangedAttackSpawnPoint.position - new Vector3(0, 0.5f, 0), Quaternion.identity);
-            rangedAttack.GetComponent<PlayerRangeSkill>().SkillSetting(isflip);
-        }
-
-
-
+            rangedAttack.GetComponent<PlayerRangeSkill>().SkillSetting();
     }
 
 }

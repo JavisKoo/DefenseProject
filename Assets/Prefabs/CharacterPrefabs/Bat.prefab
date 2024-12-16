@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1829436378481448870}
   - component: {fileID: -4563690454296601875}
   m_Layer: 6
-  m_Name: Reaper
+  m_Name: Bat
   m_TagString: Team
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 125290895, guid: bcf23d87cf79fd4499faaf85a1ce6ae7, type: 3}
+  m_Sprite: {fileID: 1706793863, guid: 0f28cbaab3ff5fb49b60b7a43dcd740b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,7 +101,7 @@ Animator:
   m_GameObject: {fileID: 344319866593267813}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 18201fe2696dc9041bafdb5e477404d4, type: 2}
+  m_Controller: {fileID: 9100000, guid: 2957e58c78aeb814fb921e652dfc0a88, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -148,7 +148,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.1}
-    oldSize: {x: 2.3333333, y: 2.3333333}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 1.1999999, y: 1.1999999}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

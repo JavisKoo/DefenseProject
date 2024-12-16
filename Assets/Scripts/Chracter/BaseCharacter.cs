@@ -13,19 +13,19 @@ namespace Chracter
         protected float CurrentHealth;
         protected float AttackDammage = 10;
         protected float Armor = 0;
-        protected float AttackSpeed = 1;
+        [SerializeField]protected float AttackSpeed = 1;
         protected float AttackRange = 0.5f;
         protected bool IsPhysical = true;
         protected bool IsMelee = true;
         protected int UnitCost;
         public Animator animator;
-        protected float MoveSpeed = 1f;
+        [SerializeField] protected float MoveSpeed = 1f;
         protected float Accuracy = 60f;
         protected float Avoid = 60;
 
         public HealthBar healthBar;
-        [SerializeField] protected GameObject rangedAttackPrefab=null;
-        [SerializeField] protected Transform rangedAttackSpawnPoint=null;
+        [SerializeField] protected GameObject rangedAttackPrefab = null;
+        [SerializeField] protected Transform rangedAttackSpawnPoint = null;
 
 
         protected static readonly int DoMove = Animator.StringToHash("doMove");
@@ -43,10 +43,12 @@ namespace Chracter
         protected string Enemy;
         protected string Team;
         protected bool isPlayableCharacter = false;
-    
+
         private bool firstHit = false;
+
+
         private bool secondHit = false;
-        private bool isDead = false;
+        protected bool isDead = false;
         private RaycastHit2D currentEnemy;
 
         //CharacterHealth
@@ -70,35 +72,35 @@ namespace Chracter
         protected static readonly float MoveFast = 1.2f;
 
         //CharacterAttackRange Melee
-        protected static readonly float AttackRangeMeleeSmall=0.3f;
-        protected static readonly float AttackRangeMeleeDefault=0.5f;
-        protected static readonly float AttackRangeMeleeLong=1.0f;
+        protected static readonly float AttackRangeMeleeSmall = 0.3f;
+        protected static readonly float AttackRangeMeleeDefault = 0.5f;
+        protected static readonly float AttackRangeMeleeLong = 1.0f;
 
         //CharacterAttackRange Ranged
-        protected static readonly float AttackRangeRangeSmall=1.5f;
-        protected static readonly float AttackRangeRangedDefault=2.0f;
-        protected static readonly float AttackRangeRangedLong=3.0f;
+        protected static readonly float AttackRangeRangeSmall = 1.5f;
+        protected static readonly float AttackRangeRangedDefault = 2.0f;
+        protected static readonly float AttackRangeRangedLong = 3.0f;
 
         //ChcaracterAttackSpeed
         protected static readonly float AttackSpeedVeryLow = 2.0f;
-        protected static readonly float AttackSpeedLow=0.7f;
-        protected static readonly float AttackSpeedDefault=1.0f;
-        protected static readonly float AttackSpeedFast=1.2f;
+        protected static readonly float AttackSpeedLow = 0.7f;
+        protected static readonly float AttackSpeedDefault = 1.0f;
+        protected static readonly float AttackSpeedFast = 1.2f;
 
         //CharacterAccuracy
-        protected static readonly float AccuracyVeryLow=20;
-        protected static readonly float AccuracyLow=40;
-        protected static readonly float AccuracyDefault=60;
-        protected static readonly float AccuracyHigh=100;
-        protected static readonly float AccuracyVeryHigh=200;
+        protected static readonly float AccuracyVeryLow = 20;
+        protected static readonly float AccuracyLow = 40;
+        protected static readonly float AccuracyDefault = 60;
+        protected static readonly float AccuracyHigh = 100;
+        protected static readonly float AccuracyVeryHigh = 200;
 
 
         //CharacterAvoid
-        protected static readonly float AvoidVeryLow=20;
-        protected static readonly float AvoidLow=40;
-        protected static readonly float AvoidDefault=60;
-        protected static readonly float AvoidHigh=80;
-        protected static readonly float AvoidVeryHigh=120;
+        protected static readonly float AvoidVeryLow = 20;
+        protected static readonly float AvoidLow = 40;
+        protected static readonly float AvoidDefault = 60;
+        protected static readonly float AvoidHigh = 80;
+        protected static readonly float AvoidVeryHigh = 120;
 
 
 
@@ -110,19 +112,19 @@ namespace Chracter
         // Update is called once per frame
         void Update()
         {
-            if (Enemy != null&& !isDead)
+            if (Enemy != null && !isDead)
                 CheckAnimatorState();
         }
 
         private void FixedUpdate()
         {
-            if (Enemy != null&& !isDead)
+            if (Enemy != null && !isDead)
                 CheckEnemy();
         }
 
 
         public virtual void SetCharacterSettings(float HP = 100, float Attack = 10, float armor = 0, float attackSpeed = 1,
-            float attackRange = 0.5f,bool isPhysical=true, bool isMelle=true, float moveSpeed=1.0f,float accuracy=60,float avoid = 60)
+            float attackRange = 0.5f, bool isPhysical = true, bool isMelle = true, float moveSpeed = 1.0f, float accuracy = 60, float avoid = 60)
         {
             MaxHealth = HP;
             CurrentHealth = MaxHealth;
@@ -141,9 +143,9 @@ namespace Chracter
 
         protected virtual void CheckEnemy()
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position+raycastHeight, RightLeft, AttackRange, LayerMask.GetMask(Enemy));
+            RaycastHit2D hit = Physics2D.Raycast(transform.position + raycastHeight, RightLeft, AttackRange, LayerMask.GetMask(Enemy));
             //draw the ray in the scene view with distance 
-            Debug.DrawRay(transform.position+ raycastHeight, RightLeft * AttackRange, Color.red);
+            Debug.DrawRay(transform.position + raycastHeight, RightLeft * AttackRange, Color.red);
             if (hit.collider != null)
             {
                 if (hit.collider.CompareTag(Enemy) && isAttacking == false)
@@ -158,14 +160,14 @@ namespace Chracter
                     {
                         StartCoroutine(RangedAttack(hit));
                     }
-                   
+
                 }
             }
             else if (isAttacking == false && IsMoving == false)
             {
-               animator.speed = MoveSpeed;
-               IsMoving = true;
-               animator.SetTrigger(DoMove);
+           
+                IsMoving = true;
+                animator.SetTrigger(DoMove);
             }
 
         }
@@ -183,7 +185,7 @@ namespace Chracter
             transform.position += MoveSpeed * Time.deltaTime * RightLeft;
             yield return null;
         }
-        
+
 
 
 
@@ -200,7 +202,7 @@ namespace Chracter
         {
             if (currentEnemy)
             {
-                currentEnemy.collider.GetComponent<BaseCharacter>().TakeDamage(AttackDammage,Accuracy);
+                currentEnemy.collider.GetComponent<BaseCharacter>().TakeDamage(AttackDammage, Accuracy);
             }
         }
 
@@ -214,19 +216,19 @@ namespace Chracter
 
         protected virtual void RangedAttackShoot()
         {
-            if(currentEnemy)
+            if (currentEnemy)
             {
-                GameObject rangedAttack = Instantiate(rangedAttackPrefab, rangedAttackSpawnPoint.position-new Vector3(0,0.5f,0), Quaternion.identity);
-                rangedAttack.GetComponent<RangedAttack>().EnemySetting(currentEnemy, Enemy, AttackDammage, AttackRange,Accuracy);
+                GameObject rangedAttack = Instantiate(rangedAttackPrefab, rangedAttackSpawnPoint.position - new Vector3(0, 0.5f, 0), Quaternion.identity);
+                rangedAttack.GetComponent<RangedAttack>().EnemySetting(currentEnemy, Enemy, AttackDammage, AttackRange, Accuracy);
             }
 
         }
 
 
 
-        public virtual void TakeDamage(float damage, float enemyAccuracy=60)
+        public virtual void TakeDamage(float damage, float enemyAccuracy = 60)
         {
-            float HitPercent = enemyAccuracy-Avoid + 50;
+            float HitPercent = enemyAccuracy - Avoid + 50;
             if (HitPercent >= 100)
             {
                 HitPercent = 100;
@@ -239,16 +241,16 @@ namespace Chracter
             if (HitCalculate > HitPercent)
             {
                 return;
-            } 
+            }
             float finalDamage = damage - Armor;
-              if (finalDamage <= 0)
-              {
-                  finalDamage = 1;
-              }
+            if (finalDamage <= 0)
+            {
+                finalDamage = 1;
+            }
             CurrentHealth -= finalDamage;
             if (healthBar != null)
             {
-                healthBar.SetHealth(CurrentHealth, MaxHealth);    
+                healthBar.SetHealth(CurrentHealth, MaxHealth);
             }
 
             if (CurrentHealth <= 0)
@@ -257,15 +259,15 @@ namespace Chracter
                 isDead = true;
                 Die();
             }
-            else if(CurrentHealth <= MaxHealth *0.6f && firstHit == false)
+            else if (CurrentHealth <= MaxHealth * 0.6f && firstHit == false)
             {
                 firstHit = true;
-                animator.SetTrigger(DoHit);
+                Hit();
             }
-            else if(CurrentHealth <= MaxHealth *0.3f && secondHit == false)
+            else if (CurrentHealth <= MaxHealth * 0.3f && secondHit == false)
             {
                 secondHit = true;
-                animator.SetTrigger(DoHit);
+                Hit();
             }
         }
 
@@ -274,11 +276,24 @@ namespace Chracter
             StartCoroutine(DieAnim());
         }
 
-        private IEnumerator DieAnim()
+        public virtual void Hit()
+        {
+            StartCoroutine(HitAnim());
+        }
+
+        public IEnumerator DieAnim()
         {
             animator.SetTrigger(DODie);
             yield return new WaitForSeconds(1.0f);
             Destroy(gameObject);
+        }
+        public IEnumerator HitAnim()
+        {
+            animator.SetTrigger(DoHit);
+            yield return new WaitForSeconds(0.5f);
+            IsMoving = false;
+            isAttacking = false;
+
         }
 
 
@@ -317,5 +332,24 @@ namespace Chracter
             yield return new WaitForSeconds(1.0f);
             
         }
+
+        internal void DeBuff()
+        {
+            StartCoroutine(DebuffCor());
+        }
+
+        private IEnumerator DebuffCor()
+        {
+            float moveSpeedOrigin = MoveSpeed;
+            float attackSpeedOrigin = AttackSpeed;
+
+            MoveSpeed *= 0.2f;
+            AttackSpeed *= 1.8f;
+
+            yield return new WaitForSeconds(4.0f);
+            MoveSpeed = moveSpeedOrigin;
+            AttackSpeed = attackSpeedOrigin;
+        }
+
     }
 }
