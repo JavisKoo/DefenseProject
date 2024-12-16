@@ -23,7 +23,6 @@ public class EnemyTower : BaseCharacter
 
     public Transform enemySpawnPoint;
 
-    int stage = 1;
     private bool isStageEnd = false;
     //UI
     [Header("UI")]
@@ -185,20 +184,6 @@ public class EnemyTower : BaseCharacter
         nextSpawnDelay = spawnList[spawnIndex].delay;
     }
 
-    public void StageStart()
-    {
-        if (StageManager.Instance.stage >= 3)
-        {
-            //던전 클리어
-            
-            Time.timeScale = 0f;
-            stageClearPanel.SetActive(true);
-            return;
-        }
-        CurrentHealth = MaxHealth;
-        StageManager.Instance.stage++;
-    }
-
     public override void TakeDamage(float damage, float enemyAccuracy = 200)
     {
         if (isStageEnd)
@@ -210,10 +195,33 @@ public class EnemyTower : BaseCharacter
         {
             finalDamage = 1;
         }
+
         CurrentHealth -= finalDamage;
-        if (CurrentHealth < 0) //죽음 처리
+
+        switch (StageManager.Instance.stage)
         {
-            Die();
+            case 1:
+                if (CurrentHealth <= MaxHealth / 10 * 8) //80%이하로 내려가면
+                {
+                    StageManager.Instance.stage++;
+                    StageManager.Instance.StageStart();
+                }
+                break;
+
+            case 2:
+                if (CurrentHealth <= MaxHealth / 10 * 4) //40%이하로 내려가면
+                {
+                    StageManager.Instance.stage++;
+                    StageManager.Instance.StageStart();
+                }
+                break;
+        }
+        
+        if (CurrentHealth <= 0)
+        {
+            Time.timeScale = 0f;
+            stageClearPanel.SetActive(true);
+            //Die();
             CurrentHealth = 0;
         }
 
@@ -224,15 +232,10 @@ public class EnemyTower : BaseCharacter
         }
     }
 
-    public virtual void Die()
+    /*public virtual void Die()
     {
-        StageEnd();
-    }
 
-    public void StageEnd() //타워 hp가 0이라면 실행
-    {
-        StageManager.Instance.StageStart();
-    }
+    }*/
 
     protected IEnumerator WaitStageManager()
     {

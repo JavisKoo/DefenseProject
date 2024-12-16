@@ -10,6 +10,7 @@ public class StageManager : MonoBehaviour
 
     //카드 UI
     public GameObject cardPanel;
+    public Text[] cardLevel;
     public Text[] cardType;
     public Image[] cardImage;
     public Text[] cardDesc;
@@ -22,13 +23,22 @@ public class StageManager : MonoBehaviour
     public Text[] cardAttackSpeed;
     public Image[] cardAttribute;
     public Sprite[] attributeImage;
+
     //카드정보
     public ItemData[] datas;
     public int selectId;
+
     //유닛생산버튼
     public Item[] unitButtons;
+
     //스테이지 정보
     public int stage = 1;
+
+    //스테이지 타임
+    public float stageTime = 0;
+    public float[] stageMaxTime = { 120f, 120f, 240f };
+    public Text stageTimeText;
+
     //
     public EnemyTower enemyTower;
 
@@ -60,14 +70,19 @@ public class StageManager : MonoBehaviour
 
     private void Start()
     {
-      
         StageStart();
+    }
+
+    private void Update()
+    {
+        stageTime -= Time.deltaTime;
     }
 
     public void StageStart()
     {
         Time.timeScale = 0f;
         MakeCard();
+
     }
 
     public void MakeCard()
@@ -92,6 +107,7 @@ public class StageManager : MonoBehaviour
 
 
             //UI에 랜덤유닛 정보 집어넣기
+            cardLevel[i].text = "LV." + datas[ranNum].level;
             cardType[i].text = datas[ranNum].itemName.ToString();
             cardImage[i].sprite = datas[ranNum].itemIcon;
             cardDesc[i].text = datas[ranNum].itemDesc.ToString();
@@ -150,6 +166,30 @@ public class StageManager : MonoBehaviour
         cardPanel.SetActive(false);
 
         //enemyTower
-        enemyTower.StageStart();
+    }
+
+    public void CheckStageTime()
+    {
+        if (stage == 1)
+        {
+            if (stageTime <= stageMaxTime[stage] - 10f)
+            {
+                stageTimeText.text = "남은 시간 " + stageTime + "초!";
+            }
+        }
+        else if (stage == 2)
+        {
+            if (stageTime <= stageMaxTime[stage] - 10f)
+            {
+                stageTimeText.text = "남은 시간 " + stageTime + "초!";
+            }
+        }
+        else if (stage == 3)
+        {
+            if (stageTime <= stageMaxTime[stage] - 10f)
+            {
+                stageTimeText.text = "남은 시간 " + stageTime + "초!";
+            }
+        }
     }
 }
