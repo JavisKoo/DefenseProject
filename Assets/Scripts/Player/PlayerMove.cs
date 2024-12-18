@@ -11,13 +11,6 @@ public class PlayerMove : BaseCharacter
     private bool ismoving = false;
     private bool isSkillMotion = false;
     [SerializeField] protected GameObject rangedAttackPrefableft = null;
-    private void Start()
-    {
-        SetPlayer();
-        CheckTeam();
-        SetCharacterSettings(50000,10, 0,1.4f, 3f,true,true,1.5f,200,120);
-        healthBar.SetHealth(MaxHealth, MaxHealth);
-    }
     
     void Update()
     {
@@ -78,6 +71,16 @@ public class PlayerMove : BaseCharacter
     {
         if (Enemy != null&& !isSkillMotion)
             CheckEnemy();
+    }
+
+    public override void Spawn()
+    {
+
+        SetPlayer();
+        CheckTeam();
+        healthBar.SetHealthBarColor("Player");
+        SetCharacterSettings(50000, 10, 0, 1.4f, 3f, true, true, 1.5f, 200, 120);
+        healthBar.SetHealth(MaxHealth, MaxHealth);
     }
 
 

@@ -1,3 +1,4 @@
+using Chracter;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,7 +38,8 @@ public class SpawnPoint : MonoBehaviour
                 break;
         }
         //spawn character
-        Instantiate(characterPrefab[CharacterIndex], transform.position, Quaternion.identity);
+        GameObject Team = Instantiate(characterPrefab[CharacterIndex], transform.position, Quaternion.identity);
+        Team.GetComponent<BaseCharacter>().Spawn();
         //UI Init
         towerScript.InitUI(); //골드 텍스트 초기화
     }

@@ -7,6 +7,7 @@ namespace Chracter
 {
     public class BaseCharacter : MonoBehaviour
     {
+        public ParticleSystem moveParticle;
         protected ClassType UnitType;
         public ParticleSystem buffEffect;
         protected float MaxHealth = 100;
@@ -45,11 +46,13 @@ namespace Chracter
         protected bool isPlayableCharacter = false;
 
         private bool firstHit = false;
-
-
         private bool secondHit = false;
+
         protected bool isDead = false;
+
         private RaycastHit2D currentEnemy;
+
+        private float debuffDelay = 0.0f;
 
         //CharacterHealth
         protected static readonly float HealthVeryLow;
@@ -99,6 +102,7 @@ namespace Chracter
         protected static readonly float AvoidVeryLow = 20;
         protected static readonly float AvoidLow = 40;
         protected static readonly float AvoidDefault = 60;
+
         protected static readonly float AvoidHigh = 80;
         protected static readonly float AvoidVeryHigh = 120;
 
@@ -107,6 +111,14 @@ namespace Chracter
 
         void Start()
         {
+            if (moveParticle != null)
+            {
+                moveParticle.Play();
+            }
+            if (this.GetComponent<PlayerMove>() == true)
+            {
+                Spawn();
+            }
         }
 
         // Update is called once per frame
@@ -196,6 +208,7 @@ namespace Chracter
             currentEnemy = hit;
             animator.SetTrigger(DoAttack);
             yield return new WaitForSeconds(AttackSpeed);
+            yield return new WaitForSeconds(debuffDelay);
             isAttacking = false;
         }
         private void AttackHIt()
@@ -211,6 +224,7 @@ namespace Chracter
             animator.SetTrigger(DoAttack);
             currentEnemy = hit;
             yield return new WaitForSeconds(AttackSpeed);
+            yield return new WaitForSeconds(debuffDelay);
             isAttacking = false;
         }
 
@@ -218,7 +232,7 @@ namespace Chracter
         {
             if (currentEnemy)
             {
-                GameObject rangedAttack = Instantiate(rangedAttackPrefab, rangedAttackSpawnPoint.position - new Vector3(0, 0.5f, 0), Quaternion.identity);
+                GameObject rangedAttack = Instantiate(rangedAttackPrefab, rangedAttackSpawnPoint.position, Quaternion.identity);
                 rangedAttack.GetComponent<RangedAttack>().EnemySetting(currentEnemy, Enemy, AttackDammage, AttackRange, Accuracy);
             }
 
@@ -297,6 +311,14 @@ namespace Chracter
         }
 
 
+
+        public virtual void Spawn()
+        {
+            CheckTeam();
+            healthBar.SetHealthBarColor(this.tag);
+        }
+
+
         public void CheckTeam()
         {
             if (CompareTag("Enemy"))
@@ -344,11 +366,12 @@ namespace Chracter
             float attackSpeedOrigin = AttackSpeed;
 
             MoveSpeed *= 0.2f;
-            AttackSpeed *= 1.8f;
+            debuffDelay = AttackSpeed * 0.8f;
 
             yield return new WaitForSeconds(4.0f);
             MoveSpeed = moveSpeedOrigin;
             AttackSpeed = attackSpeedOrigin;
+            debuffDelay = 0.0f;
         }
 
     }

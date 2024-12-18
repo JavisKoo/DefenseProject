@@ -11,7 +11,11 @@ namespace Chracter
         public Color Low;
         public Color High;
         public GameObject Fill;
-    
+
+        [SerializeField] Sprite Green;
+        [SerializeField] Sprite Red;
+        [SerializeField] Sprite Blue;
+
         public Vector3 offset;
         void Start()
         {
@@ -22,9 +26,27 @@ namespace Chracter
         {
             slider.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position) + offset;
         }
+
+
+        public void SetHealthBarColor(string team)
+        {
+            if(team=="Team")
+            {
+                Fill.GetComponent<Image>().sprite = Green;
+            }
+            else if(team=="Enemy")
+            {
+                Fill.GetComponent<Image>().sprite = Red;
+            }
+            else
+            {
+                Fill.GetComponent<Image>().sprite = Blue;
+            }
+        }
+
     
         public void SetHealth(float health, float maxHealth)
-        {
+        {       
             if (health <= 0)
             {
                 slider.gameObject.SetActive(false);
