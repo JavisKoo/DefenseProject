@@ -82,14 +82,11 @@ public class StageManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         MakeCard();
-
     }
 
     public void MakeCard()
     {
         int count = System.Enum.GetValues(typeof(ItemType)).Length; //유닛 종류 개수구하기
-
-        int beforeNum;
         List<int> nums = new List<int>();
 
         for (int i = 0; i < 3; i++)
@@ -113,13 +110,9 @@ public class StageManager : MonoBehaviour
             cardDesc[i].text = datas[ranNum].itemDesc.ToString();
             cardCost[i].text = datas[ranNum].cost.ToString();
             cardMember[i].text = datas[ranNum].member.ToString();
-
             cardDefense[i].text = datas[ranNum].Defense.ToString();
-
             cardHealth[i].text = datas[ranNum].Health.ToString();
-
             cardStrength[i].text = datas[ranNum].Strength.ToString();
-
             cardAttackSpeed[i].text = datas[ranNum].AttackSpeed.ToString();
 
             if (datas[ranNum].Attribute == "물리")
