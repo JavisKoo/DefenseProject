@@ -66,6 +66,7 @@ public class StageManager : MonoBehaviour
     [Header("GameOver")]
     public GameObject GameOverPanel;
     public UnityEngine.UI.Image fadeimage;
+    private bool isGameOver = false;
 
     //
     public EnemyTower enemyTower;
@@ -206,13 +207,19 @@ public class StageManager : MonoBehaviour
 
     public void CheckStageTime()
     {
-        Debug.Log("스테이지 시간 : " + stageTime);
+        if (isGameOver)
+        {
+            stageTime = 0f;
+            return;
+        }
+
+        Debug.Log("스테이지 시간 : " + Mathf.Floor(stageTime));
         if (stage == 1)
         {
             if (stageTime <= 10f)
             {
                 stageTimeObj.SetActive(true);
-                stageTimeText.text = "남은 시간 " + stageTime + "초!";
+                stageTimeText.text = "남은 시간 " + Mathf.Floor(stageTime) + "초!";
             }
         }
         else if (stage == 2)
@@ -220,7 +227,7 @@ public class StageManager : MonoBehaviour
             if (stageTime <= 10f)
             {
                 stageTimeObj.SetActive(true);
-                stageTimeText.text = "남은 시간 " + stageTime + "초!";
+                stageTimeText.text = "남은 시간 " + Mathf.Floor(stageTime) + "초!";
             }
         }
         else if (stage == 3)
@@ -234,13 +241,14 @@ public class StageManager : MonoBehaviour
             else if (stageTime <= 10f)
             {
                 stageTimeObj.SetActive(true);
-                stageTimeText.text = "남은 시간 " + stageTime + "초!";
+                stageTimeText.text = "남은 시간 " + Mathf.Floor(stageTime) + "초!";
             }
         }
 
-        if (stageTime <= 0f)
+        if (stageTime <= 0f && !isGameOver)
         {
-            
+            isGameOver = true;
+            GameOver();
         }
     }
 
