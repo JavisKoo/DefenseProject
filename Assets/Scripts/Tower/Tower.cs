@@ -30,10 +30,6 @@ public class Tower : BaseCharacter
     public int maxHp = 1000;
     public UnityEngine.UI.Slider towerHPSlider;
     public Text towerHPText;
-    //Tower Stats
-    [Header("Tower Stats")]
-    public GameObject GameOverPanel;
-    public UnityEngine.UI.Image fadeimage;
     private void Awake()
     {
         renderer = GetComponent<SpriteRenderer>();
@@ -97,14 +93,8 @@ public class Tower : BaseCharacter
 
     public override void Die()
     {
-        GameOver();
-    }
-
-    public void GameOver()
-    {
         isGameOver = true;
-        GameOverPanel.SetActive(true);
-        StartCoroutine(FadeCor());
+        StageManager.Instance.GameOver();
     }
 
     public override void TakeDamage(float damage, float enemyAccuracy = 200,bool pierce=false)
@@ -132,14 +122,5 @@ public class Tower : BaseCharacter
         }
     }
 
-    IEnumerator FadeCor()
-    {
-        float fadeCount = 0;
-        while (true)
-        {
-            fadeCount += 0.01f;
-            yield return new WaitForSeconds(0.02f);
-            fadeimage.color = new Color(0, 0, 0, fadeCount);
-        }
-    }
+    
 }
