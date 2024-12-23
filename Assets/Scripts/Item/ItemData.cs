@@ -42,6 +42,12 @@ public class ItemData : ScriptableObject
     public string Strength;
     public string AttackSpeed;
     public string Attribute;
+    public int attackCountLimitValue;
+    public int speedValue;
+    public int accuracyValue;
+    public int avoidanceValue;
+    public int size;
+    public int createCountValue;
 
     [Header("# Level Data")]
     public int level;

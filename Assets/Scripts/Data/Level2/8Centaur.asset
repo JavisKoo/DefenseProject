@@ -27,5 +27,11 @@ MonoBehaviour:
   Strength: "\uB192\uC74C"
   AttackSpeed: "\uB0AE\uC74C"
   Attribute: "\uBB3C\uB9AC"
+  attackCountLimitValue: 1
+  speedValue: 2
+  accuracyValue: 0
+  avoidanceValue: -1
+  size: 2
+  createCountValue: 2
   level: 2
   cost: 200

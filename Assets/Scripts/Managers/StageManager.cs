@@ -13,7 +13,7 @@ public class StageManager : MonoBehaviour
     public Text[] cardLevel;
     public Text[] cardType;
     public Image[] cardImage;
-    public Text[] cardDesc;
+    //public Text[] cardDesc;
     public Text[] cardCost;
     public Card[] cards;
     public Text[] cardMember;
@@ -23,6 +23,26 @@ public class StageManager : MonoBehaviour
     public Text[] cardAttackSpeed;
     public Image[] cardAttribute;
     public Sprite[] attributeImage;
+
+    //
+    [Header("Detail")]
+    public GameObject detailPanel;
+    public Image dcardImage;
+    public Text dCardLevel;
+    public Text dCardName;
+    public Text dCardCost;
+    public Image dCardAttribute;
+
+    public Text dCardDefenseValue;
+    public Text dCardHealthValue;
+    public Text dCardStrengthValue;
+    public Text dCardAttackSpeedValue;
+    public Text dCardAttackCountLimitValue;
+    public Text dCardSpeedValue;
+    public Text dCardAccuracyValue;
+    public Text dCardAvoidanceValue;
+    public Text dCardUnitSize;
+    public Text dCardCreateCountValue;
 
     //카드정보
     public ItemData[] datas;
@@ -107,7 +127,7 @@ public class StageManager : MonoBehaviour
             cardLevel[i].text = "LV." + datas[ranNum].level;
             cardType[i].text = datas[ranNum].itemName.ToString();
             cardImage[i].sprite = datas[ranNum].itemIcon;
-            cardDesc[i].text = datas[ranNum].itemDesc.ToString();
+            //cardDesc[i].text = datas[ranNum].itemDesc.ToString();
             cardCost[i].text = datas[ranNum].cost.ToString();
             cardMember[i].text = datas[ranNum].member.ToString();
             cardDefense[i].text = datas[ranNum].Defense.ToString();
@@ -184,5 +204,47 @@ public class StageManager : MonoBehaviour
                 stageTimeText.text = "남은 시간 " + stageTime + "초!";
             }
         }
+    }
+
+    public void OnClickDetail()
+    {
+        detailPanel.SetActive(true);
+
+        dcardImage.sprite = datas[selectId].itemIcon;
+        dCardLevel.text = "LV." + datas[selectId].level;
+        dCardName.text = datas[selectId].itemName;
+        dCardCost.text = datas[selectId].cost.ToString();
+        if (datas[selectId].Attribute == "물리")
+        {
+            dCardAttribute.sprite = attributeImage[0];
+        }
+        else
+        {
+            dCardAttribute.sprite = attributeImage[1];
+        }
+
+        //
+        dCardDefenseValue.text = datas[selectId].defenseValue.ToString();
+        dCardHealthValue.text = datas[selectId].healthValue.ToString();
+        dCardStrengthValue.text = datas[selectId].strengthValue.ToString();
+        dCardAttackSpeedValue.text = datas[selectId].attackSpeedValue.ToString(); 
+        dCardAttackCountLimitValue.text = datas[selectId].attackCountLimitValue.ToString();
+        dCardSpeedValue.text = datas[selectId].speedValue.ToString();
+        dCardAccuracyValue.text = datas[selectId].accuracyValue.ToString();
+        dCardAvoidanceValue.text = datas[selectId].avoidanceValue.ToString();
+        
+        switch (datas[selectId].size)
+        {
+            case 1:
+                dCardUnitSize.text = "소형";
+                break;
+            case 2:
+                dCardUnitSize.text = "중형";
+                break;
+            case 3:
+                dCardUnitSize.text = "대형";
+                break;
+        }
+        dCardCreateCountValue.text = datas[selectId].createCountValue.ToString();
     }
 }

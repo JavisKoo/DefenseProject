@@ -11,6 +11,7 @@ public class Card : MonoBehaviour
     private bool isSelect = false;
     //선택버튼
     public GameObject selectBtn;
+    public GameObject detailBtn;
 
     private void Awake()
     {
@@ -20,6 +21,7 @@ public class Card : MonoBehaviour
     private void Start()
     {
         selectBtn.SetActive(false);
+        detailBtn.SetActive(false);
         toggle.isOn = false;
     }
 
@@ -27,5 +29,6 @@ public class Card : MonoBehaviour
     {
         StageManager.Instance.selectId = toggle.isOn ? cardId : 100;
         selectBtn.SetActive(toggle.isOn); //선택버튼 활성화
+        detailBtn.SetActive(toggle.isOn); //상세정보 버튼 활성화
     }
 }
