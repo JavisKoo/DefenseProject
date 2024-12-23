@@ -401,7 +401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8220428711089688865, guid: 8f6bce47a3b2aeb4380c8955e1af906c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 90.25252
+      value: 90.33647
       objectReference: {fileID: 0}
     - target: {fileID: 8220428711089688865, guid: 8f6bce47a3b2aeb4380c8955e1af906c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -437,7 +437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8220428711089688865, guid: 8f6bce47a3b2aeb4380c8955e1af906c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -45.12626
+      value: -45.168236
       objectReference: {fileID: 0}
     - target: {fileID: 8220428711089688865, guid: 8f6bce47a3b2aeb4380c8955e1af906c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3028,8 +3028,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveParticle: {fileID: 0}
   buffEffect: {fileID: 0}
-  MaxHealth: 100
-  CurrentHealth: 0
   AttackSpeed: 1
   animator: {fileID: 0}
   MoveSpeed: 1
@@ -3048,8 +3046,6 @@ MonoBehaviour:
   maxHp: 1000
   towerHPSlider: {fileID: 1395002872}
   towerHPText: {fileID: 778551246}
-  GameOverPanel: {fileID: 1709720160}
-  fadeimage: {fileID: 1709720162}
 --- !u!61 &655837836
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4831,8 +4827,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveParticle: {fileID: 0}
   buffEffect: {fileID: 0}
-  MaxHealth: 100
-  CurrentHealth: 0
   AttackSpeed: 1
   animator: {fileID: 0}
   MoveSpeed: 1
@@ -5669,7 +5663,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8220428711089688865, guid: 8f6bce47a3b2aeb4380c8955e1af906c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 90.25252
+      value: 90.33647
       objectReference: {fileID: 0}
     - target: {fileID: 8220428711089688865, guid: 8f6bce47a3b2aeb4380c8955e1af906c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5705,7 +5699,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8220428711089688865, guid: 8f6bce47a3b2aeb4380c8955e1af906c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -45.12626
+      value: -45.168236
       objectReference: {fileID: 0}
     - target: {fileID: 8220428711089688865, guid: 8f6bce47a3b2aeb4380c8955e1af906c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5758,7 +5752,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1139534699
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8411,7 +8405,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1725983828
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8680,8 +8674,10 @@ MonoBehaviour:
   - {fileID: 535792830}
   stage: 1
   stageTime: 0
-  stageMaxTime: []
+  stageTimeObj: {fileID: 1725983827}
   stageTimeText: {fileID: 441131700}
+  GameOverPanel: {fileID: 1709720160}
+  fadeimage: {fileID: 1709720162}
   enemyTower: {fileID: 963480816}
 --- !u!1 &1817332243
 GameObject:
@@ -11613,7 +11609,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8220428711089688865, guid: 8f6bce47a3b2aeb4380c8955e1af906c, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 90.25252
+      value: 90.33647
       objectReference: {fileID: 0}
     - target: {fileID: 8220428711089688865, guid: 8f6bce47a3b2aeb4380c8955e1af906c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11649,7 +11645,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8220428711089688865, guid: 8f6bce47a3b2aeb4380c8955e1af906c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -45.12626
+      value: -45.168236
       objectReference: {fileID: 0}
     - target: {fileID: 8220428711089688865, guid: 8f6bce47a3b2aeb4380c8955e1af906c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

@@ -56,8 +56,16 @@ public class StageManager : MonoBehaviour
 
     //스테이지 타임
     public float stageTime = 0;
-    public float[] stageMaxTime = { 120f, 120f, 240f };
+    private float[] stageMaxTime = { 120f, 120f, 240f };
+    public GameObject stageTimeObj;
     public Text stageTimeText;
+    private bool stage3TimeFlag = false;
+
+
+    //GameOver
+    [Header("GameOver")]
+    public GameObject GameOverPanel;
+    public UnityEngine.UI.Image fadeimage;
 
     //
     public EnemyTower enemyTower;
@@ -90,12 +98,14 @@ public class StageManager : MonoBehaviour
 
     private void Start()
     {
+        stageTime = 120f;
         StageStart();
     }
 
     private void Update()
     {
         stageTime -= Time.deltaTime;
+        CheckStageTime();
     }
 
     public void StageStart()
@@ -179,30 +189,58 @@ public class StageManager : MonoBehaviour
         cardPanel.SetActive(false);
 
         //enemyTower
+
+        switch (stage)
+        {
+            case 1:
+                stageTime = 120f;
+                break;
+            case 2:
+                stageTime = 120f;
+                break;
+            case 3:
+                stageTime = 240f;
+                break;
+        }
     }
 
     public void CheckStageTime()
     {
+        Debug.Log("스테이지 시간 : " + stageTime);
         if (stage == 1)
         {
-            if (stageTime <= stageMaxTime[stage] - 10f)
+            if (stageTime <= 10f)
             {
+                stageTimeObj.SetActive(true);
                 stageTimeText.text = "남은 시간 " + stageTime + "초!";
             }
         }
         else if (stage == 2)
         {
-            if (stageTime <= stageMaxTime[stage] - 10f)
+            if (stageTime <= 10f)
             {
+                stageTimeObj.SetActive(true);
                 stageTimeText.text = "남은 시간 " + stageTime + "초!";
             }
         }
         else if (stage == 3)
         {
-            if (stageTime <= stageMaxTime[stage] - 10f)
+            if (stageTime <= 120f && !stage3TimeFlag)
             {
+                stageTimeObj.SetActive(true);
+                stageTimeText.text = "남은 시간 " + stageTime + "초!";
+                Invoke("SetFalseTimeText", 3f);
+            }
+            else if (stageTime <= 10f)
+            {
+                stageTimeObj.SetActive(true);
                 stageTimeText.text = "남은 시간 " + stageTime + "초!";
             }
+        }
+
+        if (stageTime <= 0f)
+        {
+            
         }
     }
 
@@ -246,5 +284,28 @@ public class StageManager : MonoBehaviour
                 break;
         }
         dCardCreateCountValue.text = datas[selectId].createCountValue.ToString();
+    }
+
+    public void SetFalseTimeText()
+    {
+        stage3TimeFlag = true;
+        stageTimeObj.SetActive(false);
+    }
+
+    public void GameOver()
+    {
+        GameOverPanel.SetActive(true);
+        StartCoroutine(FadeCor());
+    }
+
+    IEnumerator FadeCor()
+    {
+        float fadeCount = 0;
+        while (true)
+        {
+            fadeCount += 0.01f;
+            yield return new WaitForSeconds(0.02f);
+            fadeimage.color = new Color(0, 0, 0, fadeCount);
+        }
     }
 }
