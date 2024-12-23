@@ -31,40 +31,12 @@ public class PlayerMove : BaseCharacter
                 this.GetComponent<SpriteRenderer>().flipX = false;
                 Skill2();
             }
-
-
-            if (Input.GetKey(KeyCode.RightArrow))
-            {
-                if (!ismoving)
-                {
-                    ismoving = true;
-                    animator.SetTrigger(DoMove);
-                }
-                this.GetComponent<SpriteRenderer>().flipX = false;
-                RightLeft = Vector3.right;
-                StartCoroutine(Move());
-            }
-            else if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                if (!ismoving)
-                {
-                    ismoving = true;
-                    animator.SetTrigger(DoMove);
-                }
-                this.GetComponent<SpriteRenderer>().flipX = true;
-                RightLeft = Vector3.left;
-                StartCoroutine(Move());
-            }
-            else if (!isAttacking)
-            {
-                ismoving = false;
-                this.GetComponent<SpriteRenderer>().flipX = false;
-                RightLeft = Vector3.right;
-                animator.SetTrigger("doStop");
-            }
         }
-        
-        
+        if (ismoving)
+        {
+            transform.position += MoveSpeed * Time.deltaTime * RightLeft;
+        }
+
     }
 
     private void FixedUpdate()
@@ -88,6 +60,36 @@ public class PlayerMove : BaseCharacter
     {
         transform.position += MoveSpeed * Time.deltaTime * RightLeft;
         yield return null;
+    }
+    public void MoveLeft()
+    {
+        if (!ismoving)
+        {
+            MoveSpeed = 1.0f;
+            ismoving = true;
+            animator.SetTrigger(DoMove);
+        }
+        this.GetComponent<SpriteRenderer>().flipX = true;
+        RightLeft = Vector3.left;
+    }
+    public void MoveRight()
+    {
+        if (!ismoving)
+        {
+            MoveSpeed = 1.0f;
+            ismoving = true;
+            animator.SetTrigger(DoMove);
+        }
+        this.GetComponent<SpriteRenderer>().flipX = false;
+        RightLeft = Vector3.right;
+    }
+    public void StopAndFlip()
+    {
+        ismoving = false;
+        MoveSpeed = 0.0f;
+        this.GetComponent<SpriteRenderer>().flipX = false;
+        RightLeft = Vector3.right;
+        animator.SetTrigger("doStop");
     }
 
 

@@ -183,7 +183,7 @@ public class EnemyTower : BaseCharacter
         nextSpawnDelay = spawnList[spawnIndex].delay;
     }
 
-    public override void TakeDamage(float damage, float enemyAccuracy = 200)
+    public override void TakeDamage(float damage, float enemyAccuracy = 200,bool pierce=false)
     {
         if (isStageEnd)
             return;

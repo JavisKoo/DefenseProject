@@ -107,7 +107,7 @@ public class Tower : BaseCharacter
         StartCoroutine(FadeCor());
     }
 
-    public override void TakeDamage(float damage, float enemyAccuracy = 200)
+    public override void TakeDamage(float damage, float enemyAccuracy = 200,bool pierce=false)
     {
         if (isGameOver)
             return;

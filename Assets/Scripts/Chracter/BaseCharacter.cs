@@ -10,8 +10,8 @@ namespace Chracter
         public ParticleSystem moveParticle;
         protected ClassType UnitType;
         public ParticleSystem buffEffect;
-        protected float MaxHealth = 100;
-        protected float CurrentHealth;
+        public float MaxHealth = 100;
+        public float CurrentHealth;
         protected float AttackDammage = 10;
         protected float Armor = 0;
         [SerializeField]protected float AttackSpeed = 1;
@@ -23,6 +23,7 @@ namespace Chracter
         [SerializeField] protected float MoveSpeed = 1f;
         protected float Accuracy = 60f;
         protected float Avoid = 60;
+        protected bool Pierce = false;
 
         public HealthBar healthBar;
         [SerializeField] protected GameObject rangedAttackPrefab = null;
@@ -106,7 +107,7 @@ namespace Chracter
         protected static readonly float AvoidHigh = 80;
         protected static readonly float AvoidVeryHigh = 120;
 
-
+        
 
 
         void Start()
@@ -149,6 +150,7 @@ namespace Chracter
             MoveSpeed = moveSpeed;
             Accuracy = accuracy;
             Avoid = avoid;
+
 
         }
 
@@ -215,7 +217,7 @@ namespace Chracter
         {
             if (currentEnemy)
             {
-                currentEnemy.collider.GetComponent<BaseCharacter>().TakeDamage(AttackDammage, Accuracy);
+                currentEnemy.collider.GetComponent<BaseCharacter>().TakeDamage(AttackDammage, Accuracy, Pierce);
             }
         }
 
@@ -240,7 +242,7 @@ namespace Chracter
 
 
 
-        public virtual void TakeDamage(float damage, float enemyAccuracy = 60)
+        public virtual void TakeDamage(float damage, float enemyAccuracy = 60, bool pierce=false)
         {
             float HitPercent = enemyAccuracy - Avoid + 50;
             if (HitPercent >= 100)
@@ -256,15 +258,32 @@ namespace Chracter
             {
                 return;
             }
-            float finalDamage = damage - Armor;
-            if (finalDamage <= 0)
+            if (pierce)
             {
-                finalDamage = 1;
+                float finalDamage = damage;
+                if (finalDamage <= 0)
+                {
+                    finalDamage = 1;
+                }
+                CurrentHealth -= finalDamage;
+                if (healthBar != null)
+                {
+                    healthBar.SetHealth(CurrentHealth, MaxHealth);
+                }
+
             }
-            CurrentHealth -= finalDamage;
-            if (healthBar != null)
+            else
             {
-                healthBar.SetHealth(CurrentHealth, MaxHealth);
+                float finalDamage = damage - Armor;
+                if (finalDamage <= 0)
+                {
+                    finalDamage = 1;
+                }
+                CurrentHealth -= finalDamage;
+                if (healthBar != null)
+                {
+                    healthBar.SetHealth(CurrentHealth, MaxHealth);
+                }
             }
 
             if (CurrentHealth <= 0)
@@ -374,5 +393,21 @@ namespace Chracter
             debuffDelay = 0.0f;
         }
 
+        public void PierceAttack(float time)
+        {
+            if(Pierce)
+            {
+                StopCoroutine(PierceCor(0));
+            }
+            StartCoroutine(PierceCor(time));
+        }
+
+
+        private IEnumerator PierceCor(float time)
+        {
+            Pierce = true;
+            yield return new WaitForSeconds(time);
+            Pierce = false;
+        }
     }
 }

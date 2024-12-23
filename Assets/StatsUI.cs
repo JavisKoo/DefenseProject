@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StatsUI : MonoBehaviour
 {
     [SerializeField] GameObject[] statsImage;
+    [SerializeField] Button UpgradeButton;
 
 
 
@@ -29,6 +31,10 @@ public class StatsUI : MonoBehaviour
                 statsImage[i].SetActive(true);
                 return;
             }
+        }
+        if (statsImage[4].activeInHierarchy)
+        {
+
         }
     }
 }
