@@ -1,3 +1,4 @@
+using Chracter;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -9,17 +10,27 @@ public class CameraMovement : MonoBehaviour
     public float moveSpeed = 5f;
     private bool moveLeft = false;
     private bool moveRight = false;
+    [SerializeField] BaseCharacter baseCharacter;
     // Start is called before the first frame update
 
     
     // when button is pressed, move camera to the left smoothly
     private void Update()
     {
-        MoveCamera();
+        if (moveLeft || moveRight)
+        {
+            MoveCamera();
+        }
+        else
+        {
+            FollowCharacter();
+        }
+       
     }
 
     public void MoveLeft()
     {
+        Debug.Log("asdf");
         moveLeft = true;
     }
     public void MoveRight()
@@ -54,5 +65,10 @@ public class CameraMovement : MonoBehaviour
             transform.position += Vector3.right * moveSpeed * Time.deltaTime;
         }
     }
-    
+    private void FollowCharacter()
+    {
+        transform.position = new Vector3(baseCharacter.transform.position.x, transform.position.y, transform.position.z);
+    }
+
+
 }

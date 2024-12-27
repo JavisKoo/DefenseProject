@@ -107,7 +107,10 @@ namespace Chracter
         protected static readonly float AvoidHigh = 80;
         protected static readonly float AvoidVeryHigh = 120;
 
-        
+
+        //PlayerCharacter Debuff,Buff
+        private bool isDeBuff = false;
+
 
 
         void Start()
@@ -365,6 +368,7 @@ namespace Chracter
         public void Buff()
         {
             StartCoroutine(BuffParticle());
+            PierceAttack(6);
         }
 
         private IEnumerator BuffParticle()
@@ -376,6 +380,11 @@ namespace Chracter
 
         internal void DeBuff()
         {
+            if (isDeBuff)
+            {
+                return;
+            }
+            isDeBuff = true;
             StartCoroutine(DebuffCor());
         }
 
@@ -391,14 +400,12 @@ namespace Chracter
             MoveSpeed = moveSpeedOrigin;
             AttackSpeed = attackSpeedOrigin;
             debuffDelay = 0.0f;
+            isDeBuff = false;
         }
 
         public void PierceAttack(float time)
         {
-            if(Pierce)
-            {
-                StopCoroutine(PierceCor(0));
-            }
+            
             StartCoroutine(PierceCor(time));
         }
 
@@ -406,8 +413,10 @@ namespace Chracter
         private IEnumerator PierceCor(float time)
         {
             Pierce = true;
+            healthBar.ActiveBuff(0);
             yield return new WaitForSeconds(time);
             Pierce = false;
+            healthBar.DeActiveBuff(0);
         }
     }
 }

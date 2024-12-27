@@ -11,20 +11,20 @@ namespace Chracter
         public Color Low;
         public Color High;
         public GameObject Fill;
+        public GameObject[] BuffDebuff;
 
         [SerializeField] Sprite Green;
         [SerializeField] Sprite Red;
         [SerializeField] Sprite Blue;
-
-        public Vector3 offset;
         void Start()
         {
+            slider.value = float.MaxValue;
         }
 
         // Update is called once per frame
         void Update()
         {
-            slider.transform.position = Camera.main.WorldToScreenPoint(transform.parent.position) + offset;
+           
         }
 
 
@@ -53,7 +53,7 @@ namespace Chracter
                 return;
             }
             
-            slider.gameObject.SetActive(health < maxHealth);
+            slider.gameObject.SetActive(true);
             slider.value = health;
             slider.maxValue = maxHealth;
             //Fill.GetComponent<Image>().color = Color.Lerp(Low, High, slider.normalizedValue);
@@ -65,6 +65,16 @@ namespace Chracter
             slider.value = health;
             slider.maxValue = maxHealth;
             //Fill.GetComponent<Image>().color = Color.Lerp(Low, High, slider.normalizedValue);
+        }
+
+        public void ActiveBuff(int num)
+        {
+            BuffDebuff[num].SetActive(true);
+        }
+
+        public void DeActiveBuff(int num)
+        {
+            BuffDebuff[num].SetActive(false);
         }
     }
 }

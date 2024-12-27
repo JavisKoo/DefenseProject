@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 344319866593267813}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -38,7 +38,7 @@ Transform:
   - {fileID: 4717893244150893710}
   - {fileID: 2959108591539813200}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
 --- !u!212 &8003577852541299673
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -181,14 +181,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 001ac161d566126419ee7e75852ad01c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveParticle: {fileID: 4717893244150893704}
   buffEffect: {fileID: 8510947162962370549}
+  MaxHealth: 100
+  CurrentHealth: 0
   AttackSpeed: 1
   animator: {fileID: 5061897147921594596}
   MoveSpeed: 1
   healthBar: {fileID: 2880435418583348988}
   rangedAttackPrefab: {fileID: 0}
   rangedAttackSpawnPoint: {fileID: 0}
-  moveParticle: {fileID: 4717893244150893704}
 --- !u!1001 &419908418743982601
 PrefabInstance:
   m_ObjectHideFlags: 0
