@@ -8,7 +8,6 @@ public class Card : MonoBehaviour
     public int cardId;
     public ToggleGroup toggleGroup;
     private Toggle toggle;
-    private bool isSelect = false;
     //선택버튼
     public GameObject selectBtn;
     public GameObject detailBtn;

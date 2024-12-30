@@ -26,6 +26,7 @@ public class StageManager : MonoBehaviour
 
     //
     [Header("Detail")]
+    public GameObject exitPanel;
     public GameObject detailPanel;
     public Image dcardImage;
     public Text dCardLevel;
@@ -177,7 +178,7 @@ public class StageManager : MonoBehaviour
        
             if (unitButtons[i].data==null)
             {
-                unitButtons[i].Init(datas[selectId]); //수정해야함
+                unitButtons[i].Init(datas[selectId]);
 
                 //Debug.Log("카드적용완료");
                 break;
@@ -254,6 +255,7 @@ public class StageManager : MonoBehaviour
 
     public void OnClickDetail()
     {
+        exitPanel.SetActive(true);
         detailPanel.SetActive(true);
 
         dcardImage.sprite = datas[selectId].itemIcon;
@@ -292,6 +294,12 @@ public class StageManager : MonoBehaviour
                 break;
         }
         dCardCreateCountValue.text = datas[selectId].createCountValue.ToString();
+    }
+
+    public void OnClickExit()
+    {
+        exitPanel.SetActive(false);
+        detailPanel.SetActive(false);
     }
 
     public void SetFalseTimeText()

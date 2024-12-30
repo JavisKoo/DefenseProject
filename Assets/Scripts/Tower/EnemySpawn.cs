@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemySpawn
 {
-    public float delay;
-    public string type;
+    public string[] wave1type;
+
+    public string[] wave2type;
+
+    public string[] wave3type;
 }
