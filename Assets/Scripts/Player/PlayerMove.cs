@@ -51,7 +51,17 @@ public class PlayerMove : BaseCharacter
         SetPlayer();
         CheckTeam();
         healthBar.SetHealthBarColor("Player");
-        SetCharacterSettings(50000, 10, 0, 1.4f, 3f, true, true, 1.5f, 200, 120);
+        //get stats from statsUI
+        // Armor, Health,Attack, AttackSpeed, MoveSpeed, Accuracy, Avoid
+        float armor = PlayerPrefs.GetInt("Armor", 0);
+        float health = PlayerPrefs.GetInt("Health", 0);
+        float attack = PlayerPrefs.GetInt("Attack", 0);
+        float attackSpeed = PlayerPrefs.GetInt("AttackSpeed", 0);
+        float moveSpeed = PlayerPrefs.GetInt("MoveSpeed", 0);
+        float accuracy = PlayerPrefs.GetInt("Accuracy", 0);
+        
+        
+        SetCharacterSettings(500*health/10, 10, 0, 1.4f, 3f, true, true, 1.5f, 200, 120);
         healthBar.SetHealth(MaxHealth, MaxHealth);
         healthBar.slider.value = float.MaxValue;
     }

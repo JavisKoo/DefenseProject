@@ -412,6 +412,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  UpgradeButton: {fileID: 4645704587698904083}
+  statName: 
 --- !u!1001 &317390231218160676
 PrefabInstance:
   m_ObjectHideFlags: 0
