@@ -35,10 +35,14 @@ public class StatsUI : MonoBehaviour
 
     public void StatUpgrade()
     {
+        int upgradeSoul = 0;
         for(int i=0; i < statsImage.Length; i++)
         {
             if (!statsImage[i].activeInHierarchy)
             {
+               
+
+
                 statsImage[i].SetActive(true);
                 PlayerPrefs.SetInt(statName, i + 1);
                 return;
