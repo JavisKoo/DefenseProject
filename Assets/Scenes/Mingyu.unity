@@ -5118,10 +5118,6 @@ MonoBehaviour:
   - {fileID: 344319866593267813, guid: 6c92d7395165e1644acac0567e603c5b, type: 3}
   - {fileID: 344319866593267813, guid: 0e48cb50a593cef4babb6149016b95df, type: 3}
   - {fileID: 344319866593267813, guid: f317e921bc08fed4eb6e2096a323c0ec, type: 3}
-  spawnIndex: 0
-  spawnEnd: 0
-  curSpawnDelay: 0
-  nextSpawnDelay: 0
   enemySpawnPoint: {fileID: 1145465302}
   towerHPSlider: {fileID: 1330847044}
   towerHPText: {fileID: 1397077445}
@@ -9049,7 +9045,7 @@ MonoBehaviour:
   - {fileID: 1415752497}
   - {fileID: 1619201423}
   - {fileID: 535792830}
-  stage: 1
+  wave: 1
   stageTime: 0
   stageTimeObj: {fileID: 1725983827}
   stageTimeText: {fileID: 441131700}

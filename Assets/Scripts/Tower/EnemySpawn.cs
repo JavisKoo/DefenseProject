@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class EnemySpawn
 {
-    public string[] wave1type;
+    public string enemyA;
 
-    public string[] wave2type;
+    public string enemyB;
 
-    public string[] wave3type;
+    public string enemyC;
 }

@@ -53,10 +53,11 @@ public class StageManager : MonoBehaviour
     public Item[] unitButtons;
 
     //스테이지 정보
-    public int stage = 1;
+    public int wave = 1;
 
     //스테이지 타임
     public float stageTime = 0;
+    private float maxStageTime;
     private float[] stageMaxTime = { 120f, 120f, 240f };
     public GameObject stageTimeObj;
     public Text stageTimeText;
@@ -123,17 +124,15 @@ public class StageManager : MonoBehaviour
 
         for (int i = 0; i < 3; i++)
         {
-            int ranNum = Random.Range((stage - 1) * 5, ((stage - 1) * 5) + 5); //스테이지 1이면 0~5, 2이면 5~10, 3이면 10~15
+            int ranNum = Random.Range((wave - 1) * 5, ((wave - 1) * 5) + 5); //스테이지 1이면 0~5, 2이면 5~10, 3이면 10~15
             //Debug.Log("첫번째 값: " + (stage - 1) * 5 + "두번째 값: " + ((stage - 1) * 5) + 5);
             //Debug.Log("랜덤 아이디값" + ranNum);
             //중복체크
             while(nums.Contains(ranNum)) //랜덤넘버가 만약 이미 있다면
             {
-                ranNum = Random.Range((stage - 1) * 5, ((stage - 1) * 5) + 5);
+                ranNum = Random.Range((wave - 1) * 5, ((wave - 1) * 5) + 5);
             }
             nums.Add(ranNum);
-
-
 
             //UI에 랜덤유닛 정보 집어넣기
             cardLevel[i].text = "LV." + datas[ranNum].level;
@@ -192,7 +191,7 @@ public class StageManager : MonoBehaviour
 
         //enemyTower
 
-        switch (stage)
+        switch (wave)
         {
             case 1:
                 stageTime = 120f;
@@ -204,6 +203,8 @@ public class StageManager : MonoBehaviour
                 stageTime = 240f;
                 break;
         }
+
+        maxStageTime = stageTime;
     }
 
     public void CheckStageTime()
@@ -215,7 +216,26 @@ public class StageManager : MonoBehaviour
         }
 
         Debug.Log("스테이지 시간 : " + Mathf.Floor(stageTime));
-        if (stage == 1)
+        if (wave == 1)
+        {
+            //30초 (중반으로 넘어가기)
+            if (Mathf.Floor(stageTime) == maxStageTime - 30f)
+            {
+
+            }
+            //60초 (후반으로 넘어가기)
+            if (Mathf.Floor(stageTime) == maxStageTime - 90f)
+            {
+
+            }
+
+            if (stageTime <= 10f)
+            {
+                stageTimeObj.SetActive(true);
+                stageTimeText.text = "남은 시간 " + Mathf.Floor(stageTime) + "초!";
+            }
+        }
+        else if (wave == 2)
         {
             if (stageTime <= 10f)
             {
@@ -223,15 +243,7 @@ public class StageManager : MonoBehaviour
                 stageTimeText.text = "남은 시간 " + Mathf.Floor(stageTime) + "초!";
             }
         }
-        else if (stage == 2)
-        {
-            if (stageTime <= 10f)
-            {
-                stageTimeObj.SetActive(true);
-                stageTimeText.text = "남은 시간 " + Mathf.Floor(stageTime) + "초!";
-            }
-        }
-        else if (stage == 3)
+        else if (wave == 3)
         {
             if (stageTime <= 120f && !stage3TimeFlag)
             {

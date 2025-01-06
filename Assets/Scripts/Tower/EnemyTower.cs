@@ -7,18 +7,36 @@ using System.IO;
 
 public class EnemyTower : BaseCharacter
 {
+    [System.Serializable]
+    public struct StageEnemy
+    {
+        public GameObject enemyObj;
+        public float delay;
+        public float timer;
+    }
+
+    [System.Serializable]
+    public struct StageData
+    {
+        public StageEnemy enemy;
+
+        public float totalTime;
+        public float firstTime;
+
+    }
+    
+    public List<StageData> stageData;
+
     //Spawn
 
     [Header("UI")]
     public GameObject[] enemyObjs;
 
     public List<EnemySpawn> spawnList;
-    public int spawnIndex;
-    public bool spawnEnd = false;
-    public float curSpawnDelay = 0;
-    public float nextSpawnDelay = 0;
 
-    float spwanDelay;
+    float spwanDelay1 = 5;
+    float spwanDelay2 = 10;
+    float spwanDelay3 = 15;
     string spawnType;
 
     public Transform enemySpawnPoint;
@@ -28,6 +46,8 @@ public class EnemyTower : BaseCharacter
     [Header("UI")]
     public Slider towerHPSlider;
     public Text towerHPText;
+
+
 
     //Game Clear
     public GameObject stageClearPanel;
@@ -45,6 +65,12 @@ public class EnemyTower : BaseCharacter
         SetCharacterSettings(500);
         towerHPSlider.maxValue = MaxHealth;
         ReadSpawnFile();
+
+
+        //
+        StartCoroutine(EnemyCreate1());
+        StartCoroutine(EnemyCreate2());
+        StartCoroutine(EnemyCreate3());
     }
 
     private void Update()
@@ -52,14 +78,6 @@ public class EnemyTower : BaseCharacter
         towerHPSlider.value = CurrentHealth;
         towerHPText.text = CurrentHealth + " / " + MaxHealth;
 
-        //spawn
-        curSpawnDelay += Time.deltaTime;
-
-        if(curSpawnDelay > nextSpawnDelay && !spawnEnd)
-        {
-            SpawnEnemy();
-            curSpawnDelay = 0;
-        }
 
         //stage end
         /*if (CurrentHealth <= 0)
@@ -67,45 +85,39 @@ public class EnemyTower : BaseCharacter
             CurrentHealth = 0;
 
         }*/
+
+        
     }
 
     void ReadSpawnFile()
     {
         //변수 초기화
         spawnList.Clear();
-        spawnIndex = 0;
-        spawnEnd = false;
 
         //파일 읽기
-        Debug.Log("Stage" + StageManager.Instance.stage.ToString());
-        TextAsset textFile = Resources.Load("Stage" + StageManager.Instance.stage.ToString()) as TextAsset;
+        Debug.Log("Wave" + StageManager.Instance.wave.ToString());
+        TextAsset textFile = Resources.Load("Wave" + StageManager.Instance.wave.ToString()) as TextAsset;
         StringReader reader = new StringReader(textFile.text);
 
-        while(reader != null)
-        {
-            string line = reader.ReadLine();
-            Debug.Log(line);
+        string line = reader.ReadLine();
+        Debug.Log(line);
 
-            if (line == null)
-                break;
+        EnemySpawn spawnData = new EnemySpawn();
+        spawnData.enemyA = line.Split(',')[0]; //
+        spawnData.enemyB = line.Split(',')[1];
+        spawnData.enemyC = line.Split(',')[2]; //3개값을 추가한 스폰데이터를 넣어준다
+        spawnList.Add(spawnData);
 
+        Debug.Log(spawnList);
 
-            EnemySpawn spawnData = new EnemySpawn();
-            spawnData.delay = float.Parse(line.Split(',')[0]);
-            spawnData.type = line.Split(',')[1].ToString();
-            spawnList.Add(spawnData);
-        }
         //텍스트 파일 닫기
         reader.Close();
-
-        //첫번째 스폰 딜레이 적용
-        nextSpawnDelay = spawnList[0].delay;
     }
 
-    void SpawnEnemy()
+    void SpawnEnemy(string type)
     {
         int enemyIndex = 0;
-        switch (spawnList[spawnIndex].type)
+        switch (type)
         {
             case "검사":
                 enemyIndex = 0;
@@ -171,16 +183,6 @@ public class EnemyTower : BaseCharacter
         enemy.tag = "Enemy";
         enemy.layer = 7;
         enemy.GetComponent<BaseCharacter>().Spawn();
-
-        spawnIndex++;
-        if (spawnIndex == spawnList.Count)
-        {
-            spawnEnd = true;
-            return;
-        }
-
-        //다음 스폰 딜레이
-        nextSpawnDelay = spawnList[spawnIndex].delay;
     }
 
     public override void TakeDamage(float damage, float enemyAccuracy = 200,bool pierce=false)
@@ -197,12 +199,12 @@ public class EnemyTower : BaseCharacter
 
         CurrentHealth -= finalDamage;
 
-        switch (StageManager.Instance.stage)
+        switch (StageManager.Instance.wave)
         {
             case 1:
                 if (CurrentHealth <= MaxHealth / 10 * 8) //80%이하로 내려가면
                 {
-                    StageManager.Instance.stage++;
+                    StageManager.Instance.wave++;
                     StageManager.Instance.StageStart();
                 }
                 break;
@@ -210,7 +212,7 @@ public class EnemyTower : BaseCharacter
             case 2:
                 if (CurrentHealth <= MaxHealth / 10 * 4) //40%이하로 내려가면
                 {
-                    StageManager.Instance.stage++;
+                    StageManager.Instance.wave++;
                     StageManager.Instance.StageStart();
                 }
                 break;
@@ -240,6 +242,74 @@ public class EnemyTower : BaseCharacter
     {
         yield return new WaitForSeconds(0.2f);
         ReadSpawnFile();
+    }
 
+    IEnumerator EnemyCreate1()
+    {
+        switch (StageManager.Instance.wave)
+        {
+            case 1:
+                SpawnEnemy(spawnList[0].enemyA); //웨이브 1의 첫번째 적
+                break;
+
+            case 2:
+                SpawnEnemy(spawnList[StageManager.Instance.wave].enemyA); //웨이브 2의 첫번째 적
+                break;
+
+            case 3:
+                SpawnEnemy(spawnList[StageManager.Instance.wave].enemyA); //웨이브 3의 첫번째 적
+                break;
+        }
+
+
+        yield return new WaitForSeconds(spwanDelay1);
+
+        StartCoroutine(EnemyCreate1());
+    }
+
+    IEnumerator EnemyCreate2()
+    {
+        switch (StageManager.Instance.wave)
+        {
+            case 1:
+                SpawnEnemy(spawnList[0].enemyB); //웨이브 1의 첫번째 적
+                break;
+
+            case 2:
+                SpawnEnemy(spawnList[StageManager.Instance.wave].enemyB); //웨이브 2의 두번째 적
+                break;
+
+            case 3:
+                SpawnEnemy(spawnList[StageManager.Instance.wave].enemyB); //웨이브 3의 두번째 적
+                break;
+        }
+
+
+        yield return new WaitForSeconds(spwanDelay2);
+
+        StartCoroutine(EnemyCreate2());
+    }
+
+    IEnumerator EnemyCreate3()
+    {
+        switch (StageManager.Instance.wave)
+        {
+            case 1:
+                SpawnEnemy(spawnList[0].enemyC); //웨이브 1의 첫번째 적
+                break;
+
+            case 2:
+                SpawnEnemy(spawnList[StageManager.Instance.wave].enemyC); //웨이브 2의 세번째 적
+                break;
+
+            case 3:
+                SpawnEnemy(spawnList[StageManager.Instance.wave].enemyC); //웨이브 3의 세번째 적
+                break;
+        }
+
+
+        yield return new WaitForSeconds(spwanDelay3);
+
+        StartCoroutine(EnemyCreate3());
     }
 }
