@@ -61,7 +61,7 @@ public class PlayerMove : BaseCharacter
         float accuracy = PlayerPrefs.GetInt("Accuracy", 0);
         
         
-        SetCharacterSettings(500, 10, 0, 1.4f, 3f, true, true, 1.5f, 200, 120);
+        SetCharacterSettings(500, 200, 0, 1.4f, 3f, true, true, 1.5f, 200, 120); //원래 10인데 임시로 200으로 바꿈
         healthBar.SetHealth(MaxHealth, MaxHealth);
         healthBar.slider.value = float.MaxValue;
     }

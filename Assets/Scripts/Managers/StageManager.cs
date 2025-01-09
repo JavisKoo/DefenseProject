@@ -1,3 +1,4 @@
+using Chracter;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -72,6 +73,10 @@ public class StageManager : MonoBehaviour
 
     //
     public EnemyTower enemyTower;
+    public GameObject BossObj;
+
+    //boss
+    public bool isAppearBoss = false;
 
     void Awake()
     {
@@ -168,7 +173,7 @@ public class StageManager : MonoBehaviour
     {
         for (int i = 0; i < unitButtons.Length; i++)
         {
-            //Debug.Log("선택한 카드 아이디: " + selectId);
+            Debug.Log("선택한 카드 아이디: " + selectId);
 
             if(unitButtons[i] != null)
             {
@@ -260,6 +265,7 @@ public class StageManager : MonoBehaviour
 
         if (stageTime <= 0f && !isGameOver)
         {
+            stageTimeText.text = "시간초과...";
             isGameOver = true;
             GameOver();
         }
@@ -335,5 +341,13 @@ public class StageManager : MonoBehaviour
             yield return new WaitForSeconds(0.02f);
             fadeimage.color = new Color(0, 0, 0, fadeCount);
         }
+    }
+
+    public void AppearBoss()
+    {
+        GameObject boss = GameObject.Instantiate(BossObj,enemyTower.enemySpawnPoint);
+        boss.GetComponent<BaseCharacter>().Spawn();
+        boss.GetComponent<BaseCharacter>().MaxHealth = boss.GetComponent<BaseCharacter>().MaxHealth * 8;
+        boss.GetComponent<BaseCharacter>().CurrentHealth = boss.GetComponent<BaseCharacter>().MaxHealth;
     }
 }

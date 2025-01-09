@@ -18,27 +18,10 @@ public class SpawnPoint : MonoBehaviour
 
     public void SpawnCharacter() //Item 스트립트에서 CharacterIndex값, 스폰딜레이를 설정해주고.    =>    이 함수 호출
     {
-        switch (CharacterIndex)
-        {
-            case 0:
-                towerScript.currentGold -= datas[CharacterIndex].cost;
-                break;
-            case 1:
-                towerScript.currentGold -= datas[CharacterIndex].cost;
-                break;
-            case 2:
-                towerScript.currentGold -= datas[CharacterIndex].cost;
-                break;
-            case 3:
-                towerScript.currentGold -= datas[CharacterIndex].cost;
-                break;
-
-            case 4:
-                Debug.Log("잠겨있습니다.");
-                break;
-        }
+        towerScript.currentGold -= datas[CharacterIndex].cost;
         //spawn character
         GameObject Team = Instantiate(characterPrefab[CharacterIndex], transform.position, Quaternion.identity);
+        Debug.Log("캐릭터 인덱스는 :"+CharacterIndex);
         Team.GetComponent<BaseCharacter>().Spawn();
         //UI Init
         towerScript.InitUI(); //골드 텍스트 초기화

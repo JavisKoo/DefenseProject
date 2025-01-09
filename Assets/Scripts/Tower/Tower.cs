@@ -15,7 +15,7 @@ public class Tower : BaseCharacter
     [Header("Gold")]
     public float currentGold = 0;
     [SerializeField] private float maxGold = 1000;
-    [SerializeField] private int goldPerSec = 1;
+    [SerializeField] private int goldPerSec = 10;
     private bool isCanGetGold = true;
     //time
     [Header("Time")]
@@ -57,6 +57,8 @@ public class Tower : BaseCharacter
             currentTime = 0;
             GetGold();
         }
+
+        Cheat();
     }
 
     public void GetGold()
@@ -122,5 +124,55 @@ public class Tower : BaseCharacter
         }
     }
 
+
+    int towerLevel = 1;
+    int[] upgradeCost = { 0, 50, 200, 450, 800, 1250, 1800, 2450, 3200 };
+    int[] upgradeMaxGold = {0, 100, 330, 720, 1300, 2100, 3150, 4480, 6120, 8100 };
+    public Text towerLevelText;
+    public Text upgradeCostText;
+    public UnityEngine.UI.Button upgradeBtn;
     
+
+    public void UPgradeTower()
+    {
+        if (towerLevel == 9)
+            return;
+
+        if (currentGold >= upgradeCost[towerLevel])
+        {
+            //
+            towerLevel++;
+
+
+            currentGold -= upgradeCost[towerLevel-1];
+            maxGold = upgradeMaxGold[towerLevel];
+            CurrentHealth += 200;
+            MaxHealth += 200;
+            goldPerSec += 5;
+            Armor++;
+
+            //ui
+            //체력은 업데이트에서 자동으로 초기화됨
+            if (towerLevel >= 9)
+            {
+                upgradeBtn.enabled = false;
+                upgradeCostText.text = "MAX";
+            }
+            else
+            {
+                upgradeCostText.text = upgradeCost[towerLevel].ToString();
+            }
+            towerLevelText.text = "Level " + towerLevel;
+            goldPerSecText.text = "+" + goldPerSec + "/s";
+            InitUI();
+        }
+    }
+
+    public void Cheat()
+    {
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            currentGold = maxGold;
+        }
+    }
 }

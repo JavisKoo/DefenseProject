@@ -83,6 +83,9 @@ public class Item : MonoBehaviour
 
     public void CreateUnit()
     {
+        if (data == null)
+            return;
+
         if (spawnDelay > 0f || towerScript.currentGold - data.cost < 0) //딜레이 시간이 지나지 않았다면
         {
             warningText.SetActive(true);

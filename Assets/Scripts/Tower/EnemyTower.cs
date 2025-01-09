@@ -66,11 +66,8 @@ public class EnemyTower : BaseCharacter
         towerHPSlider.maxValue = MaxHealth;
         ReadSpawnFile();
 
-
         //
-        StartCoroutine(EnemyCreate1());
-        StartCoroutine(EnemyCreate2());
-        StartCoroutine(EnemyCreate3());
+        EnemyCreate();
     }
 
     private void Update()
@@ -231,6 +228,12 @@ public class EnemyTower : BaseCharacter
         {
             healthBar.TowerHealth(CurrentHealth, MaxHealth);
         }
+
+        if (!StageManager.Instance.isAppearBoss && CurrentHealth <= MaxHealth / 2) //보스가 생성된 적 없고 체력이 50퍼 이하로 내려갔다면
+        {
+            StageManager.Instance.isAppearBoss = true;
+            StageManager.Instance.AppearBoss();
+        }
     }
 
     /*public virtual void Die()
@@ -244,6 +247,13 @@ public class EnemyTower : BaseCharacter
         ReadSpawnFile();
     }
 
+    public void EnemyCreate()
+    {
+        StartCoroutine(EnemyCreate1());
+        Invoke("EnemyCreate2Ready", spwanDelay2);
+        Invoke("EnemyCreate3Ready", spwanDelay3);
+    }
+
     IEnumerator EnemyCreate1()
     {
         switch (StageManager.Instance.wave)
@@ -253,11 +263,11 @@ public class EnemyTower : BaseCharacter
                 break;
 
             case 2:
-                SpawnEnemy(spawnList[StageManager.Instance.wave].enemyA); //웨이브 2의 첫번째 적
+                SpawnEnemy(spawnList[1].enemyA); //웨이브 2의 첫번째 적
                 break;
 
             case 3:
-                SpawnEnemy(spawnList[StageManager.Instance.wave].enemyA); //웨이브 3의 첫번째 적
+                SpawnEnemy(spawnList[2].enemyA); //웨이브 3의 첫번째 적
                 break;
         }
 
@@ -267,6 +277,15 @@ public class EnemyTower : BaseCharacter
         StartCoroutine(EnemyCreate1());
     }
 
+
+    public void EnemyCreate2Ready()
+    {
+        StartCoroutine(EnemyCreate2());
+    }
+    public void EnemyCreate3Ready()
+    {
+        StartCoroutine(EnemyCreate3());
+    }
     IEnumerator EnemyCreate2()
     {
         switch (StageManager.Instance.wave)
@@ -276,11 +295,11 @@ public class EnemyTower : BaseCharacter
                 break;
 
             case 2:
-                SpawnEnemy(spawnList[StageManager.Instance.wave].enemyB); //웨이브 2의 두번째 적
+                SpawnEnemy(spawnList[1].enemyB); //웨이브 2의 두번째 적
                 break;
 
             case 3:
-                SpawnEnemy(spawnList[StageManager.Instance.wave].enemyB); //웨이브 3의 두번째 적
+                SpawnEnemy(spawnList[2].enemyB); //웨이브 3의 두번째 적
                 break;
         }
 
@@ -299,11 +318,11 @@ public class EnemyTower : BaseCharacter
                 break;
 
             case 2:
-                SpawnEnemy(spawnList[StageManager.Instance.wave].enemyC); //웨이브 2의 세번째 적
+                SpawnEnemy(spawnList[1].enemyC); //웨이브 2의 세번째 적
                 break;
 
             case 3:
-                SpawnEnemy(spawnList[StageManager.Instance.wave].enemyC); //웨이브 3의 세번째 적
+                SpawnEnemy(spawnList[2].enemyC); //웨이브 3의 세번째 적
                 break;
         }
 
