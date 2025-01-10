@@ -421,7 +421,7 @@ namespace Chracter
 
         public void ChangeBossStats(float Health, float Attack, float Movespeed)
         {
-            MaxHealth = MaxHealth * Health;
+            MaxHealth = MaxHealth * Health*5;
             CurrentHealth = MaxHealth;
             AttackDammage = AttackDammage * Attack;
             MoveSpeed = MoveSpeed * Movespeed;

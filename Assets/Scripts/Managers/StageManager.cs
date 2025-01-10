@@ -64,6 +64,7 @@ public class StageManager : MonoBehaviour
     private float[] stageMaxTime = { 120f, 120f, 240f };
     public GameObject stageTimeObj;
     public Text stageTimeText;
+    public Text waveText;
     private bool stage3TimeFlag = false;
 
 
@@ -207,6 +208,8 @@ public class StageManager : MonoBehaviour
         }
         //enemyTower
 
+
+        //웨이브 설정
         switch (wave)
         {
             case 1:
@@ -221,6 +224,7 @@ public class StageManager : MonoBehaviour
         }
 
         maxStageTime = stageTime;
+        waveText.text = "WAVE " + wave;
     }
 
     public void CheckStageTime()
