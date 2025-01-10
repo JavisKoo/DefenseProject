@@ -24,6 +24,7 @@ public class StageManager : MonoBehaviour
     public Text[] cardAttackSpeed;
     public Image[] cardAttribute;
     public Sprite[] attributeImage;
+    public Toggle[] cardToggles;
 
     //
     [Header("Detail")]
@@ -194,6 +195,15 @@ public class StageManager : MonoBehaviour
         Time.timeScale = 1f;
         cardPanel.SetActive(false);
 
+
+        //Ä«µå ²ô±â
+        detailPanel.SetActive(false);
+        exitPanel.SetActive(false);
+        selectId = 0;
+        for (int i = 0; i < cardToggles.Length; i++)
+        {
+            cardToggles[i].isOn = false;
+        }
         //enemyTower
 
         switch (wave)
