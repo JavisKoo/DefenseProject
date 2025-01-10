@@ -6,12 +6,12 @@ using UnityEngine;
 
 public class PlayerMove : BaseCharacter
 {
-    
+
     private bool Attacking = false;
     private bool ismoving = false;
     private bool isSkillMotion = false;
     [SerializeField] protected GameObject rangedAttackPrefableft = null;
-    
+
     void Update()
     {
 
@@ -41,7 +41,7 @@ public class PlayerMove : BaseCharacter
 
     private void FixedUpdate()
     {
-        if (Enemy != null&& !isSkillMotion)
+        if (Enemy != null && !isSkillMotion)
             CheckEnemy();
     }
 
@@ -55,13 +55,14 @@ public class PlayerMove : BaseCharacter
         // Armor, Health,Attack, AttackSpeed, MoveSpeed, Accuracy, Avoid
         float armor = PlayerPrefs.GetInt("Armor", 0);
         float health = PlayerPrefs.GetInt("Health", 0);
-        float attack = PlayerPrefs.GetInt("Attack", 0);
+        float attack = PlayerPrefs.GetInt("AttackDamage", 0);
         float attackSpeed = PlayerPrefs.GetInt("AttackSpeed", 0);
         float moveSpeed = PlayerPrefs.GetInt("MoveSpeed", 0);
         float accuracy = PlayerPrefs.GetInt("Accuracy", 0);
-        
-        
-        SetCharacterSettings(2000, 100, 0, 1.4f, 3f, true, true, 1.5f, 200, 120); //원래 10인데 임시로 200으로 바꿈
+        float avoid = PlayerPrefs.GetInt("Avoid", 0);
+
+
+        SetCharacterSettings(500 + 500 * health/10, 200 + 200 * attack, 0, 1.4f - (1.4f * attackSpeed/10), 3f, true, true, 1.5f + (1.5f * moveSpeed/10), 200 + 200 * accuracy, 120 + 120 * avoid); //원래 10인데 임시로 200으로 바꿈
         healthBar.SetHealth(MaxHealth, MaxHealth);
         healthBar.slider.value = float.MaxValue;
     }
@@ -106,11 +107,11 @@ public class PlayerMove : BaseCharacter
 
     protected override void CheckEnemy()
     {
-        if(ismoving) {return;}
-        
-        RaycastHit2D hit = Physics2D.Raycast(transform.position+raycastHeight, RightLeft, AttackRange, LayerMask.GetMask(Enemy));
+        if (ismoving) { return; }
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + raycastHeight, RightLeft, AttackRange, LayerMask.GetMask(Enemy));
         //draw the ray in the scene view with distance 
-        Debug.DrawRay(transform.position+ raycastHeight, RightLeft * AttackRange, Color.red);
+        Debug.DrawRay(transform.position + raycastHeight, RightLeft * AttackRange, Color.red);
         if (hit.collider != null)
         {
             if (hit.collider.CompareTag(Enemy) && isAttacking == false)
@@ -123,7 +124,7 @@ public class PlayerMove : BaseCharacter
             }
         }
     }
-    
+
     public void Skill1()
     {
         this.GetComponent<SpriteRenderer>().flipX = false;
@@ -139,14 +140,14 @@ public class PlayerMove : BaseCharacter
         animator.SetTrigger("doSkill2");
         StartCoroutine(Skill2Motion());
     }
-    
+
     protected IEnumerator Skill1Motion()
     {
         // check my team is around me
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, 2f, LayerMask.GetMask("Team"));
-        
+
         //1hitcollider is this
-        if(hitColliders.Length == 0)
+        if (hitColliders.Length == 0)
         {
             isSkillMotion = false;
             this.GetComponent<BaseCharacter>().Buff();
@@ -176,8 +177,8 @@ public class PlayerMove : BaseCharacter
 
     protected override void RangedAttackShoot()
     {
-            GameObject rangedAttack = Instantiate(rangedAttackPrefab, rangedAttackSpawnPoint.position - new Vector3(0, 0.5f, 0), Quaternion.identity);
-            rangedAttack.GetComponent<PlayerRangeSkill>().SkillSetting();
+        GameObject rangedAttack = Instantiate(rangedAttackPrefab, rangedAttackSpawnPoint.position - new Vector3(0, 0.5f, 0), Quaternion.identity);
+        rangedAttack.GetComponent<PlayerRangeSkill>().SkillSetting();
     }
 
 }

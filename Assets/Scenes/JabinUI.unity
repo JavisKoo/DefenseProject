@@ -2852,6 +2852,9 @@ MonoBehaviour:
   maxHp: 1000
   towerHPSlider: {fileID: 1395002872}
   towerHPText: {fileID: 778551246}
+  towerLevelText: {fileID: 0}
+  upgradeCostText: {fileID: 0}
+  upgradeBtn: {fileID: 0}
 --- !u!61 &655837836
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4652,6 +4655,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   rangedAttackPrefab: {fileID: 0}
   rangedAttackSpawnPoint: {fileID: 0}
+  stageData: []
   enemyObjs:
   - {fileID: 344319866593267813, guid: 4ecd73d96cf9e064dba5b0ae2809d18b, type: 3}
   - {fileID: 344319866593267813, guid: e60edb9403799b14b938b3924d66f59b, type: 3}
@@ -4668,10 +4672,6 @@ MonoBehaviour:
   - {fileID: 344319866593267813, guid: 6c92d7395165e1644acac0567e603c5b, type: 3}
   - {fileID: 344319866593267813, guid: 0e48cb50a593cef4babb6149016b95df, type: 3}
   - {fileID: 344319866593267813, guid: f317e921bc08fed4eb6e2096a323c0ec, type: 3}
-  spawnIndex: 0
-  spawnEnd: 0
-  curSpawnDelay: 0
-  nextSpawnDelay: 0
   enemySpawnPoint: {fileID: 1145465302}
   towerHPSlider: {fileID: 1330847044}
   towerHPText: {fileID: 1397077445}
@@ -9007,6 +9007,7 @@ MonoBehaviour:
   attributeImage:
   - {fileID: 21300000, guid: d0cfccf120d1cb848b551b715fdcef30, type: 3}
   - {fileID: 21300000, guid: 10d90decf89a83041b83f3e42534fc71, type: 3}
+  exitPanel: {fileID: 0}
   detailPanel: {fileID: 781918182}
   dcardImage: {fileID: 5233398002460108848}
   dCardLevel: {fileID: 4491289586934847434}
@@ -9044,13 +9045,15 @@ MonoBehaviour:
   - {fileID: 1415752497}
   - {fileID: 1619201423}
   - {fileID: 535792830}
-  stage: 1
+  wave: 1
   stageTime: 0
   stageTimeObj: {fileID: 0}
   stageTimeText: {fileID: 441131700}
   GameOverPanel: {fileID: 0}
   fadeimage: {fileID: 0}
   enemyTower: {fileID: 963480816}
+  BossObj: {fileID: 0}
+  isAppearBoss: 0
 --- !u!1 &1817332243
 GameObject:
   m_ObjectHideFlags: 0

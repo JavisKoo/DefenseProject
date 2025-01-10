@@ -1336,6 +1336,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8975606300138572584, guid: 41b5f5a8229ca874c8719ede21927d6f, type: 3}
+      propertyPath: statName
+      value: Avoid
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2438,6 +2442,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8975606300138572584, guid: 41b5f5a8229ca874c8719ede21927d6f, type: 3}
+      propertyPath: statName
+      value: Health
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2928,6 +2936,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8975606300138572584, guid: 41b5f5a8229ca874c8719ede21927d6f, type: 3}
+      propertyPath: statName
+      value: Accuracy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3380,6 +3392,10 @@ PrefabInstance:
     - target: {fileID: 7275177006515961272, guid: 41b5f5a8229ca874c8719ede21927d6f, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975606300138572584, guid: 41b5f5a8229ca874c8719ede21927d6f, type: 3}
+      propertyPath: statName
+      value: AttackSpeed
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4018,6 +4034,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8975606300138572584, guid: 41b5f5a8229ca874c8719ede21927d6f, type: 3}
+      propertyPath: statName
+      value: MoveSpeed
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4623,6 +4643,10 @@ PrefabInstance:
     - target: {fileID: 7275177006515961272, guid: 41b5f5a8229ca874c8719ede21927d6f, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975606300138572584, guid: 41b5f5a8229ca874c8719ede21927d6f, type: 3}
+      propertyPath: statName
+      value: AttackDamage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8726,6 +8750,10 @@ PrefabInstance:
     - target: {fileID: 7275177006515961272, guid: 41b5f5a8229ca874c8719ede21927d6f, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8975606300138572584, guid: 41b5f5a8229ca874c8719ede21927d6f, type: 3}
+      propertyPath: statName
+      value: Armor
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
