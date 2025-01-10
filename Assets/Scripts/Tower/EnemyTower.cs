@@ -8,7 +8,7 @@ using System.IO;
 public class EnemyTower : BaseCharacter
 {
     [System.Serializable]
-    public struct StageEnemy
+    public struct WaveEnemy
     {
         public GameObject enemyObj;
         public float delay;
@@ -16,16 +16,17 @@ public class EnemyTower : BaseCharacter
     }
 
     [System.Serializable]
-    public struct StageData
+    public struct WaveData
     {
-        public StageEnemy enemy;
+        public WaveEnemy enemy;
 
         public float totalTime;
-        public float firstTime;
-
+        public float firstTime; //초반
+        public float midTime; //중반
+        public float lateTime; //후반
     }
     
-    public List<StageData> stageData;
+    public List<WaveData> stageData;
 
     //Spawn
 
@@ -74,16 +75,6 @@ public class EnemyTower : BaseCharacter
     {
         towerHPSlider.value = CurrentHealth;
         towerHPText.text = CurrentHealth + " / " + MaxHealth;
-
-
-        //stage end
-        /*if (CurrentHealth <= 0)
-        {
-            CurrentHealth = 0;
-
-        }*/
-
-        
     }
 
     void ReadSpawnFile()
@@ -235,11 +226,6 @@ public class EnemyTower : BaseCharacter
             StageManager.Instance.AppearBoss();
         }
     }
-
-    /*public virtual void Die()
-    {
-
-    }*/
 
     protected IEnumerator WaitStageManager()
     {
