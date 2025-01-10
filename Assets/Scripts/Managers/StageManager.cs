@@ -346,8 +346,8 @@ public class StageManager : MonoBehaviour
     public void AppearBoss()
     {
         GameObject boss = GameObject.Instantiate(BossObj,enemyTower.enemySpawnPoint);
-        boss.GetComponent<BaseCharacter>().Spawn();
-        boss.GetComponent<BaseCharacter>().MaxHealth = boss.GetComponent<BaseCharacter>().MaxHealth * 8;
-        boss.GetComponent<BaseCharacter>().CurrentHealth = boss.GetComponent<BaseCharacter>().MaxHealth;
+        BaseCharacter bossCharacter = boss.GetComponent<BaseCharacter>();
+        bossCharacter.Spawn();
+        bossCharacter.ChangeBossStats(8,2,0.8f);
     }
 }

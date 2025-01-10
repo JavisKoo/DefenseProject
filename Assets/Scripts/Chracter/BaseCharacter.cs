@@ -14,7 +14,7 @@ namespace Chracter
         public float CurrentHealth;
         protected float AttackDammage = 10;
         protected float Armor = 0;
-        [SerializeField]protected float AttackSpeed = 1;
+        [SerializeField] protected float AttackSpeed = 1;
         protected float AttackRange = 0.5f;
         protected bool IsPhysical = true;
         protected bool IsMelee = true;
@@ -182,7 +182,7 @@ namespace Chracter
             }
             else if (isAttacking == false && IsMoving == false)
             {
-           
+
                 IsMoving = true;
                 animator.SetTrigger(DoMove);
             }
@@ -245,7 +245,7 @@ namespace Chracter
 
 
 
-        public virtual void TakeDamage(float damage, float enemyAccuracy = 60, bool pierce=false)
+        public virtual void TakeDamage(float damage, float enemyAccuracy = 60, bool pierce = false)
         {
             float HitPercent = enemyAccuracy - Avoid + 50;
             if (HitPercent >= 100)
@@ -375,7 +375,7 @@ namespace Chracter
         {
             buffEffect.Play();
             yield return new WaitForSeconds(1.0f);
-            
+
         }
 
         internal void DeBuff()
@@ -405,7 +405,7 @@ namespace Chracter
 
         public void PierceAttack(float time)
         {
-            
+
             StartCoroutine(PierceCor(time));
         }
 
@@ -418,5 +418,15 @@ namespace Chracter
             Pierce = false;
             healthBar.DeActiveBuff(0);
         }
+
+        public void ChangeBossStats(float Health, float Attack, float Movespeed)
+        {
+            MaxHealth = MaxHealth * Health;
+            CurrentHealth = MaxHealth;
+            AttackDammage = AttackDammage * Attack;
+            MoveSpeed = MoveSpeed * Movespeed;
+            
+        }
+
     }
 }
