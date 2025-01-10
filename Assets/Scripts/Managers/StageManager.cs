@@ -34,6 +34,7 @@ public class StageManager : MonoBehaviour
     public Text dCardLevel;
     public Text dCardName;
     public Text dCardCost;
+    public Text dCardMember;
     public Image dCardAttribute;
 
     public Text dCardDefenseValue;
@@ -271,6 +272,12 @@ public class StageManager : MonoBehaviour
                 stageTimeObj.SetActive(true);
                 stageTimeText.text = "남은 시간 " + Mathf.Floor(stageTime) + "초!";
             }
+
+            if (!isAppearBoss && stageTime <= 240f - 15f) //보스가 출현한 적이 없다면
+            {
+                isAppearBoss = true;
+                AppearBoss();
+            }
         }
 
         if (stageTime <= 0f && !isGameOver)
@@ -290,6 +297,8 @@ public class StageManager : MonoBehaviour
         dCardLevel.text = "LV." + datas[selectId].level;
         dCardName.text = datas[selectId].itemName;
         dCardCost.text = datas[selectId].cost.ToString();
+        dCardMember.text = datas[selectId].member.ToString();
+
         if (datas[selectId].Attribute == "물리")
         {
             dCardAttribute.sprite = attributeImage[0];

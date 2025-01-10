@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7a2d30eb19d3f499cc1ffd6ad9528c, type: 3}
   m_Name: 9Golem
   m_EditorClassIdentifier: 
-  itemType: 6
+  itemType: 9
   itemId: 9
   itemName: "\uACE8\uB818"
   itemDesc: "\uB2E8\uB2E8\uD55C \uACE8\uB818\uC774\uB2E4."

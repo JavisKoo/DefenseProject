@@ -9350,6 +9350,7 @@ MonoBehaviour:
   dCardLevel: {fileID: 4491289586934847434}
   dCardName: {fileID: 5045866712947518677}
   dCardCost: {fileID: 8232925945310742727}
+  dCardMember: {fileID: 339124362914481344}
   dCardAttribute: {fileID: 5230750297071050068}
   dCardDefenseValue: {fileID: 6106535068691174235}
   dCardHealthValue: {fileID: 1826735434802067562}
@@ -11592,7 +11593,7 @@ GameObject:
   - component: {fileID: 1764991176959362949}
   - component: {fileID: 339124362914481344}
   m_Layer: 5
-  m_Name: 'Name :: Text'
+  m_Name: 'Member :: Text'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
