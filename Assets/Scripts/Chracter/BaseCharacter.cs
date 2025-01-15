@@ -112,6 +112,8 @@ namespace Chracter
         private bool isDeBuff = false;
         private bool batDebuff = false;
 
+        //HealthDebuff
+        private bool skullDebuff = false;
 
 
         void Start()
@@ -124,6 +126,9 @@ namespace Chracter
             {
                 Spawn();
             }
+
+
+           
         }
 
         // Update is called once per frame
@@ -374,6 +379,11 @@ namespace Chracter
 
         public virtual void GainHealth(float heal)
         {
+            if(skullDebuff)
+            {
+                heal = heal / 2;
+            }
+
             if(CurrentHealth+heal>=MaxHealth)
             {
                 CurrentHealth = MaxHealth;
@@ -508,6 +518,19 @@ namespace Chracter
             
         }
 
+        public void ReaperBuff()
+        {
+            StartCoroutine("CReaperBuff");
+        }
+        private IEnumerator CReaperBuff()
+        {
+            AttackDammage = AttackDammage + 20;
+            Accuracy = Accuracy + 20;
+            yield return new WaitForSeconds(6.0f);
+            AttackDammage = AttackDammage - 20;
+            Accuracy = Accuracy - 20;
+        }
+
         public void BatDebuff()
         {
             if (batDebuff)
@@ -537,6 +560,62 @@ namespace Chracter
             healthBar.DeActiveBuff(1);
 
         }
+
+        public void SkullDebuff()
+        {
+            if (skullDebuff)
+            {
+                StopCoroutine("CSkullDebuff");
+                StartCoroutine("CSkullDebuff");
+
+            }
+            else
+            {
+                StartCoroutine("CSkullDebuff");
+            }
+            //corourtine
+        }
+        private IEnumerator CSkullDebuff()
+        {
+            healthBar.ActiveBuff(2);
+            skullDebuff = true;
+            yield return new WaitForSeconds(1.0f);
+            TakeDamageSkull(4);
+            yield return new WaitForSeconds(1.0f);
+            TakeDamageSkull(4);
+            yield return new WaitForSeconds(1.0f);
+            TakeDamageSkull(4);
+            yield return new WaitForSeconds(1.0f);
+            TakeDamageSkull(4);
+            skullDebuff = false;
+            healthBar.DeActiveBuff(2);
+
+        }
+
+        public virtual void TakeDamageSkull(float damage)
+        {
+            CurrentHealth = CurrentHealth - damage;
+            healthBar.SetHealth(CurrentHealth, MaxHealth);
+
+            if (CurrentHealth <= 0)
+            {
+               
+                this.GetComponent<BoxCollider2D>().enabled = false;
+                isDead = true;
+                Die();
+            }
+            else if (CurrentHealth <= MaxHealth * 0.6f && firstHit == false)
+            {
+                firstHit = true;
+                Hit();
+            }
+            else if (CurrentHealth <= MaxHealth * 0.3f && secondHit == false)
+            {
+                secondHit = true;
+                Hit();
+            }
+        }
+
 
     }
 }

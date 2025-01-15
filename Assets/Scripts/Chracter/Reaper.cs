@@ -34,6 +34,7 @@ namespace Chracter
                         StartCoroutine(Attack(hit));
                         if (currentHealth <= maxHealth / 3)
                         {
+                            ReaperBuff();
                             enemy.Die();
                         }
                     }
