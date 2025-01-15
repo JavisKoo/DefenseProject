@@ -57,8 +57,6 @@ public class EnemyTower : BaseCharacter
     {
         //spawn
         spawnList = new List<EnemySpawn>();
-
-        //StartCoroutine(WaitStageManager());
     }
 
     private void Start()
@@ -77,29 +75,32 @@ public class EnemyTower : BaseCharacter
         towerHPText.text = CurrentHealth + " / " + MaxHealth;
     }
 
-    void ReadSpawnFile()
+    public void ReadSpawnFile()
     {
         //변수 초기화
         spawnList.Clear();
 
-        //파일 읽기
-        Debug.Log("Wave" + StageManager.Instance.wave.ToString());
-        TextAsset textFile = Resources.Load("Wave" + StageManager.Instance.wave.ToString()) as TextAsset;
-        StringReader reader = new StringReader(textFile.text);
 
-        string line = reader.ReadLine();
-        Debug.Log(line);
+        for (int i = 0; i < StageManager.Instance.wave; i++)
+        {
+            //파일 읽기
+            Debug.Log("Wave" + StageManager.Instance.wave.ToString());
+            TextAsset textFile = Resources.Load("Dungeon" + StageManager.dungeon + "/Wave" + StageManager.Instance.wave.ToString()) as TextAsset;
+            StringReader reader = new StringReader(textFile.text);
 
-        EnemySpawn spawnData = new EnemySpawn();
-        spawnData.enemyA = line.Split(',')[0]; //
-        spawnData.enemyB = line.Split(',')[1];
-        spawnData.enemyC = line.Split(',')[2]; //3개값을 추가한 스폰데이터를 넣어준다
-        spawnList.Add(spawnData);
+            string line = reader.ReadLine();
+            Debug.Log(line);
 
-        Debug.Log(spawnList);
+            EnemySpawn spawnData = new EnemySpawn();
+            spawnData.enemyA = line.Split(',')[0]; //
+            spawnData.enemyB = line.Split(',')[1];
+            spawnData.enemyC = line.Split(',')[2]; //3개값을 추가한 스폰데이터를 넣어준다
+            spawnList.Add(spawnData);
 
-        //텍스트 파일 닫기
-        reader.Close();
+            Debug.Log(spawnList);
+            //텍스트 파일 닫기
+            reader.Close();
+        }
     }
 
     void SpawnEnemy(string type)
@@ -173,6 +174,7 @@ public class EnemyTower : BaseCharacter
         enemy.GetComponent<BaseCharacter>().Spawn();
     }
 
+    bool[] isEndWave = { false,false,false };
     public override void TakeDamage(float damage, float enemyAccuracy = 200,bool pierce=false)
     {
         if (isStageEnd)
@@ -227,11 +229,6 @@ public class EnemyTower : BaseCharacter
         }
     }
 
-    protected IEnumerator WaitStageManager()
-    {
-        yield return new WaitForSeconds(0.2f);
-        ReadSpawnFile();
-    }
 
     public void EnemyCreate()
     {
@@ -258,6 +255,7 @@ public class EnemyTower : BaseCharacter
         }
 
 
+        Debug.Log("x-1적: " + spawnList[StageManager.Instance.wave - 1].enemyA);
         yield return new WaitForSeconds(spwanDelay1);
 
         StartCoroutine(EnemyCreate1());
@@ -289,6 +287,8 @@ public class EnemyTower : BaseCharacter
                 break;
         }
 
+        Debug.Log("x-2적: "+spawnList[StageManager.Instance.wave - 1].enemyB);
+
 
         yield return new WaitForSeconds(spwanDelay2);
 
@@ -313,6 +313,7 @@ public class EnemyTower : BaseCharacter
         }
 
 
+        Debug.Log("x-3적: " + spawnList[StageManager.Instance.wave - 1].enemyC);
         yield return new WaitForSeconds(spwanDelay3);
 
         StartCoroutine(EnemyCreate3());

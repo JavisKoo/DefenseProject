@@ -81,6 +81,9 @@ public class StageManager : MonoBehaviour
     //boss
     public bool isAppearBoss = false;
 
+    //dungeon
+    public static int dungeon = 1;
+
     void Awake()
     {
         if (null == instance)
@@ -225,6 +228,7 @@ public class StageManager : MonoBehaviour
 
         maxStageTime = stageTime;
         waveText.text = "WAVE " + wave;
+        enemyTower.ReadSpawnFile();
     }
 
     public void CheckStageTime()
@@ -235,7 +239,7 @@ public class StageManager : MonoBehaviour
             return;
         }
 
-        Debug.Log("스테이지 시간 : " + Mathf.Floor(stageTime));
+        //Debug.Log("스테이지 시간 : " + Mathf.Floor(stageTime));
         if (wave == 1)
         {
             //30초 (중반으로 넘어가기)
