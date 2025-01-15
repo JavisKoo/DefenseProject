@@ -17,7 +17,7 @@ public class StageManager : MonoBehaviour
     //public Text[] cardDesc;
     public Text[] cardCost;
     public Card[] cards;
-    public Text[] cardMember;
+    public Image[] cardMember;
     public Text[] cardDefense;
     public Text[] cardHealth;
     public Text[] cardStrength;
@@ -151,7 +151,7 @@ public class StageManager : MonoBehaviour
             cardImage[i].sprite = datas[ranNum].itemIcon;
             //cardDesc[i].text = datas[ranNum].itemDesc.ToString();
             cardCost[i].text = datas[ranNum].cost.ToString();
-            cardMember[i].text = datas[ranNum].member.ToString();
+            cardMember[i] = datas[ranNum].member.ToString();
             cardDefense[i].text = datas[ranNum].Defense.ToString();
             cardHealth[i].text = datas[ranNum].Health.ToString();
             cardStrength[i].text = datas[ranNum].Strength.ToString();
@@ -245,12 +245,16 @@ public class StageManager : MonoBehaviour
             //30초 (중반으로 넘어가기)
             if (Mathf.Floor(stageTime) == maxStageTime - 30f)
             {
-
+                enemyTower.spwanDelay1 = 15f;
+                enemyTower.spwanDelay2 = 15f;
+                enemyTower.spwanDelay3 = 15f;
             }
             //60초 (후반으로 넘어가기)
             if (Mathf.Floor(stageTime) == maxStageTime - 90f)
             {
-
+                enemyTower.spwanDelay1 = 15f;
+                enemyTower.spwanDelay2 = 15f;
+                enemyTower.spwanDelay3 = 15f;
             }
 
             if (stageTime <= 10f)
@@ -261,6 +265,21 @@ public class StageManager : MonoBehaviour
         }
         else if (wave == 2)
         {
+            //30초 (중반으로 넘어가기)
+            if (Mathf.Floor(stageTime) == maxStageTime - 30f)
+            {
+                enemyTower.spwanDelay1 = 15f;
+                enemyTower.spwanDelay2 = 15f;
+                enemyTower.spwanDelay3 = 15f;
+            }
+            //60초 (후반으로 넘어가기)
+            if (Mathf.Floor(stageTime) == maxStageTime - 90f)
+            {
+                enemyTower.spwanDelay1 = 15f;
+                enemyTower.spwanDelay2 = 15f;
+                enemyTower.spwanDelay3 = 15f;
+            }
+
             if (stageTime <= 10f)
             {
                 stageTimeObj.SetActive(true);
@@ -269,6 +288,21 @@ public class StageManager : MonoBehaviour
         }
         else if (wave == 3)
         {
+            //30초 (중반으로 넘어가기)
+            if (Mathf.Floor(stageTime) == maxStageTime - 30f)
+            {
+                enemyTower.spwanDelay1 = 15f;
+                enemyTower.spwanDelay2 = 15f;
+                enemyTower.spwanDelay3 = 15f;
+            }
+            //60초 (후반으로 넘어가기)
+            if (Mathf.Floor(stageTime) == maxStageTime - 90f)
+            {
+                enemyTower.spwanDelay1 = 15f;
+                enemyTower.spwanDelay2 = 15f;
+                enemyTower.spwanDelay3 = 15f;
+            }
+
             if (stageTime <= 120f && !stage3TimeFlag)
             {
                 stageTimeObj.SetActive(true);

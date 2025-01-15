@@ -32,7 +32,7 @@ public class ItemData : ScriptableObject
     public string itemDesc;
     public Sprite itemIcon;
 
-    public string member;
+    public Sprite member;
     public int defenseValue;
     public int healthValue;
     public int strengthValue;

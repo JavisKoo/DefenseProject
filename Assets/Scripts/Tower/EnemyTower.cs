@@ -35,9 +35,9 @@ public class EnemyTower : BaseCharacter
 
     public List<EnemySpawn> spawnList;
 
-    float spwanDelay1 = 5;
-    float spwanDelay2 = 10;
-    float spwanDelay3 = 15;
+    public float spwanDelay1 = 5;
+    public float spwanDelay2 = 10;
+    public float spwanDelay3 = 15;
     string spawnType;
 
     public Transform enemySpawnPoint;

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemType: 12
   itemId: 12
-  itemName: "\uB098\uBB34\uACE8\uB818"
-  itemDesc: "\uB098\uBB34 \uACE8\uB818\uC774\uB2E4."
+  itemName: "\uB098\uBB34\uAC70\uC778"
+  itemDesc: "\uB098\uBB34 \uAC70\uC778\uC774\uB2E4."
   itemIcon: {fileID: 595284610, guid: 22208596d912da64d810d464649a960a, type: 3}
   member: "\uC694\uC815 \uC232"
   defenseValue: 22
