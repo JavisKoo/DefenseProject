@@ -151,7 +151,7 @@ public class StageManager : MonoBehaviour
             cardImage[i].sprite = datas[ranNum].itemIcon;
             //cardDesc[i].text = datas[ranNum].itemDesc.ToString();
             cardCost[i].text = datas[ranNum].cost.ToString();
-            cardMember[i] = datas[ranNum].member.ToString();
+            cardMember[i] = datas[ranNum].member;
             cardDefense[i].text = datas[ranNum].Defense.ToString();
             cardHealth[i].text = datas[ranNum].Health.ToString();
             cardStrength[i].text = datas[ranNum].Strength.ToString();
