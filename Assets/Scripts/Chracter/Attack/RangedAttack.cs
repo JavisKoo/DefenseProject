@@ -81,6 +81,7 @@ public class RangedAttack : MonoBehaviour
         if (other.CompareTag(EnemyTag))
         {
             other.GetComponent<BaseCharacter>().TakeDamage(AttackDammage,Accuracy);
+            other.GetComponent<BaseCharacter>().TakeRangedDamage(AttackDammage, Accuracy);
             Destroy(gameObject);
         }
     }

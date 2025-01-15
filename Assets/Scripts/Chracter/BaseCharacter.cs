@@ -46,8 +46,8 @@ namespace Chracter
         protected string Team;
         protected bool isPlayableCharacter = false;
 
-        private bool firstHit = false;
-        private bool secondHit = false;
+        protected bool firstHit = false;
+        protected bool secondHit = false;
 
         protected bool isDead = false;
 
@@ -110,6 +110,7 @@ namespace Chracter
 
         //PlayerCharacter Debuff,Buff
         private bool isDeBuff = false;
+        private bool batDebuff = false;
 
 
 
@@ -143,6 +144,8 @@ namespace Chracter
             float attackRange = 0.5f, bool isPhysical = true, bool isMelle = true, float moveSpeed = 1.0f, float accuracy = 60, float avoid = 60)
         {
             MaxHealth = HP;
+            //난이도 높은 던전일때
+            //MaxHealth=Hp*1.2f;
             CurrentHealth = MaxHealth;
             AttackDammage = Attack;
             Armor = armor;
@@ -307,6 +310,82 @@ namespace Chracter
             }
         }
 
+        public virtual void TakeRangedDamage(float damage, float enemyAccuracy = 60, bool pierce = false)
+        {
+            float HitPercent = enemyAccuracy - Avoid + 50;
+            if (HitPercent >= 100)
+            {
+                HitPercent = 100;
+            }
+            else if (HitPercent <= 5)
+            {
+                HitPercent = 5;
+            }
+            int HitCalculate = UnityEngine.Random.Range(0, 100);
+            if (HitCalculate > HitPercent)
+            {
+                return;
+            }
+            if (pierce)
+            {
+                float finalDamage = damage;
+                if (finalDamage <= 0)
+                {
+                    finalDamage = 1;
+                }
+                CurrentHealth -= finalDamage;
+                if (healthBar != null)
+                {
+                    healthBar.SetHealth(CurrentHealth, MaxHealth);
+                }
+
+            }
+            else
+            {
+                float finalDamage = damage - Armor;
+                if (finalDamage <= 0)
+                {
+                    finalDamage = 1;
+                }
+                CurrentHealth -= finalDamage;
+                if (healthBar != null)
+                {
+                    healthBar.SetHealth(CurrentHealth, MaxHealth);
+                }
+            }
+
+            if (CurrentHealth <= 0)
+            {
+                this.GetComponent<BoxCollider2D>().enabled = false;
+                isDead = true;
+                Die();
+            }
+            else if (CurrentHealth <= MaxHealth * 0.6f && firstHit == false)
+            {
+                firstHit = true;
+                Hit();
+            }
+            else if (CurrentHealth <= MaxHealth * 0.3f && secondHit == false)
+            {
+                secondHit = true;
+                Hit();
+            }
+        }
+
+        public virtual void GainHealth(float heal)
+        {
+            if(CurrentHealth+heal>=MaxHealth)
+            {
+                CurrentHealth = MaxHealth;
+            }
+            else
+            {
+                CurrentHealth = CurrentHealth + heal;
+            }
+            healthBar.SetHealth(CurrentHealth, MaxHealth);
+        }
+
+
         public virtual void Die()
         {
             StartCoroutine(DieAnim());
@@ -374,7 +453,8 @@ namespace Chracter
         private IEnumerator BuffParticle()
         {
             buffEffect.Play();
-            yield return new WaitForSeconds(1.0f);
+            yield return new WaitForSeconds(6.0f);
+            buffEffect.Stop();
 
         }
 
@@ -426,6 +506,36 @@ namespace Chracter
             AttackDammage = AttackDammage * Attack;
             MoveSpeed = MoveSpeed * Movespeed;
             
+        }
+
+        public void BatDebuff()
+        {
+            if (batDebuff)
+            {
+                StopCoroutine("CBatDebuff");
+                Avoid = Avoid + 20;
+                Accuracy = Accuracy + 20;
+                StartCoroutine("CBatDebuff");
+
+            }
+            else
+            {
+                StartCoroutine("CBatDebuff");
+            }
+            //corourtine
+        }
+        private IEnumerator CBatDebuff()
+        {
+            healthBar.ActiveBuff(1);
+            batDebuff = true;
+            Avoid = Avoid - 20;
+            Accuracy = Accuracy - 20;
+            yield return new WaitForSeconds(4.0f);
+            Avoid = Avoid + 20;
+            Accuracy = Accuracy + 20;
+            batDebuff = false;
+            healthBar.DeActiveBuff(1);
+
         }
 
     }

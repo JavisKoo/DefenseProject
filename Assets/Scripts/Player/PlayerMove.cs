@@ -11,6 +11,8 @@ public class PlayerMove : BaseCharacter
     private bool ismoving = false;
     private bool isSkillMotion = false;
     [SerializeField] protected GameObject rangedAttackPrefableft = null;
+    private bool inBattle = true;
+    private bool canHeal = false;
 
     void Update()
     {
@@ -36,6 +38,15 @@ public class PlayerMove : BaseCharacter
         {
             transform.position += MoveSpeed * Time.deltaTime * RightLeft;
         }
+
+
+        if(inBattle)
+        {
+            StopCoroutine("CHealPlayer");
+            StopCoroutine("CGainHealth");
+            StartCoroutine("CHealPlayer");
+        }
+
 
     }
 
@@ -65,6 +76,12 @@ public class PlayerMove : BaseCharacter
         SetCharacterSettings(500 + 500 * health/10, 200 + 200 * attack, 0, 1.4f - (1.4f * attackSpeed/10), 3f, true, true, 1.5f + (1.5f * moveSpeed/10), 200 + 200 * accuracy, 120 + 120 * avoid); //원래 10인데 임시로 200으로 바꿈
         healthBar.SetHealth(MaxHealth, MaxHealth);
         healthBar.slider.value = float.MaxValue;
+    }
+
+    public override void TakeDamage(float damage, float enemyAccuracy = 60, bool pierce = false)
+    {
+        inBattle = true;
+        base.TakeDamage(damage, enemyAccuracy, pierce);
     }
 
 
@@ -119,6 +136,7 @@ public class PlayerMove : BaseCharacter
                 isAttacking = true;
                 if (IsMelee)
                 {
+                    inBattle = true;
                     StartCoroutine(Attack(hit));
                 }
             }
@@ -127,6 +145,7 @@ public class PlayerMove : BaseCharacter
 
     public void Skill1()
     {
+        inBattle = true;
         this.GetComponent<SpriteRenderer>().flipX = false;
         isSkillMotion = true;
         animator.SetTrigger("doSkill1");
@@ -134,6 +153,7 @@ public class PlayerMove : BaseCharacter
     }
     public void Skill2()
     {
+        inBattle = true;
         this.GetComponent<SpriteRenderer>().flipX = false;
         isSkillMotion = true;
         Debug.Log("Skill2");
@@ -179,6 +199,25 @@ public class PlayerMove : BaseCharacter
     {
         GameObject rangedAttack = Instantiate(rangedAttackPrefab, rangedAttackSpawnPoint.position - new Vector3(0, 0.5f, 0), Quaternion.identity);
         rangedAttack.GetComponent<PlayerRangeSkill>().SkillSetting();
+    }
+
+    private IEnumerator CHealPlayer()
+    {
+        inBattle = false;
+        Debug.Log("HEALLLLLL");
+        yield return new WaitForSeconds(4.0f);
+        canHeal = true;
+        StartCoroutine("CGainHealth");
+    }
+    private IEnumerator CGainHealth()
+    {
+        Debug.Log("GainHealth");
+        GainHealth(20);
+        yield return new WaitForSeconds(1.0f);
+        if(!inBattle)
+        {
+            StartCoroutine("CGainHealth");
+        }
     }
 
 }
