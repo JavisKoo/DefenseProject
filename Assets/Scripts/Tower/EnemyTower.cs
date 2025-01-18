@@ -232,9 +232,9 @@ public class EnemyTower : BaseCharacter
 
     public void EnemyCreate()
     {
-        StartCoroutine(EnemyCreate1());
-        Invoke("EnemyCreate2Ready", spwanDelay2);
-        Invoke("EnemyCreate3Ready", spwanDelay3);
+        Invoke("EnemyCreate1Ready", spwanDelay1);
+        Invoke("EnemyCreate2Ready", spwanDelay1+spwanDelay2);
+        Invoke("EnemyCreate3Ready", spwanDelay1+spwanDelay3);
     }
 
     IEnumerator EnemyCreate1()
@@ -261,7 +261,10 @@ public class EnemyTower : BaseCharacter
         StartCoroutine(EnemyCreate1());
     }
 
-
+    public void EnemyCreate1Ready()
+    {
+        StartCoroutine(EnemyCreate1());
+    }
     public void EnemyCreate2Ready()
     {
         StartCoroutine(EnemyCreate2());
