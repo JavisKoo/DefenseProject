@@ -17,7 +17,7 @@ MonoBehaviour:
   itemName: "\uACE0\uBE14\uB9B0"
   itemDesc: "\uC18D\uB3C4\uAC00 \uBE60\uB978 \uACE0\uBE14\uB9B0\uC774\uB2E4."
   itemIcon: {fileID: -2097147168, guid: ef016f664d9ff9e4cb67fd0de0948310, type: 3}
-  member: "\uB9C8\uC655\uAD70"
+  member: 2
   defenseValue: 0
   healthValue: 30
   strengthValue: 8

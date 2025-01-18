@@ -35,6 +35,7 @@ public class StageManager : MonoBehaviour
     public Text dCardName;
     public Text dCardCost;
     public Text dCardMember;
+    public Sprite[] memberSprites;
     public Image dCardAttribute;
 
     public Text dCardDefenseValue;
@@ -151,7 +152,21 @@ public class StageManager : MonoBehaviour
             cardImage[i].sprite = datas[ranNum].itemIcon;
             //cardDesc[i].text = datas[ranNum].itemDesc.ToString();
             cardCost[i].text = datas[ranNum].cost.ToString();
-            cardMember[i] = datas[ranNum].member;
+            switch (datas[ranNum].member)
+            {
+                case 0:
+                    cardMember[i].sprite = memberSprites[datas[ranNum].member];
+                    break;
+                case 1:
+                    cardMember[i].sprite = memberSprites[datas[ranNum].member];
+                    break;
+                case 2:
+                    cardMember[i].sprite = memberSprites[datas[ranNum].member];
+                    break;
+                case 3:
+                    cardMember[i].sprite = memberSprites[datas[ranNum].member];
+                    break;
+            }
             cardDefense[i].text = datas[ranNum].Defense.ToString();
             cardHealth[i].text = datas[ranNum].Health.ToString();
             cardStrength[i].text = datas[ranNum].Strength.ToString();
@@ -245,16 +260,16 @@ public class StageManager : MonoBehaviour
             //30초 (중반으로 넘어가기)
             if (Mathf.Floor(stageTime) == maxStageTime - 30f)
             {
-                enemyTower.spwanDelay1 = 15f;
-                enemyTower.spwanDelay2 = 15f;
-                enemyTower.spwanDelay3 = 15f;
+                enemyTower.spwanDelay1 = 8f;
+                enemyTower.spwanDelay2 = 12f;
+                enemyTower.spwanDelay3 = 25f;
             }
             //60초 (후반으로 넘어가기)
             if (Mathf.Floor(stageTime) == maxStageTime - 90f)
             {
-                enemyTower.spwanDelay1 = 15f;
-                enemyTower.spwanDelay2 = 15f;
-                enemyTower.spwanDelay3 = 15f;
+                enemyTower.spwanDelay1 = 5f;
+                enemyTower.spwanDelay2 = 10f;
+                enemyTower.spwanDelay3 = 20f;
             }
 
             if (stageTime <= 10f)
@@ -268,16 +283,16 @@ public class StageManager : MonoBehaviour
             //30초 (중반으로 넘어가기)
             if (Mathf.Floor(stageTime) == maxStageTime - 30f)
             {
-                enemyTower.spwanDelay1 = 15f;
-                enemyTower.spwanDelay2 = 15f;
-                enemyTower.spwanDelay3 = 15f;
+                enemyTower.spwanDelay1 = 8f;
+                enemyTower.spwanDelay2 = 12f;
+                enemyTower.spwanDelay3 = 25f;
             }
             //60초 (후반으로 넘어가기)
             if (Mathf.Floor(stageTime) == maxStageTime - 90f)
             {
-                enemyTower.spwanDelay1 = 15f;
-                enemyTower.spwanDelay2 = 15f;
-                enemyTower.spwanDelay3 = 15f;
+                enemyTower.spwanDelay1 = 5f;
+                enemyTower.spwanDelay2 = 10f;
+                enemyTower.spwanDelay3 = 20f;
             }
 
             if (stageTime <= 10f)
@@ -291,16 +306,16 @@ public class StageManager : MonoBehaviour
             //30초 (중반으로 넘어가기)
             if (Mathf.Floor(stageTime) == maxStageTime - 30f)
             {
-                enemyTower.spwanDelay1 = 15f;
-                enemyTower.spwanDelay2 = 15f;
-                enemyTower.spwanDelay3 = 15f;
+                enemyTower.spwanDelay1 = 8f;
+                enemyTower.spwanDelay2 = 12f;
+                enemyTower.spwanDelay3 = 25f;
             }
             //60초 (후반으로 넘어가기)
             if (Mathf.Floor(stageTime) == maxStageTime - 90f)
             {
-                enemyTower.spwanDelay1 = 15f;
-                enemyTower.spwanDelay2 = 15f;
-                enemyTower.spwanDelay3 = 15f;
+                enemyTower.spwanDelay1 = 5f;
+                enemyTower.spwanDelay2 = 10f;
+                enemyTower.spwanDelay3 = 20f;
             }
 
             if (stageTime <= 120f && !stage3TimeFlag)
