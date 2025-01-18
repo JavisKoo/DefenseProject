@@ -5201,9 +5201,9 @@ MonoBehaviour:
   - {fileID: 344319866593267813, guid: 6c92d7395165e1644acac0567e603c5b, type: 3}
   - {fileID: 344319866593267813, guid: 0e48cb50a593cef4babb6149016b95df, type: 3}
   - {fileID: 344319866593267813, guid: f317e921bc08fed4eb6e2096a323c0ec, type: 3}
-  spwanDelay1: 5
-  spwanDelay2: 10
-  spwanDelay3: 15
+  spwanDelay1: 10
+  spwanDelay2: 15
+  spwanDelay3: 30
   enemySpawnPoint: {fileID: 1145465302}
   towerHPSlider: {fileID: 1330847044}
   towerHPText: {fileID: 1397077445}
@@ -9039,6 +9039,7 @@ MonoBehaviour:
   - {fileID: 6042629777583596695}
   - {fileID: 1115926290}
   - {fileID: 1212545439}
+  frameImage: {fileID: 0}
   exitPanel: {fileID: 646098013}
   detailPanel: {fileID: 781918182}
   dcardImage: {fileID: 5233398002460108848}

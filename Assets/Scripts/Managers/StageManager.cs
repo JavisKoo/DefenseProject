@@ -26,6 +26,11 @@ public class StageManager : MonoBehaviour
     public Sprite[] attributeImage;
     public Toggle[] cardToggles;
 
+
+    //
+    [Header("Frame")]
+    public Image frameImage;
+
     //
     [Header("Detail")]
     public GameObject exitPanel;
