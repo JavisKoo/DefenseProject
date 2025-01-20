@@ -115,6 +115,9 @@ namespace Chracter
         //HealthDebuff
         private bool skullDebuff = false;
 
+        
+        //get Data from ItemData
+        public ItemData itemData;
 
         void Start()
         {
@@ -148,19 +151,18 @@ namespace Chracter
         public virtual void SetCharacterSettings(float HP = 100, float Attack = 10, float armor = 0, float attackSpeed = 1,
             float attackRange = 0.5f, bool isPhysical = true, bool isMelle = true, float moveSpeed = 1.0f, float accuracy = 60, float avoid = 60)
         {
-            MaxHealth = HP;
-            //난이도 높은 던전일때
-            //MaxHealth=Hp*1.2f;
-            CurrentHealth = MaxHealth;
-            AttackDammage = Attack;
-            Armor = armor;
-            AttackSpeed = attackSpeed;
             AttackRange = attackRange;
             IsPhysical = isPhysical;
             IsMelee = isMelle;
-            MoveSpeed = moveSpeed;
-            Accuracy = accuracy;
-            Avoid = avoid;
+            MaxHealth = itemData.healthValue;
+            CurrentHealth = itemData.healthValue;
+            AttackDammage = itemData.strengthValue;
+            Armor = itemData.defenseValue;
+            
+            AttackSpeed = (float)10/itemData.attackSpeedValue;
+            MoveSpeed = itemData.speedValue;
+            Accuracy = itemData.accuracyValue;
+            Avoid = itemData.avoidanceValue;
 
 
         }
