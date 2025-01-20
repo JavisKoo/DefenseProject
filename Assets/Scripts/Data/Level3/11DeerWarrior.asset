@@ -18,11 +18,11 @@ MonoBehaviour:
   itemDesc: "\uC0AC\uC2B4\uAE30\uC0AC\uC774\uB2E4."
   itemIcon: {fileID: 1099049014, guid: c0e81231e6118b8449a2006c420bb56d, type: 3}
   member: 1
-  defenseValue: 0
+  defenseValue: 4
   healthValue: 200
   strengthValue: 60
   attackSpeedValue: 6
-  Defense: "\uB9E4\uC6B0 \uB0AE\uC74C"
+  Defense: "\uB0AE\uC74C"
   Health: "\uB192\uC74C"
   Strength: "\uB192\uC74C"
   AttackSpeed: "\uB192\uC74C"

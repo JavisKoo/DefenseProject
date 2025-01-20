@@ -18,7 +18,7 @@ MonoBehaviour:
   itemDesc: "\uB2E8\uB2E8\uD55C \uACE8\uB818\uC774\uB2E4."
   itemIcon: {fileID: 396016501, guid: 107bdac3ed505bc4e9647c3612ec669e, type: 3}
   member: 2
-  defenseValue: 18
+  defenseValue: 8
   healthValue: 100
   strengthValue: 30
   attackSpeedValue: 3
