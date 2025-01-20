@@ -3681,7 +3681,7 @@ MonoBehaviour:
   renderer: {fileID: 0}
   currentGold: 0
   maxGold: 100
-  goldPerSec: 100
+  goldPerSec: 10
   currentTime: 0
   maxTime: 0.1
   goldValueText: {fileID: 846902203}
