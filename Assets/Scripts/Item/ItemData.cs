@@ -43,6 +43,7 @@ public class ItemData : ScriptableObject
     public string AttackSpeed;
     public string Attribute;
     public int attackCountLimitValue;
+    public int realSpeed;
     public int speedValue;
     public int accuracyValue;
     public int avoidanceValue;

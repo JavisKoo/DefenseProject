@@ -455,13 +455,25 @@ public class StageManager : MonoBehaviour
         exitPanel.SetActive(true);
         detailPanel.SetActive(true);
 
+        switch (datas[selectId].member)
+        {
+            case 0:
+                dCardMember.text = "¡ﬂæ”ø’±π";
+                break;
+            case 1:
+                dCardMember.text = "ø‰¡§Ω£";
+                break;
+            case 2:
+                dCardMember.text = "∏∂ø’±∫";
+                break;
+        }
+
         dcardImage.sprite = datas[selectId].itemIcon;
         dCardLevel.text = "LV." + datas[selectId].level;
         dCardName.text = datas[selectId].itemName;
         dCardCost.text = datas[selectId].cost.ToString();
-        dCardMember.text = datas[selectId].member.ToString();
 
-        if (datas[selectId].Attribute == "π∞∏Æ")
+        if (datas[selectId].Attribute == "π∞∏Æ") //π∞∏Æ æ∆¿Ãƒ‹
         {
             dCardAttribute.sprite = attributeImage[0];
         }
