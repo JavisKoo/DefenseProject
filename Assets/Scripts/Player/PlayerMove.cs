@@ -73,7 +73,7 @@ public class PlayerMove : BaseCharacter
         float avoid = PlayerPrefs.GetInt("Avoid", 0);
 
 
-        SetCharacterSettings(500 + 500 * health/10, 200 + 200 * attack, 0, 1.4f - (1.4f * attackSpeed/10), 3f, true, true, 1.5f + (1.5f * moveSpeed/10), 200 + 200 * accuracy, 120 + 120 * avoid); //¿ø·¡ 10ÀÎµ¥ ÀÓ½Ã·Î 200À¸·Î ¹Ù²Þ
+        SetCharacterSettings(500 + 500 * health/10, 20 + 20 * attack, 0, 1.4f - (1.4f * attackSpeed/10), 1f, true, true, 1.5f + (1.5f * moveSpeed/10), 200 + 200 * accuracy, 120 + 120 * avoid); //ï¿½ï¿½ï¿½ï¿½ 10ï¿½Îµï¿½ ï¿½Ó½Ã·ï¿½ 200ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½
         healthBar.SetHealth(MaxHealth, MaxHealth);
         healthBar.slider.value = float.MaxValue;
     }
