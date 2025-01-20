@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3631969375535278126}
   - component: {fileID: 5953455917607083596}
   m_Layer: 5
-  m_Name: Health
+  m_Name: 'Health :: Frame'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1084,7 +1084,7 @@ GameObject:
   - component: {fileID: 8457984455776399826}
   - component: {fileID: 1770174036630769856}
   m_Layer: 5
-  m_Name: Level
+  m_Name: 'Level :: Frame'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1393,7 +1393,7 @@ GameObject:
   - component: {fileID: 4330109483287953069}
   - component: {fileID: 5259887557444691113}
   m_Layer: 5
-  m_Name: 'Character :: Panel'
+  m_Name: 'Character :: Frame'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1623,7 +1623,7 @@ GameObject:
   - component: {fileID: 545988859296190182}
   - component: {fileID: 7524050765784813102}
   m_Layer: 5
-  m_Name: 'Base :: Panel'
+  m_Name: 'Base :: Frame'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1773,7 +1773,7 @@ GameObject:
   - component: {fileID: 4085611884404744855}
   - component: {fileID: 6471744009509746471}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: 'Down :: Frame'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2104,8 +2104,8 @@ RectTransform:
   m_Children:
   - {fileID: 1819177097991319442}
   - {fileID: 7822812642563507293}
-  - {fileID: 1963798469695258304}
   - {fileID: 6779597771406641630}
+  - {fileID: 1963798469695258304}
   - {fileID: 4785698958834740330}
   - {fileID: 7222596388131409844}
   m_Father: {fileID: 0}
@@ -2241,7 +2241,7 @@ GameObject:
   - component: {fileID: 3875436619846355072}
   - component: {fileID: 2797568632416098791}
   m_Layer: 5
-  m_Name: Name
+  m_Name: 'Name :: Frame'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2754,7 +2754,7 @@ GameObject:
   - component: {fileID: 6410872258981104586}
   - component: {fileID: 4439242700392756564}
   m_Layer: 5
-  m_Name: Attack Speed
+  m_Name: 'Attack Speed :: Frame'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2910,7 +2910,7 @@ GameObject:
   - component: {fileID: 6905804735219416332}
   - component: {fileID: 441758579634151807}
   m_Layer: 5
-  m_Name: Defense
+  m_Name: 'Defense :: Frame'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2987,7 +2987,7 @@ GameObject:
   - component: {fileID: 140406405305790117}
   - component: {fileID: 3221148017123887877}
   m_Layer: 5
-  m_Name: Strength
+  m_Name: 'Strength :: Frame'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3064,7 +3064,7 @@ GameObject:
   - component: {fileID: 991620407381037878}
   - component: {fileID: 5575164753128634975}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: 'Dark Name :: Frame'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3219,7 +3219,7 @@ GameObject:
   - component: {fileID: 1405438825279938443}
   - component: {fileID: 4610694225168134176}
   m_Layer: 5
-  m_Name: Image
+  m_Name: 'Up :: Frame'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3294,7 +3294,7 @@ GameObject:
   - component: {fileID: 1632533651461769359}
   - component: {fileID: 8166936941245144484}
   m_Layer: 5
-  m_Name: Gold
+  m_Name: 'Gold :: Frame'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

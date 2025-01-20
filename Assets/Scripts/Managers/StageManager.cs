@@ -26,10 +26,19 @@ public class StageManager : MonoBehaviour
     public Sprite[] attributeImage;
     public Toggle[] cardToggles;
 
-
     //
     [Header("Frame")]
-    public Image frameImage;
+    public Sprite[] blueFrameImages;
+    public Sprite[] greenFrameImages;
+    public Sprite[] redFrameImages;
+
+    public Image[] cardUpFrame;
+    public Image[] cardDownFrame;
+    public Image[] cardBackground;
+    public Image[] cardDarkBase;
+    public Image[] FirstCardBase;
+    public Image[] SecondCardBase;
+    public Image[] ThirdCardBase;
 
     //
     [Header("Detail")]
@@ -73,11 +82,10 @@ public class StageManager : MonoBehaviour
     public Text waveText;
     private bool stage3TimeFlag = false;
 
-
     //GameOver
     [Header("GameOver")]
     public GameObject GameOverPanel;
-    public UnityEngine.UI.Image fadeimage;
+    public Image fadeimage;
     private bool isGameOver = false;
 
     //
@@ -151,6 +159,7 @@ public class StageManager : MonoBehaviour
             }
             nums.Add(ranNum);
 
+            
             //UI에 랜덤유닛 정보 집어넣기
             cardLevel[i].text = "LV." + datas[ranNum].level;
             cardType[i].text = datas[ranNum].itemName.ToString();
@@ -161,17 +170,33 @@ public class StageManager : MonoBehaviour
             {
                 case 0:
                     cardMember[i].sprite = memberSprites[datas[ranNum].member];
+                    //카드 프레임 적용하기
+                    cardUpFrame[i].sprite = blueFrameImages[0];
+                    cardDownFrame[i].sprite = blueFrameImages[0];
+                    cardBackground[i].sprite = blueFrameImages[1];
+                    cardDarkBase[i].sprite = blueFrameImages[2];
                     break;
                 case 1:
                     cardMember[i].sprite = memberSprites[datas[ranNum].member];
+                    //카드 프레임 적용하기
+                    cardUpFrame[i].sprite = greenFrameImages[0];
+                    cardDownFrame[i].sprite = greenFrameImages[0];
+                    cardBackground[i].sprite = greenFrameImages[1];
+                    cardDarkBase[i].sprite = greenFrameImages[2];
                     break;
                 case 2:
                     cardMember[i].sprite = memberSprites[datas[ranNum].member];
+                    //카드 프레임 적용하기
+                    cardUpFrame[i].sprite = redFrameImages[0];
+                    cardDownFrame[i].sprite = redFrameImages[0];
+                    cardBackground[i].sprite = redFrameImages[1];
+                    cardDarkBase[i].sprite = redFrameImages[2];
                     break;
                 case 3:
                     cardMember[i].sprite = memberSprites[datas[ranNum].member];
                     break;
             }
+            SetBaseFrame(datas[ranNum].member, i);
             cardDefense[i].text = datas[ranNum].Defense.ToString();
             cardHealth[i].text = datas[ranNum].Health.ToString();
             cardStrength[i].text = datas[ranNum].Strength.ToString();
@@ -193,6 +218,81 @@ public class StageManager : MonoBehaviour
         }
 
         cardPanel.SetActive(true);
+    }
+
+    public void SetBaseFrame(int member,int num)
+    {
+        switch (member)
+        {
+            case 0:
+                for (int i = 0; i < FirstCardBase.Length; i++)
+                {
+                    switch (num)
+                    {
+                        case 0:
+                            FirstCardBase[i].sprite = blueFrameImages[2];
+                            break;
+                        case 1:
+                            SecondCardBase[i].sprite = blueFrameImages[2];
+                            break;
+                        case 2:
+                            ThirdCardBase[i].sprite = blueFrameImages[2];
+                            break;
+                    }
+                }
+                break;
+            case 1:
+                for (int i = 0; i < FirstCardBase.Length; i++)
+                {
+                    switch (num)
+                    {
+                        case 0:
+                            FirstCardBase[i].sprite = greenFrameImages[2];
+                            break;
+                        case 1:
+                            SecondCardBase[i].sprite = greenFrameImages[2];
+                            break;
+                        case 2:
+                            ThirdCardBase[i].sprite = greenFrameImages[2];
+                            break;
+                    }
+                }
+                break;
+            case 2:
+                for (int i = 0; i < FirstCardBase.Length; i++)
+                {
+                    switch (num)
+                    {
+                        case 0:
+                            FirstCardBase[i].sprite = redFrameImages[2];
+                            break;
+                        case 1:
+                            SecondCardBase[i].sprite = redFrameImages[2];
+                            break;
+                        case 2:
+                            ThirdCardBase[i].sprite = redFrameImages[2];
+                            break;
+                    }
+                }
+                break;
+            case 3:
+                for (int i = 0; i < FirstCardBase.Length; i++)
+                {
+                    switch (num)
+                    {
+                        case 0:
+                            FirstCardBase[i].sprite = blueFrameImages[2];
+                            break;
+                        case 1:
+                            SecondCardBase[i].sprite = blueFrameImages[2];
+                            break;
+                        case 2:
+                            ThirdCardBase[i].sprite = blueFrameImages[2];
+                            break;
+                    }
+                }
+                break;
+        }
     }
 
     public void SelectCard() //카드선택했을때 타입에 맞는 정보 넣기
