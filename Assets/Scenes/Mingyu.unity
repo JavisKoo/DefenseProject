@@ -9969,7 +9969,7 @@ MonoBehaviour:
   blueFrameImages:
   - {fileID: 1542329866, guid: d40b1049c99553841bd9a40f22447ec8, type: 3}
   - {fileID: 849950081, guid: d40b1049c99553841bd9a40f22447ec8, type: 3}
-  - {fileID: 1399361595, guid: d40b1049c99553841bd9a40f22447ec8, type: 3}
+  - {fileID: 1153962734, guid: d40b1049c99553841bd9a40f22447ec8, type: 3}
   greenFrameImages:
   - {fileID: 1516928091, guid: d40b1049c99553841bd9a40f22447ec8, type: 3}
   - {fileID: -1994441904, guid: d40b1049c99553841bd9a40f22447ec8, type: 3}
