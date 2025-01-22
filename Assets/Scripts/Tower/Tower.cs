@@ -14,7 +14,7 @@ public class Tower : BaseCharacter
     //gold
     [Header("Gold")]
     public float currentGold = 0;
-    [SerializeField] private float maxGold = 1000;
+    public float maxGold = 1000;
     [SerializeField] private int goldPerSec = 10;
     private bool isCanGetGold = true;
     //time
@@ -27,7 +27,7 @@ public class Tower : BaseCharacter
     public Text goldPerSecText;
     //Tower Stats
     [Header("Tower Stats")]
-    public int maxHp = 1000;
+    public int maxHp = 500;
     public UnityEngine.UI.Slider towerHPSlider;
     public Text towerHPText;
     private void Awake()
@@ -57,8 +57,6 @@ public class Tower : BaseCharacter
             currentTime = 0;
             GetGold();
         }
-
-        Cheat();
     }
 
     public void GetGold()
@@ -165,14 +163,6 @@ public class Tower : BaseCharacter
             towerLevelText.text = "Level " + towerLevel;
             goldPerSecText.text = "+" + goldPerSec + "/s";
             InitUI();
-        }
-    }
-
-    public void Cheat()
-    {
-        if (Input.GetKeyDown(KeyCode.F1))
-        {
-            currentGold = maxGold;
         }
     }
 }

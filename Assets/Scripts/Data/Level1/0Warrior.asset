@@ -12,18 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7a2d30eb19d3f499cc1ffd6ad9528c, type: 3}
   m_Name: 0Warrior
   m_EditorClassIdentifier: 
-  itemType: 12
-  itemId: 0
+  itemType: 0
+  itemId: 1
   itemName: "\uAC80\uC0AC"
-  itemDesc: "\uAC80\uC744 \uC4F0\uB294 \uC6A9\uAC10\uD55C \uAC80\uC0AC\uC774\uB2E4"
+  itemDesc: "\uAC80\uC0AC\uC774\uB2E4."
   itemIcon: {fileID: -1109344244, guid: 0fdd73686cb670d42bdc0fbc0f08d5a5, type: 3}
+  attackType: "\uADFC\uAC70\uB9AC"
   member: 0
-<<<<<<< Updated upstream
-  defenseValue: 4
-=======
   defenseValue: 2
->>>>>>> Stashed changes
-  healthValue: 50
+  healthValue: 500
   strengthValue: 10
   attackSpeedValue: 4
   Defense: "\uBCF4\uD1B5"
@@ -32,10 +29,11 @@ MonoBehaviour:
   AttackSpeed: "\uB0AE\uC74C"
   Attribute: "\uBB3C\uB9AC"
   attackCountLimitValue: 1
-  speedValue: 0
+  realSpeed: 1
+  speedValue: 1
   accuracyValue: 0
-  avoidanceValue: -1
+  avoidanceValue: 1
   size: 1
-  createCountValue: 2
+  createCountValue: 1
   level: 1
   cost: 100

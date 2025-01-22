@@ -17,6 +17,7 @@ MonoBehaviour:
   itemName: "\uC2AC\uB77C\uC784"
   itemDesc: "\uBB3C\uB801\uD55C \uC2AC\uB77C\uC784\uC774\uB2E4"
   itemIcon: {fileID: -1616108125, guid: 3a9be5f2734b55145b1d236bf8b8c6f2, type: 3}
+  attackType: "\uADFC\uAC70\uB9AC"
   member: 2
   defenseValue: 0
   healthValue: 500

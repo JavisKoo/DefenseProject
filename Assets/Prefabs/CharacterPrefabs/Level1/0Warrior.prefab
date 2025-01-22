@@ -179,6 +179,7 @@ MonoBehaviour:
   healthBar: {fileID: 4009054266657844090}
   rangedAttackPrefab: {fileID: 0}
   rangedAttackSpawnPoint: {fileID: 0}
+  itemData: {fileID: 11400000, guid: 88299fa0f36fd9849b634e879cc7c271, type: 2}
 --- !u!114 &1829436378481448870
 MonoBehaviour:
   m_ObjectHideFlags: 0

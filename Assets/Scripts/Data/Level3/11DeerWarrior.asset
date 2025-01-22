@@ -17,6 +17,7 @@ MonoBehaviour:
   itemName: "\uC0AC\uC2B4\uAE30\uC0AC"
   itemDesc: "\uC0AC\uC2B4\uAE30\uC0AC\uC774\uB2E4."
   itemIcon: {fileID: 1099049014, guid: c0e81231e6118b8449a2006c420bb56d, type: 3}
+  attackType: "\uADFC\uAC70\uB9AC"
   member: 1
   defenseValue: 4
   healthValue: 200
@@ -28,6 +29,7 @@ MonoBehaviour:
   AttackSpeed: "\uB192\uC74C"
   Attribute: "\uBB3C\uB9AC"
   attackCountLimitValue: 1
+  realSpeed: 1
   speedValue: 2
   accuracyValue: 1
   avoidanceValue: -1

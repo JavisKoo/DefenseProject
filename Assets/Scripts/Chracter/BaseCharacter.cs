@@ -160,7 +160,7 @@ namespace Chracter
             Armor = itemData.defenseValue;
             
             AttackSpeed = (float)10/itemData.attackSpeedValue;
-            MoveSpeed = itemData.speedValue;
+            MoveSpeed = itemData.realSpeed;
             Accuracy = itemData.accuracyValue;
             Avoid = itemData.avoidanceValue;
 

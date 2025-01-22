@@ -21,7 +21,10 @@ public class ItemData : ScriptableObject
         DeerWarrior, //11
         WoodGolem, //12
         Elementalist, //13
-        Dragon     //14
+        Dragon,     //14
+        Tower,
+        EnemyTower,
+        Character
     }
 
     [Header("# Main Info")]
@@ -32,6 +35,7 @@ public class ItemData : ScriptableObject
     public string itemDesc;
     public Sprite itemIcon;
 
+    public string attackType;
     public int member;
     public int defenseValue;
     public int healthValue;

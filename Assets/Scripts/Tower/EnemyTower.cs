@@ -43,6 +43,7 @@ public class EnemyTower : BaseCharacter
     public Transform enemySpawnPoint;
 
     private bool isStageEnd = false;
+    private bool isCanSpawnEnemy = true;
     //UI
     [Header("UI")]
     public Slider towerHPSlider;
@@ -106,6 +107,14 @@ public class EnemyTower : BaseCharacter
     void SpawnEnemy(string type)
     {
         int enemyIndex = 0;
+        if (type == "없음")
+        {
+            isCanSpawnEnemy = false;
+        }
+        else
+        {
+            isCanSpawnEnemy = true;
+        }
         switch (type)
         {
             case "검사":
@@ -168,6 +177,11 @@ public class EnemyTower : BaseCharacter
                 enemyIndex = 14;
                 break;
         }
+
+        if (!isCanSpawnEnemy)
+            return;
+
+        Debug.Log("#@##");
         GameObject enemy = GameObject.Instantiate(enemyObjs[enemyIndex], enemySpawnPoint);
         enemy.tag = "Enemy";
         enemy.layer = 7;
@@ -233,8 +247,8 @@ public class EnemyTower : BaseCharacter
     public void EnemyCreate()
     {
         Invoke("EnemyCreate1Ready", spwanDelay1);
-        Invoke("EnemyCreate2Ready", spwanDelay1+spwanDelay2);
-        Invoke("EnemyCreate3Ready", spwanDelay1+spwanDelay3);
+        Invoke("EnemyCreate2Ready", spwanDelay2);
+        Invoke("EnemyCreate3Ready", spwanDelay3);
     }
 
     IEnumerator EnemyCreate1()

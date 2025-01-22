@@ -11,6 +11,8 @@ public class StageManager : MonoBehaviour
 
     //카드 UI
     public GameObject cardPanel;
+    public GameObject selectCardPanel;
+    public Text tutorialText;
     public Text[] cardLevel;
     public Text[] cardType;
     public Image[] cardImage;
@@ -25,12 +27,15 @@ public class StageManager : MonoBehaviour
     public Image[] cardAttribute;
     public Sprite[] attributeImage;
     public Toggle[] cardToggles;
+    public Sprite[] attackTypeSprites;
+    public Text cardClearText;
 
     //
     [Header("Frame")]
     public Sprite[] blueFrameImages;
     public Sprite[] greenFrameImages;
     public Sprite[] redFrameImages;
+    public Sprite[] darkFrameImages;
 
     public Image[] cardUpFrame;
     public Image[] cardDownFrame;
@@ -39,11 +44,14 @@ public class StageManager : MonoBehaviour
     public Image[] FirstCardBase;
     public Image[] SecondCardBase;
     public Image[] ThirdCardBase;
+    public Image[] attackTypeIcon;
 
     //
     [Header("Detail")]
+    public Image dCardMemberIcon;
     public GameObject exitPanel;
     public GameObject detailPanel;
+    public GameObject fakeDetailPanel;
     public Image dcardImage;
     public Text dCardLevel;
     public Text dCardName;
@@ -62,6 +70,10 @@ public class StageManager : MonoBehaviour
     public Text dCardAvoidanceValue;
     public Text dCardUnitSize;
     public Text dCardCreateCountValue;
+    public Image[] dCardFrame;
+    public Image dAttackTypeIcon;
+    public Image dCardBackground;
+    public Image[] dCardBase;
 
     //카드정보
     public ItemData[] datas;
@@ -147,6 +159,7 @@ public class StageManager : MonoBehaviour
         int count = System.Enum.GetValues(typeof(ItemType)).Length; //유닛 종류 개수구하기
         List<int> nums = new List<int>();
 
+        cardClearText.text = "LV." + wave + " 용병 해금!";
         for (int i = 0; i < 3; i++)
         {
             int ranNum = Random.Range((wave - 1) * 5, ((wave - 1) * 5) + 5); //스테이지 1이면 0~5, 2이면 5~10, 3이면 10~15
@@ -166,6 +179,17 @@ public class StageManager : MonoBehaviour
             cardImage[i].sprite = datas[ranNum].itemIcon;
             //cardDesc[i].text = datas[ranNum].itemDesc.ToString();
             cardCost[i].text = datas[ranNum].cost.ToString();
+            //근거리 원거리 정보넣기
+            if (datas[ranNum].attackType == "근거리")
+            {
+                attackTypeIcon[i].sprite = attackTypeSprites[0];
+            }
+            else
+            {
+                attackTypeIcon[i].sprite = attackTypeSprites[1];
+            }
+
+            //카드프레임
             switch (datas[ranNum].member)
             {
                 case 0:
@@ -174,7 +198,7 @@ public class StageManager : MonoBehaviour
                     cardUpFrame[i].sprite = blueFrameImages[0];
                     cardDownFrame[i].sprite = blueFrameImages[0];
                     cardBackground[i].sprite = blueFrameImages[1];
-                    cardDarkBase[i].sprite = blueFrameImages[2];
+                    cardDarkBase[i].sprite = darkFrameImages[0];
                     break;
                 case 1:
                     cardMember[i].sprite = memberSprites[datas[ranNum].member];
@@ -182,7 +206,7 @@ public class StageManager : MonoBehaviour
                     cardUpFrame[i].sprite = greenFrameImages[0];
                     cardDownFrame[i].sprite = greenFrameImages[0];
                     cardBackground[i].sprite = greenFrameImages[1];
-                    cardDarkBase[i].sprite = greenFrameImages[2];
+                    cardDarkBase[i].sprite = darkFrameImages[1];
                     break;
                 case 2:
                     cardMember[i].sprite = memberSprites[datas[ranNum].member];
@@ -190,7 +214,7 @@ public class StageManager : MonoBehaviour
                     cardUpFrame[i].sprite = redFrameImages[0];
                     cardDownFrame[i].sprite = redFrameImages[0];
                     cardBackground[i].sprite = redFrameImages[1];
-                    cardDarkBase[i].sprite = redFrameImages[2];
+                    cardDarkBase[i].sprite = darkFrameImages[2];
                     break;
                 case 3:
                     cardMember[i].sprite = memberSprites[datas[ranNum].member];
@@ -206,9 +230,13 @@ public class StageManager : MonoBehaviour
             {
                 cardAttribute[i].sprite = attributeImage[0];
             }
-            else
+            else if (datas[ranNum].Attribute == "마법")
             {
                 cardAttribute[i].sprite = attributeImage[1];
+            }
+            else if (datas[ranNum].Attribute == "화염")
+            {
+                cardAttribute[i].sprite = attributeImage[2];
             }
             //
             cards[i].cardId = ranNum;
@@ -217,6 +245,7 @@ public class StageManager : MonoBehaviour
             
         }
 
+        TutorialMsg("터치해 상세내용 확인");
         cardPanel.SetActive(true);
     }
 
@@ -323,6 +352,7 @@ public class StageManager : MonoBehaviour
 
         //카드 끄기
         detailPanel.SetActive(false);
+        fakeDetailPanel.SetActive(true);
         exitPanel.SetActive(false);
         selectId = 0;
         for (int i = 0; i < cardToggles.Length; i++)
@@ -454,17 +484,44 @@ public class StageManager : MonoBehaviour
     {
         exitPanel.SetActive(true);
         detailPanel.SetActive(true);
+        selectCardPanel.SetActive(false);
+        TutorialMsg("빈 공간을 터치해 이전으로");
 
+        //member, 프레임
         switch (datas[selectId].member)
         {
             case 0:
                 dCardMember.text = "중앙왕국";
+                dCardMemberIcon.sprite = memberSprites[0];
+                dCardFrame[0].sprite = blueFrameImages[0];
+                dCardFrame[1].sprite = blueFrameImages[0];
+                dCardBackground.sprite = blueFrameImages[1];
+                for (int i = 0; i < dCardBase.Length; i++)
+                {
+                    dCardBase[i].sprite = blueFrameImages[2];
+                }
                 break;
             case 1:
                 dCardMember.text = "요정숲";
+                dCardFrame[0].sprite = greenFrameImages[0];
+                dCardMemberIcon.sprite = memberSprites[1];
+                dCardFrame[1].sprite = greenFrameImages[0];
+                dCardBackground.sprite = greenFrameImages[1];
+                for (int i = 0; i < dCardBase.Length; i++)
+                {
+                    dCardBase[i].sprite = greenFrameImages[2];
+                }
                 break;
             case 2:
                 dCardMember.text = "마왕군";
+                dCardFrame[0].sprite = redFrameImages[0];
+                dCardMemberIcon.sprite = memberSprites[2];
+                dCardFrame[1].sprite = redFrameImages[0];
+                dCardBackground.sprite = redFrameImages[1];
+                for (int i = 0; i < dCardBase.Length; i++)
+                {
+                    dCardBase[i].sprite = redFrameImages[2];
+                }
                 break;
         }
 
@@ -482,7 +539,19 @@ public class StageManager : MonoBehaviour
             dCardAttribute.sprite = attributeImage[1];
         }
 
-        //
+
+
+        if (datas[selectId].attackType == "근거리") //물리 아이콘
+        {
+            dAttackTypeIcon.sprite = attackTypeSprites[0];
+        }
+        else
+        {
+            dAttackTypeIcon.sprite = attackTypeSprites[1];
+        }
+
+
+        //텍스트
         dCardDefenseValue.text = datas[selectId].defenseValue.ToString();
         dCardHealthValue.text = datas[selectId].healthValue.ToString();
         dCardStrengthValue.text = datas[selectId].strengthValue.ToString();
@@ -511,6 +580,8 @@ public class StageManager : MonoBehaviour
     {
         exitPanel.SetActive(false);
         detailPanel.SetActive(false);
+        selectCardPanel.SetActive(true);
+        TutorialMsg("터치해 상세내용 확인");
     }
 
     public void SetFalseTimeText()
@@ -542,5 +613,10 @@ public class StageManager : MonoBehaviour
         BaseCharacter bossCharacter = boss.GetComponent<BaseCharacter>();
         bossCharacter.Spawn();
         bossCharacter.ChangeBossStats(8,2,0.8f);
+    }
+
+    public void TutorialMsg(string msg)
+    {
+        tutorialText.text = msg;
     }
 }

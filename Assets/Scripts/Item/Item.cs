@@ -7,8 +7,9 @@ public class Item : MonoBehaviour
 {
     //스폰 딜레이
     public float maxSpawnDelay;
-    private float spawnDelay = 0;
+    public float spawnDelay = 0;
     private bool isCanSpawn = true;
+    private bool isFirstSpawn = true;
 
 
 
@@ -78,6 +79,10 @@ public class Item : MonoBehaviour
                 maxSpawnDelay = 20;
                 break;
         }
+        if (isFirstSpawn)
+            return;
+
+        isFirstSpawn = false;
         spawnDelay = maxSpawnDelay;
     }
 
@@ -88,8 +93,7 @@ public class Item : MonoBehaviour
 
         if (spawnDelay > 0f || towerScript.currentGold - data.cost < 0) //딜레이 시간이 지나지 않았다면
         {
-            warningText.SetActive(true);
-            Invoke("SetFalseWarn", 1f);
+            //Warn();
 
             return;
         }
@@ -174,8 +178,14 @@ public class Item : MonoBehaviour
 
         spawnDelay = maxSpawnDelay;
     }
+    /*public void Warn()
+    {
+        warningText.SetActive(true);
+        Invoke("SetFalseWarn", 1f);
+    }
+
     public void SetFalseWarn()
     {
         warningText.SetActive(false);
-    }
+    }*/
 }
