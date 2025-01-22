@@ -79,7 +79,7 @@ public class StageManager : MonoBehaviour
     //카드정보
     public ItemData[] datas;
     public int selectId;
-    int[] plusNums = { 0, 2, 3 };
+    private int[] plusNums = { 0, 2, 3 };
 
     //유닛생산버튼
     public Item[] unitButtons;
@@ -164,8 +164,7 @@ public class StageManager : MonoBehaviour
         cardClearText.text = "LV." + wave + " 용병 해금!";
         for (int i = 0; i < 3; i++)
         {
-            int ranNum = Random.Range((wave - 1) * 5 + plusNums[i], ((wave - 1) * 5) + 5 + (wave-1)); //스테이지 1이면 0~5, 2이면 5~10, 3이면 10~15
-            //Debug.Log("첫번째 값: " + (stage - 1) * 5 + "두번째 값: " + ((stage - 1) * 5) + 5);
+            int ranNum = Random.Range((wave - 1) * 5 + plusNums[wave], ((wave - 1) * 5) + 7 + (wave-1)); //스테이지 1이면 0~7, 2이면 7~13, 3이면 13~19
             //Debug.Log("랜덤 아이디값" + ranNum);
             //중복체크
             while(nums.Contains(ranNum)) //랜덤넘버가 만약 이미 있다면
@@ -530,6 +529,17 @@ public class StageManager : MonoBehaviour
                     dCardBase[i].sprite = redFrameImages[2];
                 }
                 break;
+            case 3:
+                dCardMember.text = "묘지기";
+                dCardFrame[0].sprite = purpleFrameImages[0];
+                dCardMemberIcon.sprite = memberSprites[3];
+                dCardFrame[1].sprite = purpleFrameImages[0];
+                dCardBackground.sprite = purpleFrameImages[1];
+                for (int i = 0; i < dCardBase.Length; i++)
+                {
+                    dCardBase[i].sprite = purpleFrameImages[2];
+                }
+                break;
         }
 
         dcardImage.sprite = datas[selectId].itemIcon;
@@ -541,9 +551,13 @@ public class StageManager : MonoBehaviour
         {
             dCardAttribute.sprite = attributeImage[0];
         }
-        else
+        else if (datas[selectId].Attribute == "마법")
         {
             dCardAttribute.sprite = attributeImage[1];
+        }
+        else if (datas[selectId].Attribute == "화염")
+        {
+            dCardAttribute.sprite = attributeImage[2];
         }
 
 

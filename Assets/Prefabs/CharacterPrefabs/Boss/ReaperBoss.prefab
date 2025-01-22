@@ -188,9 +188,10 @@ MonoBehaviour:
   AttackSpeed: 1
   animator: {fileID: 926489640273562646}
   MoveSpeed: 1
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 8437800383565728967}
   rangedAttackPrefab: {fileID: 0}
   rangedAttackSpawnPoint: {fileID: 0}
+  itemData: {fileID: 11400000, guid: f42de636d3b8cd548b2ec049b3774df0, type: 2}
 --- !u!1001 &573968822345602757
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -380,6 +381,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1443657259717307038, guid: fc3c79962ce74174ab80cf97365738b1, type: 3}
   m_PrefabInstance: {fileID: 7311886312700971602}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8437800383565728967 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1179977611737171605, guid: fc3c79962ce74174ab80cf97365738b1, type: 3}
+  m_PrefabInstance: {fileID: 7311886312700971602}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f9f7ab1ed3af6a4aa84b71e503605fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8063132342389218139
 PrefabInstance:
   m_ObjectHideFlags: 0
