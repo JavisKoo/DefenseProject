@@ -125,53 +125,73 @@ public class Item : MonoBehaviour
                 spawnPoint.SpawnCharacter();
                 break;
 
-            case ItemData.ItemType.Wizard:  //마법사 LV2 ~
+            case ItemData.ItemType.SkeletonWarrior:  //해골전사
                 spawnPoint.CharacterIndex = 5;
                 spawnPoint.SpawnCharacter();
                 break;
 
-            case ItemData.ItemType.MagicWarrior:  //마검사
+            case ItemData.ItemType.Bat:  //시체박쥐
                 spawnPoint.CharacterIndex = 6;
                 spawnPoint.SpawnCharacter();
                 break;
 
-            case ItemData.ItemType.Minotaur:  //미노타우로스
+            case ItemData.ItemType.Wizard:  //마법사 LV2 ~
                 spawnPoint.CharacterIndex = 7;
                 spawnPoint.SpawnCharacter();
                 break;
 
-            case ItemData.ItemType.Centaur:  //켄타우로스
+            case ItemData.ItemType.MagicWarrior:  //마검사
                 spawnPoint.CharacterIndex = 8;
                 spawnPoint.SpawnCharacter();
                 break;
 
-            case ItemData.ItemType.Golem:  //골렘
+            case ItemData.ItemType.Minotaur:  //미노타우로스
                 spawnPoint.CharacterIndex = 9;
                 spawnPoint.SpawnCharacter();
                 break;
 
-            case ItemData.ItemType.Paladin:  //성기사 LV3~
+            case ItemData.ItemType.Centaur:  //켄타우로스
                 spawnPoint.CharacterIndex = 10;
                 spawnPoint.SpawnCharacter();
                 break;
 
-            case ItemData.ItemType.DeerWarrior:  //사슴기사
+            case ItemData.ItemType.Golem:  //골렘
                 spawnPoint.CharacterIndex = 11;
                 spawnPoint.SpawnCharacter();
                 break;
 
-            case ItemData.ItemType.WoodGolem:  //나무거인
+            case ItemData.ItemType.FireSkull:  //불타는해골
                 spawnPoint.CharacterIndex = 12;
                 spawnPoint.SpawnCharacter();
                 break;
 
-            case ItemData.ItemType.Elementalist:  //정령술사
+            case ItemData.ItemType.Paladin:  //성기사 LV3~
                 spawnPoint.CharacterIndex = 13;
                 spawnPoint.SpawnCharacter();
                 break;
 
-            case ItemData.ItemType.Dragon:  //드레곤
+            case ItemData.ItemType.DeerWarrior:  //사슴기사
                 spawnPoint.CharacterIndex = 14;
+                spawnPoint.SpawnCharacter();
+                break;
+
+            case ItemData.ItemType.WoodGolem:  //나무거인
+                spawnPoint.CharacterIndex = 15;
+                spawnPoint.SpawnCharacter();
+                break;
+
+            case ItemData.ItemType.Elementalist:  //정령술사
+                spawnPoint.CharacterIndex = 16;
+                spawnPoint.SpawnCharacter();
+                break;
+
+            case ItemData.ItemType.Dragon:  //수확자
+                spawnPoint.CharacterIndex = 17;
+                spawnPoint.SpawnCharacter();
+                break;
+
+            case ItemData.ItemType.Reaper:  //드레곤
+                spawnPoint.CharacterIndex = 18;
                 spawnPoint.SpawnCharacter();
                 break;
         }

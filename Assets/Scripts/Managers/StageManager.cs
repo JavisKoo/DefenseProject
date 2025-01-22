@@ -164,12 +164,12 @@ public class StageManager : MonoBehaviour
         cardClearText.text = "LV." + wave + " 용병 해금!";
         for (int i = 0; i < 3; i++)
         {
-            int ranNum = Random.Range((wave - 1) * 5 + plusNums[wave], ((wave - 1) * 5) + 7 + (wave-1)); //스테이지 1이면 0~7, 2이면 7~13, 3이면 13~19
-            //Debug.Log("랜덤 아이디값" + ranNum);
+            int ranNum = Random.Range((wave - 1) * 5 + plusNums[wave-1], ((wave - 1) * 5) + 7 + (wave-1)); //스테이지 1이면 0~7, 2이면 7~13, 3이면 13~19
+            Debug.Log("첫번째 ran 쑷자 " + ((wave - 1) * 5 + plusNums[wave-1]).ToString());
             //중복체크
             while(nums.Contains(ranNum)) //랜덤넘버가 만약 이미 있다면
             {
-                ranNum = Random.Range((wave - 1) * 5, ((wave - 1) * 5) + 5);
+                ranNum = Random.Range((wave - 1) * 5 + plusNums[wave - 1], ((wave - 1) * 5) + 7 + (wave - 1));
             }
             nums.Add(ranNum);
 

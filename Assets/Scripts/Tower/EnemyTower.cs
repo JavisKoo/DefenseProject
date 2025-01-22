@@ -137,44 +137,60 @@ public class EnemyTower : BaseCharacter
                 enemyIndex = 4;
                 break;
 
-            case "마법사":
+            case "해골전사":
                 enemyIndex = 5;
                 break;
 
-            case "마검사":
+            case "시체박쥐":
                 enemyIndex = 6;
                 break;
 
-            case "미노타우로스":
+            case "마법사":
                 enemyIndex = 7;
                 break;
 
-            case "켄타우로스":
+            case "마검사":
                 enemyIndex = 8;
                 break;
 
-            case "골렘":
+            case "미노타우로스":
                 enemyIndex = 9;
                 break;
 
-            case "성기사":
+            case "켄타우로스":
                 enemyIndex = 10;
                 break;
 
-            case "사슴기사":
+            case "골렘":
                 enemyIndex = 11;
                 break;
 
-            case "나무거인":
+            case "불타는해골":
                 enemyIndex = 12;
                 break;
 
-            case "정령술사":
+            case "성기사":
                 enemyIndex = 13;
                 break;
 
-            case "드래곤":
+            case "사슴기사":
                 enemyIndex = 14;
+                break;
+
+            case "나무거인":
+                enemyIndex = 15;
+                break;
+
+            case "정령술사":
+                enemyIndex = 16;
+                break;
+
+            case "드래곤":
+                enemyIndex = 17;
+                break;
+
+            case "수확자":
+                enemyIndex = 18;
                 break;
         }
 
