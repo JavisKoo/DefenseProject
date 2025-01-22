@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b7a2d30eb19d3f499cc1ffd6ad9528c, type: 3}
-  m_Name: 14Dragon
+  m_Name: 17Dragon
   m_EditorClassIdentifier: 
-  itemType: 14
-  itemId: 14
+  itemType: 17
+  itemId: 17
   itemName: "\uB4DC\uB798\uACE4"
   itemDesc: "\uB4DC\uB798\uACE4\uC774\uB2E4."
   itemIcon: {fileID: 1923932212, guid: ea8626b9cd0176f4a9bf5a4aab4cd64a, type: 3}
@@ -27,8 +27,8 @@ MonoBehaviour:
   Health: "\uB192\uC74C"
   Strength: "\uB9E4\uC6B0 \uB192\uC74C"
   AttackSpeed: "\uB0AE\uC74C"
-  Attribute: "\uB9C8\uBC95"
-  attackCountLimitValue: 3
+  Attribute: "\uD654\uC5FC"
+  attackCountLimitValue: 7
   realSpeed: 1
   speedValue: 1
   accuracyValue: 1

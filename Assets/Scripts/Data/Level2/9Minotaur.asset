@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7a2d30eb19d3f499cc1ffd6ad9528c, type: 3}
   m_Name: 9Minotaur
   m_EditorClassIdentifier: 
-  itemType: 7
-  itemId: 7
+  itemType: 9
+  itemId: 9
   itemName: "\uBBF8\uB178\uD0C0\uC6B0\uB85C\uC2A4"
   itemDesc: "\uBBF8\uB178\uD0C0\uC6B0\uB85C\uC2A4\uC774\uB2E4."
   itemIcon: {fileID: 535035561, guid: 62d740ebb7084434682f04e97f25a2dc, type: 3}

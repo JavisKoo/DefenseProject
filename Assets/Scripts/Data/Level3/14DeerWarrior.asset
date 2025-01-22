@@ -10,30 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b7a2d30eb19d3f499cc1ffd6ad9528c, type: 3}
-  m_Name: 11Golem 1
+  m_Name: 14DeerWarrior
   m_EditorClassIdentifier: 
-  itemType: 9
-  itemId: 9
-  itemName: "\uACE8\uB818"
-  itemDesc: "\uB2E8\uB2E8\uD55C \uACE8\uB818\uC774\uB2E4."
-  itemIcon: {fileID: 396016501, guid: 107bdac3ed505bc4e9647c3612ec669e, type: 3}
+  itemType: 14
+  itemId: 14
+  itemName: "\uC0AC\uC2B4\uAE30\uC0AC"
+  itemDesc: "\uC0AC\uC2B4\uAE30\uC0AC\uC774\uB2E4."
+  itemIcon: {fileID: 1099049014, guid: c0e81231e6118b8449a2006c420bb56d, type: 3}
   attackType: "\uADFC\uAC70\uB9AC"
-  member: 2
-  defenseValue: 8
-  healthValue: 100
-  strengthValue: 30
-  attackSpeedValue: 3
-  Defense: "\uB9E4\uC6B0 \uB192\uC74C"
+  member: 1
+  defenseValue: 4
+  healthValue: 200
+  strengthValue: 60
+  attackSpeedValue: 6
+  Defense: "\uB0AE\uC74C"
   Health: "\uB192\uC74C"
   Strength: "\uB192\uC74C"
-  AttackSpeed: "\uB9E4\uC8FC \uB0AE\uC74C"
+  AttackSpeed: "\uB192\uC74C"
   Attribute: "\uBB3C\uB9AC"
-  attackCountLimitValue: 3
+  attackCountLimitValue: 1
   realSpeed: 1
-  speedValue: -1
-  accuracyValue: -1
-  avoidanceValue: -2
-  size: 3
+  speedValue: 2
+  accuracyValue: 1
+  avoidanceValue: -1
+  size: 2
   createCountValue: 1
-  level: 2
-  cost: 200
+  level: 3
+  cost: 300

@@ -12,16 +12,20 @@ public class ItemData : ScriptableObject
         Archer,    //2
         Goblin,    //3
         Slime,     //4
+        SkeletonWarrior,
+        Bat,
         Wizard,    //5
         MagicWarrior, //6
         Minotaur,  //7
         Centaur,   //8
         Golem,     //9
+        FireSkeleton,
         Paladin,   //10
         DeerWarrior, //11
         WoodGolem, //12
         Elementalist, //13
         Dragon,     //14
+        Reaper,
         Tower,
         EnemyTower,
         Character

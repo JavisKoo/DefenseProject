@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b7a2d30eb19d3f499cc1ffd6ad9528c, type: 3}
-  m_Name: 13Elementalist
+  m_Name: 16Elementalist
   m_EditorClassIdentifier: 
-  itemType: 13
-  itemId: 13
+  itemType: 16
+  itemId: 16
   itemName: "\uC815\uB839\uC220\uC0AC"
   itemDesc: "\uC815\uB839\uC220\uC0AC\uC774\uB2E4."
   itemIcon: {fileID: -112904193, guid: 4a5ade541c8cd4d4b98d9772d7c9dedb, type: 3}

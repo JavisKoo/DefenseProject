@@ -12,18 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7a2d30eb19d3f499cc1ffd6ad9528c, type: 3}
   m_Name: 5SkeletonWarrior
   m_EditorClassIdentifier: 
-  itemType: 4
-  itemId: 4
-  itemName: "\uC2AC\uB77C\uC784"
-  itemDesc: "\uBB3C\uB801\uD55C \uC2AC\uB77C\uC784\uC774\uB2E4"
-  itemIcon: {fileID: -1616108125, guid: 3a9be5f2734b55145b1d236bf8b8c6f2, type: 3}
+  itemType: 5
+  itemId: 5
+  itemName: "\uD574\uACE8 \uC804\uC0AC"
+  itemDesc: "\uD574\uACE8\uC804\uC0AC\uC774\uB2E4"
+  itemIcon: {fileID: -1252669523, guid: cd25d2ad125b64e45ace438a1d8137fb, type: 3}
   attackType: "\uADFC\uAC70\uB9AC"
-  member: 2
-  defenseValue: 0
-  healthValue: 500
+  member: 3
+  defenseValue: 1
+  healthValue: 40
   strengthValue: 8
   attackSpeedValue: 5
-  Defense: "\uB9E4\uC6B0 \uB0AE\uC74C"
+  Defense: "\uB0AE\uC74C"
   Health: "\uBCF4\uD1B5"
   Strength: "\uB0AE\uC74C"
   AttackSpeed: "\uBCF4\uD1B5"
@@ -34,6 +34,6 @@ MonoBehaviour:
   accuracyValue: 0
   avoidanceValue: -1
   size: 1
-  createCountValue: 3
+  createCountValue: 1
   level: 1
   cost: 100

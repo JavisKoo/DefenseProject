@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7a2d30eb19d3f499cc1ffd6ad9528c, type: 3}
   m_Name: 8MagicWarrior
   m_EditorClassIdentifier: 
-  itemType: 6
-  itemId: 6
+  itemType: 8
+  itemId: 8
   itemName: "\uB9C8\uAC80\uC0AC"
   itemDesc: "\uB9C8\uAC80\uC0AC\uC774\uB2E4"
   itemIcon: {fileID: -1166019717, guid: a31d915f4c835b54bae9647bcadb3735, type: 3}

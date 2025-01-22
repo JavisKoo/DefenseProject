@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7a2d30eb19d3f499cc1ffd6ad9528c, type: 3}
   m_Name: 10Centaur
   m_EditorClassIdentifier: 
-  itemType: 8
-  itemId: 8
+  itemType: 10
+  itemId: 10
   itemName: "\uCF04\uD0C0\uC6B0\uB85C\uC2A4"
   itemDesc: "\uCF04\uD0C0\uC6B0\uB85C\uC2A4\uC774\uB2E4."
   itemIcon: {fileID: -1869737852, guid: dab46e185a00e8d4499c84a18e690874, type: 3}

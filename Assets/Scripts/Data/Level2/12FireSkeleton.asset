@@ -10,30 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b7a2d30eb19d3f499cc1ffd6ad9528c, type: 3}
-  m_Name: 7Wizard
+  m_Name: 12FireSkeleton
   m_EditorClassIdentifier: 
-  itemType: 7
-  itemId: 7
-  itemName: "\uB9C8\uBC95\uC0AC"
-  itemDesc: "\uC6D0\uAC70\uB9AC \uACF5\uACA9\uC744 \uD558\uB294 \uB9C8\uBC95\uC0AC\uC774\uB2E4"
-  itemIcon: {fileID: 530517141, guid: e68b466322f3a824ca759b3dbf9329a9, type: 3}
+  itemType: 12
+  itemId: 12
+  itemName: "\uBD88\uD0C0\uB294 \uD574\uACE8"
+  itemDesc: "\uBD88\uD0C0\uB294 \uD574\uACE8\uC774\uB2E4"
+  itemIcon: {fileID: 0}
   attackType: "\uC6D0\uAC70\uB9AC"
-  member: 0
-  defenseValue: 0
+  member: 3
+  defenseValue: 2
   healthValue: 80
-  strengthValue: 30
-  attackSpeedValue: 4
-  Defense: "\uB9E4\uC6B0 \uB0AE\uC74C"
-  Health: "\uBCF4\uD1B5"
+  strengthValue: 25
+  attackSpeedValue: 3
+  Defense: "\uB9E4\uC6B0 \uB192\uC74C"
+  Health: "\uB192\uC74C"
   Strength: "\uB192\uC74C"
-  AttackSpeed: "\uB0AE\uC74C"
-  Attribute: "\uB9C8\uBC95"
+  AttackSpeed: "\uB9E4\uC8FC \uB0AE\uC74C"
+  Attribute: "\uD654\uC5FC"
   attackCountLimitValue: 3
   realSpeed: 1
-  speedValue: 0
-  accuracyValue: 1
-  avoidanceValue: 0
-  size: 1
+  speedValue: -1
+  accuracyValue: -1
+  avoidanceValue: -2
+  size: 3
   createCountValue: 1
   level: 2
   cost: 200

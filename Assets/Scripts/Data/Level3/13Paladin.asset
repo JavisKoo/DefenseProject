@@ -10,30 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b7a2d30eb19d3f499cc1ffd6ad9528c, type: 3}
-  m_Name: 12WoodGolem
+  m_Name: 13Paladin
   m_EditorClassIdentifier: 
-  itemType: 12
-  itemId: 12
-  itemName: "\uB098\uBB34\uAC70\uC778"
-  itemDesc: "\uB098\uBB34 \uAC70\uC778\uC774\uB2E4."
-  itemIcon: {fileID: 595284610, guid: 22208596d912da64d810d464649a960a, type: 3}
+  itemType: 13
+  itemId: 13
+  itemName: "\uC131\uAE30\uC0AC"
+  itemDesc: "\uC131\uAE30\uC0AC\uC774\uB2E4."
+  itemIcon: {fileID: -485092069, guid: 992fd5c451a58174b8fbc52cae333859, type: 3}
   attackType: "\uADFC\uAC70\uB9AC"
-  member: 1
-  defenseValue: 12
+  member: 0
+  defenseValue: 8
   healthValue: 240
-  strengthValue: 80
-  attackSpeedValue: 3
-  Defense: "\uB9E4\uC6B0 \uB192\uC74C"
+  strengthValue: 60
+  attackSpeedValue: 4
+  Defense: "\uB192\uC74C"
   Health: "\uB9E4\uC6B0 \uB192\uC74C"
-  Strength: "\uB9E4\uC6B0 \uB192\uC74C"
-  AttackSpeed: "\uB9E4\uC6B0 \uB0AE\uC74C"
-  Attribute: "\uBB3C\uB9AC"
+  Strength: "\uB192\uC74C"
+  AttackSpeed: "\uB0AE\uC74C"
+  Attribute: "\uB9C8\uBC95"
   attackCountLimitValue: 3
   realSpeed: 1
-  speedValue: -2
-  accuracyValue: -1
-  avoidanceValue: -2
-  size: 3
+  speedValue: 0
+  accuracyValue: 1
+  avoidanceValue: -1
+  size: 2
   createCountValue: 1
   level: 3
   cost: 300

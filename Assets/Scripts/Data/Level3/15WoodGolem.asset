@@ -10,30 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b7a2d30eb19d3f499cc1ffd6ad9528c, type: 3}
-  m_Name: 11Golem
+  m_Name: 15WoodGolem
   m_EditorClassIdentifier: 
-  itemType: 11
-  itemId: 11
-  itemName: "\uACE8\uB818"
-  itemDesc: "\uB2E8\uB2E8\uD55C \uACE8\uB818\uC774\uB2E4."
-  itemIcon: {fileID: 396016501, guid: 107bdac3ed505bc4e9647c3612ec669e, type: 3}
+  itemType: 15
+  itemId: 15
+  itemName: "\uB098\uBB34\uAC70\uC778"
+  itemDesc: "\uB098\uBB34 \uAC70\uC778\uC774\uB2E4."
+  itemIcon: {fileID: 595284610, guid: 22208596d912da64d810d464649a960a, type: 3}
   attackType: "\uADFC\uAC70\uB9AC"
-  member: 2
-  defenseValue: 8
-  healthValue: 100
-  strengthValue: 30
+  member: 1
+  defenseValue: 12
+  healthValue: 240
+  strengthValue: 80
   attackSpeedValue: 3
   Defense: "\uB9E4\uC6B0 \uB192\uC74C"
-  Health: "\uB192\uC74C"
-  Strength: "\uB192\uC74C"
-  AttackSpeed: "\uB9E4\uC8FC \uB0AE\uC74C"
+  Health: "\uB9E4\uC6B0 \uB192\uC74C"
+  Strength: "\uB9E4\uC6B0 \uB192\uC74C"
+  AttackSpeed: "\uB9E4\uC6B0 \uB0AE\uC74C"
   Attribute: "\uBB3C\uB9AC"
   attackCountLimitValue: 3
   realSpeed: 1
-  speedValue: -1
+  speedValue: -2
   accuracyValue: -1
   avoidanceValue: -2
   size: 3
   createCountValue: 1
-  level: 2
-  cost: 200
+  level: 3
+  cost: 300
