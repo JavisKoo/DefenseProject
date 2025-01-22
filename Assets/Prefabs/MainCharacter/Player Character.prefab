@@ -235,6 +235,7 @@ MonoBehaviour:
   healthBar: {fileID: 8088947722056736088}
   rangedAttackPrefab: {fileID: 3362732813862743725, guid: c26f94e6127e9174ca3e3b69a5a1b4c0, type: 3}
   rangedAttackSpawnPoint: {fileID: 9206739456690795634}
+  itemData: {fileID: 11400000, guid: 1e028566bfff6844da664564d057e3af, type: 2}
   rangedAttackPrefableft: {fileID: 3362732813862743725, guid: 772e44b4d49c34f418b0aadcfcb293ce, type: 3}
 --- !u!61 &8261565802474223670
 BoxCollider2D:
