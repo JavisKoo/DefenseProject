@@ -19,7 +19,7 @@ public class ItemData : ScriptableObject
         Minotaur,  //7
         Centaur,   //8
         Golem,     //9
-        FireSkeleton,
+        FireSkull,
         Paladin,   //10
         DeerWarrior, //11
         WoodGolem, //12
