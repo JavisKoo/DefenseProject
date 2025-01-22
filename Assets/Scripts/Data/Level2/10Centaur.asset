@@ -10,30 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b7a2d30eb19d3f499cc1ffd6ad9528c, type: 3}
-  m_Name: 5Wizard
+  m_Name: 10Centaur
   m_EditorClassIdentifier: 
-  itemType: 5
-  itemId: 5
-  itemName: "\uB9C8\uBC95\uC0AC"
-  itemDesc: "\uC6D0\uAC70\uB9AC \uACF5\uACA9\uC744 \uD558\uB294 \uB9C8\uBC95\uC0AC\uC774\uB2E4"
-  itemIcon: {fileID: 530517141, guid: e68b466322f3a824ca759b3dbf9329a9, type: 3}
-  attackType: "\uC6D0\uAC70\uB9AC"
-  member: 0
+  itemType: 8
+  itemId: 8
+  itemName: "\uCF04\uD0C0\uC6B0\uB85C\uC2A4"
+  itemDesc: "\uCF04\uD0C0\uC6B0\uB85C\uC2A4\uC774\uB2E4."
+  itemIcon: {fileID: -1869737852, guid: dab46e185a00e8d4499c84a18e690874, type: 3}
+  attackType: "\uADFC\uAC70\uB9AC"
+  member: 2
   defenseValue: 0
   healthValue: 80
-  strengthValue: 30
-  attackSpeedValue: 4
+  strengthValue: 20
+  attackSpeedValue: 5
   Defense: "\uB9E4\uC6B0 \uB0AE\uC74C"
   Health: "\uBCF4\uD1B5"
   Strength: "\uB192\uC74C"
   AttackSpeed: "\uB0AE\uC74C"
-  Attribute: "\uB9C8\uBC95"
-  attackCountLimitValue: 3
+  Attribute: "\uBB3C\uB9AC"
+  attackCountLimitValue: 1
   realSpeed: 1
-  speedValue: 0
-  accuracyValue: 1
-  avoidanceValue: 0
-  size: 1
-  createCountValue: 1
+  speedValue: 2
+  accuracyValue: 0
+  avoidanceValue: -1
+  size: 2
+  createCountValue: 2
   level: 2
   cost: 200

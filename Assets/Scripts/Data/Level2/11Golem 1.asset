@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b7a2d30eb19d3f499cc1ffd6ad9528c, type: 3}
-  m_Name: 9Golem
+  m_Name: 11Golem 1
   m_EditorClassIdentifier: 
   itemType: 9
   itemId: 9

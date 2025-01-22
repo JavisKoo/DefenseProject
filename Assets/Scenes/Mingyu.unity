@@ -9978,10 +9978,15 @@ MonoBehaviour:
   - {fileID: 2026909127, guid: d40b1049c99553841bd9a40f22447ec8, type: 3}
   - {fileID: 2139594836, guid: d40b1049c99553841bd9a40f22447ec8, type: 3}
   - {fileID: -1137483167, guid: d40b1049c99553841bd9a40f22447ec8, type: 3}
+  purpleFrameImages:
+  - {fileID: -1642908030, guid: b6511378b4288c041853d9a994a9d3a5, type: 3}
+  - {fileID: -483666482, guid: b6511378b4288c041853d9a994a9d3a5, type: 3}
+  - {fileID: -1218162729, guid: b6511378b4288c041853d9a994a9d3a5, type: 3}
   darkFrameImages:
   - {fileID: -651040586, guid: d40b1049c99553841bd9a40f22447ec8, type: 3}
   - {fileID: -1634179573, guid: d40b1049c99553841bd9a40f22447ec8, type: 3}
   - {fileID: -1059288469, guid: d40b1049c99553841bd9a40f22447ec8, type: 3}
+  - {fileID: -2100554534, guid: b6511378b4288c041853d9a994a9d3a5, type: 3}
   cardUpFrame:
   - {fileID: 205188485}
   - {fileID: 474810065}

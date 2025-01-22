@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -95,7 +95,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: undedCardUI_0
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 1458
+        width: 1768
+        height: 342
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d233514e259dde144b4142a4debf5764
+      internalID: -1642908030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: undedCardUI_1
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 1239
+        width: 1610
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7200cf843decb6429026486cc2e659b
+      internalID: -483666482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: undedCardUI_2
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 854
+        width: 751
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cf65182ccb1a5d4fb88b6d2a82d8aa8
+      internalID: -2100554534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: undedCardUI_3
+      rect:
+        serializedVersion: 2
+        x: 1027
+        y: 498
+        width: 751
+        height: 280
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc3882e2d5022ef4cbbb3e58a2d4be68
+      internalID: -1218162729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -106,7 +190,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      undedCardUI_0: -1642908030
+      undedCardUI_1: -483666482
+      undedCardUI_2: -2100554534
+      undedCardUI_3: -1218162729
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

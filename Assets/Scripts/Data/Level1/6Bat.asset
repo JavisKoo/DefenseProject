@@ -10,30 +10,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b7a2d30eb19d3f499cc1ffd6ad9528c, type: 3}
-  m_Name: 6MagicWarrior
+  m_Name: 6Bat
   m_EditorClassIdentifier: 
-  itemType: 6
-  itemId: 6
-  itemName: "\uB9C8\uAC80\uC0AC"
-  itemDesc: "\uB9C8\uAC80\uC0AC\uC774\uB2E4"
-  itemIcon: {fileID: -1166019717, guid: a31d915f4c835b54bae9647bcadb3735, type: 3}
+  itemType: 4
+  itemId: 4
+  itemName: "\uC2AC\uB77C\uC784"
+  itemDesc: "\uBB3C\uB801\uD55C \uC2AC\uB77C\uC784\uC774\uB2E4"
+  itemIcon: {fileID: -1616108125, guid: 3a9be5f2734b55145b1d236bf8b8c6f2, type: 3}
   attackType: "\uADFC\uAC70\uB9AC"
-  member: 1
-  defenseValue: 4
-  healthValue: 80
-  strengthValue: 20
+  member: 2
+  defenseValue: 0
+  healthValue: 500
+  strengthValue: 8
   attackSpeedValue: 5
-  Defense: "\uBCF4\uD1B5"
+  Defense: "\uB9E4\uC6B0 \uB0AE\uC74C"
   Health: "\uBCF4\uD1B5"
-  Strength: "\uB192\uC74C"
-  AttackSpeed: "\uB0AE\uC74C"
+  Strength: "\uB0AE\uC74C"
+  AttackSpeed: "\uBCF4\uD1B5"
   Attribute: "\uB9C8\uBC95"
   attackCountLimitValue: 1
   realSpeed: 1
-  speedValue: 0
-  accuracyValue: 1
-  avoidanceValue: 0
+  speedValue: 1
+  accuracyValue: 0
+  avoidanceValue: -1
   size: 1
-  createCountValue: 1
-  level: 2
-  cost: 200
+  createCountValue: 3
+  level: 1
+  cost: 100

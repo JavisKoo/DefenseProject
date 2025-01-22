@@ -35,6 +35,7 @@ public class StageManager : MonoBehaviour
     public Sprite[] blueFrameImages;
     public Sprite[] greenFrameImages;
     public Sprite[] redFrameImages;
+    public Sprite[] purpleFrameImages;
     public Sprite[] darkFrameImages;
 
     public Image[] cardUpFrame;
@@ -78,6 +79,7 @@ public class StageManager : MonoBehaviour
     //카드정보
     public ItemData[] datas;
     public int selectId;
+    int[] plusNums = { 0, 2, 3 };
 
     //유닛생산버튼
     public Item[] unitButtons;
@@ -162,7 +164,7 @@ public class StageManager : MonoBehaviour
         cardClearText.text = "LV." + wave + " 용병 해금!";
         for (int i = 0; i < 3; i++)
         {
-            int ranNum = Random.Range((wave - 1) * 5, ((wave - 1) * 5) + 5); //스테이지 1이면 0~5, 2이면 5~10, 3이면 10~15
+            int ranNum = Random.Range((wave - 1) * 5 + plusNums[i], ((wave - 1) * 5) + 5 + (wave-1)); //스테이지 1이면 0~5, 2이면 5~10, 3이면 10~15
             //Debug.Log("첫번째 값: " + (stage - 1) * 5 + "두번째 값: " + ((stage - 1) * 5) + 5);
             //Debug.Log("랜덤 아이디값" + ranNum);
             //중복체크
@@ -218,6 +220,11 @@ public class StageManager : MonoBehaviour
                     break;
                 case 3:
                     cardMember[i].sprite = memberSprites[datas[ranNum].member];
+                    //카드 프레임 적용하기
+                    cardUpFrame[i].sprite = purpleFrameImages[0];
+                    cardDownFrame[i].sprite = purpleFrameImages[0];
+                    cardBackground[i].sprite = purpleFrameImages[1];
+                    cardDarkBase[i].sprite = darkFrameImages[2];
                     break;
             }
             SetBaseFrame(datas[ranNum].member, i);
