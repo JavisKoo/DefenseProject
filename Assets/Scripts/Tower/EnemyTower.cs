@@ -240,8 +240,7 @@ public class EnemyTower : BaseCharacter
         
         if (CurrentHealth <= 0)
         {
-            Time.timeScale = 0f;
-            stageClearPanel.SetActive(true);
+            StageManager.Instance.GameClear();
             //Die();
             CurrentHealth = 0;
         }

@@ -88,7 +88,8 @@ public class StageManager : MonoBehaviour
     public int wave = 1;
 
     //스테이지 타임
-    public float stageTime = 0;
+    public float stageTime = 480f;
+    private float wave1StageTime, wave2StageTime, wave3StageTime;
     private float maxStageTime;
     private float[] stageMaxTime = { 120f, 120f, 240f };
     public GameObject stageTimeObj;
@@ -101,6 +102,12 @@ public class StageManager : MonoBehaviour
     public GameObject GameOverPanel;
     public Image fadeimage;
     private bool isGameOver = false;
+
+    //GameClear
+    [Header("GameOver")]
+    public GameObject GameClearPanel;
+    public Image clearfadeimage;
+    private bool isGameClear = false;
 
     //
     public EnemyTower enemyTower;
@@ -140,7 +147,6 @@ public class StageManager : MonoBehaviour
 
     private void Start()
     {
-        stageTime = 120f;
         StageStart();
     }
 
@@ -253,6 +259,7 @@ public class StageManager : MonoBehaviour
 
         TutorialMsg("터치해 상세내용 확인");
         cardPanel.SetActive(true);
+        selectCardPanel.SetActive(true);
     }
 
     public void SetBaseFrame(int member,int num)
@@ -372,17 +379,17 @@ public class StageManager : MonoBehaviour
         switch (wave)
         {
             case 1:
-                stageTime = 120f;
+                wave1StageTime = 120f;
                 break;
             case 2:
-                stageTime = 120f;
+                wave2StageTime = 120f;
                 break;
             case 3:
-                stageTime = 240f;
+                wave3StageTime = 240f;
                 break;
         }
 
-        maxStageTime = stageTime;
+        maxStageTime = 480f;
         waveText.text = "WAVE " + wave;
         enemyTower.ReadSpawnFile();
     }
@@ -413,53 +420,71 @@ public class StageManager : MonoBehaviour
                 enemyTower.spwanDelay3 = 20f;
             }
 
-            if (stageTime <= 10f)
+            if (stageTime <= maxStageTime - wave1StageTime + 10f)
             {
-                stageTimeObj.SetActive(true);
-                stageTimeText.text = "남은 시간 " + Mathf.Floor(stageTime) + "초!";
+                if (stageTime <= 360f)
+                {
+                    stageTimeObj.SetActive(false);
+                    wave++;
+                    StageStart();
+                }
+                else
+                {
+                    stageTimeObj.SetActive(true);
+                    stageTimeText.text = "남은 시간 " + Mathf.Floor(stageTime - 360f + 1f) + "초!";
+                }
             }
         }
         else if (wave == 2)
         {
             //30초 (중반으로 넘어가기)
-            if (Mathf.Floor(stageTime) == maxStageTime - 30f)
+            if (Mathf.Floor(stageTime) == maxStageTime - 30f - wave1StageTime)
             {
                 enemyTower.spwanDelay1 = 8f;
                 enemyTower.spwanDelay2 = 12f;
                 enemyTower.spwanDelay3 = 25f;
             }
             //60초 (후반으로 넘어가기)
-            if (Mathf.Floor(stageTime) == maxStageTime - 90f)
+            if (Mathf.Floor(stageTime) == maxStageTime - 90f - wave1StageTime)
             {
                 enemyTower.spwanDelay1 = 5f;
                 enemyTower.spwanDelay2 = 10f;
                 enemyTower.spwanDelay3 = 20f;
             }
 
-            if (stageTime <= 10f)
+            if (stageTime <= 240f + 10f) //480-120-120 250
             {
-                stageTimeObj.SetActive(true);
-                stageTimeText.text = "남은 시간 " + Mathf.Floor(stageTime) + "초!";
+                if (stageTime <= 240f)
+                {
+                    stageTimeObj.SetActive(false);
+                    wave++;
+                    StageStart();
+                }
+                else
+                {
+                    stageTimeObj.SetActive(true);
+                    stageTimeText.text = "남은 시간 " + Mathf.Floor(stageTime - 240f + 1f) + "초!";
+                }
             }
         }
         else if (wave == 3)
         {
             //30초 (중반으로 넘어가기)
-            if (Mathf.Floor(stageTime) == maxStageTime - 30f)
+            if (Mathf.Floor(stageTime) == wave3StageTime - 30f)
             {
                 enemyTower.spwanDelay1 = 8f;
                 enemyTower.spwanDelay2 = 12f;
                 enemyTower.spwanDelay3 = 25f;
             }
             //60초 (후반으로 넘어가기)
-            if (Mathf.Floor(stageTime) == maxStageTime - 90f)
+            if (Mathf.Floor(stageTime) == wave3StageTime - 90f)
             {
                 enemyTower.spwanDelay1 = 5f;
                 enemyTower.spwanDelay2 = 10f;
                 enemyTower.spwanDelay3 = 20f;
             }
 
-            if (stageTime <= 120f && !stage3TimeFlag)
+            if (Mathf.Floor(stageTime) == 120f)
             {
                 stageTimeObj.SetActive(true);
                 stageTimeText.text = "남은 시간 " + stageTime + "초!";
@@ -468,7 +493,7 @@ public class StageManager : MonoBehaviour
             else if (stageTime <= 10f)
             {
                 stageTimeObj.SetActive(true);
-                stageTimeText.text = "남은 시간 " + Mathf.Floor(stageTime) + "초!";
+                stageTimeText.text = "남은 시간 " + Mathf.Floor(stageTime + 1f) + "초!";
             }
 
             if (!isAppearBoss && stageTime <= 240f - 15f) //보스가 출현한 적이 없다면
@@ -607,7 +632,6 @@ public class StageManager : MonoBehaviour
 
     public void SetFalseTimeText()
     {
-        stage3TimeFlag = true;
         stageTimeObj.SetActive(false);
     }
 
@@ -624,8 +648,48 @@ public class StageManager : MonoBehaviour
         {
             fadeCount += 0.01f;
             yield return new WaitForSeconds(0.02f);
-            fadeimage.color = new Color(0, 0, 0, fadeCount);
+            fadeimage.color = new Color(0.47f, 0.47f, 0.47f, fadeCount);
+
+            if (fadeCount >= .8f)
+            {
+                TimeScaleZero();
+                break;
+            }
         }
+    }
+
+    public void GameClear()
+    {
+        if (isGameClear)
+            return;
+
+        isGameClear = true;
+        GameClearPanel.SetActive(true);
+        StartCoroutine(GameClearCor());
+    }
+
+    IEnumerator GameClearCor()
+    {
+        Debug.Log("WKDSKFJKWEJFLKWJDF@@@@@@@@@@");
+        Time.timeScale = 1.0f;
+        float fadeCount = 0;
+        while (true)
+        {
+            fadeCount += 0.01f;
+            yield return new WaitForSeconds(0.02f);
+            clearfadeimage.color = new Color(0.47f, 0.47f, 0.47f, fadeCount);
+
+            if (fadeCount >= .8f)
+            {
+                TimeScaleZero();
+                break;
+            }
+        }
+    }
+
+    public void TimeScaleZero()
+    {
+        Time.timeScale = 0f;
     }
 
     public void AppearBoss()

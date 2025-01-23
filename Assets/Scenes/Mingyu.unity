@@ -2683,7 +2683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.94509804}
+  m_Color: {r: 0.47058824, g: 0.47058824, b: 0.47058824, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -13330,7 +13330,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4811321, g: 0.4811321, b: 0.4811321, a: 0.85882354}
+  m_Color: {r: 0.47058824, g: 0.47058824, b: 0.47058824, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -13876,12 +13876,14 @@ MonoBehaviour:
   - {fileID: 1619201423}
   - {fileID: 535792830}
   wave: 1
-  stageTime: 0
+  stageTime: 480
   stageTimeObj: {fileID: 1725983827}
   stageTimeText: {fileID: 441131700}
   waveText: {fileID: 1044384277}
   GameOverPanel: {fileID: 1709720160}
   fadeimage: {fileID: 1709720162}
+  GameClearPanel: {fileID: 308641159}
+  clearfadeimage: {fileID: 308641161}
   enemyTower: {fileID: 963480816}
   BossObj: {fileID: 4741284271336384071, guid: d0a953c0916c1ee4c88f1e309497d6c4, type: 3}
   isAppearBoss: 0
@@ -14316,8 +14318,8 @@ RectTransform:
   - {fileID: 865919897}
   - {fileID: 1711676038}
   - {fileID: 1397335640}
-  - {fileID: 1103504578}
   - {fileID: 1439679292}
+  - {fileID: 1103504578}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
