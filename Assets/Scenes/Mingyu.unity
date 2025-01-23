@@ -13716,8 +13716,8 @@ MonoBehaviour:
   - {fileID: 1390539840}
   - {fileID: 368025542}
   attributeImage:
-  - {fileID: -1314395385, guid: 87044312ad6593b49980b3d7616b0a95, type: 3}
   - {fileID: 350225468, guid: 87044312ad6593b49980b3d7616b0a95, type: 3}
+  - {fileID: -1314395385, guid: 87044312ad6593b49980b3d7616b0a95, type: 3}
   - {fileID: 656328405, guid: 87044312ad6593b49980b3d7616b0a95, type: 3}
   cardToggles:
   - {fileID: 6042629777583596695}
@@ -13816,6 +13816,8 @@ MonoBehaviour:
   - {fileID: -1394229428, guid: ee00c852b9a41314d80d47540070eaa5, type: 3}
   - {fileID: 933160180, guid: ee00c852b9a41314d80d47540070eaa5, type: 3}
   dCardAttribute: {fileID: 5230750297071050068}
+  dCardWeakAttribute: {fileID: 388939667}
+  dCardStrongAttribute: {fileID: 239844142}
   dCardDefenseValue: {fileID: 6106535068691174235}
   dCardHealthValue: {fileID: 1826735434802067562}
   dCardStrengthValue: {fileID: 3361264651976227829}

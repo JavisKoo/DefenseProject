@@ -28,6 +28,8 @@ MonoBehaviour:
   Strength: "\uB9E4\uC6B0 \uB192\uC74C"
   AttackSpeed: "\uB0AE\uC74C"
   Attribute: "\uD654\uC5FC"
+  weakAttribute: "\uC5C6\uC74C"
+  strongAttribute: "\uC5C6\uC74C"
   attackCountLimitValue: 7
   realSpeed: 1
   speedValue: 1

@@ -50,6 +50,8 @@ public class ItemData : ScriptableObject
     public string Strength;
     public string AttackSpeed;
     public string Attribute;
+    public string weakAttribute;
+    public string strongAttribute;
     public int attackCountLimitValue;
     public float realSpeed;
     public int speedValue;

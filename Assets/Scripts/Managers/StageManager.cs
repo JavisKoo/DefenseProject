@@ -60,6 +60,8 @@ public class StageManager : MonoBehaviour
     public Text dCardMember;
     public Sprite[] memberSprites;
     public Image dCardAttribute;
+    public Image dCardWeakAttribute;
+    public Image dCardStrongAttribute;
 
     public Text dCardDefenseValue;
     public Text dCardHealthValue;
@@ -583,6 +585,50 @@ public class StageManager : MonoBehaviour
         else if (datas[selectId].Attribute == "화염")
         {
             dCardAttribute.sprite = attributeImage[2];
+        }
+
+        if (datas[selectId].weakAttribute == "없음") //취약 속성
+        {
+            dCardWeakAttribute.color = new Color(0, 0, 0, 0);
+        }
+        else
+        {
+            dCardWeakAttribute.color = new Color(1,1,1,1);
+        }
+
+        if (datas[selectId].weakAttribute == "물리")
+        {
+            dCardWeakAttribute.sprite = attributeImage[0];
+        }
+        else if (datas[selectId].weakAttribute == "마법")
+        {
+            dCardWeakAttribute.sprite = attributeImage[1];
+        }
+        else if (datas[selectId].weakAttribute == "화염")
+        {
+            dCardWeakAttribute.sprite = attributeImage[2];
+        }
+
+        if (datas[selectId].strongAttribute == "없음") //저항 속성
+        {
+            dCardStrongAttribute.color = new Color(0, 0, 0, 0);
+        }
+        else
+        {
+            dCardStrongAttribute.color = new Color(1, 1, 1, 1);
+        }
+
+        if (datas[selectId].strongAttribute == "물리")
+        {
+            dCardStrongAttribute.sprite = attributeImage[0];
+        }
+        else if (datas[selectId].strongAttribute == "마법")
+        {
+            dCardStrongAttribute.sprite = attributeImage[1];
+        }
+        else if (datas[selectId].strongAttribute == "화염")
+        {
+            dCardStrongAttribute.sprite = attributeImage[2];
         }
 
 
