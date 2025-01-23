@@ -13886,9 +13886,11 @@ MonoBehaviour:
   fadeimage: {fileID: 1709720162}
   GameClearPanel: {fileID: 308641159}
   clearfadeimage: {fileID: 308641161}
-  enemyTower: {fileID: 963480816}
-  BossObj: {fileID: 4741284271336384071, guid: d0a953c0916c1ee4c88f1e309497d6c4, type: 3}
   isAppearBoss: 0
+  enemyTower: {fileID: 963480816}
+  BossObjs:
+  - {fileID: 4741284271336384071, guid: d0a953c0916c1ee4c88f1e309497d6c4, type: 3}
+  - {fileID: 344319866593267813, guid: 3afefbadcf1f32a4db1fddf966987bed, type: 3}
 --- !u!1 &1817332243
 GameObject:
   m_ObjectHideFlags: 0
