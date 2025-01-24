@@ -34,7 +34,7 @@ MonoBehaviour:
   realSpeed: 1
   speedValue: 1
   accuracyValue: 40
-  avoidanceValue: 60
+  avoidanceValue: 40
   size: 1
   createCountValue: 1
   level: 1
