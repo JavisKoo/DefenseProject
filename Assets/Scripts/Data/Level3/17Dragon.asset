@@ -33,9 +33,9 @@ MonoBehaviour:
   attackCountLimitValue: 7
   realSpeed: 1
   speedValue: 1
-  accuracyValue: 1
-  avoidanceValue: 1
+  accuracyValue: 60
+  avoidanceValue: 40
   size: 3
   createCountValue: 1
   level: 3
-  cost: 300
+  cost: 700

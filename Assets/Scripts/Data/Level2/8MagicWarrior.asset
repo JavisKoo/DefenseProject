@@ -20,7 +20,7 @@ MonoBehaviour:
   attackType: "\uADFC\uAC70\uB9AC"
   member: 1
   defenseValue: 4
-  healthValue: 80
+  healthValue: 100
   strengthValue: 20
   attackSpeedValue: 5
   Defense: "\uBCF4\uD1B5"
@@ -33,9 +33,9 @@ MonoBehaviour:
   attackCountLimitValue: 1
   realSpeed: 1
   speedValue: 0
-  accuracyValue: 1
-  avoidanceValue: 0
+  accuracyValue: 60
+  avoidanceValue: 60
   size: 1
   createCountValue: 1
   level: 2
-  cost: 200
+  cost: 300

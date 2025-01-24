@@ -21,7 +21,7 @@ MonoBehaviour:
   member: 0
   defenseValue: 8
   healthValue: 240
-  strengthValue: 60
+  strengthValue: 80
   attackSpeedValue: 4
   Defense: "\uB192\uC74C"
   Health: "\uB9E4\uC6B0 \uB192\uC74C"
@@ -33,9 +33,9 @@ MonoBehaviour:
   attackCountLimitValue: 3
   realSpeed: 1
   speedValue: 0
-  accuracyValue: 1
-  avoidanceValue: -1
+  accuracyValue: 120
+  avoidanceValue: 40
   size: 2
   createCountValue: 1
   level: 3
-  cost: 300
+  cost: 500

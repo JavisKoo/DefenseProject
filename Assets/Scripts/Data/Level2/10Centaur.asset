@@ -19,7 +19,7 @@ MonoBehaviour:
   itemIcon: {fileID: -1869737852, guid: dab46e185a00e8d4499c84a18e690874, type: 3}
   attackType: "\uADFC\uAC70\uB9AC"
   member: 2
-  defenseValue: 0
+  defenseValue: 2
   healthValue: 80
   strengthValue: 20
   attackSpeedValue: 5
@@ -33,9 +33,9 @@ MonoBehaviour:
   attackCountLimitValue: 1
   realSpeed: 1
   speedValue: 2
-  accuracyValue: 0
-  avoidanceValue: -1
+  accuracyValue: 60
+  avoidanceValue: 40
   size: 2
   createCountValue: 2
   level: 2
-  cost: 200
+  cost: 250
