@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using CartoonFX;
 using UnityEngine;
 
@@ -24,6 +25,8 @@ namespace Chracter
         protected float Accuracy = 60f;
         protected float Avoid = 60;
         protected bool Pierce = false;
+
+        private bool hitAnimPlaying = false;
 
         public HealthBar healthBar;
         [SerializeField] protected GameObject rangedAttackPrefab = null;
@@ -52,6 +55,7 @@ namespace Chracter
         protected bool isDead = false;
 
         private RaycastHit2D currentEnemy;
+        private List<RaycastHit2D> currentEnemys;
 
         private float debuffDelay = 0.0f;
 
@@ -171,7 +175,31 @@ namespace Chracter
         protected virtual void CheckEnemy()
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position + raycastHeight, RightLeft, AttackRange, LayerMask.GetMask(Enemy));
-            //draw the ray in the scene view with distance 
+
+            RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position + raycastHeight, RightLeft, AttackRange, LayerMask.GetMask(Enemy));
+            List<RaycastHit2D> Enemys = new List<RaycastHit2D>();
+
+
+            /*
+            Debug.DrawRay(transform.position + raycastHeight, RightLeft * AttackRange, Color.red);
+            if (hits!=null)
+            {
+                if (isAttacking == false)
+                {
+                    isAttacking = true;
+                    IsMoving = false;
+                    if (IsMelee)
+                    {
+                        StartCoroutine(Attacks(Enemys));
+                    }
+                    else
+                    {
+                        StartCoroutine(RangedAttack(hit));
+                    }
+
+                }
+            }
+            */
             Debug.DrawRay(transform.position + raycastHeight, RightLeft * AttackRange, Color.red);
             if (hit.collider != null)
             {
@@ -187,9 +215,9 @@ namespace Chracter
                     {
                         StartCoroutine(RangedAttack(hit));
                     }
-
                 }
             }
+
             else if (isAttacking == false && IsMoving == false)
             {
 
@@ -217,21 +245,42 @@ namespace Chracter
 
 
         // virtual method for attack
-
+        IEnumerator coroutine;
         protected virtual IEnumerator Attack(RaycastHit2D hit)
         {
+            coroutine = Attack(hit);
             currentEnemy = hit;
+            
             animator.SetTrigger(DoAttack);
             yield return new WaitForSeconds(AttackSpeed);
             yield return new WaitForSeconds(debuffDelay);
             isAttacking = false;
         }
+
+        protected virtual IEnumerator Attacks(List<RaycastHit2D> Enemys)
+        {
+            coroutine = Attacks(Enemys);
+            currentEnemys = Enemys;
+
+            animator.SetTrigger(DoAttack);
+            yield return new WaitForSeconds(AttackSpeed);
+            yield return new WaitForSeconds(debuffDelay);
+            isAttacking = false;
+        }
+
         private void AttackHIt()
         {
             if (currentEnemy)
             {
                 currentEnemy.collider.GetComponent<BaseCharacter>().TakeDamage(AttackDammage, Accuracy, Pierce);
             }
+            //if (currentEnemys!=null)
+            //{
+             //   for(int i=0; i<currentEnemys.Count;i++)
+              //  {
+               //     currentEnemys[i].collider.GetComponent<BaseCharacter>().TakeDamage(AttackDammage, Accuracy, Pierce);
+                //}
+            //}
         }
 
         public virtual IEnumerator RangedAttack(RaycastHit2D hit)
@@ -307,11 +356,22 @@ namespace Chracter
             }
             else if (CurrentHealth <= MaxHealth * 0.6f && firstHit == false)
             {
+                isAttacking = true;
+                if(coroutine!=null)
+                {
+                    StopCoroutine(coroutine);
+                }
+                
                 firstHit = true;
                 Hit();
             }
             else if (CurrentHealth <= MaxHealth * 0.3f && secondHit == false)
             {
+                isAttacking = true;
+                if (coroutine != null)
+                {
+                    StopCoroutine(coroutine);
+                }
                 secondHit = true;
                 Hit();
             }
@@ -369,11 +429,13 @@ namespace Chracter
             }
             else if (CurrentHealth <= MaxHealth * 0.6f && firstHit == false)
             {
+                isAttacking = true;
                 firstHit = true;
                 Hit();
             }
             else if (CurrentHealth <= MaxHealth * 0.3f && secondHit == false)
             {
+                isAttacking = true;
                 secondHit = true;
                 Hit();
             }
@@ -416,6 +478,7 @@ namespace Chracter
         }
         public IEnumerator HitAnim()
         {
+           
             animator.SetTrigger(DoHit);
             yield return new WaitForSeconds(0.5f);
             IsMoving = false;

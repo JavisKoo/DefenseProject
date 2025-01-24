@@ -67,7 +67,16 @@ public class CameraMovement : MonoBehaviour
     }
     private void FollowCharacter()
     {
-        transform.position = new Vector3(baseCharacter.transform.position.x, transform.position.y, transform.position.z);
+        if(baseCharacter.transform.position.x<=-5)
+        {
+            transform.position = new Vector3(-5, transform.position.y, transform.position.z);
+        }
+        else
+        {
+            transform.position = new Vector3(baseCharacter.transform.position.x, transform.position.y, transform.position.z);
+        }
+
+        
     }
 
 

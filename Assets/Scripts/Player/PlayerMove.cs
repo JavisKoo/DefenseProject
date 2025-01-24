@@ -64,7 +64,7 @@ public class PlayerMove : BaseCharacter
         
         if (collision.gameObject.tag == "Limit")
         {
-            Debug.Log("ENter");
+        
             switch (collision.gameObject.name)
             {
                 case "Left":
@@ -85,7 +85,7 @@ public class PlayerMove : BaseCharacter
     {
         if (collision.gameObject.tag == "Limit")
         {
-            Debug.Log("Exit");
+
             switch (collision.gameObject.name)
             {
                 case "Left":
@@ -117,7 +117,7 @@ public class PlayerMove : BaseCharacter
         float avoid = PlayerPrefs.GetInt("Avoid", 0);
 
 
-        SetCharacterSettings(500 + 500 * health/10, 20 + 20 * attack, 0, 1.4f - (1.4f * attackSpeed/10), 1f, true, true, 1.5f + (1.5f * moveSpeed/10), 200 + 200 * accuracy, 120 + 120 * avoid); //���� 10�ε� �ӽ÷� 200���� �ٲ�
+        SetCharacterSettings(500 + 500 * health/10, 20 + 20 * attack, 0, 1.4f - (1.4f * attackSpeed/10), 5f, true, true, 1.5f + (1.5f * moveSpeed/10), 200 + 200 * accuracy, 120 + 120 * avoid); //���� 10�ε� �ӽ÷� 200���� �ٲ�
         healthBar.SetHealth(MaxHealth, MaxHealth);
         healthBar.slider.value = float.MaxValue;
     }
@@ -178,6 +178,21 @@ public class PlayerMove : BaseCharacter
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position + raycastHeight, RightLeft, AttackRange, LayerMask.GetMask(Enemy));
         //draw the ray in the scene view with distance 
+        RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position + raycastHeight, RightLeft, AttackRange, LayerMask.GetMask(Enemy));
+
+
+        if (hits.Length > 0)
+        {
+            for (int i = 0; i < hits.Length; i++)
+            {
+                if (hits[i].collider.CompareTag(Enemy))
+                {
+                    Debug.Log(i);
+                    hits[i].collider.GetComponent<BaseCharacter>().TakeDamage(1, 300, false);
+
+                }
+            }
+        }
         Debug.DrawRay(transform.position + raycastHeight, RightLeft * AttackRange, Color.red);
         if (hit.collider != null)
         {
@@ -254,14 +269,14 @@ public class PlayerMove : BaseCharacter
     private IEnumerator CHealPlayer()
     {
         inBattle = false;
-        Debug.Log("HEALLLLLL");
+        
         yield return new WaitForSeconds(4.0f);
         canHeal = true;
         StartCoroutine("CGainHealth");
     }
     private IEnumerator CGainHealth()
     {
-        Debug.Log("GainHealth");
+        
         GainHealth(20);
         yield return new WaitForSeconds(1.0f);
         if(!inBattle)
