@@ -7,16 +7,6 @@ public class MainSceneUI : MonoBehaviour
     public GameObject mapPanel;
     public GameObject upgradePanel;
 
-    public void OpenMap()
-    {
-        mapPanel.SetActive(true);
-    }
-
-    public void CloseMap()
-    {
-        mapPanel?.SetActive(false);
-    }
-
     public void OpenUpgradePanel()
     {
         upgradePanel.SetActive(true);
@@ -25,5 +15,4 @@ public class MainSceneUI : MonoBehaviour
     {
         upgradePanel?.SetActive(false);
     }
-
 }
