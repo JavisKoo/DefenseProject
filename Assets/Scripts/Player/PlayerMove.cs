@@ -61,17 +61,20 @@ public class PlayerMove : BaseCharacter
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("SDF:LKSDJF:LKSDJF:LKJDS:LFKJ");
+        
         if (collision.gameObject.tag == "Limit")
         {
+            Debug.Log("ENter");
             switch (collision.gameObject.name)
             {
                 case "Left":
+                    MoveSpeed = 0;
                     isTouchLeft = true;
                     break;
 
 
                 case "Right":
+                    MoveSpeed = 0;
                     isTouchRight = true;
                     break;
             }
@@ -82,6 +85,7 @@ public class PlayerMove : BaseCharacter
     {
         if (collision.gameObject.tag == "Limit")
         {
+            Debug.Log("Exit");
             switch (collision.gameObject.name)
             {
                 case "Left":
@@ -132,7 +136,10 @@ public class PlayerMove : BaseCharacter
     }
     public void MoveLeft()
     {
-        if (!ismoving && !isTouchLeft)
+        if (isTouchLeft)
+            return;
+
+        if (!ismoving)
         {
             MoveSpeed = 1.0f;
             ismoving = true;
@@ -143,7 +150,10 @@ public class PlayerMove : BaseCharacter
     }
     public void MoveRight()
     {
-        if (!ismoving && !isTouchRight)
+        if (isTouchRight)
+            return;
+
+        if (!ismoving)
         {
             MoveSpeed = 1.0f;
             ismoving = true;
