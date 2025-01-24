@@ -7,6 +7,8 @@ TagManager:
   - Enemy
   - Team
   - RangeAttack
+  - FxTemporaire
+  - Limit
   layers:
   - Default
   - TransparentFX

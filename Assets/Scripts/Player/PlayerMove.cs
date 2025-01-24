@@ -13,6 +13,9 @@ public class PlayerMove : BaseCharacter
     [SerializeField] protected GameObject rangedAttackPrefableft = null;
     private bool inBattle = true;
     private bool canHeal = false;
+    //left right limit
+    public bool isTouchLeft = false;
+    public bool isTouchRight = false;
 
     void Update()
     {
@@ -56,6 +59,43 @@ public class PlayerMove : BaseCharacter
             CheckEnemy();
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("SDF:LKSDJF:LKSDJF:LKJDS:LFKJ");
+        if (collision.gameObject.tag == "Limit")
+        {
+            switch (collision.gameObject.name)
+            {
+                case "Left":
+                    isTouchLeft = true;
+                    break;
+
+
+                case "Right":
+                    isTouchRight = true;
+                    break;
+            }
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Limit")
+        {
+            switch (collision.gameObject.name)
+            {
+                case "Left":
+                    isTouchLeft = false;
+                    break;
+
+
+                case "Right":
+                    isTouchRight = false;
+                    break;
+            }
+        }
+    }
+
     public override void Spawn()
     {
 
@@ -92,7 +132,7 @@ public class PlayerMove : BaseCharacter
     }
     public void MoveLeft()
     {
-        if (!ismoving)
+        if (!ismoving && !isTouchLeft)
         {
             MoveSpeed = 1.0f;
             ismoving = true;
@@ -103,7 +143,7 @@ public class PlayerMove : BaseCharacter
     }
     public void MoveRight()
     {
-        if (!ismoving)
+        if (!ismoving && !isTouchRight)
         {
             MoveSpeed = 1.0f;
             ismoving = true;
