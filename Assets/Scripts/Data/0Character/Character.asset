@@ -30,7 +30,7 @@ MonoBehaviour:
   Attribute: 0
   weakAttribute: 
   strongAttribute: 
-  attackCountLimitValue: 0
+  attackCountLimitValue: 2
   realSpeed: 1
   speedValue: 0
   accuracyValue: 80

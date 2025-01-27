@@ -12,6 +12,7 @@ public class RangedAttack : MonoBehaviour
     private float AttackDammage = 10;
     private float AttackRange = 1;
     private float Accuracy = 60;
+    private int MaxHit = 1;
 
     private Vector3 firstSpawn;
 
@@ -37,7 +38,7 @@ public class RangedAttack : MonoBehaviour
             FlytoEnemy();
     }
 
-    public void EnemySetting(RaycastHit2D hit, string enemyTag, float attackDammage, float attackRange=2, float accuracy=60)
+    public void EnemySetting(RaycastHit2D hit, string enemyTag, float attackDammage, float attackRange=2, float accuracy=60,int maxHit=1)
     {
       
         EnemyTag = enemyTag;
@@ -50,6 +51,15 @@ public class RangedAttack : MonoBehaviour
         AttackRange = attackRange;
         Accuracy = accuracy;
         _Setting = true;
+
+        if (maxHit<1)
+        {
+            MaxHit = 1;
+        }
+        else
+        {
+            MaxHit = maxHit;
+        }
     }
     
     
@@ -80,9 +90,14 @@ public class RangedAttack : MonoBehaviour
     {
         if (other.CompareTag(EnemyTag))
         {
+            MaxHit--;
             other.GetComponent<BaseCharacter>().TakeDamage(AttackDammage,Accuracy);
             other.GetComponent<BaseCharacter>().TakeRangedDamage(AttackDammage, Accuracy);
-            Destroy(gameObject);
+
+            if (MaxHit <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

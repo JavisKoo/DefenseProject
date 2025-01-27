@@ -56,6 +56,7 @@ namespace Chracter
 
         private RaycastHit2D currentEnemy;
         private List<RaycastHit2D> currentEnemys;
+        public  List<RaycastHit2D> Enemys = new List<RaycastHit2D>();
 
         private float debuffDelay = 0.0f;
 
@@ -174,57 +175,79 @@ namespace Chracter
 
         protected virtual void CheckEnemy()
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position + raycastHeight, RightLeft, AttackRange, LayerMask.GetMask(Enemy));
+            
+            int MaxAttackCount = itemData.attackCountLimitValue;
+           
+            if(MaxAttackCount<1) { MaxAttackCount = 1; }
 
-            RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position + raycastHeight, RightLeft, AttackRange, LayerMask.GetMask(Enemy));
-            List<RaycastHit2D> Enemys = new List<RaycastHit2D>();
-
-
-            /*
-            Debug.DrawRay(transform.position + raycastHeight, RightLeft * AttackRange, Color.red);
-            if (hits!=null)
+            if (MaxAttackCount > 1)
             {
-                if (isAttacking == false)
-                {
-                    isAttacking = true;
-                    IsMoving = false;
-                    if (IsMelee)
-                    {
-                        StartCoroutine(Attacks(Enemys));
-                    }
-                    else
-                    {
-                        StartCoroutine(RangedAttack(hit));
-                    }
+                Enemys.Clear();
+                RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position + raycastHeight, RightLeft, AttackRange, LayerMask.GetMask(Enemy));
+                Debug.DrawRay(transform.position + raycastHeight, RightLeft * AttackRange, Color.blue);
 
-                }
-            }
-            */
-            Debug.DrawRay(transform.position + raycastHeight, RightLeft * AttackRange, Color.red);
-            if (hit.collider != null)
-            {
-                if (hit.collider.CompareTag(Enemy) && isAttacking == false)
+                if (hits.Length > 0)
                 {
-                    isAttacking = true;
-                    IsMoving = false;
-                    if (IsMelee)
+                    for (int i = 0; i < hits.Length; i++)
                     {
-                        StartCoroutine(Attack(hit));
+                        //max attack count
+                        if(i==MaxAttackCount)
+                        {
+                            break;
+                        }
+                        if (hits[i].collider.CompareTag(Enemy))
+                        {
+                            Enemys.Add(hits[i]);
+                        }
                     }
-                    else
+                    if (Enemys.Count > 0 && isAttacking == false)
                     {
-                        StartCoroutine(RangedAttack(hit));
+                        isAttacking = true;
+                        IsMoving = false;
+                        if (IsMelee)
+                        {
+                            StartCoroutine(Attacks(Enemys));
+                        }
+                        else
+                        {
+                            StartCoroutine(RangedAttack(Enemys[0]));
+                        }
                     }
                 }
+                else if (isAttacking == false && IsMoving == false)
+                {
+                    IsMoving = true;
+                    animator.SetTrigger(DoMove);
+                }
             }
-
-            else if (isAttacking == false && IsMoving == false)
+            else
             {
+                RaycastHit2D hit = Physics2D.Raycast(transform.position + raycastHeight, RightLeft, AttackRange, LayerMask.GetMask(Enemy));
+                Debug.DrawRay(transform.position + raycastHeight, RightLeft * AttackRange, Color.red);
+                if (hit.collider != null)
+                {
+                    if (hit.collider.CompareTag(Enemy) && isAttacking == false)
+                    {
+                        isAttacking = true;
+                        IsMoving = false;
+                        if (IsMelee)
+                        {
+                            StartCoroutine(Attack(hit));
+                        }
+                        else
+                        {
+                            StartCoroutine(RangedAttack(hit));
+                        }
+                    }
+                }
 
-                IsMoving = true;
-                animator.SetTrigger(DoMove);
+                else if (isAttacking == false && IsMoving == false)
+                {
+
+                    IsMoving = true;
+                    animator.SetTrigger(DoMove);
+                }
             }
-
         }
 
         private void CheckAnimatorState()
@@ -274,13 +297,12 @@ namespace Chracter
             {
                 currentEnemy.collider.GetComponent<BaseCharacter>().TakeDamage(AttackDammage, Accuracy, Pierce);
             }
-            //if (currentEnemys!=null)
-            //{
-             //   for(int i=0; i<currentEnemys.Count;i++)
-              //  {
-               //     currentEnemys[i].collider.GetComponent<BaseCharacter>().TakeDamage(AttackDammage, Accuracy, Pierce);
-                //}
-            //}
+
+            if (currentEnemys == null) return;
+            foreach (var t in currentEnemys)
+            {
+                t.collider.GetComponent<BaseCharacter>().TakeDamage(AttackDammage, Accuracy, Pierce);
+            }
         }
 
         public virtual IEnumerator RangedAttack(RaycastHit2D hit)
@@ -291,15 +313,22 @@ namespace Chracter
             yield return new WaitForSeconds(debuffDelay);
             isAttacking = false;
         }
+        public virtual IEnumerator RangedAttacks(List<RaycastHit2D> hit)
+        {
+            animator.SetTrigger(DoAttack);
+            currentEnemys = hit;
+            yield return new WaitForSeconds(AttackSpeed);
+            yield return new WaitForSeconds(debuffDelay);
+            isAttacking = false;
+        }
 
         protected virtual void RangedAttackShoot()
         {
             if (currentEnemy)
             {
                 GameObject rangedAttack = Instantiate(rangedAttackPrefab, rangedAttackSpawnPoint.position, Quaternion.identity);
-                rangedAttack.GetComponent<RangedAttack>().EnemySetting(currentEnemy, Enemy, AttackDammage, AttackRange, Accuracy);
+                rangedAttack.GetComponent<RangedAttack>().EnemySetting(currentEnemy, Enemy, AttackDammage, AttackRange, Accuracy,itemData.attackCountLimitValue);
             }
-
         }
 
 
