@@ -32,7 +32,7 @@ MonoBehaviour:
   weakAttribute: "\uB9C8\uBC95"
   strongAttribute: "\uC5C6\uC74C"
   attackCountLimitValue: 3
-  realSpeed: 0.75
+  realSpeed: 0.3
   speedValue: -1
   accuracyValue: 40
   avoidanceValue: 20

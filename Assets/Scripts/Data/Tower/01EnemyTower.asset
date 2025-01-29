@@ -18,9 +18,10 @@ MonoBehaviour:
   itemDesc: 
   itemIcon: {fileID: 0}
   attackType: 
+  attackRange: 0
   member: 0
   defenseValue: 3
-  healthValue: 1200
+  healthValue: 1500
   strengthValue: 0
   attackSpeedValue: 0
   Defense: 0
