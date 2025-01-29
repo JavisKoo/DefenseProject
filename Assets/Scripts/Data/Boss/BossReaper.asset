@@ -12,23 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7a2d30eb19d3f499cc1ffd6ad9528c, type: 3}
   m_Name: BossReaper
   m_EditorClassIdentifier: 
-  itemType: 18
+  itemType: 4
   itemId: 18
-  itemName: "\uBCF4\uC2A4 \uC218\uD655\uC790"
-  itemDesc: "\uC218\uD655\uC790\uBCF4\uC2A4\uBC84\uC804"
-  itemIcon: {fileID: 125290895, guid: bcf23d87cf79fd4499faaf85a1ce6ae7, type: 3}
+  itemName: "\uBCF4\uC2A4 \uC2AC\uB77C\uC784"
+  itemDesc: "\uC2AC\uB77C\uC784 \uBCF4\uC2A4 \uBC84\uC804"
+  itemIcon: {fileID: -1616108125, guid: 3a9be5f2734b55145b1d236bf8b8c6f2, type: 3}
   attackType: "\uADFC\uAC70\uB9AC"
+  attackRange: 0
   member: 3
   defenseValue: 0
-  healthValue: 200
-  strengthValue: 80
+  healthValue: 160
+  strengthValue: 16
   attackSpeedValue: 4
   Defense: "\uB9E4\uC6B0 \uB0AE\uC74C"
   Health: "\uB192\uC74C"
   Strength: "\uB9E4\uC6B0 \uB192\uC74C"
   AttackSpeed: "\uB0AE\uC74C"
   Attribute: "\uB9C8\uBC95"
-  attackCountLimitValue: 3
+  weakAttribute: 
+  strongAttribute: 
+  attackCountLimitValue: 2
   realSpeed: 1
   speedValue: 1
   accuracyValue: 1

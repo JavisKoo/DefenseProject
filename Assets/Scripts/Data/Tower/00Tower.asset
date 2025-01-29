@@ -18,6 +18,7 @@ MonoBehaviour:
   itemDesc: 
   itemIcon: {fileID: 0}
   attackType: 
+  attackRange: 1
   member: 0
   defenseValue: 0
   healthValue: 500
@@ -28,6 +29,8 @@ MonoBehaviour:
   Strength: 0
   AttackSpeed: 0
   Attribute: 0
+  weakAttribute: 
+  strongAttribute: 
   attackCountLimitValue: 0
   realSpeed: 0
   speedValue: 0
