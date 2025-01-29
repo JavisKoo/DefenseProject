@@ -19,7 +19,7 @@ MonoBehaviour:
   itemIcon: {fileID: 0}
   attackType: 
   member: 0
-  defenseValue: 0
+  defenseValue: 3
   healthValue: 1200
   strengthValue: 0
   attackSpeedValue: 0
@@ -28,6 +28,8 @@ MonoBehaviour:
   Strength: 0
   AttackSpeed: 0
   Attribute: 0
+  weakAttribute: 
+  strongAttribute: 
   attackCountLimitValue: 0
   realSpeed: 0
   speedValue: 0
