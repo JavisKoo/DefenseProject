@@ -97,7 +97,7 @@ public class Tower : BaseCharacter
         StageManager.Instance.GameOver();
     }
 
-    public override void TakeDamage(float damage, float enemyAccuracy = 200,bool pierce=false)
+    public override void TakeDamage(float damage, float enemyAccuracy = 200,bool pierce=false, string weak = "없음")
     {
         if (isGameOver)
             return;

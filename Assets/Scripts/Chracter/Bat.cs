@@ -12,7 +12,7 @@ namespace Chracter
         }
 
 
-        public override void TakeDamage(float damage, float enemyAccuracy = 60, bool pierce = false)
+        public override void TakeDamage(float damage, float enemyAccuracy = 60, bool pierce = false, string weak="없음")
         {
             float HitPercent = enemyAccuracy - Avoid*2 + 50;
             if (HitPercent >= 100)

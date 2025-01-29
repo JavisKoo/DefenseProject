@@ -40,6 +40,7 @@ public class ItemData : ScriptableObject
     public Sprite itemIcon;
 
     public string attackType;
+    public float attackRange;
     public int member;
     public int defenseValue;
     public float healthValue;

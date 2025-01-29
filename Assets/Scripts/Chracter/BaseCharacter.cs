@@ -25,6 +25,8 @@ namespace Chracter
         protected float Accuracy = 60f;
         protected float Avoid = 60;
         protected bool Pierce = false;
+        private string weakAttribute = "없음";
+        private string Attribute = "없음";
 
         private bool hitAnimPlaying = false;
 
@@ -164,10 +166,28 @@ namespace Chracter
             AttackDammage = itemData.strengthValue;
             Armor = itemData.defenseValue;
             
+            
+            AttackRange = itemData.attackRange;
             AttackSpeed = (float)10/itemData.attackSpeedValue;
             MoveSpeed = itemData.realSpeed;
             Accuracy = itemData.accuracyValue;
             Avoid = itemData.avoidanceValue;
+            if (itemData.Attribute == "물리")
+            {
+                Attribute = "Physical";
+            }
+            else
+            {
+                Attribute = "Magic";
+            }
+            if (itemData.weakAttribute == "물리")
+            {
+                weakAttribute = "Physical";
+            }
+            else if (itemData.weakAttribute == "마법")
+            {
+                weakAttribute = "Magic";
+            }
 
 
         }
@@ -295,13 +315,13 @@ namespace Chracter
         {
             if (currentEnemy)
             {
-                currentEnemy.collider.GetComponent<BaseCharacter>().TakeDamage(AttackDammage, Accuracy, Pierce);
+                currentEnemy.collider.GetComponent<BaseCharacter>().TakeDamage(AttackDammage, Accuracy, Pierce, Attribute);
             }
 
             if (currentEnemys == null) return;
             foreach (var t in currentEnemys)
             {
-                t.collider.GetComponent<BaseCharacter>().TakeDamage(AttackDammage, Accuracy, Pierce);
+                t.collider.GetComponent<BaseCharacter>().TakeDamage(AttackDammage, Accuracy, Pierce, Attribute);
             }
         }
 
@@ -333,8 +353,13 @@ namespace Chracter
 
 
 
-        public virtual void TakeDamage(float damage, float enemyAccuracy = 60, bool pierce = false)
+        public virtual void TakeDamage(float damage, float enemyAccuracy = 60, bool pierce = false, string Attribute="none" )
         {
+            if(weakAttribute == Attribute)
+            {
+                damage = damage * 1.5f;
+            }
+            
             float HitPercent = enemyAccuracy - Avoid + 50;
             if (HitPercent >= 100)
             {

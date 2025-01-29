@@ -205,7 +205,7 @@ public class EnemyTower : BaseCharacter
     }
 
     bool[] isEndWave = { false,false,false };
-    public override void TakeDamage(float damage, float enemyAccuracy = 200,bool pierce=false)
+    public override void TakeDamage(float damage, float enemyAccuracy = 200,bool pierce=false ,string weak = "¾øÀ½")
     {
         if (isStageEnd)
             return;

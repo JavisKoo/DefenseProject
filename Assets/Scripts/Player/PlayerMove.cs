@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Chracter;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerMove : BaseCharacter
 {
@@ -122,7 +123,7 @@ public class PlayerMove : BaseCharacter
         healthBar.slider.value = float.MaxValue;
     }
 
-    public override void TakeDamage(float damage, float enemyAccuracy = 60, bool pierce = false)
+    public override void TakeDamage(float damage, float enemyAccuracy = 60, bool pierce = false, string weak = "없음")    
     {
         inBattle = true;
         base.TakeDamage(damage, enemyAccuracy, pierce);
