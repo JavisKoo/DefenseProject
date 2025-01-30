@@ -22,8 +22,8 @@ MonoBehaviour:
   member: 3
   defenseValue: 2
   healthValue: 120
-  strengthValue: 25
-  attackSpeedValue: 3
+  strengthValue: 20
+  attackSpeedValue: 2
   Defense: "\uB9E4\uC6B0 \uB192\uC74C"
   Health: "\uB192\uC74C"
   Strength: "\uB192\uC74C"

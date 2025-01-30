@@ -23,7 +23,7 @@ MonoBehaviour:
   defenseValue: 8
   healthValue: 320
   strengthValue: 80
-  attackSpeedValue: 4
+  attackSpeedValue: 3
   Defense: "\uB192\uC74C"
   Health: "\uB9E4\uC6B0 \uB192\uC74C"
   Strength: "\uB192\uC74C"
