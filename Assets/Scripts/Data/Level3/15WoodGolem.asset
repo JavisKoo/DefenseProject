@@ -20,7 +20,7 @@ MonoBehaviour:
   attackType: "\uADFC\uAC70\uB9AC"
   attackRange: 1
   member: 1
-  defenseValue: 12
+  defenseValue: 16
   healthValue: 400
   strengthValue: 80
   attackSpeedValue: 2

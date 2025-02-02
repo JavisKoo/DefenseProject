@@ -20,8 +20,8 @@ MonoBehaviour:
   attackType: 
   attackRange: 0
   member: 0
-  defenseValue: 3
-  healthValue: 1500
+  defenseValue: 6
+  healthValue: 1600
   strengthValue: 0
   attackSpeedValue: 0
   Defense: 0
