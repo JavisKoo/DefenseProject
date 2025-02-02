@@ -45,7 +45,7 @@ public class ItemData : ScriptableObject
     public int defenseValue;
     public float healthValue;
     public int strengthValue;
-    public int attackSpeedValue;
+    public float attackSpeedValue;
     public string Defense;
     public string Health;
     public string Strength;
