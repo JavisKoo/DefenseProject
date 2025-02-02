@@ -22,7 +22,7 @@ MonoBehaviour:
   member: 1
   defenseValue: 6
   healthValue: 320
-  strengthValue: 60
+  strengthValue: 40
   attackSpeedValue: 5
   Defense: "\uB0AE\uC74C"
   Health: "\uB192\uC74C"
