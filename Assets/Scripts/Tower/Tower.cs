@@ -124,7 +124,7 @@ public class Tower : BaseCharacter
 
 
     int towerLevel = 1;
-    int[] upgradeCost = { 0, 50, 100, 200, 400, 800, 1600, 3200, 6400 };
+    int[] upgradeCost = { 0, 25, 50, 100, 200, 400, 800, 1600, 3200 };
     int[] upgradeMaxGold = {0, 100, 330, 720, 1300, 2100, 3150, 4480, 6120, 8100 };
     public Text towerLevelText;
     public Text upgradeCostText;
