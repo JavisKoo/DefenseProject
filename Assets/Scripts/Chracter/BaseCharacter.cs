@@ -127,9 +127,10 @@ namespace Chracter
         
         //get Data from ItemData
         public ItemData itemData;
-
+        Coroutine Attackcoroutine;
         void Start()
         {
+          
             if (moveParticle != null)
             {
                 moveParticle.Play();
@@ -227,17 +228,18 @@ namespace Chracter
                             Enemys.Add(hits[i]);
                         }
                     }
-                    if (Enemys.Count > 0 && isAttacking == false)
+                    if (Enemys.Count > 0 && isAttacking == false&& !bBackWard)
                     {
                         isAttacking = true;
                         IsMoving = false;
                         if (IsMelee)
                         {
-                            StartCoroutine(Attacks(Enemys));
+                            Attackcoroutine = StartCoroutine(Attacks(Enemys));
+
                         }
                         else
                         {
-                            StartCoroutine(RangedAttack(Enemys[0]));
+                            Attackcoroutine= StartCoroutine(RangedAttack(Enemys[0]));
                         }
                     }
                 }
@@ -253,17 +255,17 @@ namespace Chracter
                 Debug.DrawRay(transform.position + raycastHeight, RightLeft * AttackRange, Color.red);
                 if (hit.collider != null)
                 {
-                    if (hit.collider.CompareTag(Enemy) && isAttacking == false)
+                    if (hit.collider.CompareTag(Enemy) && isAttacking == false &&!bBackWard)
                     {
                         isAttacking = true;
                         IsMoving = false;
                         if (IsMelee)
                         {
-                            StartCoroutine(Attack(hit));
+                            Attackcoroutine=StartCoroutine(Attack(hit));
                         }
                         else
                         {
-                            StartCoroutine(RangedAttack(hit));
+                            Attackcoroutine=StartCoroutine(RangedAttack(hit));
                         }
                     }
                 }
@@ -301,10 +303,10 @@ namespace Chracter
 
 
         // virtual method for attack
-        IEnumerator Attackcoroutine;
+       
         protected virtual IEnumerator Attack(RaycastHit2D hit)
         {
-            Attackcoroutine = Attack(hit);
+           
             currentEnemy = hit;
             Debug.Log("StartAttack");
             animator.SetTrigger(DoAttack);
@@ -316,7 +318,7 @@ namespace Chracter
 
         protected virtual IEnumerator Attacks(List<RaycastHit2D> Enemys)
         {
-            Attackcoroutine = Attacks(Enemys);
+          
             currentEnemys = Enemys;
 
             animator.SetTrigger(DoAttack);
@@ -424,12 +426,13 @@ namespace Chracter
             }
             else if (CurrentHealth <= MaxHealth * 0.6f && firstHit == false && CurrentHealth>MaxHealth*0.3f)
             {
-                Debug.Log("Stop");
+            
                 animator.ResetTrigger(1);
                
                 isAttacking = true;
                 if(Attackcoroutine!=null)
                 {
+                    Debug.Log("StopCoroutine");
                     StopCoroutine(Attackcoroutine);
                 }
                 
