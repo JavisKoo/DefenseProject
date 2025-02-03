@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b6511378b4288c041853d9a994a9d3a5
+guid: e1ead06afbff423418c9f1462b836f0b
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -93,17 +93,43 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: undedCardUI_0
+      name: undedScroll_0
       rect:
         serializedVersion: 2
-        x: 182
-        y: 1458
-        width: 1768
-        height: 342
+        x: 232
+        y: 1322
+        width: 1767
+        height: 341
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,18 +137,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d233514e259dde144b4142a4debf5764
-      internalID: -1642908030
+      spriteID: 81c57e6a0765cd444989c62e17fbcef6
+      internalID: 1658402941
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: undedCardUI_1
+      name: undedScroll_1
       rect:
         serializedVersion: 2
-        x: 262
-        y: 1239
+        x: 311
+        y: 1103
         width: 1610
         height: 108
       alignment: 0
@@ -132,19 +158,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c7200cf843decb6429026486cc2e659b
-      internalID: -483666482
+      spriteID: 5c06a14d66f60a54da248f190672da2f
+      internalID: 416037374
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: undedCardUI_2
+      name: undedScroll_2
       rect:
         serializedVersion: 2
-        x: 1027
-        y: 854
-        width: 751
+        x: 1076
+        y: 718
+        width: 752
         height: 280
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -153,20 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3cf65182ccb1a5d4fb88b6d2a82d8aa8
-      internalID: -2100554534
+      spriteID: edc2ec9ea43e7374a870853303daa04e
+      internalID: -989832914
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: undedCardUI_3
+      name: undedScroll_3
       rect:
         serializedVersion: 2
-        x: 1027
-        y: 498
-        width: 751
-        height: 280
+        x: 1076
+        y: 361
+        width: 752
+        height: 281
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,8 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc3882e2d5022ef4cbbb3e58a2d4be68
-      internalID: -1218162729
+      spriteID: 2d7409dcc66aac840955487954afc212
+      internalID: -1050672317
       vertices: []
       indices: 
       edges: []
@@ -191,10 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      undedCardUI_0: -1642908030
-      undedCardUI_1: -483666482
-      undedCardUI_2: -2100554534
-      undedCardUI_3: -1218162729
+      undedScroll_0: 1658402941
+      undedScroll_1: 416037374
+      undedScroll_2: -989832914
+      undedScroll_3: -1050672317
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
