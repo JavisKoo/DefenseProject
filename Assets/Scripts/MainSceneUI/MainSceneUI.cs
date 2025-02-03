@@ -9,6 +9,9 @@ public class MainSceneUI : MonoBehaviour
     public GameObject areaPanel;
     public GameObject dungeonPanel;
 
+    //dungeon data
+    public Dungeon[] dungeonDatas;
+
     public void OpenUpgradePanel()
     {
         upgradePanel.SetActive(true);
@@ -19,9 +22,16 @@ public class MainSceneUI : MonoBehaviour
         upgradePanel?.SetActive(false);
     }
 
-    public void OpenAreaPanel()
+    //
+    public void OpenAreaPanel(int type)
     {
         areaPanel.SetActive(true);
+    }
+
+    //x-n 스크롤 정보 넣기
+    public void SetScrollUI(ItemData bossData, bool isClear, int stageNum) //parameter 보스, 클리어, 스테이지 번호 필요
+    {
+
     }
 
     public void CloseAreaPanel()
