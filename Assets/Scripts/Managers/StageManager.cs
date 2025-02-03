@@ -328,13 +328,13 @@ public class StageManager : MonoBehaviour
                     switch (num)
                     {
                         case 0:
-                            FirstCardBase[i].sprite = blueFrameImages[2];
+                            FirstCardBase[i].sprite = purpleFrameImages[2];
                             break;
                         case 1:
-                            SecondCardBase[i].sprite = blueFrameImages[2];
+                            SecondCardBase[i].sprite = purpleFrameImages[2];
                             break;
                         case 2:
-                            ThirdCardBase[i].sprite = blueFrameImages[2];
+                            ThirdCardBase[i].sprite = purpleFrameImages[2];
                             break;
                     }
                 }
