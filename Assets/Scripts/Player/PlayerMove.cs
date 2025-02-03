@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Chracter;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class PlayerMove : BaseCharacter
 {
@@ -18,6 +18,21 @@ public class PlayerMove : BaseCharacter
     public bool isTouchLeft = false;
     public bool isTouchRight = false;
     float AttackDamage = 0;
+
+
+
+    float MaxSkill2Delay = 30;
+    float Skill2Delay = 30;
+    bool bSkill2 = true;
+
+    float MaxSkill1Delay = 60;
+    float Skill1Delay = 60;
+    bool bSkill1 = true;
+
+    [SerializeField]
+    Image delayImage1;
+    [SerializeField]
+    Image delayImage2;
 
     void Update()
     {
@@ -50,6 +65,31 @@ public class PlayerMove : BaseCharacter
             StopCoroutine("CHealPlayer");
             StopCoroutine("CGainHealth");
             StartCoroutine("CHealPlayer");
+        }
+
+        if (!bSkill2)
+        {
+
+            Skill2Delay -= Time.deltaTime;
+            float time = Skill2Delay / MaxSkill2Delay;
+            delayImage2.fillAmount = time;
+            if (Skill2Delay <= 0f)
+            {
+                bSkill2 = true;
+                Skill2Delay = MaxSkill2Delay;
+            }
+        }
+        if (!bSkill1)
+        {
+
+            Skill1Delay -= Time.deltaTime;
+            float time = Skill1Delay / MaxSkill1Delay;
+            delayImage1.fillAmount = time;
+            if (Skill1Delay <= 0f)
+            {
+                bSkill1 = true;
+                Skill1Delay = MaxSkill1Delay;
+            }
         }
 
 
@@ -198,6 +238,9 @@ public class PlayerMove : BaseCharacter
 
     public void Skill1()
     {
+        if(!bSkill1)
+        { return; }
+
         inBattle = true;
         this.GetComponent<SpriteRenderer>().flipX = false;
         isSkillMotion = true;
@@ -206,6 +249,12 @@ public class PlayerMove : BaseCharacter
     }
     public void Skill2()
     {
+        if (!bSkill2)
+        {
+            return;
+        }
+
+
         inBattle = true;
         this.GetComponent<SpriteRenderer>().flipX = false;
         isSkillMotion = true;
@@ -216,6 +265,7 @@ public class PlayerMove : BaseCharacter
 
     protected IEnumerator Skill1Motion()
     {
+        bSkill1 = false;
         // check my team is around me
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, 2f, LayerMask.GetMask("Team"));
 
@@ -235,10 +285,12 @@ public class PlayerMove : BaseCharacter
     }
     protected IEnumerator Skill2Motion()
     {
+        bSkill2 = false;
         yield return new WaitForSeconds(1.0f);
         Debug.Log("Skill2Fin");
         isSkillMotion = false;
     }
+    
 
 
     public override IEnumerator RangedAttack(RaycastHit2D hit)

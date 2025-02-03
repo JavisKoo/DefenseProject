@@ -13,6 +13,8 @@ public class BaseGameManager : MonoBehaviour
     public float HealthStats = 0;
 
 
+    bool bFast = false;
+
 
     private void Awake()
     {
@@ -41,6 +43,21 @@ public class BaseGameManager : MonoBehaviour
         }
         return 0;
 
+    }
+
+
+    public void Fast2X()
+    {
+        if(bFast)
+        {
+            Time.timeScale = 1.0f;
+            bFast = false;
+        }
+        
+        else{
+            bFast = true;
+            Time.timeScale = 2.0f;
+        }
     }
 
 
