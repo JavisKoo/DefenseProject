@@ -6523,7 +6523,7 @@ Transform:
   m_GameObject: {fileID: 816964302}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.35, y: 0.51530457, z: 0}
+  m_LocalPosition: {x: 4.215149, y: 0.51530457, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8069,7 +8069,7 @@ Transform:
   m_GameObject: {fileID: 963480811}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -217.39514, y: -138.41531, z: -2.45174}
+  m_LocalPosition: {x: -218.699, y: -138.423, z: -2.45174}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14429,9 +14429,18 @@ MonoBehaviour:
   - {fileID: 1619201423}
   - {fileID: 535792830}
   wave: 1
-  firstDelay: 0a000000140000001e000000
-  middleDelay: 08000000120000001c000000
-  LastDelay: 060000000c00000018000000
+  firstDelay:
+  - 10
+  - 20
+  - 30
+  middleDelay:
+  - 8
+  - 18
+  - 28
+  LastDelay:
+  - 6
+  - 12
+  - 24
   stageTime: 480
   stageTimeObj: {fileID: 1725983827}
   stageTimeText: {fileID: 441131700}

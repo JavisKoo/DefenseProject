@@ -17,6 +17,7 @@ public class PlayerMove : BaseCharacter
     //left right limit
     public bool isTouchLeft = false;
     public bool isTouchRight = false;
+    float AttackDamage = 0;
 
     void Update()
     {
@@ -116,7 +117,7 @@ public class PlayerMove : BaseCharacter
         float moveSpeed = PlayerPrefs.GetInt("MoveSpeed", 0);
         float accuracy = PlayerPrefs.GetInt("Accuracy", 0);
         float avoid = PlayerPrefs.GetInt("Avoid", 0);
-
+        AttackDamage = 20 + 20 * attack;
 
         SetCharacterSettings(500 + 500 * health/10, 20 + 20 * attack, 0, 1.4f - (1.4f * attackSpeed/10), 1f, true, true, 1.5f + (1.5f * moveSpeed/10), 200 + 200 * accuracy, 120 + 120 * avoid); //���� 10�ε� �ӽ÷� 200���� �ٲ�
         healthBar.SetHealth(MaxHealth, MaxHealth);
@@ -250,7 +251,7 @@ public class PlayerMove : BaseCharacter
     protected override void RangedAttackShoot()
     {
         GameObject rangedAttack = Instantiate(rangedAttackPrefab, rangedAttackSpawnPoint.position - new Vector3(0, 0.5f, 0), Quaternion.identity);
-        rangedAttack.GetComponent<PlayerRangeSkill>().SkillSetting();
+        rangedAttack.GetComponent<PlayerRangeSkill>().SkillSetting(20 + 20 * AttackDamage);
     }
 
     private IEnumerator CHealPlayer()

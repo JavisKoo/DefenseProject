@@ -122,6 +122,8 @@ namespace Chracter
         //HealthDebuff
         private bool skullDebuff = false;
 
+        private bool bBackWard = false;
+
         
         //get Data from ItemData
         public ItemData itemData;
@@ -146,6 +148,11 @@ namespace Chracter
         {
             if (Enemy != null && !isDead)
                 CheckAnimatorState();
+
+            if(bBackWard)
+            {
+                StartCoroutine(BackWard());
+            }
         }
 
         private void FixedUpdate()
@@ -284,25 +291,32 @@ namespace Chracter
             yield return null;
         }
 
+        private IEnumerator BackWard()
+        {
+            transform.position -= MoveSpeed * Time.deltaTime * RightLeft;
+            yield return null;
+        }
+
 
 
 
         // virtual method for attack
-        IEnumerator coroutine;
+        IEnumerator Attackcoroutine;
         protected virtual IEnumerator Attack(RaycastHit2D hit)
         {
-            coroutine = Attack(hit);
+            Attackcoroutine = Attack(hit);
             currentEnemy = hit;
-            
+            Debug.Log("StartAttack");
             animator.SetTrigger(DoAttack);
             yield return new WaitForSeconds(AttackSpeed);
             yield return new WaitForSeconds(debuffDelay);
             isAttacking = false;
+            Debug.Log("AttackEnd");
         }
 
         protected virtual IEnumerator Attacks(List<RaycastHit2D> Enemys)
         {
-            coroutine = Attacks(Enemys);
+            Attackcoroutine = Attacks(Enemys);
             currentEnemys = Enemys;
 
             animator.SetTrigger(DoAttack);
@@ -408,12 +422,15 @@ namespace Chracter
                 isDead = true;
                 Die();
             }
-            else if (CurrentHealth <= MaxHealth * 0.6f && firstHit == false)
+            else if (CurrentHealth <= MaxHealth * 0.6f && firstHit == false && CurrentHealth>MaxHealth*0.3f)
             {
+                Debug.Log("Stop");
+                animator.ResetTrigger(1);
+               
                 isAttacking = true;
-                if(coroutine!=null)
+                if(Attackcoroutine!=null)
                 {
-                    StopCoroutine(coroutine);
+                    StopCoroutine(Attackcoroutine);
                 }
                 
                 firstHit = true;
@@ -421,11 +438,13 @@ namespace Chracter
             }
             else if (CurrentHealth <= MaxHealth * 0.3f && secondHit == false)
             {
+                animator.ResetTrigger(1);
                 isAttacking = true;
-                if (coroutine != null)
+                if (Attackcoroutine != null)
                 {
-                    StopCoroutine(coroutine);
+                    StopCoroutine(Attackcoroutine);
                 }
+                firstHit = true;
                 secondHit = true;
                 Hit();
             }
@@ -522,6 +541,7 @@ namespace Chracter
         public virtual void Hit()
         {
             StartCoroutine(HitAnim());
+            bBackWard = true;
         }
 
         public IEnumerator DieAnim()
@@ -537,6 +557,7 @@ namespace Chracter
             yield return new WaitForSeconds(0.5f);
             IsMoving = false;
             isAttacking = false;
+            bBackWard = false;
 
         }
 

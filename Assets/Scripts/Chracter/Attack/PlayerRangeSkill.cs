@@ -38,10 +38,10 @@ public class PlayerRangeSkill : MonoBehaviour
             SkillActivate();
     }
 
-    public void SkillSetting()
+    public void SkillSetting(float damage)
     {
         EnemyTag = "Enemy";
-        AttackDammage = 20;
+        AttackDammage = damage;
         AttackRange = 3;
         Accuracy = 200;
         _Setting = true;
@@ -62,7 +62,7 @@ public class PlayerRangeSkill : MonoBehaviour
     {
         if (other.CompareTag(EnemyTag))
         {
-            other.GetComponent<BaseCharacter>().TakeDamage(1,Accuracy);
+            other.GetComponent<BaseCharacter>().TakeDamage(AttackDammage, Accuracy);
             other.GetComponent<BaseCharacter>().DeBuff();
         }
     }
