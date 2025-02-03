@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -147,9 +147,9 @@ TextureImporter:
       name: dungeon_1
       rect:
         serializedVersion: 2
-        x: 786
+        x: 795
         y: 3977
-        width: 100
+        width: 84
         height: 2566
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -189,9 +189,9 @@ TextureImporter:
       name: dungeon_3
       rect:
         serializedVersion: 2
-        x: 1403
+        x: 1411
         y: 3977
-        width: 99
+        width: 82
         height: 2566
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -212,8 +212,8 @@ TextureImporter:
         serializedVersion: 2
         x: 1625
         y: 3864
-        width: 487
-        height: 2787
+        width: 387
+        height: 2797
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -605,6 +605,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: dungeon_23
+      rect:
+        serializedVersion: 2
+        x: 2021
+        y: 3980
+        width: 81
+        height: 2558
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c221affe61a1f5a46a998f8fd10aff21
+      internalID: 1055766697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -632,6 +653,7 @@ TextureImporter:
       dungeon_20: -95226946
       dungeon_21: 1496413513
       dungeon_22: -1119270479
+      dungeon_23: 1055766697
       dungeon_3: -1618611754
       dungeon_4: 755230170
       dungeon_5: 1670213809

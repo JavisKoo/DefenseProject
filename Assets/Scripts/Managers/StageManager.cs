@@ -88,9 +88,9 @@ public class StageManager : MonoBehaviour
 
     //스테이지 정보
     public int wave = 1;
-    public int[] firstDelay = { 10, 20, 30 };
-    public int[] middleDelay = { 8, 18, 28 };
-    public int[] LastDelay = { 6, 12, 24 };
+    public float[] firstDelay = { 10, 20, 30 };
+    public float[] middleDelay = { 8, 18, 28 };
+    public float[] LastDelay = { 6, 12, 24 };
 
     //스테이지 타임
     public float stageTime = 480f;

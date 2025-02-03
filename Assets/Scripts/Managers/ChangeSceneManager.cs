@@ -10,8 +10,23 @@ public class ChangeSceneManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    public void GoToPlayerScene() //플레이어 씬으로 이동 (임시)
+    public void GoToDungeon1()
     {
-        SceneManager.LoadScene("Mingyu");
+        SceneManager.LoadScene("Dungeon1");
+    }
+
+    public void GoToDungeon2()
+    {
+        SceneManager.LoadScene("Dungeon2");
+    }
+
+    public void GoToDungeon3()
+    {
+        SceneManager.LoadScene("Dungeon3");
+    }
+
+    public void GoToDungeon4()
+    {
+        SceneManager.LoadScene("Dungeon4");
     }
 }

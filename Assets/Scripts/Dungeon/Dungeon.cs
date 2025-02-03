@@ -6,6 +6,6 @@ public class Dungeon : ScriptableObject
 {
     public int dungeonNum;
     public bool isClear = false;
-    public string[] dungeonUnits;
-    public string dungeonBoss;
+    public ItemData[] dungeonUnits;
+    public ItemData dungeonBoss;
 }

@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ebed7c6668ccf54381bf2ab0e5e3fb9, type: 3}
   m_Name: Dungeon1
   m_EditorClassIdentifier: 
-  dungeonNum: 0
+  dungeonNum: 1
   isClear: 0
-  dungeonUnits: []
-  dungeonBoss: 
+  dungeonUnits:
+  - {fileID: 11400000, guid: 88299fa0f36fd9849b634e879cc7c271, type: 2}
+  - {fileID: 11400000, guid: dad83879e8d3bcd488ce476fe78a7c8f, type: 2}
+  - {fileID: 11400000, guid: fc00d80abe87eda47b5031c042ddcbf3, type: 2}
+  dungeonBoss: {fileID: 11400000, guid: 51a28d5d06499c54c8c020bde78ce824, type: 2}
