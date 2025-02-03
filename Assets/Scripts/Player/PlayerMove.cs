@@ -160,6 +160,8 @@ public class PlayerMove : BaseCharacter
         AttackDamage = 20 + 20 * attack;
 
         SetCharacterSettings(500 + 500 * health/10, 20 + 20 * attack, 0, 1.4f - (1.4f * attackSpeed/10), 1f, true, true, 1.5f + (1.5f * moveSpeed/10), 200 + 200 * accuracy, 120 + 120 * avoid); //���� 10�ε� �ӽ÷� 200���� �ٲ�
+
+
         healthBar.SetHealth(MaxHealth, MaxHealth);
         healthBar.slider.value = float.MaxValue;
     }
@@ -303,7 +305,7 @@ public class PlayerMove : BaseCharacter
     protected override void RangedAttackShoot()
     {
         GameObject rangedAttack = Instantiate(rangedAttackPrefab, rangedAttackSpawnPoint.position - new Vector3(0, 0.5f, 0), Quaternion.identity);
-        rangedAttack.GetComponent<PlayerRangeSkill>().SkillSetting(20 + 20 * AttackDamage);
+        rangedAttack.GetComponent<PlayerRangeSkill>().SkillSetting(AttackDamage);
     }
 
     private IEnumerator CHealPlayer()
