@@ -22,8 +22,8 @@ MonoBehaviour:
   member: 0
   defenseValue: 15
   healthValue: 600
-  strengthValue: 40
-  attackSpeedValue: 7
+  strengthValue: 30
+  attackSpeedValue: 6
   Defense: 0
   Health: 0
   Strength: 0
@@ -32,10 +32,10 @@ MonoBehaviour:
   weakAttribute: 
   strongAttribute: 
   attackCountLimitValue: 1
-  realSpeed: 2
+  realSpeed: 1.5
   speedValue: 0
-  accuracyValue: 160
-  avoidanceValue: 80
+  accuracyValue: 120
+  avoidanceValue: 60
   size: 0
   createCountValue: 0
   level: 1

@@ -17,7 +17,7 @@ MonoBehaviour:
   itemName: "\uBCF4\uC2A4"
   itemDesc: "\uBCF4\uC2A4 \uBC84\uC804"
   itemIcon: {fileID: 1923932212, guid: ea8626b9cd0176f4a9bf5a4aab4cd64a, type: 3}
-  attackType: "\uC6D0\uAC70\uB9AC"
+  attackType: "\uADFC\uAC70\uB9AC"
   attackRange: 2.5
   member: 3
   defenseValue: 0
