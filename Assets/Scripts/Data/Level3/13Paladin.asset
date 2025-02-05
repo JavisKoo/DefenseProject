@@ -21,7 +21,7 @@ MonoBehaviour:
   attackRange: 0.5
   member: 0
   defenseValue: 12
-  healthValue: 400
+  healthValue: 480
   strengthValue: 60
   attackSpeedValue: 3
   Defense: "\uB192\uC74C"
