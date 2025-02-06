@@ -875,11 +875,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1315806243}
         m_TargetAssemblyTypeName: MainSceneUI, Assembly-CSharp
         m_MethodName: OpenDungeonPanel
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1562,11 +1562,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1315806243}
         m_TargetAssemblyTypeName: MainSceneUI, Assembly-CSharp
         m_MethodName: OpenDungeonPanel
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 2
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1812,11 +1812,11 @@ MonoBehaviour:
       - m_Target: {fileID: 1315806243}
         m_TargetAssemblyTypeName: MainSceneUI, Assembly-CSharp
         m_MethodName: OpenDungeonPanel
-        m_Mode: 1
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 3
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -12077,6 +12077,13 @@ MonoBehaviour:
   - {fileID: 804623750}
   - {fileID: 1487533140}
   - {fileID: 89133199}
+  dungeonTopUI: {fileID: 0}
+  dungeonNumText: {fileID: 1707285127}
+  dungeonUnits:
+  - {fileID: 2032253507}
+  - {fileID: 515732442}
+  - {fileID: 606854650}
+  dungeonBossImage: {fileID: 452323757}
 --- !u!114 &1315806244
 MonoBehaviour:
   m_ObjectHideFlags: 0

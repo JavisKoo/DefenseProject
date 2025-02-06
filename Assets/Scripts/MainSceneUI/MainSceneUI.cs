@@ -12,12 +12,20 @@ public class MainSceneUI : MonoBehaviour
 
     //dungeon data
     public Dungeon[] dungeonDatas;
+    private int selectAreaid;
     //area
+    [Header("Area")]
     public Transform areaBase;
     public GameObject[] areaTopUIPrefabs;
     public Image[] areaBossImage;
     public GameObject[] areaClearStar;
     public Text[] areaDungeonNum;
+
+    [Header("Dungeon")]
+    public GameObject dungeonTopUI;
+    public Text dungeonNumText;
+    public Image[] dungeonUnits;
+    public Image dungeonBossImage;
 
     public void OpenUpgradePanel()
     {
@@ -48,21 +56,25 @@ public class MainSceneUI : MonoBehaviour
                 case 0:
                     areaBossImage[i].sprite = dungeonDatas[i].dungeonBoss.itemIcon;
                     isClearTable = dungeonDatas[i].isClear ? true : false;
+                    selectAreaid = 0;
                     break;
 
                 case 1: //i가 3,4,5여야함
                     areaBossImage[i].sprite = dungeonDatas[i+3].dungeonBoss.itemIcon;
                     isClearTable = dungeonDatas[i+3].isClear ? true : false;
+                    selectAreaid = 1;
                     break;
 
                 case 2://i가 6,7,8여야함
                     areaBossImage[i].sprite = dungeonDatas[i+6].dungeonBoss.itemIcon;
                     isClearTable = dungeonDatas[i+6].isClear ? true : false;
+                    selectAreaid = 2;
                     break;
 
                 case 3://i가 9,10,11여야함
                     areaBossImage[i].sprite = dungeonDatas[i+9].dungeonBoss.itemIcon;
                     isClearTable = dungeonDatas[i+9].isClear ? true : false;
+                    selectAreaid = 3;
                     break;
             }
 
@@ -77,9 +89,15 @@ public class MainSceneUI : MonoBehaviour
         areaPanel.SetActive(false);
     }
 
-    public void OpenDungeonPanel()
+    public void OpenDungeonPanel(int dunNum)
     {
         CloseAreaPanel();
+        dungeonNumText.text = selectAreaid+1 + " - " + dunNum;
+        dungeonBossImage.sprite = dungeonDatas[selectAreaid*3 + dunNum-1].dungeonBoss.itemIcon;
+        for (int i = 0; i < dungeonUnits.Length; i++)
+        {
+            dungeonUnits[i].sprite = dungeonDatas[selectAreaid * 3 + dunNum - 1].dungeonUnits[i].itemIcon;
+        }
         dungeonPanel.SetActive(true);
     }
 
