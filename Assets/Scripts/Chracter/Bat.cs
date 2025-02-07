@@ -75,41 +75,21 @@ namespace Chracter
         }
 
 
-        protected override void CheckEnemy()
+        public override void AttackHIt()
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position + raycastHeight, RightLeft, AttackRange, LayerMask.GetMask(Enemy));
-            //draw the ray in the scene view with distance 
-            Debug.DrawRay(transform.position + raycastHeight, RightLeft * AttackRange, Color.red);
-            if (hit.collider != null)
+            if (currentEnemy)
             {
-                if (hit.collider.CompareTag(Enemy) && isAttacking == false)
-                {
-                    BaseCharacter enemy = hit.collider.GetComponent<BaseCharacter>();
-                    float maxHealth = enemy.MaxHealth;
-                    float currentHealth = enemy.CurrentHealth;
-                    isAttacking = true;
-                    IsMoving = false;
-                    if (IsMelee)
-                    {
-                        StartCoroutine(Attack(hit));
-                        BatDebuff();
-                    }
-                    else
-                    {
-                        StartCoroutine(RangedAttack(hit));
-                    }
-
-                }
-            }
-            else if (isAttacking == false && IsMoving == false)
-            {
-
-                IsMoving = true;
-                animator.SetTrigger(DoMove);
+            
+                currentEnemy.collider.GetComponent<BaseCharacter>().TakeDamage(AttackDammage, Accuracy, Pierce, Attribute);
+                currentEnemy.collider.GetComponent<BaseCharacter>().BatDebuff();
             }
 
+            if (currentEnemys == null) return;
+            foreach (var t in currentEnemys)
+            {
+                t.collider.GetComponent<BaseCharacter>().TakeDamage(AttackDammage, Accuracy, Pierce, Attribute);
+                t.collider.GetComponent<BaseCharacter>().BatDebuff();
+            }
         }
-
-
     }
 }

@@ -17,40 +17,93 @@ namespace Chracter
 
         protected override void CheckEnemy()
         {
-            RaycastHit2D hit = Physics2D.Raycast(transform.position + raycastHeight, RightLeft, AttackRange, LayerMask.GetMask(Enemy));
-            //draw the ray in the scene view with distance 
-            Debug.DrawRay(transform.position + raycastHeight, RightLeft * AttackRange, Color.red);
-            if (hit.collider != null)
+            int MaxAttackCount = itemData.attackCountLimitValue;
+
+            if (MaxAttackCount < 1) { MaxAttackCount = 1; }
+
+            if (MaxAttackCount > 1)
             {
-                if (hit.collider.CompareTag(Enemy) && isAttacking == false)
+                Enemys.Clear();
+                RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position + raycastHeight, RightLeft, AttackRange, LayerMask.GetMask(Enemy));
+                Debug.DrawRay(transform.position + raycastHeight, RightLeft * AttackRange, Color.blue);
+
+                if (hits.Length > 0)
                 {
-                    BaseCharacter enemy = hit.collider.GetComponent<BaseCharacter>();
-                    float maxHealth = enemy.MaxHealth;
-                    float currentHealth = enemy.CurrentHealth;
-                    isAttacking = true;
-                    IsMoving = false;
-                    if (IsMelee)
+                    for (int i = 0; i < hits.Length; i++)
                     {
-                        StartCoroutine(Attack(hit));
-                        if (currentHealth <= maxHealth / 3)
+                        //max attack count
+                        if (i == MaxAttackCount)
                         {
-                            ReaperBuff();
-                            enemy.Die();
+                            break;
+                        }
+                        if (hits[i].collider.CompareTag(Enemy))
+                        {
+                            Enemys.Add(hits[i]);
                         }
                     }
-                    else
+                    if (Enemys.Count > 0 && isAttacking == false && !bBackWard)
                     {
-                        StartCoroutine(RangedAttack(hit));
-                    }
+                        isAttacking = true;
+                        IsMoving = false;
+                        if (IsMelee)
+                        {
+                            foreach (RaycastHit2D Enemy in Enemys)
+                            {
+                                float current = Enemy.collider.GetComponent<BaseCharacter>().CurrentHealth;
+                                float Max= Enemy.collider.GetComponent<BaseCharacter>().MaxHealth;
+                                if(current<=Max/3)
+                                {
+                                    ReaperBuff();
+                                    Enemy.collider.GetComponent<BaseCharacter>().Die();
+                                }
+                            }
 
+
+                            Attackcoroutine = StartCoroutine(Attacks(Enemys));
+
+                        }
+                        else
+                        {
+                            Attackcoroutine = StartCoroutine(RangedAttack(Enemys[0]));
+                        }
+                    }
+                }
+                else if (isAttacking == false && IsMoving == false)
+                {
+                    IsMoving = true;
+                    animator.SetTrigger(DoMove);
                 }
             }
-            else if (isAttacking == false && IsMoving == false)
+            else
             {
+                RaycastHit2D hit = Physics2D.Raycast(transform.position + raycastHeight, RightLeft, AttackRange, LayerMask.GetMask(Enemy));
+                Debug.DrawRay(transform.position + raycastHeight, RightLeft * AttackRange, Color.red);
+                if (hit.collider != null)
+                {
+                    if (hit.collider.CompareTag(Enemy) && isAttacking == false && !bBackWard)
+                    {
+                        isAttacking = true;
+                        IsMoving = false;
+                        if (IsMelee)
+                        {
+                            Attackcoroutine = StartCoroutine(Attack(hit));
+                        }
+                        else
+                        {
+                            Attackcoroutine = StartCoroutine(RangedAttack(hit));
+                        }
+                    }
+                }
 
-                IsMoving = true;
-                animator.SetTrigger(DoMove);
+                else if (isAttacking == false && IsMoving == false)
+                {
+
+                    IsMoving = true;
+                    animator.SetTrigger(DoMove);
+                }
             }
+
+
 
         }
     }

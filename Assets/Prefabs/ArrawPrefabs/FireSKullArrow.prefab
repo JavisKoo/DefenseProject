@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 258823027284742148}
   - component: {fileID: 7383985861556529912}
   - component: {fileID: 7629753397532227687}
+  - component: {fileID: 195548463131348962}
   m_Layer: 0
   m_Name: FireSKullArrow
   m_TagString: Untagged
@@ -94,7 +95,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3362732813862743725}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 619561937aeffde4a9d292d9523df5eb, type: 3}
   m_Name: 
@@ -134,7 +135,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.6263399, y: 0.2526792}
+    pivot: {x: 0.54502064, y: 0.48534274}
     oldSize: {x: 0.618, y: 0.27}
     newSize: {x: 1.1999999, y: 1.1999999}
     adaptiveTilingThreshold: 0.5
@@ -171,3 +172,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &195548463131348962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3362732813862743725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c33dc54e06a26a4e961dcd4060db033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

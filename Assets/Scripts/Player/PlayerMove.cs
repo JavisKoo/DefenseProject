@@ -275,12 +275,12 @@ public class PlayerMove : BaseCharacter
         if (hitColliders.Length == 0)
         {
             isSkillMotion = false;
-            this.GetComponent<BaseCharacter>().Buff();
+            this.GetComponent<BaseCharacter>().PrincessBuff();
             yield break;
         }
         foreach (var hitCollider in hitColliders)
         {
-            hitCollider.GetComponent<BaseCharacter>().Buff();
+            hitCollider.GetComponent<BaseCharacter>().PrincessBuff();
         }
         yield return new WaitForSeconds(1.0f);
         isSkillMotion = false;

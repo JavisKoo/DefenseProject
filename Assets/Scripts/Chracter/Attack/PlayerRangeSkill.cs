@@ -63,7 +63,7 @@ public class PlayerRangeSkill : MonoBehaviour
         if (other.CompareTag(EnemyTag))
         {
             other.GetComponent<BaseCharacter>().TakeDamage(AttackDammage*3, Accuracy);
-            other.GetComponent<BaseCharacter>().DeBuff();
+            other.GetComponent<BaseCharacter>().PrincessDebuff();
         }
     }
 }

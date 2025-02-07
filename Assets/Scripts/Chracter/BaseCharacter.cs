@@ -25,8 +25,8 @@ namespace Chracter
         protected float Accuracy = 60f;
         protected float Avoid = 60;
         protected bool Pierce = false;
-        private string weakAttribute = "없음";
-        private string Attribute = "없음";
+        protected string weakAttribute = "없음";
+        protected string Attribute = "없음";
 
         private bool hitAnimPlaying = false;
 
@@ -56,8 +56,8 @@ namespace Chracter
 
         protected bool isDead = false;
 
-        private RaycastHit2D currentEnemy;
-        private List<RaycastHit2D> currentEnemys;
+        protected RaycastHit2D currentEnemy;
+        protected List<RaycastHit2D> currentEnemys;
         public  List<RaycastHit2D> Enemys = new List<RaycastHit2D>();
 
         private float debuffDelay = 0.0f;
@@ -121,13 +121,14 @@ namespace Chracter
 
         //HealthDebuff
         private bool skullDebuff = false;
+        private bool bMagicWarriorDebuff = false;
 
-        private bool bBackWard = false;
+        protected bool bBackWard = false;
 
         
         //get Data from ItemData
         public ItemData itemData;
-        Coroutine Attackcoroutine;
+        protected Coroutine Attackcoroutine;
         void Start()
         {
           
@@ -295,7 +296,7 @@ namespace Chracter
 
         private IEnumerator BackWard()
         {
-            transform.position -= MoveSpeed * Time.deltaTime * RightLeft;
+            transform.position -= 1.5f * Time.deltaTime * RightLeft;
             yield return null;
         }
 
@@ -327,7 +328,7 @@ namespace Chracter
             isAttacking = false;
         }
 
-        private void AttackHIt()
+        public virtual void AttackHIt()
         {
             if (currentEnemy)
             {
@@ -597,7 +598,7 @@ namespace Chracter
             isPlayableCharacter = true;
         }
 
-        public void Buff()
+        public void PrincessBuff()
         {
             StartCoroutine(BuffParticle());
             PierceAttack(6);
@@ -611,7 +612,7 @@ namespace Chracter
 
         }
 
-        internal void DeBuff()
+        internal void PrincessDebuff()
         {
             if (isDeBuff)
             {
@@ -628,12 +629,13 @@ namespace Chracter
 
             MoveSpeed *= 0.2f;
             debuffDelay = AttackSpeed * 0.8f;
-
+            ActiveIcon(1);
             yield return new WaitForSeconds(4.0f);
             MoveSpeed = moveSpeedOrigin;
             AttackSpeed = attackSpeedOrigin;
             debuffDelay = 0.0f;
             isDeBuff = false;
+            DeactiveIcon(1);
         }
 
         public void PierceAttack(float time)
@@ -646,10 +648,20 @@ namespace Chracter
         private IEnumerator PierceCor(float time)
         {
             Pierce = true;
-            healthBar.ActiveBuff(0);
+            ActiveIcon(0);
             yield return new WaitForSeconds(time);
             Pierce = false;
-            healthBar.DeActiveBuff(0);
+            DeactiveIcon(0);
+        }
+
+        public void ActiveIcon(int i)
+        {
+            healthBar.ActiveBuff(i);
+        }
+
+        public void DeactiveIcon(int i)
+        {
+            healthBar.DeActiveBuff(i);
         }
 
         public void ChangeBossStats(float Health, float Attack, float Movespeed)
@@ -667,11 +679,13 @@ namespace Chracter
         }
         private IEnumerator CReaperBuff()
         {
+            ActiveIcon(5);
             AttackDammage = AttackDammage + 20;
             Accuracy = Accuracy + 20;
             yield return new WaitForSeconds(6.0f);
             AttackDammage = AttackDammage - 20;
             Accuracy = Accuracy - 20;
+            DeactiveIcon(5);
         }
 
         public void BatDebuff()
@@ -720,6 +734,7 @@ namespace Chracter
         }
         private IEnumerator CSkullDebuff()
         {
+            ActiveIcon(4);
             healthBar.ActiveBuff(2);
             skullDebuff = true;
             yield return new WaitForSeconds(1.0f);
@@ -731,7 +746,7 @@ namespace Chracter
             yield return new WaitForSeconds(1.0f);
             TakeDamageSkull(4);
             skullDebuff = false;
-            healthBar.DeActiveBuff(2);
+            DeactiveIcon(4);
 
         }
 
@@ -757,6 +772,21 @@ namespace Chracter
                 secondHit = true;
                 Hit();
             }
+        }
+
+        public void MagicWarriorDebuff()
+        {
+            ActiveIcon(2);
+            if (bMagicWarriorDebuff)
+            {
+                return;
+            }
+            else
+            {
+                Armor = Armor / 2;
+                bMagicWarriorDebuff = true;
+            }
+
         }
 
 
