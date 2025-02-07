@@ -30,7 +30,6 @@ public class CameraMovement : MonoBehaviour
 
     public void MoveLeft()
     {
-        Debug.Log("asdf");
         moveLeft = true;
     }
     public void MoveRight()
@@ -48,18 +47,19 @@ public class CameraMovement : MonoBehaviour
         if (moveLeft)
         {
             // if camera.x is -2 stop
-            if (transform.position.x <= -10)
+            if (transform.position.x <= -5)
             {
-                StopMoving();
+                transform.SetPositionAndRotation(new Vector3(-5,transform.position.y,transform.position.z), this.transform.rotation);
                 return;
             }
             transform.position += Vector3.left * moveSpeed * Time.deltaTime;
         }
         if (moveRight)
         {
-            if (transform.position.x >= 10)
+            if (transform.position.x >= 3)
             {
-                StopMoving();
+                transform.SetPositionAndRotation(new Vector3(3, transform.position.y, transform.position.z), this.transform.rotation);
+               
                 return;
             }
             transform.position += Vector3.right * moveSpeed * Time.deltaTime;
@@ -67,6 +67,11 @@ public class CameraMovement : MonoBehaviour
     }
     private void FollowCharacter()
     {
+        if(!baseCharacter)
+        {
+            return;
+        }
+
         if(baseCharacter.transform.position.x<=-5)
         {
             transform.position = new Vector3(-5, transform.position.y, transform.position.z);

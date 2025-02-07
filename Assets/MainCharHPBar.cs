@@ -36,11 +36,10 @@ public class MainCharHPBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isDead)
+        if(!isDead)
         {
-            return;
-        }
-        SetHealth();
+            SetHealth();
+        } 
     }
     
     public void SetHealth()
@@ -51,7 +50,11 @@ public class MainCharHPBar : MonoBehaviour
         
         if(slider.value <= 0)
         {
+            slider.value = 0;
+            text.text = "0/" + character.MaxHealth;
             isDead = true;
+            TxtCountDown.enabled = true;
+            countDown();
         }
     }
     
@@ -70,6 +73,5 @@ public class MainCharHPBar : MonoBehaviour
         {
             StartCoroutine(CCountDown());
         }
-        SetHealth();
     }
 }
