@@ -129,6 +129,12 @@ namespace Chracter
         //get Data from ItemData
         public ItemData itemData;
         protected Coroutine Attackcoroutine;
+
+
+        [SerializeField]
+        protected AudioSource AttackSound;
+
+
         void Start()
         {
           
@@ -333,9 +339,13 @@ namespace Chracter
             if (currentEnemy)
             {
                 currentEnemy.collider.GetComponent<BaseCharacter>().TakeDamage(AttackDammage, Accuracy, Pierce, Attribute);
+                if(AttackSound)
+                AttackSound.Play();
             }
 
             if (currentEnemys == null) return;
+            if (AttackSound)
+                AttackSound.Play();
             foreach (var t in currentEnemys)
             {
                 t.collider.GetComponent<BaseCharacter>().TakeDamage(AttackDammage, Accuracy, Pierce, Attribute);
@@ -363,6 +373,8 @@ namespace Chracter
         {
             if (currentEnemy)
             {
+                if(AttackSound)
+                AttackSound.Play();
                 GameObject rangedAttack = Instantiate(rangedAttackPrefab, rangedAttackSpawnPoint.position, Quaternion.identity);
                 rangedAttack.GetComponent<RangedAttack>().EnemySetting(currentEnemy, Enemy, AttackDammage, AttackRange, Accuracy,itemData.attackCountLimitValue);
             }

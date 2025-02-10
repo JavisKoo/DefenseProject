@@ -54,6 +54,7 @@ public class MainCharHPBar : MonoBehaviour
             text.text = "0/" + character.MaxHealth;
             isDead = true;
             TxtCountDown.enabled = true;
+            TxtCountDown.gameObject.SetActive(true);
             countDown();
         }
     }
@@ -69,9 +70,17 @@ public class MainCharHPBar : MonoBehaviour
         int count = int.Parse(TxtCountDown.text);
         count--;
         TxtCountDown.text = count.ToString();
-        if (count > 0)
+        if (count >= 0 && isDead)
         {
             StartCoroutine(CCountDown());
+        }
+
+        if (count == 0)
+        {
+            TxtCountDown.text = "60";
+            TxtCountDown.gameObject.SetActive(false);
+            character.GetComponent<PlayerMove>().ReSpawn();
+            isDead = false;
         }
     }
 }

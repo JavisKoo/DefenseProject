@@ -71,6 +71,10 @@ public class CameraMovement : MonoBehaviour
         {
             return;
         }
+        if (baseCharacter.GetComponent<PlayerMove>().bisDead)
+        {
+            return;
+        }
 
         if(baseCharacter.transform.position.x<=-5)
         {
