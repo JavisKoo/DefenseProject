@@ -34,6 +34,8 @@ public class PlayerMove : BaseCharacter
     [SerializeField]
     Image delayImage2;
 
+
+    public bool bisDead = false;
     void Update()
     {
 
@@ -312,7 +314,7 @@ public class PlayerMove : BaseCharacter
     {
         inBattle = false;
         
-        yield return new WaitForSeconds(4.0f);
+        yield return new WaitForSeconds(8.0f);
         canHeal = true;
         StartCoroutine("CGainHealth");
     }
@@ -327,4 +329,30 @@ public class PlayerMove : BaseCharacter
         }
     }
 
+
+    public override void Die()
+    {
+        StartCoroutine(DieAnimChar());
+    }
+
+    public IEnumerator DieAnimChar()
+    {
+        animator.SetTrigger(DODie);
+        yield return new WaitForSeconds(1.0f);
+        Hide();
+    }
+
+    public void Hide()
+    {
+        bisDead = true;
+        this.transform.position = new Vector3(-30, 0, 0);
+    }
+
+    public void ReSpawn()
+    {
+        this.GetComponent<BoxCollider2D>().enabled = true;
+        Spawn();
+        this.transform.position = new Vector3(-4, 0, 0);
+        bisDead = false;
+    }
 }
