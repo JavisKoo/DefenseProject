@@ -8,11 +8,12 @@ public class Card : MonoBehaviour
     public int cardId;
     public ToggleGroup toggleGroup;
     private Toggle toggle;
-    //¼±ÅÃ¹öÆ°
+    //ï¿½ï¿½ï¿½Ã¹ï¿½Æ°
     public GameObject selectBtn;
     public GameObject detailBtn;
     public GameObject fakeDetailBtn;
 
+    public AudioSource audioSource;
     private void Awake()
     {
         toggle = GetComponent<Toggle>();
@@ -29,9 +30,9 @@ public class Card : MonoBehaviour
     public void OnClickCard()
     {
         StageManager.Instance.selectId = toggle.isOn ? cardId : 100;
-        selectBtn.SetActive(toggle.isOn); //¼±ÅÃ¹öÆ° È°¼ºÈ­
-
+        selectBtn.SetActive(toggle.isOn); //ï¿½ï¿½ï¿½Ã¹ï¿½Æ° È°ï¿½ï¿½È­
+        audioSource.Play();
         fakeDetailBtn.SetActive(!toggle.isOn);
-        detailBtn.SetActive(toggle.isOn); //»ó¼¼Á¤º¸ ¹öÆ° È°¼ºÈ­
+        detailBtn.SetActive(toggle.isOn); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° È°ï¿½ï¿½È­
     }
 }
