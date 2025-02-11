@@ -8,6 +8,9 @@ namespace Chracter
 {
     public class BaseCharacter : MonoBehaviour
     {
+        public GameObject HitAnimGameObject;
+        
+        
         public ParticleSystem moveParticle;
         protected ClassType UnitType;
         public ParticleSystem buffEffect;
@@ -403,6 +406,10 @@ namespace Chracter
             {
                 return;
             }
+
+            Animator hitanim =HitAnimGameObject.GetComponent<Animator>();
+            hitanim.SetTrigger("Hit");
+            
             if (pierce)
             {
                 float finalDamage = damage;
