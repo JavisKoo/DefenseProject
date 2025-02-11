@@ -7,7 +7,7 @@ public class DataManager : MonoBehaviour
     private static DataManager instance = null;
 
     public static int currentArea;
-    public static int currentDungeon;
+    public static int currentDungeon = 1;
 
     void Awake()
     {

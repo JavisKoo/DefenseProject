@@ -30,6 +30,7 @@ public class MainSceneUI : MonoBehaviour
     public Sprite[] dungeonUnitBaseImage;
     public Image[] dungeonUnitBase;
     public Text dungeonHighScoreText;
+    public GameObject[] clearStarImages;
 
     public ChangeSceneManager changeSceneManager;
 
@@ -99,8 +100,36 @@ public class MainSceneUI : MonoBehaviour
 
     public void OpenDungeonPanel(int dunNum)
     {
-        DataManager.currentDungeon = (selectAreaId * 3) + dunNum;
+        DataManager.currentDungeon = (DataManager.currentArea * 3) + dunNum;
         //CloseAreaPanel();
+        if (PlayerPrefs.GetInt("dungeonClear" + DataManager.currentDungeon) == 1)
+        {
+            if (PlayerPrefs.GetInt("dungeonTime" + DataManager.currentDungeon) >= 450f)
+            {
+                clearStarImages[0].SetActive(true);
+                clearStarImages[1].SetActive(false);
+                clearStarImages[1].SetActive(false);
+            }
+            else if (PlayerPrefs.GetInt("dungeonTime" + DataManager.currentDungeon) < 450f && PlayerPrefs.GetInt("dungeonTime" + DataManager.currentDungeon) > 200f)
+            {
+                clearStarImages[0].SetActive(false);
+                clearStarImages[1].SetActive(true);
+                clearStarImages[1].SetActive(false);
+            }
+            else if (PlayerPrefs.GetInt("dungeonTime" + DataManager.currentDungeon) <= 200f)
+            {
+                clearStarImages[0].SetActive(false);
+                clearStarImages[1].SetActive(false);
+                clearStarImages[1].SetActive(true);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < clearStarImages.Length; i++)
+            {
+                clearStarImages[i].SetActive(false);
+            }
+        }
         dungeonHighScoreText.text = PlayerPrefs.GetInt("dungeonTime"+ DataManager.currentDungeon,0) + " sec ";
         dungeonNumText.text = selectAreaId+1 + " - " + dunNum;
         dungeonBossImage.sprite = dungeonDatas[selectAreaId*3 + dunNum-1].dungeonBoss.itemIcon;
