@@ -604,9 +604,17 @@ public class StageManager : MonoBehaviour
         {
             dCardSkillPanel.SetActive(false);
         }
+        else
+        {
+            dCardSkillPanel.SetActive(true);
+        }
         if(datas[selectId].SkillNext == "")
         {
             dCardSkillPanel1.SetActive(false);
+        }
+        else
+        {
+            dCardSkillPanel1.SetActive(true);
         }
         dCardSkill.text = datas[selectId].Skill;
         dCardSkillIntro.text = datas[selectId].SkillIntro;

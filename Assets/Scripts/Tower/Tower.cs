@@ -32,6 +32,7 @@ public class Tower : BaseCharacter
     public Text towerHPText;
     
     public AudioSource TowerUpgradeSound;
+    public GameObject TowerUpgradeEffect;
     private void Awake()
     {
         renderer = GetComponent<SpriteRenderer>();
@@ -148,6 +149,7 @@ public class Tower : BaseCharacter
             maxGold = upgradeMaxGold[towerLevel];
             CurrentHealth += 200;
             MaxHealth += 200;
+            towerHPSlider.maxValue = MaxHealth;
             goldPerSec += 5;
             Armor++;
 
@@ -166,6 +168,7 @@ public class Tower : BaseCharacter
             goldPerSecText.text = "+" + goldPerSec + "/s";
             InitUI();
             TowerUpgradeSound.Play();
+            TowerUpgradeEffect.GetComponent<Animation>().Play();
         }
     }
 }
