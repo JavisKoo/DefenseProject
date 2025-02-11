@@ -763,6 +763,7 @@ public class StageManager : MonoBehaviour
             return;
 
         PlayerPrefs.SetInt("dungeonTime"+DataManager.currentDungeon, Mathf.FloorToInt(totalTimer));
+        PlayerPrefs.SetInt("dungeonClear" + DataManager.currentDungeon, 1);
         //
 
         isGameClear = true;
