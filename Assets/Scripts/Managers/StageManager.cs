@@ -29,6 +29,7 @@ public class StageManager : MonoBehaviour
     public Toggle[] cardToggles;
     public Sprite[] attackTypeSprites;
     public Text cardClearText;
+    public Text[] cardSkill;
 
     //
     [Header("Frame")]
@@ -77,6 +78,9 @@ public class StageManager : MonoBehaviour
     public Image dAttackTypeIcon;
     public Image dCardBackground;
     public Image[] dCardBase;
+    public Text dCardSkill;
+    public Text dCardSkillIntro;
+    public GameObject dCardSkillPanel;
 
     //카드정보
     public ItemData[] datas;
@@ -238,10 +242,21 @@ public class StageManager : MonoBehaviour
                     break;
             }
             SetBaseFrame(datas[ranNum].member, i);
-            cardDefense[i].text = datas[ranNum].Defense.ToString();
-            cardHealth[i].text = datas[ranNum].Health.ToString();
-            cardStrength[i].text = datas[ranNum].Strength.ToString();
-            cardAttackSpeed[i].text = datas[ranNum].AttackSpeed.ToString();
+            cardDefense[i].text = datas[ranNum].defenseValue.ToString();
+            cardHealth[i].text = datas[ranNum].healthValue.ToString();
+            cardStrength[i].text = datas[ranNum].strengthValue.ToString();
+            cardAttackSpeed[i].text = datas[ranNum].attackSpeedValue.ToString();
+            
+            //cardSkill[i].text = "" , make text 없음
+            if(cardSkill[i].text=="")
+            {
+                cardSkill[i].text = "없음";
+            }
+            else
+            {
+                cardSkill[i].text = datas[ranNum].Skill;
+            }
+            
 
             if (datas[ranNum].Attribute == "물리")
             {
@@ -576,6 +591,13 @@ public class StageManager : MonoBehaviour
         dCardLevel.text = "LV." + datas[selectId].level;
         dCardName.text = datas[selectId].itemName;
         dCardCost.text = datas[selectId].cost.ToString();
+
+        if (datas[selectId].Skill == "")
+        {
+            dCardSkillPanel.SetActive(false);
+        }
+        dCardSkill.text = datas[selectId].Skill;
+        dCardSkillIntro.text = datas[selectId].SkillIntro;
 
         if (datas[selectId].Attribute == "물리") //물리 아이콘
         {

@@ -79,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_Sprite: {fileID: 1706793863, guid: 0f28cbaab3ff5fb49b60b7a43dcd740b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -192,6 +192,7 @@ MonoBehaviour:
   rangedAttackPrefab: {fileID: 0}
   rangedAttackSpawnPoint: {fileID: 0}
   itemData: {fileID: 11400000, guid: cda70a0d42488204db25694db21074ec, type: 2}
+  AttackSound: {fileID: 0}
 --- !u!1001 &419908418743982601
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -73,4 +73,8 @@ public class ItemData : ScriptableObject
 
     [Header("# Cost Data")]
     public int cost;
+
+
+    public string Skill;
+    public string SkillIntro;
 }

@@ -352,7 +352,7 @@ public class PlayerMove : BaseCharacter
     {
         this.GetComponent<BoxCollider2D>().enabled = true;
         Spawn();
-        this.transform.position = new Vector3(-4, 0, 0);
+        this.transform.position = new Vector3(-9, 0, 0);
         bisDead = false;
     }
 }

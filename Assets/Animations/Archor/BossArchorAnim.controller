@@ -20,7 +20,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 9a9ec309ae41e6b409d1129034373c7d, type: 2}
+  m_Motion: {fileID: 7400000, guid: ceeb68a26b8b84146bec8dd45d94b201, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -46,7 +46,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: ba1a0235e6782864f84fb3482f3a2dfa, type: 2}
+  m_Motion: {fileID: 7400000, guid: 930c1da05ea87e74a89aac6b685581f9, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -158,7 +158,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 5b1f654b73a2f9d4b89602785c4f773a, type: 2}
+  m_Motion: {fileID: 7400000, guid: 1dbf54a9d1ed86e4681d655343951683, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -260,7 +260,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 25c02ae0fa162194080bd27b3a641469, type: 2}
+  m_Motion: {fileID: 7400000, guid: b61ec89bf7c50ab42a9ddc268ba9cd29, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -287,7 +287,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: cb5fcf15c2a32c548acc5ae40fea104b, type: 2}
+  m_Motion: {fileID: 7400000, guid: cea8f86589122e442875cb73e554337f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -324,7 +324,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ArchorAnim
+  m_Name: BossArchorAnim
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: doMove
