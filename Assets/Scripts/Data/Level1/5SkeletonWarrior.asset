@@ -28,7 +28,7 @@ MonoBehaviour:
   Health: "\uBCF4\uD1B5"
   Strength: "\uB0AE\uC74C"
   AttackSpeed: "\uBCF4\uD1B5"
-  Attribute: "\uB9C8\uBC95"
+  Attribute: "\uBB3C\uB9AC"
   weakAttribute: "\uC5C6\uC74C"
   strongAttribute: "\uC5C6\uC74C"
   attackCountLimitValue: 1
@@ -40,3 +40,5 @@ MonoBehaviour:
   createCountValue: 1
   level: 1
   cost: 100
+  Skill: 
+  SkillIntro: 

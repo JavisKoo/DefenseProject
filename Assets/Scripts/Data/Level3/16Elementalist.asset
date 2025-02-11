@@ -23,7 +23,7 @@ MonoBehaviour:
   defenseValue: 0
   healthValue: 160
   strengthValue: 30
-  attackSpeedValue: 7
+  attackSpeedValue: 6
   Defense: "\uB9E4\uC6B0 \uB0AE\uC74C"
   Health: "\uBCF4\uD1B5"
   Strength: "\uB192\uC74C"
@@ -40,3 +40,5 @@ MonoBehaviour:
   createCountValue: 1
   level: 3
   cost: 500
+  Skill: 
+  SkillIntro: 
