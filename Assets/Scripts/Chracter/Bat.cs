@@ -28,6 +28,11 @@ namespace Chracter
             {
                 return;
             }
+            Animator hitanim =HitAnimGameObject.GetComponent<Animator>();
+            if (HitSound != null)
+            {
+                HitSound.Play();                
+            }
             if (pierce)
             {
                 float finalDamage = damage;

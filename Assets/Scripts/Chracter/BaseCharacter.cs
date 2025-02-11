@@ -140,6 +140,9 @@ namespace Chracter
         protected AudioSource HitSound;
         
         [SerializeField]
+        protected AudioSource DieSound;
+        
+        [SerializeField]
         bool Standing = false;
 
 
@@ -413,7 +416,10 @@ namespace Chracter
             }
 
             Animator hitanim =HitAnimGameObject.GetComponent<Animator>();
-            HitSound.Play();
+            if (HitSound != null)
+            {
+                HitSound.Play();                
+            }
             hitanim.SetTrigger("Hit");
             
             if (pierce)
@@ -572,6 +578,10 @@ namespace Chracter
 
         public virtual void Die()
         {
+            if (DieSound != null)
+            {
+                DieSound.Play();
+            }
             StartCoroutine(DieAnim());
         }
 

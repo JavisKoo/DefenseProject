@@ -37,6 +37,10 @@ namespace Chracter
             }
             else
             {
+                if (DieSound != null)
+                {
+                    DieSound.Play();
+                }
                 StartCoroutine(DieAnim());
             }
 
