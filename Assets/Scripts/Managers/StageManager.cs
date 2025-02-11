@@ -32,6 +32,7 @@ public class StageManager : MonoBehaviour
     public Sprite[] attackTypeSprites;
     public Text cardClearText;
     public Text[] cardSkill;
+    public GameObject[] CardSkillPanel;
 
     //
     [Header("Frame")]
@@ -83,6 +84,9 @@ public class StageManager : MonoBehaviour
     public Text dCardSkill;
     public Text dCardSkillIntro;
     public GameObject dCardSkillPanel;
+    public Text dCardSkill1;
+    public Text dCardSkillIntro1;
+    public GameObject dCardSkillPanel1;
 
     //카드정보
     public ItemData[] datas;
@@ -252,7 +256,7 @@ public class StageManager : MonoBehaviour
             //cardSkill[i].text = "" , make text 없음
             if(datas[ranNum].Skill == "")
             {
-                cardSkill[i].text = "없음";
+                CardSkillPanel[i].SetActive(false);
             }
             else
             {

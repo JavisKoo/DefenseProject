@@ -77,4 +77,6 @@ public class ItemData : ScriptableObject
 
     public string Skill;
     public string SkillIntro;
+    public string SkillNext;
+    public string SkillIntroNext;
 }
