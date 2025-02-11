@@ -507,7 +507,7 @@ public class StageManager : MonoBehaviour
             if (Mathf.Floor(stageTime) == 120f)
             {
                 stageTimeObj.SetActive(true);
-                stageTimeText.text = "남은 시간 " + stageTime + "초!";
+                stageTimeText.text = "남은 시간 " + Mathf.Floor(stageTime+1.0f) + "초!";
                 Invoke("SetFalseTimeText", 3f);
             }
             else if (stageTime <= 10f)
