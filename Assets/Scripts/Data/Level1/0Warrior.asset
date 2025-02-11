@@ -40,5 +40,7 @@ MonoBehaviour:
   createCountValue: 1
   level: 1
   cost: 100
-  Skill: "\uAC00\uB098\uB2E4"
-  SkillIntro: "\u3142\u3148\u3137\u3131\u3142\u3148\u3137\u3131"
+  Skill: 
+  SkillIntro: 
+  SkillNext: 
+  SkillIntroNext: 

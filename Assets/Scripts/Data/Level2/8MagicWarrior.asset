@@ -40,3 +40,8 @@ MonoBehaviour:
   createCountValue: 1
   level: 2
   cost: 300
+  Skill: "\uAC11\uC637 \uC808\uB2E8"
+  SkillIntro: "\uC790\uC2E0\uC758 \uACF5\uACA9\uC5D0 \uBA85\uC911\uD55C \uC801\uC758
+    \uBC29\uC5B4\uB3C4\uB97C \uC808\uBC18\uC73C\uB85C \uAC10\uC18C\uC2DC\uD0A8\uB2E4."
+  SkillNext: 
+  SkillIntroNext: 
