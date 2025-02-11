@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7a2d30eb19d3f499cc1ffd6ad9528c, type: 3}
   m_Name: BossReaper
   m_EditorClassIdentifier: 
-  itemType: 17
+  itemType: 18
   itemId: 18
   itemName: "\uBCF4\uC2A4"
   itemDesc: "\uBCF4\uC2A4 \uBC84\uC804"
@@ -21,7 +21,7 @@ MonoBehaviour:
   attackRange: 2.5
   member: 3
   defenseValue: 0
-  healthValue: 40
+  healthValue: 960
   strengthValue: 20
   attackSpeedValue: 2
   Defense: "\uB9E4\uC6B0 \uB0AE\uC74C"
@@ -31,12 +31,16 @@ MonoBehaviour:
   Attribute: "\uBB3C\uB9AC"
   weakAttribute: 
   strongAttribute: 
-  attackCountLimitValue: 2
+  attackCountLimitValue: 6
   realSpeed: 1
   speedValue: 1
-  accuracyValue: 200
+  accuracyValue: 60
   avoidanceValue: 60
   size: 2
   createCountValue: 1
   level: 3
   cost: 300
+  Skill: 
+  SkillIntro: 
+  SkillNext: 
+  SkillIntroNext: 
