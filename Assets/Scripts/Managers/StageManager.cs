@@ -604,8 +604,14 @@ public class StageManager : MonoBehaviour
         {
             dCardSkillPanel.SetActive(false);
         }
+        if(datas[selectId].SkillNext == "")
+        {
+            dCardSkillPanel1.SetActive(false);
+        }
         dCardSkill.text = datas[selectId].Skill;
         dCardSkillIntro.text = datas[selectId].SkillIntro;
+        dCardSkill1.text = datas[selectId].SkillNext;
+        dCardSkillIntro1.text = datas[selectId].SkillIntroNext;
 
         if (datas[selectId].Attribute == "물리") //물리 아이콘
         {
