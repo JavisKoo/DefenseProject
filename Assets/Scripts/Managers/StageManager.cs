@@ -104,6 +104,7 @@ public class StageManager : MonoBehaviour
 
     //스테이지 타임
     public float stageTime = 480f;
+    private float totalTimer;
     private float wave1StageTime, wave2StageTime, wave3StageTime;
     private float maxStageTime;
     private float[] stageMaxTime = { 120f, 120f, 240f };
@@ -132,8 +133,6 @@ public class StageManager : MonoBehaviour
     public Dungeon dungeonData;
 
 
-    //dungeon
-    public static int dungeon = 1;
 
     void Awake()
     {
@@ -168,6 +167,7 @@ public class StageManager : MonoBehaviour
 
     private void Update()
     {
+        totalTimer += Time.deltaTime;
         stageTime -= Time.deltaTime;
         CheckStageTime();
     }
@@ -758,6 +758,9 @@ public class StageManager : MonoBehaviour
         if (isGameClear)
             return;
 
+        PlayerPrefs.SetInt("dungeonTime"+DataManager.currentDungeon, Mathf.FloorToInt(totalTimer));
+        //
+
         isGameClear = true;
         GameClearPanel.SetActive(true);
         StartCoroutine(GameClearCor());
@@ -765,7 +768,6 @@ public class StageManager : MonoBehaviour
 
     IEnumerator GameClearCor()
     {
-        Debug.Log("WKDSKFJKWEJFLKWJDF@@@@@@@@@@");
         Time.timeScale = 1.0f;
         float fadeCount = 0;
         while (true)

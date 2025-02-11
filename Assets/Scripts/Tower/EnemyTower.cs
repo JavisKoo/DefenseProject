@@ -91,7 +91,7 @@ public class EnemyTower : BaseCharacter
         {
             //파일 읽기
             Debug.Log("Wave" + StageManager.Instance.wave.ToString());
-            TextAsset textFile = Resources.Load("Dungeon" + StageManager.dungeon + "/Wave" + StageManager.Instance.wave.ToString()) as TextAsset;
+            TextAsset textFile = Resources.Load("Dungeon" + DataManager.currentDungeon + "/Wave" + StageManager.Instance.wave.ToString()) as TextAsset;
             StringReader reader = new StringReader(textFile.text);
 
             string line = reader.ReadLine();

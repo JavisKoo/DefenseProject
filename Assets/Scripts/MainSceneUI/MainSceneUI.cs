@@ -29,8 +29,8 @@ public class MainSceneUI : MonoBehaviour
     public Image dungeonBossImage;
     public Sprite[] dungeonUnitBaseImage;
     public Image[] dungeonUnitBase;
+    public Text dungeonHighScoreText;
 
-    private int selectArea;
     public ChangeSceneManager changeSceneManager;
 
 
@@ -47,7 +47,7 @@ public class MainSceneUI : MonoBehaviour
     //
     public void OpenAreaPanel(int type)
     {
-        selectArea = type;
+        DataManager.currentArea = type;
         //top
         bool isClearTable = false;
         GameObject go = Instantiate(areaTopUIPrefabs[type]);
@@ -99,7 +99,9 @@ public class MainSceneUI : MonoBehaviour
 
     public void OpenDungeonPanel(int dunNum)
     {
+        DataManager.currentDungeon = (selectAreaId * 3) + dunNum;
         //CloseAreaPanel();
+        dungeonHighScoreText.text = PlayerPrefs.GetInt("dungeonTime"+ DataManager.currentDungeon,0) + " sec ";
         dungeonNumText.text = selectAreaId+1 + " - " + dunNum;
         dungeonBossImage.sprite = dungeonDatas[selectAreaId*3 + dunNum-1].dungeonBoss.itemIcon;
         for (int i = 0; i < dungeonUnits.Length; i++)
@@ -117,7 +119,7 @@ public class MainSceneUI : MonoBehaviour
                 dungeonUnits[i].sprite = dungeonDatas[selectAreaId * 3 + dunNum - 1].dungeonUnits[i].itemIcon;
             }
         }
-        GameObject go = Instantiate(areaTopUIPrefabs[selectArea]);
+        GameObject go = Instantiate(areaTopUIPrefabs[DataManager.currentArea]);
         go.transform.SetParent(dungeonBase, false);
         go.GetComponent<RectTransform>().localPosition = new Vector3(0, 180, 0);
         areaTop areaTopScript = go.GetComponent<areaTop>();
@@ -133,7 +135,7 @@ public class MainSceneUI : MonoBehaviour
 
     public void GameStart()
     {
-        switch (selectArea)
+        switch (DataManager.currentArea)
         {
             case 0:
                 changeSceneManager.GoToDungeon1();

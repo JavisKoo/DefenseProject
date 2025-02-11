@@ -1093,7 +1093,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 2143a120cbd85fd408fbfb02d8d75b35, type: 3}
+    m_Font: {fileID: 12800000, guid: 130c2112f881ca34d8addacfe733ffe5, type: 3}
     m_FontSize: 36
     m_FontStyle: 0
     m_BestFit: 1
@@ -1679,8 +1679,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.471302, y: 2.7}
-  m_SizeDelta: {x: 59.9927, y: 14.4206}
+  m_AnchoredPosition: {x: -7.471302, y: 4.214903}
+  m_SizeDelta: {x: 59.9927, y: 17.45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &180318352
 MonoBehaviour:
@@ -1703,7 +1703,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 2143a120cbd85fd408fbfb02d8d75b35, type: 3}
+    m_Font: {fileID: 12800000, guid: e6209d1db6529a444b6f9518a8523998, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -3041,8 +3041,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.0000076293945, y: 0}
-  m_SizeDelta: {x: -57.351, y: -29.1036}
+  m_AnchoredPosition: {x: -0.0000076293945, y: 2.1949997}
+  m_SizeDelta: {x: -57.351, y: -24.7136}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &439688501
 MonoBehaviour:
@@ -3065,7 +3065,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 2143a120cbd85fd408fbfb02d8d75b35, type: 3}
+    m_Font: {fileID: 12800000, guid: 130c2112f881ca34d8addacfe733ffe5, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -4168,7 +4168,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: e6209d1db6529a444b6f9518a8523998, type: 3}
     m_FontSize: 14
     m_FontStyle: 1
     m_BestFit: 0
@@ -5482,7 +5482,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 2143a120cbd85fd408fbfb02d8d75b35, type: 3}
+    m_Font: {fileID: 12800000, guid: e6209d1db6529a444b6f9518a8523998, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
@@ -5834,7 +5834,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 2143a120cbd85fd408fbfb02d8d75b35, type: 3}
+    m_Font: {fileID: 12800000, guid: 130c2112f881ca34d8addacfe733ffe5, type: 3}
     m_FontSize: 36
     m_FontStyle: 0
     m_BestFit: 1
@@ -7490,7 +7490,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: e6209d1db6529a444b6f9518a8523998, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -9122,7 +9122,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: e6209d1db6529a444b6f9518a8523998, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -12029,6 +12029,7 @@ MonoBehaviour:
   - {fileID: 2115408335}
   - {fileID: 1122907286}
   - {fileID: 1357243647}
+  dungeonHighScoreText: {fileID: 1365695889}
   changeSceneManager: {fileID: 346637992}
 --- !u!114 &1315806244
 MonoBehaviour:
@@ -12596,7 +12597,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 2143a120cbd85fd408fbfb02d8d75b35, type: 3}
+    m_Font: {fileID: 12800000, guid: 130c2112f881ca34d8addacfe733ffe5, type: 3}
     m_FontSize: 28
     m_FontStyle: 0
     m_BestFit: 0
@@ -13947,7 +13948,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 2143a120cbd85fd408fbfb02d8d75b35, type: 3}
+    m_Font: {fileID: 12800000, guid: 130c2112f881ca34d8addacfe733ffe5, type: 3}
     m_FontSize: 36
     m_FontStyle: 0
     m_BestFit: 1
@@ -14903,7 +14904,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: e6209d1db6529a444b6f9518a8523998, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -15266,7 +15267,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 103.2901}
+  m_AnchoredPosition: {x: 0, y: 115.6}
   m_SizeDelta: {x: 160, y: 47.4198}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1707285127
@@ -15290,7 +15291,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 130c2112f881ca34d8addacfe733ffe5, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
