@@ -16114,6 +16114,7 @@ MonoBehaviour:
   BossObjs:
   - {fileID: 344319866593267813, guid: 6c0a9e3814763fd43b679624afe98ada, type: 3}
   - {fileID: 4741284271336384071, guid: d0a953c0916c1ee4c88f1e309497d6c4, type: 3}
+  dungeonData: {fileID: 11400000, guid: 0b649c578e0c16e4294f08fd0e173eec, type: 2}
 --- !u!82 &1806468765
 AudioSource:
   m_ObjectHideFlags: 0
