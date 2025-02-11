@@ -22,12 +22,17 @@ public class MainSceneUI : MonoBehaviour
     public Text[] areaDungeonNum;
 
     [Header("Dungeon")]
+    public Transform dungeonBase;
     public GameObject dungeonTopUI;
     public Text dungeonNumText;
     public Image[] dungeonUnits;
     public Image dungeonBossImage;
     public Sprite[] dungeonUnitBaseImage;
     public Image[] dungeonUnitBase;
+
+    private int selectArea;
+    public ChangeSceneManager changeSceneManager;
+
 
     public void OpenUpgradePanel()
     {
@@ -42,6 +47,7 @@ public class MainSceneUI : MonoBehaviour
     //
     public void OpenAreaPanel(int type)
     {
+        selectArea = type;
         //top
         bool isClearTable = false;
         GameObject go = Instantiate(areaTopUIPrefabs[type]);
@@ -93,7 +99,7 @@ public class MainSceneUI : MonoBehaviour
 
     public void OpenDungeonPanel(int dunNum)
     {
-        CloseAreaPanel();
+        //CloseAreaPanel();
         dungeonNumText.text = selectAreaId+1 + " - " + dunNum;
         dungeonBossImage.sprite = dungeonDatas[selectAreaId*3 + dunNum-1].dungeonBoss.itemIcon;
         for (int i = 0; i < dungeonUnits.Length; i++)
@@ -111,11 +117,39 @@ public class MainSceneUI : MonoBehaviour
                 dungeonUnits[i].sprite = dungeonDatas[selectAreaId * 3 + dunNum - 1].dungeonUnits[i].itemIcon;
             }
         }
+        GameObject go = Instantiate(areaTopUIPrefabs[selectArea]);
+        go.transform.SetParent(dungeonBase, false);
+        go.GetComponent<RectTransform>().localPosition = new Vector3(0, 180, 0);
+        areaTop areaTopScript = go.GetComponent<areaTop>();
+        areaTopScript.isDisable = true;
+        //
         dungeonPanel.SetActive(true);
     }
 
     public void CloseDungeonPanel()
     {
         dungeonPanel.SetActive(false);
+    }
+
+    public void GameStart()
+    {
+        switch (selectArea)
+        {
+            case 0:
+                changeSceneManager.GoToDungeon1();
+                break;
+                
+            case 1:
+                changeSceneManager.GoToDungeon2();
+                break;
+
+            case 2:
+                changeSceneManager.GoToDungeon3();
+                break;
+
+            case 3:
+                changeSceneManager.GoToDungeon4();
+                break;
+        }
     }
 }
