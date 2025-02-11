@@ -34,7 +34,9 @@ public class MainSceneUI : MonoBehaviour
 
     public ChangeSceneManager changeSceneManager;
 
-
+    private void Awake()
+    {
+    }
     public void OpenUpgradePanel()
     {
         upgradePanel.SetActive(true);
@@ -108,19 +110,19 @@ public class MainSceneUI : MonoBehaviour
             {
                 clearStarImages[0].SetActive(true);
                 clearStarImages[1].SetActive(false);
-                clearStarImages[1].SetActive(false);
+                clearStarImages[2].SetActive(false);
             }
             else if (PlayerPrefs.GetInt("dungeonTime" + DataManager.currentDungeon) < 450f && PlayerPrefs.GetInt("dungeonTime" + DataManager.currentDungeon) > 200f)
             {
                 clearStarImages[0].SetActive(false);
                 clearStarImages[1].SetActive(true);
-                clearStarImages[1].SetActive(false);
+                clearStarImages[2].SetActive(false);
             }
             else if (PlayerPrefs.GetInt("dungeonTime" + DataManager.currentDungeon) <= 200f)
             {
                 clearStarImages[0].SetActive(false);
                 clearStarImages[1].SetActive(false);
-                clearStarImages[1].SetActive(true);
+                clearStarImages[2].SetActive(true);
             }
         }
         else
