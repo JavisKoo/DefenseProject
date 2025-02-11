@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BossReaper
   m_EditorClassIdentifier: 
   itemType: 18
-  itemId: 18
+  itemId: 101
   itemName: "\uBCF4\uC2A4"
   itemDesc: "\uBCF4\uC2A4 \uBC84\uC804"
   itemIcon: {fileID: 1923932212, guid: ea8626b9cd0176f4a9bf5a4aab4cd64a, type: 3}
