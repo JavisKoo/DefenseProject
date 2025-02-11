@@ -16,6 +16,7 @@ public class StageManager : MonoBehaviour
     public GameObject selectCardPanel;
     public Text tutorialText;
     public Text[] cardLevel;
+    public Text[] cardSpawnNum;
     public Text[] cardType;
     public Image[] cardImage;
     //public Text[] cardDesc;
@@ -87,6 +88,7 @@ public class StageManager : MonoBehaviour
     public Text dCardSkill1;
     public Text dCardSkillIntro1;
     public GameObject dCardSkillPanel1;
+    public Text dSpawnNum;
 
     //카드정보
     public ItemData[] datas;
@@ -198,6 +200,7 @@ public class StageManager : MonoBehaviour
             
             //UI에 랜덤유닛 정보 집어넣기
             cardLevel[i].text = "LV." + datas[ranNum].level;
+            cardSpawnNum[i].text = "X "+datas[ranNum].createCountValue.ToString();
             cardType[i].text = datas[ranNum].itemName.ToString();
             cardImage[i].sprite = datas[ranNum].itemIcon;
             //cardDesc[i].text = datas[ranNum].itemDesc.ToString();
@@ -692,6 +695,7 @@ public class StageManager : MonoBehaviour
 
 
         //텍스트
+        dSpawnNum.text = "X " + datas[selectId].createCountValue;
         dCardDefenseValue.text = datas[selectId].defenseValue.ToString();
         dCardHealthValue.text = datas[selectId].healthValue.ToString();
         dCardStrengthValue.text = datas[selectId].strengthValue.ToString();

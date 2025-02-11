@@ -962,6 +962,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 963480813}
     m_Modifications:
     - target: {fileID: 508608281395905200, guid: fc3c79962ce74174ab80cf97365738b1, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 508608281395905200, guid: fc3c79962ce74174ab80cf97365738b1, type: 3}
       propertyPath: m_DynamicPixelsPerUnit
       value: 5
       objectReference: {fileID: 0}
@@ -5624,6 +5628,8 @@ MonoBehaviour:
   rangedAttackSpawnPoint: {fileID: 0}
   itemData: {fileID: 11400000, guid: 4590eef7644fef84197d84477774854d, type: 2}
   AttackSound: {fileID: 0}
+  HitSound: {fileID: 0}
+  DieSound: {fileID: 0}
   Standing: 0
   isGameOver: 0
   renderer: {fileID: 0}
@@ -7106,6 +7112,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 781918182}
   m_CullTransparentMesh: 1
+--- !u!114 &803403602 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4238343105691658523, guid: 8f6bce47a3b2aeb4380c8955e1af906c, type: 3}
+  m_PrefabInstance: {fileID: 4171635704048220224}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &816964302
 GameObject:
   m_ObjectHideFlags: 0
@@ -8981,6 +8998,8 @@ MonoBehaviour:
   rangedAttackSpawnPoint: {fileID: 0}
   itemData: {fileID: 11400000, guid: 616b03c7ecc074f4eb876b6138252faa, type: 2}
   AttackSound: {fileID: 0}
+  HitSound: {fileID: 0}
+  DieSound: {fileID: 0}
   Standing: 0
   stageData: []
   enemyObjs:
@@ -9236,7 +9255,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.25490198, g: 0.25490198, b: 0.25490198, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -11503,6 +11522,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250884292}
   m_CullTransparentMesh: 1
+--- !u!114 &1258754543 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4238343105691658523, guid: 8f6bce47a3b2aeb4380c8955e1af906c, type: 3}
+  m_PrefabInstance: {fileID: 1115926286}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1259855335
 GameObject:
   m_ObjectHideFlags: 0
@@ -11629,6 +11659,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1279234780}
   m_CullTransparentMesh: 1
+--- !u!114 &1286887996 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4238343105691658523, guid: 8f6bce47a3b2aeb4380c8955e1af906c, type: 3}
+  m_PrefabInstance: {fileID: 88116573}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1294998365 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4967884907924994423, guid: 8f6bce47a3b2aeb4380c8955e1af906c, type: 3}
@@ -15980,6 +16021,10 @@ MonoBehaviour:
   - {fileID: 185578363}
   - {fileID: 881079570}
   - {fileID: 2126462952}
+  cardSpawnNum:
+  - {fileID: 803403602}
+  - {fileID: 1258754543}
+  - {fileID: 1286887996}
   cardType:
   - {fileID: 1350401422}
   - {fileID: 1208020460}
@@ -16171,6 +16216,7 @@ MonoBehaviour:
   dCardSkill1: {fileID: 714965597}
   dCardSkillIntro1: {fileID: 979637203}
   dCardSkillPanel1: {fileID: 2084533689}
+  dSpawnNum: {fileID: 892237325994989739}
   datas:
   - {fileID: 11400000, guid: 88299fa0f36fd9849b634e879cc7c271, type: 2}
   - {fileID: 11400000, guid: dad83879e8d3bcd488ce476fe78a7c8f, type: 2}
@@ -18026,7 +18072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.25490198, g: 0.25490198, b: 0.25490198, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

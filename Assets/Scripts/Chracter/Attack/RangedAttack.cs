@@ -18,6 +18,8 @@ public class RangedAttack : MonoBehaviour
 
     private Vector3 move = new Vector3(1, 0, 0);
     private Vector3 move2 = new Vector3(-1, 0, 0);
+    
+    public bool skull = false;
 
 
     // Start is called before the first frame update
@@ -88,16 +90,35 @@ public class RangedAttack : MonoBehaviour
     //if hit enemy
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag(EnemyTag))
+        if (skull)
         {
-            MaxHit--;
-            other.GetComponent<BaseCharacter>().TakeDamage(AttackDammage,Accuracy);
-            other.GetComponent<BaseCharacter>().TakeRangedDamage(AttackDammage, Accuracy);
-
-            if (MaxHit <= 0)
+            if (other.CompareTag(EnemyTag))
             {
-                Destroy(gameObject);
-            }
+                MaxHit--;
+                other.GetComponent<BaseCharacter>().TakeDamage(AttackDammage,Accuracy);
+                other.GetComponent<BaseCharacter>().TakeDamageSkull(4);
+                other.GetComponent<BaseCharacter>().TakeRangedDamage(AttackDammage, Accuracy);
+
+                if (MaxHit <= 0)
+                {
+                    Destroy(gameObject);
+                }
+            }   
         }
+        else
+        {
+            if (other.CompareTag(EnemyTag))
+            {
+                MaxHit--;
+                other.GetComponent<BaseCharacter>().TakeDamage(AttackDammage,Accuracy);
+                other.GetComponent<BaseCharacter>().TakeRangedDamage(AttackDammage, Accuracy);
+
+                if (MaxHit <= 0)
+                {
+                    Destroy(gameObject);
+                }
+            }    
+        }
+        
     }
 }
