@@ -26,6 +26,8 @@ public class MainSceneUI : MonoBehaviour
     public Text dungeonNumText;
     public Image[] dungeonUnits;
     public Image dungeonBossImage;
+    public Sprite[] dungeonUnitBaseImage;
+    public Image[] dungeonUnitBase;
 
     public void OpenUpgradePanel()
     {
@@ -99,10 +101,12 @@ public class MainSceneUI : MonoBehaviour
             if (dungeonDatas[selectAreaId * 3 + dunNum - 1].dungeonUnits[i] == null)
             {
                 dungeonUnits[i].sprite = null;
+                dungeonUnitBase[i].sprite = dungeonUnitBaseImage[4];
                 dungeonUnits[i].color = new Color(0, 0, 0, 0);
             }
             else
             {
+                dungeonUnitBase[i].sprite = dungeonUnitBaseImage[dungeonDatas[selectAreaId * 3 + dunNum - 1].dungeonUnits[i].member];
                 dungeonUnits[i].color = new Color(1, 1, 1, 1);
                 dungeonUnits[i].sprite = dungeonDatas[selectAreaId * 3 + dunNum - 1].dungeonUnits[i].itemIcon;
             }
