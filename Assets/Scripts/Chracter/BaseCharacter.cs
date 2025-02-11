@@ -136,6 +136,11 @@ namespace Chracter
 
         [SerializeField]
         protected AudioSource AttackSound;
+        [SerializeField]
+        protected AudioSource HitSound;
+        
+        [SerializeField]
+        bool Standing = false;
 
 
         void Start()
@@ -408,6 +413,7 @@ namespace Chracter
             }
 
             Animator hitanim =HitAnimGameObject.GetComponent<Animator>();
+            HitSound.Play();
             hitanim.SetTrigger("Hit");
             
             if (pierce)
@@ -446,7 +452,11 @@ namespace Chracter
             }
             else if (CurrentHealth <= MaxHealth * 0.6f && firstHit == false && CurrentHealth>MaxHealth*0.3f)
             {
-            
+                if (Standing)
+                {
+                    return;
+                }
+                
                 animator.ResetTrigger(1);
                
                 isAttacking = true;
@@ -461,6 +471,10 @@ namespace Chracter
             }
             else if (CurrentHealth <= MaxHealth * 0.3f && secondHit == false)
             {
+                if (Standing)
+                {
+                    return;
+                }
                 animator.ResetTrigger(1);
                 isAttacking = true;
                 if (Attackcoroutine != null)

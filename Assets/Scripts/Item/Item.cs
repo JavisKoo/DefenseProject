@@ -33,7 +33,10 @@ public class Item : MonoBehaviour
 
     //GameObject
     [SerializeField] private GameObject[] unitObejcts;
+    
+    [SerializeField] GameObject spawnEffect;
 
+    private bool bEffect = false;
     private void Start()
     {
         //���� �̹���
@@ -50,8 +53,18 @@ public class Item : MonoBehaviour
         {
             isCanSpawn = true;
         }
+        if(delayImage.fillAmount <= 0.05f && bEffect)
+        {
+            SpawnEffect();
+        }
     }
 
+    private void SpawnEffect()
+    {
+        spawnEffect.GetComponent<Animation>().Play();
+        bEffect = false;
+    }
+    
     public void Init(ItemData itemData)
     {
         if (data == null && itemData==null)
@@ -68,7 +81,7 @@ public class Item : MonoBehaviour
 
         costText.text = data.cost.ToString();
         levelText.text = "Lv." + data.level;
-
+       
         //���� ������ �־��ֱ�
         switch (data.level)
         {
@@ -101,6 +114,7 @@ public class Item : MonoBehaviour
             return;
         }
         audioSource.Play();
+        bEffect = true;
         switch (data.itemType)
         {
             case ItemData.ItemType.Warrior: //�˻� LV1 ~

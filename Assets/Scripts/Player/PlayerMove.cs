@@ -34,6 +34,11 @@ public class PlayerMove : BaseCharacter
     [SerializeField]
     Image delayImage2;
 
+    
+    [SerializeField]
+    GameObject skill1Effect;
+    [SerializeField]
+    GameObject skill2Effect;
 
     public bool bisDead = false;
     void Update()
@@ -79,6 +84,7 @@ public class PlayerMove : BaseCharacter
             {
                 bSkill2 = true;
                 Skill2Delay = MaxSkill2Delay;
+                skill1Effect.GetComponent<Animation>().Play();
             }
         }
         if (!bSkill1)
@@ -91,6 +97,7 @@ public class PlayerMove : BaseCharacter
             {
                 bSkill1 = true;
                 Skill1Delay = MaxSkill1Delay;
+                skill2Effect.GetComponent<Animation>().Play();
             }
         }
 
