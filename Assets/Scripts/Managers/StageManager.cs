@@ -7,6 +7,8 @@ using static ItemData;
 
 public class StageManager : MonoBehaviour
 {
+    public AudioSource touchSound;
+    
     private static StageManager instance = null;
 
     //카드 UI
@@ -248,7 +250,7 @@ public class StageManager : MonoBehaviour
             cardAttackSpeed[i].text = datas[ranNum].attackSpeedValue.ToString();
             
             //cardSkill[i].text = "" , make text 없음
-            if(cardSkill[i].text=="")
+            if(datas[ranNum].Skill == "")
             {
                 cardSkill[i].text = "없음";
             }
@@ -359,6 +361,7 @@ public class StageManager : MonoBehaviour
 
     public void SelectCard() //카드선택했을때 타입에 맞는 정보 넣기
     {
+        touchSound.Play();
         for (int i = 0; i < unitButtons.Length; i++)
         {
             Debug.Log("선택한 카드 아이디: " + selectId);
@@ -533,6 +536,7 @@ public class StageManager : MonoBehaviour
 
     public void OnClickDetail()
     {
+        touchSound.Play();
         exitPanel.SetActive(true);
         detailPanel.SetActive(true);
         selectCardPanel.SetActive(false);
@@ -695,6 +699,7 @@ public class StageManager : MonoBehaviour
 
     public void OnClickExit()
     {
+        touchSound.Play();
         exitPanel.SetActive(false);
         detailPanel.SetActive(false);
         selectCardPanel.SetActive(true);

@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class Item : MonoBehaviour
 {
-    //½ºÆù µô·¹ÀÌ
+    //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public float maxSpawnDelay;
     public float spawnDelay = 0;
     private bool isCanSpawn = true;
     private bool isFirstSpawn = true;
+    public AudioSource audioSource;
 
 
 
@@ -35,7 +36,7 @@ public class Item : MonoBehaviour
 
     private void Start()
     {
-        //À¯´Ö ÀÌ¹ÌÁö
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½
         Init(data);
     }
 
@@ -68,7 +69,7 @@ public class Item : MonoBehaviour
         costText.text = data.cost.ToString();
         levelText.text = "Lv." + data.level;
 
-        //½ºÆù µô·¹ÀÌ ³Ö¾îÁÖ±â
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¾ï¿½ï¿½Ö±ï¿½
         switch (data.level)
         {
             case 1:
@@ -93,106 +94,106 @@ public class Item : MonoBehaviour
         if (data == null)
             return;
 
-        if (spawnDelay > 0f || towerScript.currentGold - data.cost < 0) //µô·¹ÀÌ ½Ã°£ÀÌ Áö³ªÁö ¾Ê¾Ò´Ù¸é
+        if (spawnDelay > 0f || towerScript.currentGold - data.cost < 0) //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Ò´Ù¸ï¿½
         {
             //Warn();
 
             return;
         }
-
+        audioSource.Play();
         switch (data.itemType)
         {
-            case ItemData.ItemType.Warrior: //°Ë»ç LV1 ~
+            case ItemData.ItemType.Warrior: //ï¿½Ë»ï¿½ LV1 ~
                 spawnPoint.CharacterIndex = 0;   
                 spawnPoint.SpawnCharacter(data.createCountValue);
                 break;
 
-            case ItemData.ItemType.Thief:   //µµÀû
+            case ItemData.ItemType.Thief:   //ï¿½ï¿½ï¿½ï¿½
                 spawnPoint.CharacterIndex = 1;
                 spawnPoint.SpawnCharacter(data.createCountValue);
                 break;
 
-            case ItemData.ItemType.Archer:  //¿¤ÇÁ±Ã¼ö
+            case ItemData.ItemType.Archer:  //ï¿½ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½
                 spawnPoint.CharacterIndex = 2;
                 spawnPoint.SpawnCharacter(data.createCountValue);
                 break;
 
-            case ItemData.ItemType.Goblin:  //°íºí¸°
+            case ItemData.ItemType.Goblin:  //ï¿½ï¿½ï¿½
                 spawnPoint.CharacterIndex = 3;
                 spawnPoint.SpawnCharacter(data.createCountValue);
                 break;
 
-            case ItemData.ItemType.Slime:  //½½¶óÀÓ
+            case ItemData.ItemType.Slime:  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 spawnPoint.CharacterIndex = 4;
                 spawnPoint.SpawnCharacter(data.createCountValue);
                 break;
 
-            case ItemData.ItemType.SkeletonWarrior:  //ÇØ°ñÀü»ç
+            case ItemData.ItemType.SkeletonWarrior:  //ï¿½Ø°ï¿½ï¿½ï¿½ï¿½ï¿½
                 spawnPoint.CharacterIndex = 5;
                 spawnPoint.SpawnCharacter(data.createCountValue);
                 break;
 
-            case ItemData.ItemType.Bat:  //½ÃÃ¼¹ÚÁã
+            case ItemData.ItemType.Bat:  //ï¿½ï¿½Ã¼ï¿½ï¿½ï¿½ï¿½
                 spawnPoint.CharacterIndex = 6;
                 spawnPoint.SpawnCharacter(data.createCountValue);
                 break;
 
-            case ItemData.ItemType.Wizard:  //¸¶¹ý»ç LV2 ~
+            case ItemData.ItemType.Wizard:  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ LV2 ~
                 spawnPoint.CharacterIndex = 7;
                 spawnPoint.SpawnCharacter(data.createCountValue);
                 break;
 
-            case ItemData.ItemType.MagicWarrior:  //¸¶°Ë»ç
+            case ItemData.ItemType.MagicWarrior:  //ï¿½ï¿½ï¿½Ë»ï¿½
                 spawnPoint.CharacterIndex = 8;
                 spawnPoint.SpawnCharacter(data.createCountValue);
                 break;
 
-            case ItemData.ItemType.Minotaur:  //¹Ì³ëÅ¸¿ì·Î½º
+            case ItemData.ItemType.Minotaur:  //ï¿½Ì³ï¿½Å¸ï¿½ï¿½Î½ï¿½
                 spawnPoint.CharacterIndex = 9;
                 spawnPoint.SpawnCharacter(data.createCountValue);
                 break;
 
-            case ItemData.ItemType.Centaur:  //ÄËÅ¸¿ì·Î½º
+            case ItemData.ItemType.Centaur:  //ï¿½ï¿½Å¸ï¿½ï¿½Î½ï¿½
                 spawnPoint.CharacterIndex = 10;
                 spawnPoint.SpawnCharacter(data.createCountValue);
                 break;
 
-            case ItemData.ItemType.Golem:  //°ñ·½
+            case ItemData.ItemType.Golem:  //ï¿½ï¿½
                 spawnPoint.CharacterIndex = 11;
                 spawnPoint.SpawnCharacter(data.createCountValue);
                 break;
 
-            case ItemData.ItemType.FireSkull:  //ºÒÅ¸´ÂÇØ°ñ
+            case ItemData.ItemType.FireSkull:  //ï¿½ï¿½Å¸ï¿½ï¿½ï¿½Ø°ï¿½
                 spawnPoint.CharacterIndex = 12;
                 spawnPoint.SpawnCharacter(data.createCountValue);
                 break;
 
-            case ItemData.ItemType.Paladin:  //¼º±â»ç LV3~
+            case ItemData.ItemType.Paladin:  //ï¿½ï¿½ï¿½ï¿½ï¿½ LV3~
                 spawnPoint.CharacterIndex = 13;
                 spawnPoint.SpawnCharacter(data.createCountValue);
                 break;
 
-            case ItemData.ItemType.DeerWarrior:  //»ç½¿±â»ç
+            case ItemData.ItemType.DeerWarrior:  //ï¿½ç½¿ï¿½ï¿½ï¿½
                 spawnPoint.CharacterIndex = 14;
                 spawnPoint.SpawnCharacter(data.createCountValue);
                 break;
 
-            case ItemData.ItemType.WoodGolem:  //³ª¹«°ÅÀÎ
+            case ItemData.ItemType.WoodGolem:  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 spawnPoint.CharacterIndex = 15;
                 spawnPoint.SpawnCharacter(data.createCountValue);
                 break;
 
-            case ItemData.ItemType.Elementalist:  //Á¤·É¼ú»ç
+            case ItemData.ItemType.Elementalist:  //ï¿½ï¿½ï¿½É¼ï¿½ï¿½ï¿½
                 spawnPoint.CharacterIndex = 16;
                 spawnPoint.SpawnCharacter(data.createCountValue);
                 break;
 
-            case ItemData.ItemType.Dragon:  //¼öÈ®ÀÚ
+            case ItemData.ItemType.Dragon:  //ï¿½ï¿½È®ï¿½ï¿½
                 spawnPoint.CharacterIndex = 17;
                 spawnPoint.SpawnCharacter(data.createCountValue);
                 break;
 
-            case ItemData.ItemType.Reaper:  //µå·¹°ï
+            case ItemData.ItemType.Reaper:  //ï¿½å·¹ï¿½ï¿½
                 spawnPoint.CharacterIndex = 18;
                 spawnPoint.SpawnCharacter(data.createCountValue);
                 break;

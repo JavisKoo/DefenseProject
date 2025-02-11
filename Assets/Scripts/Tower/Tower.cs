@@ -30,6 +30,8 @@ public class Tower : BaseCharacter
     public int maxHp = 500;
     public UnityEngine.UI.Slider towerHPSlider;
     public Text towerHPText;
+    
+    public AudioSource TowerUpgradeSound;
     private void Awake()
     {
         renderer = GetComponent<SpriteRenderer>();
@@ -163,6 +165,7 @@ public class Tower : BaseCharacter
             towerLevelText.text = "Level " + towerLevel;
             goldPerSecText.text = "+" + goldPerSec + "/s";
             InitUI();
+            TowerUpgradeSound.Play();
         }
     }
 }
