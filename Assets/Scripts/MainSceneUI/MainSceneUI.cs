@@ -12,7 +12,7 @@ public class MainSceneUI : MonoBehaviour
 
     //dungeon data
     public Dungeon[] dungeonDatas;
-    private int selectAreaid;
+    private int selectAreaId;
     //area
     [Header("Area")]
     public Transform areaBase;
@@ -56,25 +56,25 @@ public class MainSceneUI : MonoBehaviour
                 case 0:
                     areaBossImage[i].sprite = dungeonDatas[i].dungeonBoss.itemIcon;
                     isClearTable = dungeonDatas[i].isClear ? true : false;
-                    selectAreaid = 0;
+                    selectAreaId = 0;
                     break;
 
                 case 1: //i가 3,4,5여야함
                     areaBossImage[i].sprite = dungeonDatas[i+3].dungeonBoss.itemIcon;
                     isClearTable = dungeonDatas[i+3].isClear ? true : false;
-                    selectAreaid = 1;
+                    selectAreaId = 1;
                     break;
 
                 case 2://i가 6,7,8여야함
                     areaBossImage[i].sprite = dungeonDatas[i+6].dungeonBoss.itemIcon;
                     isClearTable = dungeonDatas[i+6].isClear ? true : false;
-                    selectAreaid = 2;
+                    selectAreaId = 2;
                     break;
 
                 case 3://i가 9,10,11여야함
                     areaBossImage[i].sprite = dungeonDatas[i+9].dungeonBoss.itemIcon;
                     isClearTable = dungeonDatas[i+9].isClear ? true : false;
-                    selectAreaid = 3;
+                    selectAreaId = 3;
                     break;
             }
 
@@ -92,11 +92,20 @@ public class MainSceneUI : MonoBehaviour
     public void OpenDungeonPanel(int dunNum)
     {
         CloseAreaPanel();
-        dungeonNumText.text = selectAreaid+1 + " - " + dunNum;
-        dungeonBossImage.sprite = dungeonDatas[selectAreaid*3 + dunNum-1].dungeonBoss.itemIcon;
+        dungeonNumText.text = selectAreaId+1 + " - " + dunNum;
+        dungeonBossImage.sprite = dungeonDatas[selectAreaId*3 + dunNum-1].dungeonBoss.itemIcon;
         for (int i = 0; i < dungeonUnits.Length; i++)
         {
-            dungeonUnits[i].sprite = dungeonDatas[selectAreaid * 3 + dunNum - 1].dungeonUnits[i].itemIcon;
+            if (dungeonDatas[selectAreaId * 3 + dunNum - 1].dungeonUnits[i] == null)
+            {
+                dungeonUnits[i].sprite = null;
+                dungeonUnits[i].color = new Color(0, 0, 0, 0);
+            }
+            else
+            {
+                dungeonUnits[i].color = new Color(1, 1, 1, 1);
+                dungeonUnits[i].sprite = dungeonDatas[selectAreaId * 3 + dunNum - 1].dungeonUnits[i].itemIcon;
+            }
         }
         dungeonPanel.SetActive(true);
     }
