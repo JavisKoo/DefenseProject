@@ -235,13 +235,13 @@ public class PlayerMove : BaseCharacter
         Debug.DrawRay(transform.position + raycastHeight, RightLeft * AttackRange, Color.red);
         if (hit.collider != null)
         {
-            if (hit.collider.CompareTag(Enemy) && isAttacking == false)
+            if (hit.collider.CompareTag(Enemy) && isAttacking == false &&!bBackWard)
             {
                 isAttacking = true;
                 if (IsMelee)
                 {
                     inBattle = true;
-                    StartCoroutine(Attack(hit));
+                    Attackcoroutine=StartCoroutine(Attack(hit));
                 }
             }
         }

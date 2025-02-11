@@ -773,16 +773,23 @@ namespace Chracter
         private IEnumerator CSkullDebuff()
         {
             ActiveIcon(4);
-            healthBar.ActiveBuff(2);
             skullDebuff = true;
-            yield return new WaitForSeconds(1.0f);
-            TakeDamageSkull(4);
-            yield return new WaitForSeconds(1.0f);
-            TakeDamageSkull(4);
-            yield return new WaitForSeconds(1.0f);
-            TakeDamageSkull(4);
-            yield return new WaitForSeconds(1.0f);
-            TakeDamageSkull(4);
+            yield return new WaitForSeconds(0.5f);
+            TakeDamage(2);
+            yield return new WaitForSeconds(0.5f);
+            TakeDamage(2);
+            yield return new WaitForSeconds(0.5f);
+            TakeDamage(2);
+            yield return new WaitForSeconds(0.5f);
+            TakeDamage(2);
+            yield return new WaitForSeconds(0.5f);
+            TakeDamage(2);
+            yield return new WaitForSeconds(0.5f);
+            TakeDamage(2);
+            yield return new WaitForSeconds(0.5f);
+            TakeDamage(2);
+            yield return new WaitForSeconds(0.5f);
+            TakeDamage(2);
             skullDebuff = false;
             DeactiveIcon(4);
 
@@ -790,26 +797,7 @@ namespace Chracter
 
         public virtual void TakeDamageSkull(float damage)
         {
-            CurrentHealth = CurrentHealth - damage;
-            healthBar.SetHealth(CurrentHealth, MaxHealth);
-
-            if (CurrentHealth <= 0)
-            {
-               
-                this.GetComponent<BoxCollider2D>().enabled = false;
-                isDead = true;
-                Die();
-            }
-            else if (CurrentHealth <= MaxHealth * 0.6f && firstHit == false)
-            {
-                firstHit = true;
-                Hit();
-            }
-            else if (CurrentHealth <= MaxHealth * 0.3f && secondHit == false)
-            {
-                secondHit = true;
-                Hit();
-            }
+            SkullDebuff();
         }
 
         public void MagicWarriorDebuff()
