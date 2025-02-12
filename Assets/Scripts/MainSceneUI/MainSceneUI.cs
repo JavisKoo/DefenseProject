@@ -35,11 +35,11 @@ public class MainSceneUI : MonoBehaviour
 
     public ChangeSceneManager changeSceneManager;
 
-    private void Awake()
+    private void Start()
     {
         for (int i = 0; i < areaClearStars.Length; i++)
         {
-            int clearNum = PlayerPrefs.GetInt("dungeonClear" + i + 1, 0);
+            int clearNum = PlayerPrefs.GetInt("dungeonClear" +(i+1), 0);
             Debug.Log(clearNum);
             if (clearNum == 1) //클리어 했을때
             {
@@ -48,6 +48,12 @@ public class MainSceneUI : MonoBehaviour
             else
             {
                 areaClearStars[i].SetActive(false);
+            }
+
+            //
+            if (PlayerPrefs.GetInt("dungeonClear" + (i + 1), 0) == 1)
+            {
+                dungeonDatas[i].isClear = true;
             }
         }
     }
@@ -117,6 +123,7 @@ public class MainSceneUI : MonoBehaviour
     public void OpenDungeonPanel(int dunNum)
     {
         DataManager.currentDungeon = (DataManager.currentArea * 3) + dunNum;
+        Debug.Log(DataManager.currentDungeon);
         //CloseAreaPanel();
         if (PlayerPrefs.GetInt("dungeonClear" + DataManager.currentDungeon) == 1)
         {
