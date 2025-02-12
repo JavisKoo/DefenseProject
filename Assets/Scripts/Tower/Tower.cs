@@ -129,7 +129,7 @@ public class Tower : BaseCharacter
     int towerLevel = 1;
     int[] upgradeCost = { 0, 25, 50, 100, 200, 400, 800, 1600, 3200 };
     int[] upgradeMaxGold = {0, 100, 330, 720, 1300, 2100, 3150, 4480, 6120, 8100 };
-    int[] upgradeMoneyUp = { 10, 15, 20, 30, 40, 55, 70, 90, 120 };
+    int[] upgradeMoneyUp = { 0, 5, 5, 10, 10, 15, 15, 20, 20 };
     public Text towerLevelText;
     public Text upgradeCostText;
     public UnityEngine.UI.Button upgradeBtn;
@@ -151,7 +151,7 @@ public class Tower : BaseCharacter
             CurrentHealth += 200;
             MaxHealth += 200;
             towerHPSlider.maxValue = MaxHealth;
-            goldPerSec = upgradeMoneyUp[towerLevel];
+            goldPerSec += upgradeMoneyUp[towerLevel-1];
             Armor++;
 
             //ui
