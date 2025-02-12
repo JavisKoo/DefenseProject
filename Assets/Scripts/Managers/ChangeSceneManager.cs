@@ -29,4 +29,9 @@ public class ChangeSceneManager : MonoBehaviour
     {
         SceneManager.LoadScene("Dungeon4");
     }
+
+    public void GoToMainScene()
+    {
+        SceneManager.LoadScene("MainScene");
+    }
 }

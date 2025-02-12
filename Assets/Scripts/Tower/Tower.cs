@@ -49,10 +49,6 @@ public class Tower : BaseCharacter
 
     private void Update()
     {
-        towerHPSlider.value = CurrentHealth;
-        towerHPText.text = CurrentHealth + " / " + MaxHealth;
-        towerHPSlider.maxValue = maxHp;
-        towerHPSlider.value = CurrentHealth;
 
         currentTime += Time.deltaTime;
         if (currentTime >= maxTime)
@@ -60,6 +56,13 @@ public class Tower : BaseCharacter
             currentTime = 0;
             GetGold();
         }
+
+        if (isGameOver)
+            return;
+
+        towerHPText.text = CurrentHealth + " / " + MaxHealth;
+        towerHPSlider.value = CurrentHealth;
+        towerHPSlider.maxValue = maxHp;
     }
 
     public void GetGold()
