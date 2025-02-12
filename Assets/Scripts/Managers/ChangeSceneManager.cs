@@ -22,12 +22,12 @@ public class ChangeSceneManager : MonoBehaviour
 
     public void GoToDungeon3()
     {
-        SceneManager.LoadScene("Dungeon3");
+        SceneManager.LoadScene("Dungeon4");
     }
 
     public void GoToDungeon4()
     {
-        SceneManager.LoadScene("Dungeon4");
+        SceneManager.LoadScene("Dungeon3");
     }
 
     public void GoToMainScene()
