@@ -20,6 +20,7 @@ public class StatsUI : MonoBehaviour
 
     void Start()
     {
+        PlayerPrefs.SetInt("CurrentSoul", 10000);
         CurrentSoul = PlayerPrefs.GetInt("CurrentSoul",0);
         SoulText.text = CurrentSoul.ToString();
         statCount = PlayerPrefs.GetInt(statName, 0);
