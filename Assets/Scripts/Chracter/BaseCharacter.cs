@@ -756,10 +756,12 @@ namespace Chracter
 
         }
 
+        Coroutine dotCoroutine;
         public void SkullDebuff()
         {
             if (skullDebuff)
             {
+                dotCoroutine = CSkullDebuff();
                 StopCoroutine("CSkullDebuff");
                 StartCoroutine("CSkullDebuff");
 
