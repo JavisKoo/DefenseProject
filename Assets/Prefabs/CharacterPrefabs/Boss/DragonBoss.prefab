@@ -200,7 +200,7 @@ MonoBehaviour:
   AttackSound: {fileID: 0}
   HitSound: {fileID: 4186155284507417041}
   DieSound: {fileID: 4308875904410159749}
-  Standing: 0
+  Standing: 1
 --- !u!1 &2174132072916784607
 GameObject:
   m_ObjectHideFlags: 0

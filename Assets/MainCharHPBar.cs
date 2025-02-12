@@ -25,7 +25,7 @@ public class MainCharHPBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        TxtCountDown.text = "60";
+        TxtCountDown.text = "20";
         TxtCountDown.gameObject.SetActive(false);
         slider.maxValue = character.MaxHealth;
         slider.value = character.MaxHealth;
@@ -77,7 +77,7 @@ public class MainCharHPBar : MonoBehaviour
 
         if (count == 0)
         {
-            TxtCountDown.text = "60";
+            TxtCountDown.text = "20";
             TxtCountDown.gameObject.SetActive(false);
             character.GetComponent<PlayerMove>().ReSpawn();
             isDead = false;
