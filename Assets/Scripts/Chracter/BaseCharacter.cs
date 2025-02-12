@@ -761,7 +761,6 @@ namespace Chracter
         {
             if (skullDebuff)
             {
-                dotCoroutine = CSkullDebuff();
                 StopCoroutine("CSkullDebuff");
                 StartCoroutine("CSkullDebuff");
 
