@@ -328,7 +328,7 @@ public class PlayerMove : BaseCharacter
     private IEnumerator CGainHealth()
     {
         
-        GainHealth(20);
+        GainHealth(MaxHealth*0.1f);
         yield return new WaitForSeconds(1.0f);
         if(!inBattle)
         {
