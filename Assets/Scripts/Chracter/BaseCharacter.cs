@@ -744,7 +744,7 @@ namespace Chracter
         }
         private IEnumerator CBatDebuff()
         {
-            healthBar.ActiveBuff(1);
+            healthBar.ActiveBuff(6);
             batDebuff = true;
             Avoid = Avoid - 20;
             Accuracy = Accuracy - 20;
@@ -752,7 +752,7 @@ namespace Chracter
             Avoid = Avoid + 20;
             Accuracy = Accuracy + 20;
             batDebuff = false;
-            healthBar.DeActiveBuff(1);
+            healthBar.DeActiveBuff(6);
 
         }
 
@@ -775,21 +775,21 @@ namespace Chracter
             ActiveIcon(4);
             skullDebuff = true;
             yield return new WaitForSeconds(0.5f);
-            TakeDamage(2);
+            TakeDamageDot();
             yield return new WaitForSeconds(0.5f);
-            TakeDamage(2);
+            TakeDamageDot();
             yield return new WaitForSeconds(0.5f);
-            TakeDamage(2);
+            TakeDamageDot();
             yield return new WaitForSeconds(0.5f);
-            TakeDamage(2);
+            TakeDamageDot();
             yield return new WaitForSeconds(0.5f);
-            TakeDamage(2);
+            TakeDamageDot();
             yield return new WaitForSeconds(0.5f);
-            TakeDamage(2);
+            TakeDamageDot();
             yield return new WaitForSeconds(0.5f);
-            TakeDamage(2);
+            TakeDamageDot();
             yield return new WaitForSeconds(0.5f);
-            TakeDamage(2);
+            TakeDamageDot();
             skullDebuff = false;
             DeactiveIcon(4);
 
@@ -799,6 +799,24 @@ namespace Chracter
         {
             SkullDebuff();
         }
+
+        public void TakeDamageDot()
+        {
+            float finalDamage = 2;
+            CurrentHealth -= finalDamage;
+            if (healthBar != null)
+            {
+                healthBar.SetHealth(CurrentHealth, MaxHealth);
+            }
+            if (CurrentHealth <= 0)
+            {
+                this.GetComponent<BoxCollider2D>().enabled = false;
+                isDead = true;
+                Die();
+            }
+        }
+        
+        
 
         public void MagicWarriorDebuff()
         {

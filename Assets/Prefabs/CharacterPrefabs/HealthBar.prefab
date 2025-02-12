@@ -675,12 +675,12 @@ MonoBehaviour:
   High: {r: 0, g: 1, b: 0.028357029, a: 0}
   Fill: {fileID: 3270258702747843270}
   BuffDebuff:
+  - {fileID: 3145837934865912732}
   - {fileID: 3683452051122413646}
   - {fileID: 3145837934865912732}
-  - {fileID: 4233224483957064393}
   - {fileID: 4547839791104584994}
-  - {fileID: 5984044905869931915}
-  - {fileID: 5984044905869931915}
+  - {fileID: 6488769855526561171}
+  - {fileID: 4547839791104584994}
   - {fileID: 5984044905869931915}
   Green: {fileID: 128905188, guid: 88d1e4cfe94cdb8449be27b79e9fac3c, type: 3}
   Red: {fileID: 1121888653, guid: 88d1e4cfe94cdb8449be27b79e9fac3c, type: 3}

@@ -1774,6 +1774,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 655837834}
     m_Modifications:
     - target: {fileID: 508608281395905200, guid: fc3c79962ce74174ab80cf97365738b1, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 508608281395905200, guid: fc3c79962ce74174ab80cf97365738b1, type: 3}
       propertyPath: m_DynamicPixelsPerUnit
       value: 5
       objectReference: {fileID: 0}
