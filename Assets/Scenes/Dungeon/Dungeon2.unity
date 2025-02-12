@@ -6423,7 +6423,7 @@ Transform:
   m_GameObject: {fileID: 483960428}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.215149, y: 0.51530457, z: 0}
+  m_LocalPosition: {x: 4.69, y: 0.51530457, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8740,7 +8740,7 @@ MonoBehaviour:
   enemySpawnPoint: {fileID: 1830122752}
   towerHPSlider: {fileID: 527166475}
   towerHPText: {fileID: 2033827090}
-  Boss: {fileID: 0}
+  Boss: {fileID: 344319866593267813, guid: 6c0a9e3814763fd43b679624afe98ada, type: 3}
   stageClearPanel: {fileID: 1822348847}
 --- !u!4 &698952091
 Transform:
@@ -15562,9 +15562,7 @@ MonoBehaviour:
   clearfadeimage: {fileID: 1822348849}
   isAppearBoss: 0
   enemyTower: {fileID: 698952090}
-  BossObjs:
-  - {fileID: 344319866593267813, guid: 6c0a9e3814763fd43b679624afe98ada, type: 3}
-  - {fileID: 344319866593267813, guid: 5d82358bf55b7dc4e8223e8e43df7d7d, type: 3}
+  BossObj: {fileID: 344319866593267813, guid: 6c0a9e3814763fd43b679624afe98ada, type: 3}
   dungeonDatas:
   - {fileID: 11400000, guid: 0b649c578e0c16e4294f08fd0e173eec, type: 2}
   - {fileID: 11400000, guid: a411e4c8917d9c6428c690417ce91ea5, type: 2}

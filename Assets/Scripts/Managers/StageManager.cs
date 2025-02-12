@@ -131,7 +131,7 @@ public class StageManager : MonoBehaviour
     //boss
     public bool isAppearBoss = false;
     public EnemyTower enemyTower;
-    public GameObject[] BossObjs;
+    public GameObject BossObj;
     public Dungeon[] dungeonDatas;
 
 
@@ -797,7 +797,7 @@ public class StageManager : MonoBehaviour
 
     public GameObject AppearBoss()
     {
-        GameObject boss = GameObject.Instantiate(BossObjs[dungeonDatas[DataManager.currentDungeon-1].dungeonBoss.itemId-100], enemyTower.enemySpawnPoint); //순서를 정해놓은 배열의 n번째 오브젝트가 보스
+        GameObject boss = GameObject.Instantiate(BossObj, enemyTower.enemySpawnPoint); //순서를 정해놓은 배열의 n번째 오브젝트가 보스
         BaseCharacter bossCharacter = boss.GetComponent<BaseCharacter>();
         bossCharacter.Spawn();
         bossCharacter.ChangeBossStats(8,2,0.8f);

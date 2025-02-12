@@ -37,6 +37,7 @@ public class MainSceneUI : MonoBehaviour
 
     private void Start()
     {
+
         for (int i = 0; i < areaClearStars.Length; i++)
         {
             int clearNum = PlayerPrefs.GetInt("dungeonClear" +(i+1), 0);
