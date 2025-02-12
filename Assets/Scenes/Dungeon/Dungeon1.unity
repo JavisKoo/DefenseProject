@@ -16272,7 +16272,19 @@ MonoBehaviour:
   BossObjs:
   - {fileID: 344319866593267813, guid: 6c0a9e3814763fd43b679624afe98ada, type: 3}
   - {fileID: 4741284271336384071, guid: d0a953c0916c1ee4c88f1e309497d6c4, type: 3}
-  dungeonData: {fileID: 11400000, guid: 0b649c578e0c16e4294f08fd0e173eec, type: 2}
+  dungeonDatas:
+  - {fileID: 11400000, guid: 0b649c578e0c16e4294f08fd0e173eec, type: 2}
+  - {fileID: 11400000, guid: a411e4c8917d9c6428c690417ce91ea5, type: 2}
+  - {fileID: 11400000, guid: 840f586540b3506458ba84541f5c8577, type: 2}
+  - {fileID: 11400000, guid: 84569bc59589db64b882cf215bbf7cd0, type: 2}
+  - {fileID: 11400000, guid: f0ed6818b703ba54b85bd9c3b36964f1, type: 2}
+  - {fileID: 11400000, guid: 1267c0d4dbd392048af69c29da850b88, type: 2}
+  - {fileID: 11400000, guid: 5a3b93dfa2803594f98b687646507b6f, type: 2}
+  - {fileID: 11400000, guid: 766ae36c769294b45b270ff82ab70b5c, type: 2}
+  - {fileID: 11400000, guid: 2c2dc9c12e912544db8b87237e1b3a33, type: 2}
+  - {fileID: 11400000, guid: 849b51e2c6c1da74999a0cc6b9b825fa, type: 2}
+  - {fileID: 11400000, guid: 190b384fd314ee24cac5df881d90ba76, type: 2}
+  - {fileID: 11400000, guid: f051e60f8ecba90459d439543cdfc1fd, type: 2}
 --- !u!82 &1806468765
 AudioSource:
   m_ObjectHideFlags: 0
