@@ -26,10 +26,7 @@ public class RangedAttackSkull : RangedAttack
         if (other.CompareTag(EnemyTag))
         {
             MaxHit--;
-            other.GetComponent<BaseCharacter>().TakeDamage(AttackDammage,Accuracy);
-            other.GetComponent<BaseCharacter>().TakeDamageSkull(4);
-            other.GetComponent<BaseCharacter>().TakeRangedDamage(AttackDammage, Accuracy);
-
+            
             if (MaxHit <= 0)
             {
                 Destroy(gameObject);

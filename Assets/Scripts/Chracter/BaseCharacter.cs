@@ -545,12 +545,20 @@ namespace Chracter
             }
             else if (CurrentHealth <= MaxHealth * 0.6f && firstHit == false)
             {
+                if (Standing)
+                {
+                    return;
+                }
                 isAttacking = true;
                 firstHit = true;
                 Hit();
             }
             else if (CurrentHealth <= MaxHealth * 0.3f && secondHit == false)
             {
+                if (Standing)
+                {
+                    return;
+                }
                 isAttacking = true;
                 secondHit = true;
                 Hit();

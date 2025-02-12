@@ -49,6 +49,7 @@ public class EnemyTower : BaseCharacter
     public Slider towerHPSlider;
     public Text towerHPText;
 
+    public GameObject Boss;
 
 
     //Game Clear
@@ -79,6 +80,7 @@ public class EnemyTower : BaseCharacter
     {
         towerHPSlider.value = CurrentHealth;
         towerHPText.text = CurrentHealth + " / " + MaxHealth;
+        
     }
 
     public void ReadSpawnFile()
@@ -215,6 +217,10 @@ public class EnemyTower : BaseCharacter
         if (isStageEnd)
             return;
 
+        if (Boss != null)
+        {
+            return;
+        }
 
         float finalDamage = damage - Armor;
         if (finalDamage <= 0)
@@ -259,7 +265,7 @@ public class EnemyTower : BaseCharacter
         if (!StageManager.Instance.isAppearBoss && CurrentHealth <= MaxHealth / 2) //보스가 생성된 적 없고 체력이 50퍼 이하로 내려갔다면
         {
             StageManager.Instance.isAppearBoss = true;
-            StageManager.Instance.AppearBoss();
+            Boss =StageManager.Instance.AppearBoss();
         }
     }
 

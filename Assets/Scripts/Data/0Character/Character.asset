@@ -18,11 +18,11 @@ MonoBehaviour:
   itemDesc: 
   itemIcon: {fileID: 0}
   attackType: 
-  attackRange: 1.5
+  attackRange: 3
   member: 0
   defenseValue: 3
-  healthValue: 500
-  strengthValue: 20
+  healthValue: 50000
+  strengthValue: 100
   attackSpeedValue: 5
   Defense: 0
   Health: 0
@@ -40,3 +40,7 @@ MonoBehaviour:
   createCountValue: 0
   level: 1
   cost: 0
+  Skill: 
+  SkillIntro: 
+  SkillNext: 
+  SkillIntroNext: 
