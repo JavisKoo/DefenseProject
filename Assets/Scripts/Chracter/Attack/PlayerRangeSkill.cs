@@ -42,7 +42,7 @@ public class PlayerRangeSkill : MonoBehaviour
     {
         EnemyTag = "Enemy";
         AttackDammage = damage;
-        AttackRange = 3;
+        AttackRange = 1.5f;
         Accuracy = 200;
         _Setting = true;
 
@@ -51,7 +51,7 @@ public class PlayerRangeSkill : MonoBehaviour
     
     private void SkillActivate()
     {
-        if (this.transform.position.x - firstSpawn.x > AttackRange * 1.2)
+        if (this.transform.position.x - firstSpawn.x > AttackRange)
         {
             Destroy(gameObject);
         }
@@ -62,7 +62,7 @@ public class PlayerRangeSkill : MonoBehaviour
     {
         if (other.CompareTag(EnemyTag))
         {
-            other.GetComponent<BaseCharacter>().TakeDamage(AttackDammage*3, Accuracy);
+            other.GetComponent<BaseCharacter>().TakeDamage(AttackDammage*2, Accuracy);
             other.GetComponent<BaseCharacter>().PrincessDebuff();
         }
     }
