@@ -13850,10 +13850,10 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 0.7783019, g: 0.9754675, b: 1, a: 1}
+  m_Color: {r: 0.5849056, g: 0.18905738, b: 0.1517444, a: 1}
   m_Intensity: 1
   m_Range: 100
-  m_SpotAngle: 106.5
+  m_SpotAngle: 119
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
