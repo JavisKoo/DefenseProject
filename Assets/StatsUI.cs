@@ -24,6 +24,7 @@ public class StatsUI : MonoBehaviour
         CurrentSoul = PlayerPrefs.GetInt("CurrentSoul",0);
         SoulText.text = CurrentSoul.ToString();
         statCount = PlayerPrefs.GetInt(statName, 0);
+        PlayerPrefs.SetInt(statName, 0);
         for(int i=0; i < statCount; i++)
         {
             statsImage[i].SetActive(true);
