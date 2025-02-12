@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b7a2d30eb19d3f499cc1ffd6ad9528c, type: 3}
-  m_Name: BossReaper
+  m_Name: BossDragon
   m_EditorClassIdentifier: 
-  itemType: 18
-  itemId: 102
+  itemType: 17
+  itemId: 101
   itemName: "\uBCF4\uC2A4"
   itemDesc: "\uBCF4\uC2A4 \uBC84\uC804"
   itemIcon: {fileID: 1923932212, guid: ea8626b9cd0176f4a9bf5a4aab4cd64a, type: 3}
