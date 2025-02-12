@@ -30,12 +30,26 @@ public class MainSceneUI : MonoBehaviour
     public Sprite[] dungeonUnitBaseImage;
     public Image[] dungeonUnitBase;
     public Text dungeonHighScoreText;
+    public GameObject[] areaClearStars;
     public GameObject[] clearStarImages;
 
     public ChangeSceneManager changeSceneManager;
 
     private void Awake()
     {
+        for (int i = 0; i < areaClearStars.Length; i++)
+        {
+            int clearNum = PlayerPrefs.GetInt("dungeonClear" + i + 1, 0);
+            Debug.Log(clearNum);
+            if (clearNum == 1) //클리어 했을때
+            {
+                areaClearStars[i].SetActive(true);
+            }
+            else
+            {
+                areaClearStars[i].SetActive(false);
+            }
+        }
     }
     public void OpenUpgradePanel()
     {
@@ -152,7 +166,7 @@ public class MainSceneUI : MonoBehaviour
         }
         GameObject go = Instantiate(areaTopUIPrefabs[DataManager.currentArea]);
         go.transform.SetParent(dungeonBase, false);
-        go.GetComponent<RectTransform>().localPosition = new Vector3(0, 180, 0);
+        go.GetComponent<RectTransform>().localPosition = new Vector3(0, 310, 0);
         areaTop areaTopScript = go.GetComponent<areaTop>();
         areaTopScript.isDisable = true;
         //
