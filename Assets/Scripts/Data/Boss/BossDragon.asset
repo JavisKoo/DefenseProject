@@ -21,8 +21,8 @@ MonoBehaviour:
   attackRange: 2.5
   member: 3
   defenseValue: 0
-  healthValue: 960
-  strengthValue: 20
+  healthValue: 900
+  strengthValue: 60
   attackSpeedValue: 2
   Defense: "\uB9E4\uC6B0 \uB0AE\uC74C"
   Health: "\uB192\uC74C"
@@ -31,11 +31,11 @@ MonoBehaviour:
   Attribute: "\uBB3C\uB9AC"
   weakAttribute: 
   strongAttribute: 
-  attackCountLimitValue: 6
+  attackCountLimitValue: 5
   realSpeed: 1
   speedValue: 1
   accuracyValue: 60
-  avoidanceValue: 60
+  avoidanceValue: 40
   size: 2
   createCountValue: 1
   level: 3
