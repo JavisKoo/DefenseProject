@@ -15,7 +15,7 @@ MonoBehaviour:
   dungeonNum: 12
   isClear: 0
   dungeonUnits:
-  - {fileID: 11400000, guid: 88299fa0f36fd9849b634e879cc7c271, type: 2}
-  - {fileID: 11400000, guid: dad83879e8d3bcd488ce476fe78a7c8f, type: 2}
-  - {fileID: 11400000, guid: fc00d80abe87eda47b5031c042ddcbf3, type: 2}
-  dungeonBoss: {fileID: 11400000, guid: b8cce33d15b06554da228d5919459d6e, type: 2}
+  - {fileID: 11400000, guid: c7c7e5bc69eb36b40aac101d55f11e4b, type: 2}
+  - {fileID: 11400000, guid: 56172b2f899fa2044962ad88ac40acd9, type: 2}
+  - {fileID: 11400000, guid: b8cce33d15b06554da228d5919459d6e, type: 2}
+  dungeonBoss: {fileID: 11400000, guid: 57370279f974f8549b6652101bb71c36, type: 2}
