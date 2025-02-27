@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dungeon12
   m_EditorClassIdentifier: 
   dungeonNum: 12
-  isClear: 0
+  isClear: 1
   dungeonUnits:
   - {fileID: 11400000, guid: c7c7e5bc69eb36b40aac101d55f11e4b, type: 2}
   - {fileID: 11400000, guid: 56172b2f899fa2044962ad88ac40acd9, type: 2}
